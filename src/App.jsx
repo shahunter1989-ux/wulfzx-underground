@@ -1,6 +1,8 @@
 import React from 'react'
 import { connectLinks, featureTiles, gameCards, navItems } from './content'
 
+const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
+
 function App() {
   return (
     <div className="site-shell">
@@ -34,7 +36,7 @@ function Header() {
   return (
     <header className="site-header">
       <a className="brand-lockup" href="#top" aria-label="WULFZX home">
-        <img src="/assets/wulfzx-brand.png" alt="" aria-hidden="true" />
+        <img src={assetPath('wulfzx-brand.png')} alt="" aria-hidden="true" />
         <span>
           WULFZX
           <small>Underground</small>
@@ -62,7 +64,7 @@ function HeroDashboard() {
       </h1>
       <img
         className="hero-banner"
-        src="/assets/wulfzx-hero-banner.png"
+        src={assetPath('wulfzx-hero-banner.png')}
         alt="WULFZX Underground AI Company banner with metallic wolf artwork"
       />
       <div className="hero-actions" aria-label="Primary actions">

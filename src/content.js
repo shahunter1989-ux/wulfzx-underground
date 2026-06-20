@@ -1,3 +1,5 @@
+const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
+
 export const links = {
   youtube: 'https://www.youtube.com/@Wulfzx.underground',
   linktree: 'https://linktr.ee/Wulfzx',
@@ -33,7 +35,7 @@ export const featureTiles = [
     description: 'The WULFZX Wasteland Guide with builds, resources, and survival support.',
     cta: 'Visit 76 Guide',
     href: links.guide76,
-    image: '/assets/wulfzx-76-guide.png',
+    image: assetPath('wulfzx-76-guide.png'),
     imageAlt: 'WULFZX Fallout 76 Wasteland Guide artwork',
     variant: 'gold',
   },
@@ -63,7 +65,7 @@ export const gameCards = [
     meta: 'Arcade - Launch - Action',
     description: 'A chaotic duck-powered launch game built for quick runs, explosive timing, and score chasing.',
     href: 'https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check',
-    image: '/assets/duck-duck-nuke.jpeg',
+    image: assetPath('duck-duck-nuke.jpeg'),
     imageAlt: 'Duck Duck Nuke game artwork with characters riding a rocket',
   },
   {
@@ -71,7 +73,7 @@ export const gameCards = [
     meta: 'Arcade - Neon - Versus',
     description: 'A WULFZX-styled Pong build with fast rallies, clean controls, and neon arcade energy.',
     href: 'https://shahunter1989-ux.github.io/wzx-pong/',
-    image: '/assets/wzx-pong.png',
+    image: assetPath('wzx-pong.png'),
     imageAlt: 'WZX Pong neon arcade artwork with glowing paddles and ball',
   },
   {
@@ -79,7 +81,7 @@ export const gameCards = [
     meta: 'Tap - Distance - Score Run',
     description: 'A bright tap-to-flap distance challenge built for clean timing and quick replay attempts.',
     href: 'https://shahunter1989-ux.github.io/how-far-will-your-duck-fly/',
-    image: '/assets/how-far-duck-flap.png',
+    image: assetPath('how-far-duck-flap.png'),
     imageAlt: 'How Far Will Your Duck Flap game artwork with a duck flying through a bright sky',
   },
 ]

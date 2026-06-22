@@ -8,6 +8,7 @@ export const links = {
   qaPortal: 'https://web-production-97ee.up.railway.app/',
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',
   websiteSample: 'https://wzxuwebview.lovable.app/',
+  email: 'wulfzxunderground@gmail.com',
 }
 
 export const navItems = [

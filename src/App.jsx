@@ -871,12 +871,10 @@ function ContactForm() {
         message: '',
       })
       setSubmitStatus('sent')
-      setSubmitMessage(
-        'Message submitted from the website. If this is the first live message, check the WULFZX Gmail inbox for the FormSubmit activation email.',
-      )
+      setSubmitMessage('Message submitted from the website to WULFZX Underground.')
     } catch {
       setSubmitStatus('error')
-      setSubmitMessage('The website form could not send right now. Use the email-app backup below.')
+      setSubmitMessage('Message did not send. Please use the email-app backup below.')
     }
   }
 

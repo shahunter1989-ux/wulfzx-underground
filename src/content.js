@@ -26,7 +26,9 @@ export const featureTiles = [
     description: 'A central route into WULFZX sites, tools, project pages, and live links.',
     cta: 'Open Linktree',
     href: links.linktree,
-    symbol: 'LT',
+    image: assetPath('wulfzx-linktree-shop.png'),
+    imageAlt: 'WULFZX Underground Linktree Shop artwork',
+    variant: 'linktree',
   },
   {
     title: 'Fallout 76 Guide',

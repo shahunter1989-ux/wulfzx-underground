@@ -5,6 +5,7 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const homePath = import.meta.env.BASE_URL
 const whatIDoPath = `${homePath}what-i-do/`
 const contactPath = `${homePath}contact/`
+const contactFormEndpoint = `https://formsubmit.co/ajax/${links.email}`
 const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
 const ENTRY_LANG_KEY = 'wulfzx_entry_lang_v1'
 const ENTRY_TEXT_SIZE_KEY = 'wulfzx_entry_text_size_v1'
@@ -819,16 +820,68 @@ function ContactForm() {
     topic: 'AI project inquiry',
     message: '',
   })
+  const [submitStatus, setSubmitStatus] = React.useState('idle')
+  const [submitMessage, setSubmitMessage] = React.useState('')
 
   const mailtoHref = buildMailtoHref(contactForm)
 
   const updateContactField = (event) => {
     const { name, value } = event.target
     setContactForm((current) => ({ ...current, [name]: value }))
+    if (submitStatus !== 'sending') {
+      setSubmitStatus('idle')
+      setSubmitMessage('')
+    }
+  }
+
+  const submitContactForm = async (event) => {
+    event.preventDefault()
+    setSubmitStatus('sending')
+    setSubmitMessage('Sending your message from the website...')
+
+    const payload = new FormData()
+    payload.append('name', contactForm.name.trim())
+    payload.append('email', contactForm.replyEmail.trim())
+    payload.append('_replyto', contactForm.replyEmail.trim())
+    payload.append('_subject', `WULFZX Underground - ${contactForm.topic || 'New inquiry'}`)
+    payload.append('topic', contactForm.topic)
+    payload.append('message', contactForm.message.trim())
+    payload.append('source', window.location.href)
+    payload.append('_captcha', 'false')
+    payload.append('_template', 'table')
+    payload.append('_honey', '')
+
+    try {
+      const response = await fetch(contactFormEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: payload,
+      })
+
+      if (!response.ok) {
+        throw new Error(`Form service responded with ${response.status}`)
+      }
+
+      setContactForm({
+        name: '',
+        replyEmail: '',
+        topic: 'AI project inquiry',
+        message: '',
+      })
+      setSubmitStatus('sent')
+      setSubmitMessage(
+        'Message submitted from the website. If this is the first live message, check the WULFZX Gmail inbox for the FormSubmit activation email.',
+      )
+    } catch {
+      setSubmitStatus('error')
+      setSubmitMessage('The website form could not send right now. Use the email-app backup below.')
+    }
   }
 
   return (
-    <form className="contact-panel" id="contact-form" onSubmit={(event) => event.preventDefault()}>
+    <form className="contact-panel" id="contact-form" onSubmit={submitContactForm}>
       <div className="contact-panel-heading">
         <h3>
           <AnimatedText text="Send A Message" />
@@ -844,6 +897,7 @@ function ContactForm() {
           onChange={updateContactField}
           placeholder="Your name"
           autoComplete="name"
+          required
         />
       </label>
       <label>
@@ -855,6 +909,7 @@ function ContactForm() {
           onChange={updateContactField}
           placeholder="your@email.com"
           autoComplete="email"
+          required
         />
       </label>
       <label>
@@ -875,12 +930,21 @@ function ContactForm() {
           onChange={updateContactField}
           placeholder="Tell me what you want to build, ask, or share."
           rows="5"
+          required
         />
       </label>
-      <a className="button button-primary contact-submit" href={mailtoHref}>
-        <AnimatedText text="Open Email" />
-      </a>
-      <small>Opens your email app and sends to {links.email}.</small>
+      <button className="button button-primary contact-submit" type="submit" disabled={submitStatus === 'sending'}>
+        <AnimatedText text={submitStatus === 'sending' ? 'Sending...' : 'Send Message'} />
+      </button>
+      {submitMessage ? (
+        <p className={`contact-status contact-status-${submitStatus}`} role="status">
+          {submitMessage}
+        </p>
+      ) : null}
+      <small>
+        Sends to {links.email}. If the website service is unavailable,{' '}
+        <a href={mailtoHref}>open your email app instead</a>.
+      </small>
     </form>
   )
 }

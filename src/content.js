@@ -7,6 +7,7 @@ export const links = {
   discord: 'https://discord.gg/dRpQjcEj',
   qaPortal: 'https://web-production-97ee.up.railway.app/',
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',
+  websiteSample: 'https://wzxuwebview.lovable.app/',
 }
 
 export const navItems = [
@@ -191,7 +192,7 @@ export const whatIDoSections = [
   },
   {
     title: 'Guides + Websites',
-    intro: 'Live public examples of WULFZX guides, link hubs, and custom web experiences.',
+    intro: 'Live public examples of WULFZX guides and custom web experiences.',
     cards: [
       {
         title: 'Fallout 76 Guide',
@@ -202,15 +203,6 @@ export const whatIDoSections = [
         image: assetPath('wulfzx-76-guide.png'),
         imageAlt: 'WULFZX Fallout 76 Wasteland Guide artwork',
       },
-      {
-        title: 'Linktree Shop',
-        category: 'Shop + links',
-        description: 'Linktree shop and WULFZX links in one place for public access.',
-        status: 'Live link',
-        href: links.linktree,
-        image: assetPath('wulfzx-linktree-shop.png'),
-        imageAlt: 'WULFZX Underground Linktree Shop artwork',
-      },
     ],
   },
   {
@@ -220,9 +212,10 @@ export const whatIDoSections = [
       {
         title: 'Custom Websites',
         category: 'Web Builds',
-        description: 'More branded sites, guides, hubs, and public pages built as WULFZX expands its portfolio.',
-        status: 'Expanding soon',
-        href: '#',
+        description:
+          'A basic example business website, such as a tire shop or smoke shop. WULFZX builds custom websites around each customer and client need, from business pages to social media-focused hubs.',
+        status: 'Live sample',
+        href: links.websiteSample,
       },
       {
         title: 'AI-Assisted Apps',

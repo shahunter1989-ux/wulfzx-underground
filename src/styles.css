@@ -768,6 +768,7 @@ img {
   display: grid;
   width: 70px;
   height: 70px;
+  overflow: hidden;
   place-items: center;
   border: 1px solid rgba(0, 156, 255, 0.42);
   background:
@@ -781,6 +782,7 @@ img {
 }
 
 .tile-visual-image {
+  position: relative;
   width: 82px;
   height: 70px;
   border-color: rgba(246, 198, 75, 0.46);
@@ -801,6 +803,12 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.tile-visual-image img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
 }
 
 .tile-body p {
@@ -827,7 +835,8 @@ img {
 }
 
 .games-showcase,
-.connect-strip {
+.connect-strip,
+.welcome-section {
   position: relative;
   padding: 16px 32px 22px;
   background:
@@ -835,7 +844,8 @@ img {
     rgba(1, 5, 9, 0.9);
 }
 
-.games-showcase {
+.games-showcase,
+.connect-strip {
   border-bottom: 1px solid rgba(72, 151, 206, 0.28);
 }
 
@@ -971,7 +981,7 @@ img {
 
 .connect-row {
   display: grid;
-  grid-template-columns: minmax(180px, 0.26fr) minmax(300px, 0.44fr) minmax(0, 1fr);
+  grid-template-columns: minmax(190px, 0.25fr) minmax(0, 1fr);
   align-items: center;
   gap: 28px;
 }
@@ -992,6 +1002,11 @@ img {
 
 .connect-intro p + p {
   margin-top: 8px;
+}
+
+.connect-message-cta {
+  width: min(100%, 170px);
+  margin-top: 16px;
 }
 
 .contact-panel {
@@ -1085,8 +1100,8 @@ img {
 
 .connect-links {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .connect-links a {
@@ -1094,8 +1109,8 @@ img {
   grid-template-columns: 58px minmax(0, 1fr);
   align-items: center;
   gap: 14px;
-  min-height: 78px;
-  padding: 12px 14px;
+  min-height: 88px;
+  padding: 14px 16px;
   border: 1px solid rgba(99, 163, 205, 0.32);
   background:
     linear-gradient(135deg, rgba(0, 156, 255, 0.08), transparent 60%),
@@ -1184,6 +1199,49 @@ img {
   text-shadow: 0 0 10px rgba(0, 156, 255, 0.1);
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.welcome-section {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.welcome-frame {
+  overflow: hidden;
+  border: 1px solid rgba(99, 163, 205, 0.34);
+  background:
+    radial-gradient(circle at 50% 24%, rgba(0, 156, 255, 0.09), transparent 52%),
+    rgba(2, 8, 13, 0.9);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 156, 255, 0.08),
+    0 0 36px rgba(0, 156, 255, 0.08);
+}
+
+.welcome-frame img {
+  width: 100%;
+  height: auto;
+  max-height: 820px;
+  object-fit: contain;
+  object-position: center;
+  background: #010203;
+}
+
+.contact-page {
+  position: relative;
+  padding: 28px 32px 30px;
+  background:
+    linear-gradient(90deg, rgba(0, 156, 255, 0.05), transparent 16%, transparent 84%, rgba(0, 156, 255, 0.05)),
+    rgba(1, 5, 9, 0.9);
+}
+
+.contact-page-body {
+  display: grid;
+  justify-content: center;
+  padding: 24px 0 0;
+}
+
+.contact-page-body .contact-panel {
+  width: min(100%, 560px);
 }
 
 .what-page {
@@ -1418,7 +1476,7 @@ a.what-card:focus-visible {
   }
 
   .connect-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .what-card-grid {
@@ -1574,11 +1632,14 @@ a.what-card:focus-visible {
   }
 
   .feature-tile {
-    min-height: 204px;
+    min-height: auto;
+    justify-content: flex-start;
+    gap: 12px;
   }
 
   .games-showcase,
-  .connect-strip {
+  .connect-strip,
+  .welcome-section {
     padding: 18px 14px 22px;
   }
 
@@ -1617,6 +1678,10 @@ a.what-card:focus-visible {
     padding: 18px 14px 22px;
   }
 
+  .contact-page {
+    padding: 18px 14px 22px;
+  }
+
   .what-hero {
     padding: 18px 14px 20px;
   }
@@ -1642,6 +1707,10 @@ a.what-card:focus-visible {
   .what-card {
     padding: 12px;
   }
+
+  .welcome-frame img {
+    max-height: none;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1664,12 +1733,20 @@ a.what-card:focus-visible {
 
   .tile-body {
     grid-template-columns: 1fr;
+    align-items: start;
+    min-height: 0;
+    gap: 10px;
   }
 
   .tile-visual,
   .tile-visual-image {
     width: 100%;
-    height: 82px;
+    height: 124px;
+  }
+
+  .tile-body p {
+    font-size: 0.84rem;
+    line-height: 1.35;
   }
 
   .what-action-row .button {

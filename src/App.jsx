@@ -4,7 +4,7 @@ import { connectLinks, featureTiles, gameCards, links, navItems, whatIDoSections
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const homePath = import.meta.env.BASE_URL
 const whatIDoPath = `${homePath}what-i-do/`
-const contactPath = `${homePath}#contact-form`
+const contactPath = `${homePath}contact/`
 const fxClasses = ['text-fx-drift-x', 'text-fx-drift-y', 'text-fx-static', 'text-fx-glow', 'text-fx-still']
 
 function AnimatedText({ text, className = '' }) {
@@ -48,14 +48,18 @@ function AnimatedText({ text, className = '' }) {
 
 function App() {
   const isWhatIDoPage = window.location.pathname.startsWith(whatIDoPath)
+  const isContactPage = window.location.pathname.startsWith(contactPath)
+  const page = isContactPage ? 'contact' : isWhatIDoPage ? 'what-i-do' : 'home'
 
   return (
     <div className="site-shell">
       <CircuitLayer />
       <div className="dashboard-frame">
-        <Header page={isWhatIDoPage ? 'what-i-do' : 'home'} />
+        <Header page={page} />
         <main>
-          {isWhatIDoPage ? (
+          {isContactPage ? (
+            <ContactPage />
+          ) : isWhatIDoPage ? (
             <WhatIDoPage />
           ) : (
             <>
@@ -63,6 +67,7 @@ function App() {
               <FeatureTiles />
               <GamesShowcase />
               <ConnectStrip />
+              <WelcomeSection />
             </>
           )}
         </main>
@@ -105,7 +110,7 @@ function Header({ page = 'home' }) {
           </a>
         ))}
       </nav>
-      <a className="header-cta" href={isSubPage ? contactPath : '#contact-form'}>
+      <a className="header-cta" href={contactPath}>
         <AnimatedText text="Contact Me" />
       </a>
     </header>
@@ -167,6 +172,30 @@ function WhatIDoPage() {
         <a className="button button-secondary" href={`${homePath}#connect`}>
           <AnimatedText text="Connect" />
         </a>
+      </div>
+    </section>
+  )
+}
+
+function ContactPage() {
+  return (
+    <section className="contact-page" aria-labelledby="contact-page-title">
+      <div className="what-hero contact-page-hero">
+        <div>
+          <h1 id="contact-page-title">
+            <AnimatedText text="Contact Me" />
+          </h1>
+          <p>
+            Send a project inquiry, AI idea, business website request, community collaboration note, or general
+            feedback directly to WULFZX Underground.
+          </p>
+        </div>
+        <a className="button button-secondary what-back" href={homePath}>
+          <AnimatedText text="Back Home" />
+        </a>
+      </div>
+      <div className="contact-page-body">
+        <ContactForm />
       </div>
     </section>
   )
@@ -339,20 +368,6 @@ function GamesShowcase() {
 }
 
 function ConnectStrip() {
-  const [contactForm, setContactForm] = React.useState({
-    name: '',
-    replyEmail: '',
-    topic: 'AI project inquiry',
-    message: '',
-  })
-
-  const mailtoHref = buildMailtoHref(contactForm)
-
-  const updateContactField = (event) => {
-    const { name, value } = event.target
-    setContactForm((current) => ({ ...current, [name]: value }))
-  }
-
   return (
     <section className="connect-strip" id="connect" aria-labelledby="connect-heading">
       <div className="section-rule">
@@ -366,61 +381,10 @@ function ConnectStrip() {
         <div className="connect-intro">
           <p>Let&apos;s build the future.</p>
           <p>I&apos;m always open to new ideas, collabs, reports, and opportunities.</p>
-        </div>
-        <form className="contact-panel" id="contact-form" onSubmit={(event) => event.preventDefault()}>
-          <div className="contact-panel-heading">
-            <h3>
-              <AnimatedText text="Send A Message" />
-            </h3>
-            <p>Project inquiries, AI ideas, business websites, community feedback, or general questions.</p>
-          </div>
-          <label>
-            <span>Name</span>
-            <input
-              name="name"
-              type="text"
-              value={contactForm.name}
-              onChange={updateContactField}
-              placeholder="Your name"
-              autoComplete="name"
-            />
-          </label>
-          <label>
-            <span>Your Email</span>
-            <input
-              name="replyEmail"
-              type="email"
-              value={contactForm.replyEmail}
-              onChange={updateContactField}
-              placeholder="your@email.com"
-              autoComplete="email"
-            />
-          </label>
-          <label>
-            <span>Topic</span>
-            <select name="topic" value={contactForm.topic} onChange={updateContactField}>
-              <option>AI project inquiry</option>
-              <option>Business website</option>
-              <option>Game or guide feedback</option>
-              <option>Community collaboration</option>
-              <option>General message</option>
-            </select>
-          </label>
-          <label className="contact-message">
-            <span>Message</span>
-            <textarea
-              name="message"
-              value={contactForm.message}
-              onChange={updateContactField}
-              placeholder="Tell me what you want to build, ask, or share."
-              rows="5"
-            />
-          </label>
-          <a className="button button-primary contact-submit" href={mailtoHref}>
-            <AnimatedText text="Open Email" />
+          <a className="button button-secondary connect-message-cta" href={contactPath}>
+            <AnimatedText text="Send Message" />
           </a>
-          <small>Opens your email app and sends to {links.email}.</small>
-        </form>
+        </div>
         <div className="connect-links">
           {connectLinks.map((link) => (
             <a key={link.title} href={link.href} target="_blank" rel="noreferrer">
@@ -438,6 +402,100 @@ function ConnectStrip() {
         </div>
       </div>
     </section>
+  )
+}
+
+function WelcomeSection() {
+  return (
+    <section className="welcome-section" aria-labelledby="welcome-heading">
+      <div className="section-rule">
+        <span />
+        <h2 id="welcome-heading">
+          <AnimatedText text="About Me / Welcome Message" />
+        </h2>
+        <span />
+      </div>
+      <div className="welcome-frame">
+        <img
+          src={assetPath('wulfzx-welcome-message.png')}
+          alt="WULFZX Underground about me and welcome message artwork"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  )
+}
+
+function ContactForm() {
+  const [contactForm, setContactForm] = React.useState({
+    name: '',
+    replyEmail: '',
+    topic: 'AI project inquiry',
+    message: '',
+  })
+
+  const mailtoHref = buildMailtoHref(contactForm)
+
+  const updateContactField = (event) => {
+    const { name, value } = event.target
+    setContactForm((current) => ({ ...current, [name]: value }))
+  }
+
+  return (
+    <form className="contact-panel" id="contact-form" onSubmit={(event) => event.preventDefault()}>
+      <div className="contact-panel-heading">
+        <h3>
+          <AnimatedText text="Send A Message" />
+        </h3>
+        <p>Project inquiries, AI ideas, business websites, community feedback, or general questions.</p>
+      </div>
+      <label>
+        <span>Name</span>
+        <input
+          name="name"
+          type="text"
+          value={contactForm.name}
+          onChange={updateContactField}
+          placeholder="Your name"
+          autoComplete="name"
+        />
+      </label>
+      <label>
+        <span>Your Email</span>
+        <input
+          name="replyEmail"
+          type="email"
+          value={contactForm.replyEmail}
+          onChange={updateContactField}
+          placeholder="your@email.com"
+          autoComplete="email"
+        />
+      </label>
+      <label>
+        <span>Topic</span>
+        <select name="topic" value={contactForm.topic} onChange={updateContactField}>
+          <option>AI project inquiry</option>
+          <option>Business website</option>
+          <option>Game or guide feedback</option>
+          <option>Community collaboration</option>
+          <option>General message</option>
+        </select>
+      </label>
+      <label className="contact-message">
+        <span>Message</span>
+        <textarea
+          name="message"
+          value={contactForm.message}
+          onChange={updateContactField}
+          placeholder="Tell me what you want to build, ask, or share."
+          rows="5"
+        />
+      </label>
+      <a className="button button-primary contact-submit" href={mailtoHref}>
+        <AnimatedText text="Open Email" />
+      </a>
+      <small>Opens your email app and sends to {links.email}.</small>
+    </form>
   )
 }
 

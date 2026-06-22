@@ -5,7 +5,240 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const homePath = import.meta.env.BASE_URL
 const whatIDoPath = `${homePath}what-i-do/`
 const contactPath = `${homePath}contact/`
+const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
+const ENTRY_LANG_KEY = 'wulfzx_entry_lang_v1'
+const ENTRY_TEXT_SIZE_KEY = 'wulfzx_entry_text_size_v1'
+const ENTRY_ACK_VERSION = 1
+const ENTRY_ACK_DURATION_MS = 30 * 24 * 60 * 60 * 1000
+const entryLanguages = ['en', 'es']
+const entryTextSizes = ['compact', 'normal', 'large']
 const fxClasses = ['text-fx-drift-x', 'text-fx-drift-y', 'text-fx-static', 'text-fx-glow', 'text-fx-still']
+
+const entryAgreementContent = {
+  en: {
+    languageLabel: 'English',
+    backgroundImage: 'wulfzx-entry-agreement.png',
+    brandAlt: 'WULFZX Underground AI Company',
+    titleStart: 'Welcome to',
+    titleBrand: 'Wulfzx.Underground',
+    titleLabel: 'Welcome to Wulfzx.Underground',
+    tagline: 'Create. Build. Entertain. Inspire.',
+    intro: [
+      'Welcome to Wulfzx.Underground. This community was built to encourage creativity, learning, collaboration, gaming, technology, AI innovation, and positive interaction between people from all backgrounds.',
+      'We believe that ideas, opinions, perspectives, and respectful discussions are welcome here. Our goal is to provide a safe and welcoming environment where individuals can create, share, learn, and grow together.',
+    ],
+    sections: [
+      {
+        title: 'Community Standards',
+        points: [
+          'Respect others and their opinions.',
+          'Constructive discussions are encouraged.',
+          'Harassment, threats, hate, discrimination, or abusive behavior are not permitted.',
+          'Content that promotes harm to yourself or others is not permitted.',
+          'Illegal, dangerous, or malicious activities are not permitted.',
+          'We reserve the right to remove content or restrict access that violates these standards.',
+        ],
+      },
+      {
+        title: 'Creative Freedom',
+        paragraphs: [
+          'Wulfzx.Underground supports creative expression, innovation, gaming, content creation, AI-assisted projects, education, and entertainment.',
+          'Different viewpoints are welcome as long as they are presented respectfully and responsibly.',
+        ],
+      },
+      {
+        title: 'Privacy Statement',
+        paragraphs: [
+          'We respect your privacy.',
+          'Any information submitted through forms, service requests, memberships, applications, collaborations, or content submissions will be handled with care and used only for legitimate website, community, or service-related purposes.',
+          'We do not sell personal information.',
+        ],
+      },
+      {
+        title: 'User Responsibility',
+        intro: 'By entering this website, you acknowledge that:',
+        points: [
+          'You are responsible for your own actions, decisions, communications, and content.',
+          'Any services, recommendations, resources, or information provided through this website are used at your own discretion.',
+          'You agree to act responsibly and respectfully within the community.',
+          'You understand that Wulfzx.Underground cannot be held responsible for actions taken by users based on their own decisions.',
+        ],
+      },
+      {
+        title: 'Service Notice',
+        paragraphs: [
+          'Wulfzx.Underground may offer services related to digital content, design, development, artificial intelligence, creative consulting, entertainment, games, education, and other projects.',
+          'Although we strive to provide useful and quality information and services, specific results are not guaranteed. Users are responsible for evaluating any recommendation and making their own decisions.',
+        ],
+      },
+    ],
+    finalTitle: 'Final Statement',
+    finalParagraph:
+      'Together, we can create a community built on respect, creativity, innovation, learning, and positive collaboration.',
+    finalWelcome: 'Welcome to Wulfzx.Underground.',
+    acknowledgement:
+      'I have read, understood, and agree to the Community Agreement, Privacy Statement, and User Responsibility Acknowledgment.',
+    enter: 'Enter Wulfzx.Underground',
+    locked: 'LOCK',
+    controls: {
+      language: 'Language',
+      textSize: 'Text size',
+      compact: 'A-',
+      normal: 'A',
+      large: 'A+',
+    },
+    footer: '© 2026 Wulfzx.Underground. All Rights Reserved.',
+  },
+  es: {
+    languageLabel: 'Español',
+    backgroundImage: 'wulfzx-entry-agreement-es.png',
+    brandAlt: 'WULFZX Underground AI Company',
+    titleStart: 'Bienvenida y',
+    titleBrand: 'Acuerdo Comunitario',
+    titleLabel: 'Bienvenida y Acuerdo Comunitario',
+    tagline: 'Crear. Construir. Entretener. Inspirar.',
+    intro: [
+      'Bienvenido a Wulfzx.Underground. Esta comunidad fue creada para fomentar la creatividad, el aprendizaje, la colaboración, los videojuegos, la tecnología, la innovación en inteligencia artificial y la interacción positiva entre personas de todos los orígenes.',
+      'Creemos que las ideas, opiniones, perspectivas y conversaciones respetuosas tienen un lugar aquí. Nuestro objetivo es proporcionar un entorno seguro y acogedor donde las personas puedan crear, compartir, aprender y crecer juntas.',
+    ],
+    sections: [
+      {
+        title: 'Normas de la Comunidad',
+        points: [
+          'Respeta a los demás y sus opiniones.',
+          'Se fomentan las conversaciones constructivas.',
+          'No se permite el acoso, amenazas, odio, discriminación o comportamiento abusivo.',
+          'No se permite contenido que promueva daño hacia uno mismo o hacia otras personas.',
+          'No se permiten actividades ilegales, peligrosas o malintencionadas.',
+          'Nos reservamos el derecho de eliminar contenido o restringir el acceso a quienes incumplan estas normas.',
+        ],
+      },
+      {
+        title: 'Libertad Creativa',
+        paragraphs: [
+          'Wulfzx.Underground apoya la expresión creativa, la innovación, los videojuegos, la creación de contenido, los proyectos asistidos por inteligencia artificial, la educación y el entretenimiento.',
+          'Las diferentes opiniones y puntos de vista son bienvenidos siempre que sean presentados de manera respetuosa y responsable.',
+        ],
+      },
+      {
+        title: 'Declaración de Privacidad',
+        paragraphs: [
+          'Respetamos tu privacidad.',
+          'Cualquier información enviada mediante formularios, solicitudes de servicios, membresías, aplicaciones, colaboraciones o envíos de contenido será manejada con responsabilidad y utilizada únicamente para fines legítimos relacionados con el sitio web, la comunidad o los servicios ofrecidos.',
+          'No vendemos información personal.',
+          'También respetamos la privacidad y la propiedad del contenido de nuestros clientes, usuarios y colaboradores. Cualquier material enviado para revisión, diseño, desarrollo o servicios creativos será tratado con confidencialidad razonable y utilizado únicamente para los fines autorizados por el usuario.',
+        ],
+      },
+      {
+        title: 'Responsabilidad del Usuario',
+        intro: 'Al entrar a este sitio web, reconoces que:',
+        points: [
+          'Eres responsable de tus propias acciones, decisiones, comunicaciones y contenido.',
+          'Cualquier servicio, recomendación, recurso o información proporcionada a través de este sitio web se utiliza bajo tu propio criterio y responsabilidad.',
+          'Aceptas actuar de manera responsable y respetuosa dentro de la comunidad.',
+          'Comprendes que Wulfzx.Underground no puede ser considerado responsable por acciones tomadas por usuarios basadas en sus propias decisiones.',
+          'Eres responsable del uso que hagas de cualquier contenido, herramienta, servicio o información obtenida a través de este sitio web.',
+        ],
+      },
+      {
+        title: 'Aviso de Servicios',
+        paragraphs: [
+          'Wulfzx.Underground puede ofrecer servicios relacionados con contenido digital, diseño, desarrollo, inteligencia artificial, consultoría creativa, entretenimiento, videojuegos, educación y otros proyectos.',
+          'Aunque nos esforzamos por brindar información y servicios útiles y de calidad, no garantizamos resultados específicos. Los usuarios son responsables de evaluar cualquier recomendación y tomar sus propias decisiones.',
+        ],
+      },
+    ],
+    finalTitle: 'Declaración Final',
+    finalParagraph:
+      'Juntos podemos construir una comunidad basada en el respeto, la creatividad, la innovación, el aprendizaje y la colaboración positiva.',
+    finalWelcome: 'Bienvenido a la comunidad.',
+    acknowledgement:
+      'He leído, comprendido y acepto el Acuerdo Comunitario, la Declaración de Privacidad y el Reconocimiento de Responsabilidad del Usuario.',
+    enter: 'Entrar a Wulfzx.Underground',
+    locked: 'BLOQ',
+    controls: {
+      language: 'Idioma',
+      textSize: 'Tamaño',
+      compact: 'A-',
+      normal: 'A',
+      large: 'A+',
+    },
+    footer: '© 2026 Wulfzx.Underground. Todos los Derechos Reservados.',
+  },
+}
+
+function hasValidEntryAcknowledgement() {
+  try {
+    const rawAcknowledgement = window.localStorage.getItem(ENTRY_ACK_KEY)
+
+    if (!rawAcknowledgement) {
+      return false
+    }
+
+    const acknowledgement = JSON.parse(rawAcknowledgement)
+    const isValid =
+      acknowledgement?.version === ENTRY_ACK_VERSION &&
+      Number.isFinite(acknowledgement?.expiresAt) &&
+      acknowledgement.expiresAt > Date.now()
+
+    if (!isValid) {
+      window.localStorage.removeItem(ENTRY_ACK_KEY)
+    }
+
+    return isValid
+  } catch {
+    return false
+  }
+}
+
+function storeEntryAcknowledgement() {
+  const acceptedAt = Date.now()
+  const acknowledgement = {
+    acceptedAt,
+    expiresAt: acceptedAt + ENTRY_ACK_DURATION_MS,
+    version: ENTRY_ACK_VERSION,
+  }
+
+  try {
+    window.localStorage.setItem(ENTRY_ACK_KEY, JSON.stringify(acknowledgement))
+  } catch {
+    // If storage is blocked, the current React session still unlocks after acceptance.
+  }
+}
+
+function getStoredEntryLanguage() {
+  try {
+    const language = window.localStorage.getItem(ENTRY_LANG_KEY)
+    return entryLanguages.includes(language) ? language : 'en'
+  } catch {
+    return 'en'
+  }
+}
+
+function storeEntryLanguage(language) {
+  try {
+    window.localStorage.setItem(ENTRY_LANG_KEY, language)
+  } catch {
+    // Language still changes for the current React session if storage is blocked.
+  }
+}
+
+function getStoredEntryTextSize() {
+  try {
+    const textSize = window.localStorage.getItem(ENTRY_TEXT_SIZE_KEY)
+    return entryTextSizes.includes(textSize) ? textSize : 'normal'
+  } catch {
+    return 'normal'
+  }
+}
+
+function storeEntryTextSize(textSize) {
+  try {
+    window.localStorage.setItem(ENTRY_TEXT_SIZE_KEY, textSize)
+  } catch {
+    // Text size still changes for the current React session if storage is blocked.
+  }
+}
 
 function AnimatedText({ text, className = '' }) {
   const words = String(text).split(/(\s+)/)
@@ -47,9 +280,19 @@ function AnimatedText({ text, className = '' }) {
 }
 
 function App() {
+  const [hasEntryAccess, setHasEntryAccess] = React.useState(hasValidEntryAcknowledgement)
   const isWhatIDoPage = window.location.pathname.startsWith(whatIDoPath)
   const isContactPage = window.location.pathname.startsWith(contactPath)
   const page = isContactPage ? 'contact' : isWhatIDoPage ? 'what-i-do' : 'home'
+
+  const acceptEntryAgreement = () => {
+    storeEntryAcknowledgement()
+    setHasEntryAccess(true)
+  }
+
+  if (!hasEntryAccess) {
+    return <EntryAgreementGate onAccept={acceptEntryAgreement} />
+  }
 
   return (
     <div className="site-shell">
@@ -73,6 +316,149 @@ function App() {
         </main>
       </div>
     </div>
+  )
+}
+
+function EntryAgreementGate({ onAccept }) {
+  const [isAcknowledged, setIsAcknowledged] = React.useState(false)
+  const [language, setLanguage] = React.useState(getStoredEntryLanguage)
+  const [textSize, setTextSize] = React.useState(getStoredEntryTextSize)
+  const content = entryAgreementContent[language] || entryAgreementContent.en
+
+  const changeLanguage = (nextLanguage) => {
+    setLanguage(nextLanguage)
+    storeEntryLanguage(nextLanguage)
+  }
+
+  const changeTextSize = (nextTextSize) => {
+    setTextSize(nextTextSize)
+    storeEntryTextSize(nextTextSize)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (isAcknowledged) {
+      onAccept()
+    }
+  }
+
+  return (
+    <main
+      className={`entry-gate entry-text-${textSize}`}
+      lang={language}
+      style={{ '--entry-bg': `url("${assetPath(content.backgroundImage)}")` }}
+      aria-labelledby="entry-title"
+    >
+      <div className="entry-brand" aria-label={content.brandAlt}>
+        <img src={assetPath('wulfzx-brand.png')} alt="" aria-hidden="true" />
+        <span>
+          <AnimatedText text="WULFZX" />
+          <small>
+            <AnimatedText text="Underground" />
+          </small>
+        </span>
+        <em>AI Company</em>
+      </div>
+
+      <div className="entry-toolbar" aria-label="Entry agreement controls">
+        <div className="entry-control-group" aria-label={content.controls.language}>
+          <span>{content.controls.language}</span>
+          {entryLanguages.map((option) => (
+            <button
+              className={language === option ? 'entry-control-active' : ''}
+              type="button"
+              aria-pressed={language === option}
+              onClick={() => changeLanguage(option)}
+              key={option}
+            >
+              {entryAgreementContent[option].languageLabel}
+            </button>
+          ))}
+        </div>
+        <div className="entry-control-group" aria-label={content.controls.textSize}>
+          <span>{content.controls.textSize}</span>
+          {entryTextSizes.map((option) => (
+            <button
+              className={textSize === option ? 'entry-control-active' : ''}
+              type="button"
+              aria-pressed={textSize === option}
+              onClick={() => changeTextSize(option)}
+              key={option}
+            >
+              {content.controls[option]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <form className="entry-panel" onSubmit={handleSubmit}>
+        <header className="entry-heading">
+          <h1 id="entry-title" aria-label={content.titleLabel}>
+            <span>
+              <AnimatedText text={content.titleStart} />
+            </span>
+            {' '}
+            <span className="entry-title-brand">
+              <AnimatedText text={content.titleBrand} />
+            </span>
+          </h1>
+          <p className="entry-tagline">
+            <AnimatedText text={content.tagline} />
+          </p>
+          {content.intro.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </header>
+
+        <div className="entry-grid">
+          {content.sections.map((section) => (
+            <section className="entry-section" key={section.title}>
+              <h2>
+                <AnimatedText text={section.title} />
+              </h2>
+              {section.intro ? <p>{section.intro}</p> : null}
+              {section.paragraphs?.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {section.points ? (
+                <ul>
+                  {section.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+        </div>
+
+        <section className="entry-final" aria-label={content.finalTitle}>
+          <h2>
+            <AnimatedText text={content.finalTitle} />
+          </h2>
+          <p>{content.finalParagraph}</p>
+          <strong>{content.finalWelcome}</strong>
+        </section>
+
+        <label className="entry-check">
+          <input
+            type="checkbox"
+            checked={isAcknowledged}
+            onChange={(event) => setIsAcknowledged(event.target.checked)}
+          />
+          <span>{content.acknowledgement}</span>
+        </label>
+
+        <button className="entry-enter" type="submit" disabled={!isAcknowledged}>
+          <span className="entry-enter-icon" aria-hidden="true">
+            {isAcknowledged ? '>' : content.locked}
+          </span>
+          <AnimatedText text={content.enter} />
+        </button>
+      </form>
+
+      <footer className="entry-footer">{content.footer}</footer>
+    </main>
   )
 }
 

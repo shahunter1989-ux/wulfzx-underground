@@ -942,7 +942,7 @@ function ContactForm() {
         </p>
       ) : null}
       <small>
-        Sends to {links.email}. If the website service is unavailable,{' '}
+        Sends directly to WULFZX Underground. If the website service is unavailable,{' '}
         <a href={mailtoHref}>open your email app instead</a>.
       </small>
     </form>

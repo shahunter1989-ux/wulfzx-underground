@@ -9,6 +9,9 @@ export const links = {
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',
   websiteSample: 'https://wzxuwebview.lovable.app/',
   email: 'wulfzxunderground@gmail.com',
+  githubTraffic: 'https://github.com/shahunter1989-ux/wulfzx-underground/graphs/traffic',
+  githubActions: 'https://github.com/shahunter1989-ux/wulfzx-underground/actions',
+  gmailMessages: 'https://mail.google.com/mail/u/0/#search/%22WULFZX+Underground%22',
 }
 
 export const navItems = [
@@ -132,6 +135,39 @@ export const connectLinks = [
     symbol: 'OP',
     image: assetPath('wulfzx-staff-portal.png'),
     imageAlt: 'WULFZX Underground Staff Login icon',
+  },
+]
+
+export const ownerDashboardLinks = [
+  {
+    title: 'Traffic Insights',
+    category: 'GitHub Login',
+    description: 'Open GitHub traffic data for the WULFZX Underground Pages repository.',
+    status: 'Owner access',
+    href: links.githubTraffic,
+  },
+  {
+    title: 'Deploy Status',
+    category: 'GitHub Pages',
+    description: 'Check recent builds, deploy runs, and publishing status for the live site.',
+    status: 'Owner access',
+    href: links.githubActions,
+  },
+  {
+    title: 'Contact Messages',
+    category: 'Gmail Login',
+    description: 'Open a Gmail search for WULFZX Underground contact form messages.',
+    status: 'Owner access',
+    href: links.gmailMessages,
+  },
+  {
+    title: 'WZXQA Portal',
+    category: 'Operations',
+    description: 'Open the live QA portal for reports, status, tester forms, and project tracking.',
+    status: 'Live portal',
+    href: links.qaPortal,
+    image: assetPath('wulfzx-qa-portal.png'),
+    imageAlt: 'WULFZX Underground WZXQA Portal artwork',
   },
 ]
 

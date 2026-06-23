@@ -1,11 +1,13 @@
 import React from 'react'
-import { connectLinks, featureTiles, gameCards, links, navItems, whatIDoSections } from './content'
+import { connectLinks, featureTiles, gameCards, links, navItems, ownerDashboardLinks, whatIDoSections } from './content'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const homePath = import.meta.env.BASE_URL
 const whatIDoPath = `${homePath}what-i-do/`
 const contactPath = `${homePath}contact/`
+const ownerPath = `${homePath}owner/`
 const contactFormEndpoint = `https://formsubmit.co/ajax/${links.email}`
+const analyticsMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim()
 const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
 const ENTRY_LANG_KEY = 'wulfzx_entry_lang_v1'
 const ENTRY_TEXT_SIZE_KEY = 'wulfzx_entry_text_size_v1'
@@ -280,11 +282,40 @@ function AnimatedText({ text, className = '' }) {
   )
 }
 
+function useAnalytics(page) {
+  React.useEffect(() => {
+    if (!analyticsMeasurementId) {
+      return
+    }
+
+    if (!window.gtag) {
+      window.dataLayer = window.dataLayer || []
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments)
+      }
+
+      const analyticsScript = document.createElement('script')
+      analyticsScript.async = true
+      analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`
+      document.head.appendChild(analyticsScript)
+      window.gtag('js', new Date())
+    }
+
+    window.gtag('config', analyticsMeasurementId, {
+      page_path: window.location.pathname + window.location.hash,
+      page_title: `WULFZX Underground - ${page}`,
+    })
+  }, [page])
+}
+
 function App() {
   const [hasEntryAccess, setHasEntryAccess] = React.useState(hasValidEntryAcknowledgement)
   const isWhatIDoPage = window.location.pathname.startsWith(whatIDoPath)
   const isContactPage = window.location.pathname.startsWith(contactPath)
-  const page = isContactPage ? 'contact' : isWhatIDoPage ? 'what-i-do' : 'home'
+  const isOwnerPage = window.location.pathname.startsWith(ownerPath)
+  const page = isOwnerPage ? 'owner' : isContactPage ? 'contact' : isWhatIDoPage ? 'what-i-do' : 'home'
+
+  useAnalytics(page)
 
   const acceptEntryAgreement = () => {
     storeEntryAcknowledgement()
@@ -301,7 +332,9 @@ function App() {
       <div className="dashboard-frame">
         <Header page={page} />
         <main>
-          {isContactPage ? (
+          {isOwnerPage ? (
+            <OwnerDashboardPage />
+          ) : isContactPage ? (
             <ContactPage />
           ) : isWhatIDoPage ? (
             <WhatIDoPage />
@@ -588,6 +621,83 @@ function ContactPage() {
   )
 }
 
+function OwnerDashboardPage() {
+  return (
+    <section className="what-page owner-page" aria-labelledby="owner-page-title">
+      <div className="what-hero">
+        <div>
+          <h1 id="owner-page-title">
+            <AnimatedText text="Owner Dashboard" />
+          </h1>
+          <p>
+            Quick owner links for traffic checks, deployments, contact messages, and operations. Private access is
+            handled by GitHub, Google, and the connected tools.
+          </p>
+        </div>
+        <a className="button button-secondary what-back" href={homePath}>
+          <AnimatedText text="Back Home" />
+        </a>
+      </div>
+
+      <section className="what-section owner-section" aria-labelledby="owner-links-heading">
+        <div className="section-rule">
+          <span />
+          <h2 id="owner-links-heading">
+            <AnimatedText text="Owner Access" />
+          </h2>
+          <span />
+        </div>
+        <p className="what-section-intro">
+          These buttons do not expose private data on the website. Each destination requires the correct owner login.
+        </p>
+        <div className="what-card-grid owner-card-grid">
+          {ownerDashboardLinks.map((card) => (
+            <OwnerDashboardCard key={card.title} card={card} />
+          ))}
+        </div>
+      </section>
+
+      <section className="owner-note" aria-label="Analytics status">
+        <strong>
+          <AnimatedText text="Analytics Status" />
+        </strong>
+        <p>
+          The site is ready for a Google Analytics measurement ID through <code>VITE_GA_MEASUREMENT_ID</code>. Until
+          that ID is configured during build, use the GitHub traffic link for the available free traffic view.
+        </p>
+      </section>
+    </section>
+  )
+}
+
+function OwnerDashboardCard({ card }) {
+  return (
+    <a className="owner-card" href={card.href} target="_blank" rel="noreferrer">
+      {card.image ? (
+        <span className="owner-card-icon owner-card-image">
+          <img src={card.image} alt={card.imageAlt} loading="lazy" />
+        </span>
+      ) : (
+        <span className="owner-card-icon" aria-hidden="true">
+          <AnimatedText text={card.category.slice(0, 2)} />
+        </span>
+      )}
+      <span className="owner-card-copy">
+        <small>
+          <AnimatedText text={card.category} />
+        </small>
+        <strong>
+          <AnimatedText text={card.title} />
+        </strong>
+        <span>{card.description}</span>
+        <em>
+          <AnimatedText text={card.status} />
+        </em>
+      </span>
+    </a>
+  )
+}
+
 function WhatIDoSection({ section }) {
   return (
     <section className="what-section" aria-labelledby={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}>
@@ -770,6 +880,9 @@ function ConnectStrip() {
           <p>I&apos;m always open to new ideas, collabs, reports, and opportunities.</p>
           <a className="button button-secondary connect-message-cta" href={contactPath}>
             <AnimatedText text="Send Message" />
+          </a>
+          <a className="button button-secondary connect-message-cta" href={ownerPath}>
+            <AnimatedText text="Owner Dashboard" />
           </a>
         </div>
         <div className="connect-links">

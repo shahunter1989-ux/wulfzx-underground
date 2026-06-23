@@ -1991,6 +1991,152 @@ a.what-card:focus-visible {
   background: rgba(0, 156, 255, 0.04);
 }
 
+.owner-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.owner-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  min-height: 100%;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(99, 163, 205, 0.34);
+  background:
+    linear-gradient(135deg, rgba(0, 156, 255, 0.08), transparent 62%),
+    rgba(2, 8, 13, 0.9);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.owner-card:hover,
+.owner-card:focus-visible {
+  border-color: rgba(0, 174, 255, 0.78);
+  box-shadow:
+    0 0 0 1px rgba(0, 156, 255, 0.18),
+    0 0 28px rgba(0, 156, 255, 0.15);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.owner-card-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(0, 156, 255, 0.42);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 156, 255, 0.16), transparent 70%),
+    #020406;
+  color: var(--accent-hot);
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-shadow:
+    0 0 10px rgba(54, 215, 255, 0.6),
+    0 0 22px rgba(0, 156, 255, 0.28);
+}
+
+.owner-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.owner-card-copy {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+}
+
+.owner-card-copy small,
+.owner-card-copy em {
+  font-family: Orbitron, Rajdhani, sans-serif;
+  color: var(--accent-hot);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(0, 156, 255, 0.34);
+  overflow-wrap: anywhere;
+}
+
+.owner-card-copy strong {
+  font-family: Orbitron, Rajdhani, sans-serif;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px rgba(54, 215, 255, 0.38),
+    0 0 18px rgba(0, 156, 255, 0.18);
+  animation: text-glow-breathe 6.2s ease-in-out infinite;
+  overflow-wrap: anywhere;
+}
+
+.owner-card-copy span {
+  color: #bfd0dc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-shadow: 0 0 10px rgba(0, 156, 255, 0.1);
+}
+
+.owner-card-copy em {
+  width: fit-content;
+  margin-top: 2px;
+  padding: 6px 9px;
+  border: 1px solid rgba(0, 156, 255, 0.52);
+  background: rgba(0, 156, 255, 0.04);
+}
+
+.owner-note {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid rgba(72, 151, 206, 0.3);
+  background:
+    linear-gradient(135deg, rgba(0, 156, 255, 0.08), transparent 62%),
+    rgba(3, 10, 16, 0.86);
+}
+
+.owner-note strong {
+  display: block;
+  font-family: Orbitron, Rajdhani, sans-serif;
+  color: var(--accent-hot);
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(0, 156, 255, 0.34);
+}
+
+.owner-note p {
+  margin: 8px 0 0;
+  color: #c8d6e0;
+  font-size: 0.96rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.owner-note code {
+  color: #ffffff;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.88em;
+}
+
 .what-action-row {
   display: flex;
   flex-wrap: wrap;
@@ -2030,7 +2176,8 @@ a.what-card:focus-visible {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .what-card-grid {
+  .what-card-grid,
+  .owner-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -2363,7 +2510,8 @@ a.what-card:focus-visible {
     padding: 18px 14px 20px;
   }
 
-  .what-card-grid {
+  .what-card-grid,
+  .owner-card-grid {
     grid-template-columns: 1fr;
   }
 

@@ -881,9 +881,6 @@ function ConnectStrip() {
           <a className="button button-secondary connect-message-cta" href={contactPath}>
             <AnimatedText text="Send Message" />
           </a>
-          <a className="button button-secondary connect-message-cta" href={ownerPath}>
-            <AnimatedText text="Owner Dashboard" />
-          </a>
         </div>
         <div className="connect-links">
           {connectLinks.map((link) => (

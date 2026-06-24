@@ -1736,7 +1736,7 @@ img {
     linear-gradient(90deg, rgba(0, 156, 255, 0.1), rgba(0, 0, 0, 0.44) 18%, rgba(0, 0, 0, 0.46) 82%, rgba(0, 156, 255, 0.1)),
     linear-gradient(180deg, rgba(1, 5, 9, 0.18), rgba(1, 5, 9, 0.76)),
     radial-gradient(circle at 50% 18%, rgba(0, 156, 255, 0.16), transparent 30rem),
-    url("/wulfzx-underground/assets/wulfzx-contact-background.png");
+    url("/assets/wulfzx-contact-background.png");
   background-position:
     center,
     center,
@@ -2620,7 +2620,7 @@ a.what-card:focus-visible {
       linear-gradient(90deg, rgba(0, 156, 255, 0.08), rgba(0, 0, 0, 0.62) 18%, rgba(0, 0, 0, 0.62) 82%, rgba(0, 156, 255, 0.08)),
       linear-gradient(180deg, rgba(1, 5, 9, 0.36), rgba(1, 5, 9, 0.88)),
       radial-gradient(circle at 50% 12%, rgba(0, 156, 255, 0.12), transparent 18rem),
-      url("/wulfzx-underground/assets/wulfzx-contact-background.png");
+      url("/assets/wulfzx-contact-background.png");
     background-position:
       center,
       center,

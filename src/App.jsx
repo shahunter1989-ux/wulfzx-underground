@@ -6,6 +6,7 @@ const homePath = import.meta.env.BASE_URL
 const whatIDoPath = `${homePath}what-i-do/`
 const contactPath = `${homePath}contact/`
 const ownerPath = `${homePath}owner/`
+const galleryPath = `${homePath}gallery/`
 const contactFormEndpoint = `https://formsubmit.co/ajax/${links.email}`
 const analyticsMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim()
 const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
@@ -313,7 +314,16 @@ function App() {
   const isWhatIDoPage = window.location.pathname.startsWith(whatIDoPath)
   const isContactPage = window.location.pathname.startsWith(contactPath)
   const isOwnerPage = window.location.pathname.startsWith(ownerPath)
-  const page = isOwnerPage ? 'owner' : isContactPage ? 'contact' : isWhatIDoPage ? 'what-i-do' : 'home'
+  const isGalleryPage = window.location.pathname.startsWith(galleryPath)
+  const page = isOwnerPage
+    ? 'owner'
+    : isContactPage
+      ? 'contact'
+      : isWhatIDoPage
+        ? 'what-i-do'
+        : isGalleryPage
+          ? 'gallery'
+          : 'home'
 
   useAnalytics(page)
 
@@ -338,6 +348,8 @@ function App() {
             <ContactPage />
           ) : isWhatIDoPage ? (
             <WhatIDoPage />
+          ) : isGalleryPage ? (
+            <GalleryPage />
           ) : (
             <>
               <HeroDashboard />
@@ -510,7 +522,13 @@ function CircuitLayer() {
 
 function Header({ page = 'home' }) {
   const isSubPage = page !== 'home'
-  const navHref = (href) => (isSubPage && href.startsWith('#') ? `${homePath}${href}` : href)
+  const navHref = (href) => {
+    if (href.startsWith('/')) {
+      return `${homePath}${href.slice(1)}`
+    }
+
+    return isSubPage && href.startsWith('#') ? `${homePath}${href}` : href
+  }
 
   return (
     <header className="site-header">
@@ -593,6 +611,48 @@ function WhatIDoPage() {
           <AnimatedText text="Connect" />
         </a>
       </div>
+    </section>
+  )
+}
+
+function GalleryPage() {
+  return (
+    <section className="what-page gallery-page" aria-labelledby="gallery-page-title">
+      <div className="what-hero gallery-hero">
+        <div>
+          <h1 id="gallery-page-title">
+            <AnimatedText text="Gallery" />
+          </h1>
+          <p>
+            A future showcase space for WULFZX Underground artwork, previews, screenshots, and project visuals.
+          </p>
+        </div>
+        <a className="button button-secondary what-back" href={homePath}>
+          <AnimatedText text="Back Home" />
+        </a>
+      </div>
+
+      <section className="gallery-section" aria-labelledby="gallery-section-title">
+        <div className="section-rule">
+          <span />
+          <h2 id="gallery-section-title">
+            <AnimatedText text="Image Showcase" />
+          </h2>
+          <span />
+        </div>
+        <div className="gallery-empty">
+          <span aria-hidden="true">
+            <AnimatedText text="WZX" />
+          </span>
+          <strong>
+            <AnimatedText text="Gallery Coming Soon" />
+          </strong>
+          <p>
+            This page is ready for optimized images. We can add thumbnails, full previews, captions, and categories when
+            you choose the first set of pictures.
+          </p>
+        </div>
+      </section>
     </section>
   )
 }

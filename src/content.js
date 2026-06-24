@@ -18,6 +18,7 @@ export const navItems = [
   { label: 'Home', href: '#top' },
   { label: 'Linktree Shop', href: '#linktree' },
   { label: '76 Guide', href: '#fallout-76-guide' },
+  { label: 'Gallery', href: '/gallery/' },
   { label: 'WZXQA Portal', href: '#wzxqa-portal' },
   { label: 'Staff', href: '#staff-portal' },
   { label: 'Connect', href: '#connect' },

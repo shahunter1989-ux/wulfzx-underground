@@ -7,6 +7,7 @@ const whatIDoPath = `${homePath}what-i-do/`
 const contactPath = `${homePath}contact/`
 const ownerPath = `${homePath}owner/`
 const galleryPath = `${homePath}gallery/`
+const painterOfDreamsPath = `${homePath}painter-of-dreams/`
 const contactFormEndpoint = `https://formsubmit.co/ajax/${links.email}`
 const analyticsMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim()
 const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
@@ -315,6 +316,7 @@ function App() {
   const isContactPage = window.location.pathname.startsWith(contactPath)
   const isOwnerPage = window.location.pathname.startsWith(ownerPath)
   const isGalleryPage = window.location.pathname.startsWith(galleryPath)
+  const isPainterOfDreamsPage = window.location.pathname.startsWith(painterOfDreamsPath)
   const page = isOwnerPage
     ? 'owner'
     : isContactPage
@@ -323,7 +325,9 @@ function App() {
         ? 'what-i-do'
         : isGalleryPage
           ? 'gallery'
-          : 'home'
+          : isPainterOfDreamsPage
+            ? 'painter-of-dreams'
+            : 'home'
 
   useAnalytics(page)
 
@@ -350,6 +354,8 @@ function App() {
             <WhatIDoPage />
           ) : isGalleryPage ? (
             <GalleryPage />
+          ) : isPainterOfDreamsPage ? (
+            <PainterOfDreamsPage />
           ) : (
             <>
               <HeroDashboard />
@@ -650,6 +656,59 @@ function GalleryPage() {
           <p>
             This page is ready for optimized images. We can add thumbnails, full previews, captions, and categories when
             you choose the first set of pictures.
+          </p>
+        </div>
+      </section>
+    </section>
+  )
+}
+
+function PainterOfDreamsPage() {
+  return (
+    <section className="what-page music-page" aria-labelledby="music-page-title">
+      <div className="what-hero music-hero">
+        <div>
+          <p className="music-kicker">
+            <AnimatedText text="Music Producer" />
+          </p>
+          <h1 id="music-page-title">
+            <AnimatedText text="The Painter Of Dreams" />
+          </h1>
+          <p>A dedicated WULFZX space for future music, producer visuals, links, tracks, and creative drops.</p>
+        </div>
+        <a className="button button-secondary what-back" href={homePath}>
+          <AnimatedText text="Back Home" />
+        </a>
+      </div>
+
+      <section className="music-section" aria-labelledby="music-section-title">
+        <div className="music-logo-frame" aria-label="The Painter Of Dreams placeholder logo">
+          <span>
+            <AnimatedText text="POD" />
+          </span>
+          <small>
+            <AnimatedText text="The Painter Of Dreams" />
+          </small>
+        </div>
+
+        <div className="section-rule">
+          <span />
+          <h2 id="music-section-title">
+            <AnimatedText text="Producer Page Coming Soon" />
+          </h2>
+          <span />
+        </div>
+
+        <div className="gallery-empty music-empty">
+          <span aria-hidden="true">
+            <AnimatedText text="POD" />
+          </span>
+          <strong>
+            <AnimatedText text="Blank Studio Space" />
+          </strong>
+          <p>
+            This page is ready for the official logo, producer photos, track links, social links, beat previews, and bio
+            content when you want to build it out.
           </p>
         </div>
       </section>

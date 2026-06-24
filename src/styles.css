@@ -2202,6 +2202,82 @@ a.what-card:focus-visible {
   line-height: 1.5;
 }
 
+.music-kicker {
+  margin: 0 0 10px;
+  color: var(--accent-hot);
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(0, 156, 255, 0.44);
+}
+
+.music-section {
+  display: grid;
+  gap: 22px;
+  padding: 24px 18px 30px;
+  border-top: 1px solid rgba(72, 151, 206, 0.28);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 156, 255, 0.1), transparent 44%),
+    rgba(1, 6, 10, 0.76);
+}
+
+.music-section > .section-rule {
+  margin-top: 6px;
+}
+
+.music-logo-frame {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid rgba(99, 163, 205, 0.38);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(0, 156, 255, 0.16), transparent 60%),
+    linear-gradient(135deg, rgba(0, 156, 255, 0.08), transparent 62%),
+    rgba(2, 8, 13, 0.92);
+  text-align: center;
+}
+
+.music-logo-frame > span {
+  display: grid;
+  width: 118px;
+  height: 118px;
+  place-items: center;
+  border: 1px solid rgba(0, 156, 255, 0.58);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(0, 156, 255, 0.18), transparent 64%),
+    #020406;
+  color: var(--text);
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: clamp(1.45rem, 5vw, 2.35rem);
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-shadow:
+    0 0 12px rgba(54, 215, 255, 0.72),
+    0 0 28px rgba(0, 156, 255, 0.34);
+}
+
+.music-logo-frame small {
+  color: var(--accent-hot);
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: clamp(0.76rem, 2vw, 0.98rem);
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(0, 156, 255, 0.4);
+}
+
+.music-empty {
+  margin-top: 0;
+}
+
 .what-action-row {
   display: flex;
   flex-wrap: wrap;

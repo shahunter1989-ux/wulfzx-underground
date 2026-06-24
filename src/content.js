@@ -19,6 +19,7 @@ export const navItems = [
   { label: 'Linktree Shop', href: '#linktree' },
   { label: '76 Guide', href: '#fallout-76-guide' },
   { label: 'Gallery', href: '/gallery/' },
+  { label: 'Music', href: '/painter-of-dreams/' },
   { label: 'WZXQA Portal', href: '#wzxqa-portal' },
   { label: 'Staff', href: '#staff-portal' },
   { label: 'Connect', href: '#connect' },

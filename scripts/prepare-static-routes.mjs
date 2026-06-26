@@ -2,7 +2,15 @@ import { copyFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 
 const distDir = 'dist'
-const routes = ['what-i-do', 'contact', 'owner', 'gallery', 'painter-of-dreams', 'wasteland-companion-guide']
+const routes = [
+  'main',
+  'main/what-i-do',
+  'main/contact',
+  'main/owner',
+  'main/gallery',
+  'main/painter-of-dreams',
+  'main/wasteland-companion-guide',
+]
 
 await Promise.all(
   routes.map(async (route) => {

@@ -16,7 +16,7 @@ const links = [
   {
     id: 'guide',
     title: 'WULFZX Fallout 76 Wasteland Guide',
-    description: 'In-home link for the guide.',
+    description: 'External Link',
     href: 'https://wzxu76.pro',
     accent: 'silver',
     Icon: WastelandIcon,

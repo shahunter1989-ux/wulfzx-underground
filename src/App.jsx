@@ -63,33 +63,84 @@ function HubPage() {
   return (
     <main className="business-card-page" aria-labelledby="brand-title">
       <CircuitBackdrop />
-      <section className="link-hub-card" aria-label="Wulfzx.Underground premium digital business card demo">
-        <header className="brand-hero">
-          <div className="logo-frame">
-            <img
-              src={assetPath('business-card-wulfzx-logo.png')}
-              alt="Wulfzx.Underground cybernetic wolf logo"
-            />
-          </div>
-          <div className="brand-copy">
-            <h1 id="brand-title">Wulfzx.Underground</h1>
-            <p className="subtitle">Premium Digital Business Card</p>
-            <p className="tagline">Your Brand. Your Links. One Professional Hub.</p>
-          </div>
-        </header>
+      <div className="hub-content">
+        <section className="link-hub-card" aria-label="Wulfzx.Underground premium digital business card demo">
+          <header className="brand-hero">
+            <div className="logo-frame">
+              <img
+                src={assetPath('business-card-wulfzx-logo.png')}
+                alt="Wulfzx.Underground cybernetic wolf logo"
+              />
+            </div>
+            <div className="brand-copy">
+              <h1 id="brand-title">Wulfzx.Underground</h1>
+              <p className="subtitle">Premium Digital Business Card</p>
+              <p className="tagline">Your Brand. Your Links. One Professional Hub.</p>
+            </div>
+          </header>
 
-        <nav className="link-stack" aria-label="Wulfzx.Underground links">
-          {links.map((link) => (
-            <LinkButton key={link.title} link={link} />
-          ))}
-        </nav>
+          <nav className="link-stack" aria-label="Wulfzx.Underground links">
+            {links.map((link) => (
+              <LinkButton key={link.title} link={link} />
+            ))}
+          </nav>
 
-        <footer className="card-footer">
-          <p>Powered by Wulfzx.Underground</p>
-          <p>Premium Digital Business Card Demo</p>
-        </footer>
-      </section>
+          <footer className="card-footer">
+            <p>Powered by Wulfzx.Underground</p>
+            <p>Premium Digital Business Card Demo</p>
+          </footer>
+        </section>
+
+        <div className="scroll-cue" aria-hidden="true">
+          <span />
+        </div>
+
+        <MediaPreview />
+      </div>
     </main>
+  )
+}
+
+function MediaPreview() {
+  const [isVideoActive, setIsVideoActive] = React.useState(false)
+
+  return (
+    <section className="media-preview" aria-labelledby="media-preview-title">
+      <div className="media-preview-copy">
+        <p>Featured Signal</p>
+        <h2 id="media-preview-title">Wulfzx.Underground Preview</h2>
+      </div>
+      <div className="video-shell">
+        {isVideoActive ? (
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/tHeIOBE9_QM?autoplay=1"
+            title="Wulfzx.Underground YouTube preview"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            className="video-preview-button"
+            type="button"
+            aria-label="Play Wulfzx.Underground YouTube preview"
+            onClick={() => setIsVideoActive(true)}
+          >
+            <img
+              src="https://i.ytimg.com/vi/tHeIOBE9_QM/maxresdefault.jpg"
+              alt=""
+              loading="lazy"
+              aria-hidden="true"
+            />
+            <span className="video-play-core" aria-hidden="true">
+              <svg viewBox="0 0 64 64" focusable="false">
+                <path d="M25 19l22 13-22 13z" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+    </section>
   )
 }
 

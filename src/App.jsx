@@ -8,6 +8,7 @@ const contactPath = `${homePath}contact/`
 const ownerPath = `${homePath}owner/`
 const galleryPath = `${homePath}gallery/`
 const painterOfDreamsPath = `${homePath}painter-of-dreams/`
+const wastelandGuidePath = `${homePath}wasteland-companion-guide/`
 const contactFormEndpoint = `https://formsubmit.co/ajax/${links.email}`
 const analyticsMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim()
 const ENTRY_ACK_KEY = 'wulfzx_entry_ack_v1'
@@ -317,6 +318,7 @@ function App() {
   const isOwnerPage = window.location.pathname.startsWith(ownerPath)
   const isGalleryPage = window.location.pathname.startsWith(galleryPath)
   const isPainterOfDreamsPage = window.location.pathname.startsWith(painterOfDreamsPath)
+  const isWastelandGuidePage = window.location.pathname.startsWith(wastelandGuidePath)
   const page = isOwnerPage
     ? 'owner'
     : isContactPage
@@ -327,7 +329,9 @@ function App() {
           ? 'gallery'
           : isPainterOfDreamsPage
             ? 'painter-of-dreams'
-            : 'home'
+            : isWastelandGuidePage
+              ? 'wasteland-companion-guide'
+              : 'home'
 
   useAnalytics(page)
 
@@ -356,6 +360,8 @@ function App() {
             <GalleryPage />
           ) : isPainterOfDreamsPage ? (
             <PainterOfDreamsPage />
+          ) : isWastelandGuidePage ? (
+            <WastelandCompanionGuidePage />
           ) : (
             <>
               <HeroDashboard />
@@ -716,6 +722,75 @@ function PainterOfDreamsPage() {
   )
 }
 
+function WastelandCompanionGuidePage() {
+  return (
+    <section className="what-page guide-page" aria-labelledby="guide-page-title">
+      <div className="guide-hero">
+        <div className="guide-hero-copy">
+          <h1 id="guide-page-title">
+            <AnimatedText text="Wasteland Companion Guide" />
+          </h1>
+          <p>
+            Choose how to view the companion guide. The WULFZX-hosted guide shows our maintained build of the companion
+            guide on the main site, while the live Lovable guide keeps the external platform version available for
+            comparison and support.
+          </p>
+          <div className="guide-actions" aria-label="Wasteland Companion Guide actions">
+            <a className="button button-primary" href={links.guide76Hosted} target="_blank" rel="noreferrer">
+              <AnimatedText text="Open WULFZX Hosted Guide" />
+            </a>
+            <a className="button button-secondary" href={links.guide76} target="_blank" rel="noreferrer">
+              <AnimatedText text="Open Live Lovable Guide" />
+            </a>
+          </div>
+        </div>
+        <div className="guide-hero-media">
+          <img src={assetPath('wulfzx-76-guide.png')} alt="WULFZX Fallout 76 Wasteland Guide artwork" />
+        </div>
+      </div>
+
+      <section className="guide-status-grid" aria-label="Guide testing status">
+        <article>
+          <strong>
+            <AnimatedText text="WULFZX AI Tools" />
+          </strong>
+          <span>
+            The hosted guide is packaged with the main WULFZX site, showing that WULFZX can build, maintain, and publish
+            AI-assisted tools directly.
+          </span>
+        </article>
+        <article>
+          <strong>
+            <AnimatedText text="External Platform" />
+          </strong>
+          <span>
+            The live Lovable version runs on an external web hosting platform, showing that WULFZX can meet modern
+            platform standards while supporting the wider web-building ecosystem.
+          </span>
+        </article>
+        <article>
+          <strong>
+            <AnimatedText text="Business Ready" />
+          </strong>
+          <span>
+            Both options demonstrate that WULFZX can publish independently, work alongside industry platforms, and stay
+            competitive with modern web standards.
+          </span>
+        </article>
+      </section>
+
+      <div className="what-action-row" aria-label="Guide page secondary actions">
+        <a className="button button-secondary" href={homePath}>
+          <AnimatedText text="Back Home" />
+        </a>
+        <a className="button button-secondary" href={whatIDoPath}>
+          <AnimatedText text="What I Do" />
+        </a>
+      </div>
+    </section>
+  )
+}
+
 function ContactPage() {
   return (
     <section className="contact-page" aria-labelledby="contact-page-title">
@@ -839,6 +914,7 @@ function WhatIDoSection({ section }) {
 
 function WhatIDoCard({ card }) {
   const isPlaceholder = card.href === '#'
+  const isInternal = card.href.startsWith('/')
   const content = (
     <>
       {card.image ? (
@@ -874,7 +950,7 @@ function WhatIDoCard({ card }) {
   }
 
   return (
-    <a className="what-card" href={card.href} target="_blank" rel="noreferrer">
+    <a className="what-card" href={card.href} target={isInternal ? undefined : '_blank'} rel={isInternal ? undefined : 'noreferrer'}>
       {content}
     </a>
   )
@@ -892,7 +968,7 @@ function FeatureTiles() {
 
 function FeatureTile({ tile }) {
   const isPlaceholder = tile.href === '#'
-  const isInternal = tile.href.startsWith('#')
+  const isInternal = tile.href.startsWith('#') || tile.href.startsWith('/')
   const tileId = tile.id === 'games' ? undefined : tile.id
   const className = `feature-tile ${tile.variant ? `feature-tile-${tile.variant}` : ''} ${
     isPlaceholder ? 'feature-tile-disabled' : ''

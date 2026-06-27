@@ -3073,6 +3073,43 @@ svg {
   isolation: isolate;
 }
 
+.business-card-page::before,
+.business-card-page::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.business-card-page::before {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 59, 215, 0.2), transparent 26rem),
+    radial-gradient(circle at 24% 38%, rgba(42, 247, 255, 0.15), transparent 23rem),
+    radial-gradient(circle at 78% 48%, rgba(255, 156, 85, 0.13), transparent 24rem),
+    linear-gradient(115deg, rgba(141, 77, 255, 0.12), transparent 36%, rgba(255, 59, 215, 0.1) 72%, transparent);
+  mix-blend-mode: screen;
+}
+
+.business-card-page::after {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 59, 215, 0.12) 31%, transparent 44% 56%, rgba(42, 247, 255, 0.11) 70%, transparent 84%),
+    linear-gradient(180deg, transparent, rgba(255, 156, 85, 0.06) 48%, transparent);
+  filter: blur(18px);
+}
+
+.business-card-page:has(.link-gta-countdown:hover)::before,
+.business-card-page:has(.link-gta-countdown:focus-visible)::before,
+.business-card-page:has(.link-gta-countdown:active)::before,
+.business-card-page:has(.link-gta-countdown:hover)::after,
+.business-card-page:has(.link-gta-countdown:focus-visible)::after,
+.business-card-page:has(.link-gta-countdown:active)::after {
+  opacity: 1;
+  animation: gta-page-aurora 4.6s ease-in-out infinite alternate;
+}
+
 .hub-content {
   position: relative;
   z-index: 1;
@@ -3095,6 +3132,16 @@ svg {
     #010408;
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .circuit-backdrop,
+.business-card-page:has(.link-gta-countdown:focus-visible) .circuit-backdrop,
+.business-card-page:has(.link-gta-countdown:active) .circuit-backdrop {
+  background:
+    radial-gradient(circle at 50% 47%, rgba(255, 59, 215, 0.26), transparent 23rem),
+    radial-gradient(circle at 50% 50%, rgba(42, 247, 255, 0.16), transparent 44rem),
+    radial-gradient(circle at 66% 54%, rgba(255, 156, 85, 0.11), transparent 34rem),
+    #010408;
+}
+
 .backdrop-image {
   position: absolute;
   inset: -3%;
@@ -3107,6 +3154,12 @@ svg {
   animation: circuit-breathe 12s ease-in-out infinite;
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .backdrop-image,
+.business-card-page:has(.link-gta-countdown:focus-visible) .backdrop-image,
+.business-card-page:has(.link-gta-countdown:active) .backdrop-image {
+  filter: saturate(1.45) contrast(1.18) brightness(1.02) hue-rotate(248deg);
+}
+
 .circuit-grid {
   position: absolute;
   inset: 0;
@@ -3116,6 +3169,14 @@ svg {
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at center, black 0 48%, transparent 78%);
   animation: grid-drift 18s linear infinite;
+}
+
+.business-card-page:has(.link-gta-countdown:hover) .circuit-grid,
+.business-card-page:has(.link-gta-countdown:focus-visible) .circuit-grid,
+.business-card-page:has(.link-gta-countdown:active) .circuit-grid {
+  background-image:
+    linear-gradient(rgba(255, 59, 215, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 247, 255, 0.062) 1px, transparent 1px);
 }
 
 .circuit-backdrop::before,
@@ -3134,6 +3195,14 @@ svg {
   animation: circuit-scan 16s linear infinite;
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .circuit-backdrop::before,
+.business-card-page:has(.link-gta-countdown:focus-visible) .circuit-backdrop::before,
+.business-card-page:has(.link-gta-countdown:active) .circuit-backdrop::before {
+  background:
+    conic-gradient(from 0deg at 50% 50%, transparent 0 18deg, rgba(255, 59, 215, 0.2) 22deg, transparent 28deg 132deg, rgba(255, 156, 85, 0.12) 138deg, transparent 146deg 252deg, rgba(42, 247, 255, 0.16) 258deg, transparent 266deg 360deg);
+  opacity: 0.82;
+}
+
 .circuit-backdrop::after {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.9), transparent 17%, transparent 83%, rgba(0, 0, 0, 0.9)),
@@ -3150,6 +3219,17 @@ svg {
     0 0 42px rgba(0, 109, 255, 0.42);
   opacity: 0.45;
   animation: pulse-track 5.8s ease-in-out infinite;
+}
+
+.business-card-page:has(.link-gta-countdown:hover) .pulse-line,
+.business-card-page:has(.link-gta-countdown:focus-visible) .pulse-line,
+.business-card-page:has(.link-gta-countdown:active) .pulse-line {
+  background: linear-gradient(90deg, transparent, rgba(255, 59, 215, 0.96), rgba(42, 247, 255, 0.62), rgba(255, 156, 85, 0.48), transparent);
+  box-shadow:
+    0 0 20px rgba(255, 59, 215, 0.82),
+    0 0 46px rgba(42, 247, 255, 0.35),
+    0 0 58px rgba(255, 156, 85, 0.18);
+  opacity: 0.72;
 }
 
 .pulse-line-a {
@@ -3183,6 +3263,16 @@ svg {
     0 0 28px rgba(0, 167, 255, 0.78);
   opacity: 0.85;
   animation: node-flare 3.8s ease-in-out infinite;
+}
+
+.business-card-page:has(.link-gta-countdown:hover) .hub-circuit-node,
+.business-card-page:has(.link-gta-countdown:focus-visible) .hub-circuit-node,
+.business-card-page:has(.link-gta-countdown:active) .hub-circuit-node {
+  background: #ff3bd7;
+  box-shadow:
+    0 0 14px rgba(255, 59, 215, 0.95),
+    0 0 30px rgba(42, 247, 255, 0.72),
+    0 0 42px rgba(255, 156, 85, 0.34);
 }
 
 .hub-circuit-node-a {
@@ -3223,6 +3313,16 @@ svg {
   animation: slow-spin 38s linear infinite;
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .scan-ring,
+.business-card-page:has(.link-gta-countdown:focus-visible) .scan-ring,
+.business-card-page:has(.link-gta-countdown:active) .scan-ring {
+  border-color: rgba(255, 59, 215, 0.34);
+  box-shadow:
+    inset 0 0 46px rgba(141, 77, 255, 0.18),
+    0 0 72px rgba(255, 59, 215, 0.22),
+    0 0 92px rgba(42, 247, 255, 0.12);
+}
+
 .scan-ring::before,
 .scan-ring::after {
   position: absolute;
@@ -3259,6 +3359,23 @@ svg {
   backdrop-filter: blur(16px);
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .link-hub-card,
+.business-card-page:has(.link-gta-countdown:focus-visible) .link-hub-card,
+.business-card-page:has(.link-gta-countdown:active) .link-hub-card {
+  border-color: rgba(255, 59, 215, 0.46);
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255, 59, 215, 0.1), transparent 38%),
+    radial-gradient(circle at 75% 62%, rgba(255, 156, 85, 0.075), transparent 34%),
+    linear-gradient(180deg, rgba(12, 10, 28, 0.92), rgba(4, 7, 18, 0.9) 46%, rgba(0, 4, 8, 0.95)),
+    var(--panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.055),
+    inset 0 0 82px rgba(141, 77, 255, 0.14),
+    0 26px 88px rgba(0, 0, 0, 0.78),
+    0 0 88px rgba(255, 59, 215, 0.28),
+    0 0 64px rgba(42, 247, 255, 0.12);
+}
+
 .link-hub-card::before,
 .link-hub-card::after {
   position: absolute;
@@ -3274,6 +3391,15 @@ svg {
     linear-gradient(180deg, rgba(82, 220, 255, 0.12), transparent 18% 82%, rgba(0, 167, 255, 0.08));
 }
 
+.business-card-page:has(.link-gta-countdown:hover) .link-hub-card::before,
+.business-card-page:has(.link-gta-countdown:focus-visible) .link-hub-card::before,
+.business-card-page:has(.link-gta-countdown:active) .link-hub-card::before {
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 59, 215, 0.9), rgba(255, 156, 85, 0.46), transparent) top center / 88% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgba(42, 247, 255, 0.58), rgba(141, 77, 255, 0.54), transparent) bottom center / 78% 1px no-repeat,
+    linear-gradient(180deg, rgba(255, 59, 215, 0.12), transparent 18% 82%, rgba(42, 247, 255, 0.09));
+}
+
 .link-hub-card::after {
   inset: -1px;
   padding: 1px;
@@ -3283,6 +3409,14 @@ svg {
     linear-gradient(90deg, rgba(0, 167, 255, 0.46), transparent 18% 82%, rgba(0, 167, 255, 0.46));
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
+}
+
+.business-card-page:has(.link-gta-countdown:hover) .link-hub-card::after,
+.business-card-page:has(.link-gta-countdown:focus-visible) .link-hub-card::after,
+.business-card-page:has(.link-gta-countdown:active) .link-hub-card::after {
+  background:
+    linear-gradient(135deg, rgba(255, 59, 215, 0.52), transparent 18% 80%, rgba(42, 247, 255, 0.46)),
+    linear-gradient(90deg, rgba(255, 156, 85, 0.34), transparent 18% 82%, rgba(141, 77, 255, 0.52));
 }
 
 .brand-hero {
@@ -3502,6 +3636,44 @@ svg {
   --row-accent: #21f2ff;
 }
 
+.link-button-gta {
+  --row-accent: #21f2ff;
+  --row-secondary: #7eff4f;
+}
+
+.link-button-featured {
+  grid-template-columns: 64px minmax(0, 1fr) 30px;
+  min-height: 90px;
+  padding: 11px 13px;
+  border-color: color-mix(in srgb, var(--row-accent) 54%, #21f2ff 18%);
+  background:
+    radial-gradient(circle at 12% 22%, color-mix(in srgb, var(--row-secondary, var(--row-accent)) 18%, transparent), transparent 30%),
+    linear-gradient(90deg, color-mix(in srgb, var(--row-accent) 18%, transparent), transparent 38%),
+    linear-gradient(180deg, rgba(3, 18, 21, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+  box-shadow:
+    inset 0 0 0 1px rgba(216, 231, 239, 0.045),
+    inset 0 0 32px color-mix(in srgb, var(--row-accent) 13%, transparent),
+    0 0 22px color-mix(in srgb, var(--row-accent) 16%, transparent);
+}
+
+.link-button-featured::after {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--row-accent) 86%, transparent), transparent 30%) left top / 46% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--row-secondary, var(--row-accent)) 78%, transparent)) right bottom / 44% 1px no-repeat,
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--row-accent) 10%, transparent));
+  opacity: 0.9;
+}
+
+.link-button-featured .link-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.link-button-featured .link-copy strong {
+  font-size: clamp(0.9rem, 3.9vw, 1.12rem);
+}
+
 .link-button:hover,
 .link-button:focus-visible {
   border-color: color-mix(in srgb, var(--row-accent) 78%, white 8%);
@@ -3592,6 +3764,10 @@ svg {
   animation-delay: -3.2s;
 }
 
+.link-button:nth-child(6) .link-icon::after {
+  animation-delay: -4s;
+}
+
 .link-icon img {
   position: relative;
   z-index: 1;
@@ -3666,6 +3842,127 @@ svg {
 .link-tiktok:hover .link-icon svg,
 .link-tiktok:focus-visible .link-icon svg {
   animation: social-icon-bounce 820ms cubic-bezier(0.2, 0.9, 0.25, 1.18);
+}
+
+.link-gta-countdown {
+  --row-accent: #21f2ff;
+  --row-secondary: #7eff4f;
+  --gta-pink: #ff3bd7;
+  --gta-purple: #8d4dff;
+  --gta-orange: #ff9c55;
+  --gta-cyan: #2af7ff;
+  --gta-lime: #7eff4f;
+  background:
+    radial-gradient(circle at 13% 30%, rgba(33, 242, 255, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(126, 255, 79, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(3, 18, 21, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+}
+
+.link-gta-countdown .link-icon {
+  border-color: color-mix(in srgb, var(--row-accent) 70%, var(--gta-lime) 14%);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(33, 242, 255, 0.18), transparent 66%),
+    radial-gradient(circle at 76% 24%, rgba(126, 255, 79, 0.12), transparent 44%),
+    linear-gradient(145deg, rgba(10, 24, 30, 0.94), rgba(2, 7, 13, 0.98));
+  color: color-mix(in srgb, var(--row-accent) 84%, white 10%);
+  box-shadow:
+    inset 0 0 20px rgba(33, 242, 255, 0.08),
+    0 0 18px rgba(126, 255, 79, 0.1);
+}
+
+.link-gta-countdown .link-icon img {
+  filter: grayscale(0.34) saturate(0.78) contrast(1.08) brightness(0.78) hue-rotate(155deg);
+  transform: scale(1.02);
+  transition:
+    filter 220ms ease,
+    opacity 220ms ease,
+    transform 320ms ease;
+}
+
+.link-gta-countdown .link-icon::before {
+  --gta-clock-scale: 1;
+  inset: auto 4px 4px auto;
+  z-index: 2;
+  width: 23px;
+  height: 23px;
+  border: 1px solid rgba(42, 247, 255, 0.64);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(3, 8, 14, 0.94) 0 38%, transparent 39%),
+    conic-gradient(from 0deg, rgba(42, 247, 255, 0.95), rgba(126, 255, 79, 0.28), transparent 44%, rgba(42, 247, 255, 0.95));
+  opacity: 0.72;
+  filter: drop-shadow(0 0 8px rgba(33, 242, 255, 0.32));
+  animation: gta-countdown-tick 5.8s linear infinite;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease,
+    filter 180ms ease,
+    transform 240ms ease;
+}
+
+.link-gta-countdown .link-icon::after {
+  z-index: 3;
+  background:
+    radial-gradient(circle at 82% 82%, rgba(42, 247, 255, 0.8) 0 2px, transparent 3px 100%),
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.18) 50%, transparent 56% 100%);
+  animation:
+    icon-scan 4.8s ease-in-out infinite,
+    gta-icon-breathe 3.2s ease-in-out infinite;
+}
+
+.link-gta-countdown:hover,
+.link-gta-countdown:focus-visible {
+  --row-accent: var(--gta-pink);
+  --row-secondary: var(--gta-cyan);
+  border-color: color-mix(in srgb, var(--gta-pink) 62%, var(--gta-cyan) 30%);
+  background:
+    radial-gradient(circle at 12% 28%, rgba(255, 59, 215, 0.22), transparent 34%),
+    radial-gradient(circle at 78% 78%, rgba(255, 156, 85, 0.16), transparent 38%),
+    linear-gradient(100deg, rgba(42, 247, 255, 0.16), transparent 30%, rgba(141, 77, 255, 0.14) 68%, rgba(255, 59, 215, 0.16)),
+    linear-gradient(180deg, rgba(9, 7, 23, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+  box-shadow:
+    0 0 0 1px rgba(255, 59, 215, 0.34),
+    0 0 42px rgba(255, 59, 215, 0.25),
+    0 0 34px rgba(42, 247, 255, 0.18),
+    0 0 24px rgba(255, 156, 85, 0.12),
+    inset 0 0 40px rgba(141, 77, 255, 0.15);
+}
+
+.link-gta-countdown:hover .link-icon,
+.link-gta-countdown:focus-visible .link-icon {
+  border-color: color-mix(in srgb, var(--gta-pink) 66%, var(--gta-cyan) 28%);
+  background:
+    radial-gradient(circle at 52% 46%, rgba(255, 59, 215, 0.26), transparent 64%),
+    radial-gradient(circle at 75% 26%, rgba(255, 156, 85, 0.18), transparent 42%),
+    radial-gradient(circle at 22% 74%, rgba(42, 247, 255, 0.18), transparent 48%),
+    linear-gradient(145deg, rgba(15, 7, 28, 0.96), rgba(2, 7, 13, 0.98));
+  box-shadow:
+    inset 0 0 24px rgba(255, 59, 215, 0.12),
+    0 0 26px rgba(255, 59, 215, 0.34),
+    0 0 18px rgba(42, 247, 255, 0.22);
+}
+
+.link-gta-countdown:hover .link-icon img,
+.link-gta-countdown:focus-visible .link-icon img {
+  filter: saturate(1.28) contrast(1.12) brightness(1.1);
+  transform: scale(1.08);
+  animation: gta-icon-hover-drift 980ms ease-in-out;
+}
+
+.link-gta-countdown:hover .link-icon::before,
+.link-gta-countdown:focus-visible .link-icon::before {
+  --gta-clock-scale: 1.12;
+  border-color: rgba(255, 156, 85, 0.78);
+  background:
+    radial-gradient(circle, rgba(8, 4, 16, 0.94) 0 38%, transparent 39%),
+    conic-gradient(from 0deg, rgba(255, 59, 215, 1), rgba(255, 156, 85, 0.95), rgba(42, 247, 255, 0.8), rgba(141, 77, 255, 0.86), rgba(255, 59, 215, 1));
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 9px rgba(255, 59, 215, 0.56))
+    drop-shadow(0 0 7px rgba(255, 156, 85, 0.4));
+  animation-duration: 1.2s;
 }
 
 .link-cashapp .link-icon::before {
@@ -4007,6 +4304,18 @@ svg {
   }
 }
 
+@keyframes gta-page-aurora {
+  0% {
+    filter: saturate(1) brightness(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    filter: saturate(1.12) brightness(1.08);
+    transform: translate3d(0, -0.6%, 0) scale(1.015);
+  }
+}
+
 @keyframes grid-drift {
   to {
     background-position: 56px 56px;
@@ -4226,6 +4535,42 @@ svg {
   }
 }
 
+@keyframes gta-countdown-tick {
+  from {
+    transform: rotate(0deg) scale(var(--gta-clock-scale, 1));
+  }
+
+  to {
+    transform: rotate(360deg) scale(var(--gta-clock-scale, 1));
+  }
+}
+
+@keyframes gta-icon-breathe {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes gta-icon-hover-drift {
+  0%,
+  100% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+
+  34% {
+    transform: scale(1.11) translate3d(2px, -1px, 0);
+  }
+
+  68% {
+    transform: scale(1.09) translate3d(-1px, 2px, 0);
+  }
+}
+
 @keyframes icon-mist-roll {
   0% {
     filter: blur(12px);
@@ -4283,6 +4628,22 @@ svg {
     width: 66px;
     height: 66px;
   }
+
+  .link-button-featured {
+    grid-template-columns: 76px minmax(0, 1fr) 36px;
+    min-height: 102px;
+    padding: 13px 16px;
+  }
+
+  .link-button-featured .link-icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .link-button-featured .link-icon svg {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -4338,6 +4699,26 @@ svg {
   .link-icon {
     width: 52px;
     height: 52px;
+  }
+
+  .link-button-featured {
+    grid-template-columns: 58px minmax(0, 1fr) 22px;
+    min-height: 84px;
+    padding: 10px 9px;
+  }
+
+  .link-button-featured .link-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .link-button-featured .link-icon svg {
+    width: 39px;
+    height: 39px;
+  }
+
+  .link-button-featured .link-copy strong {
+    font-size: 0.82rem;
   }
 
   .link-copy strong {

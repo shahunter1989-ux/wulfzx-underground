@@ -14,6 +14,16 @@ const links = [
     Icon: WebsiteIcon,
   },
   {
+    id: 'gta-countdown',
+    title: 'GTA VI Countdown',
+    description: 'Grand Theft Auto VI countdown timer.',
+    href: 'https://gta-vi-countdown-sable.vercel.app/',
+    accent: 'gta',
+    featured: true,
+    image: assetPath('gta-vi-countdown-icon.jpg'),
+    imageAlt: 'Neon VI icon for the GTA VI countdown timer',
+  },
+  {
     id: 'guide',
     title: 'WULFZX Fallout 76 Wasteland Guide',
     description: 'External Link',
@@ -166,7 +176,7 @@ function LinkButton({ link }) {
 
   return (
     <a
-      className={`link-button link-button-${link.accent} link-${link.id}`}
+      className={`link-button link-button-${link.accent} link-${link.id}${link.featured ? ' link-button-featured' : ''}`}
       href={link.href}
       target={link.isInternal ? undefined : '_blank'}
       rel={link.isInternal ? undefined : 'noreferrer'}

@@ -1,5 +1,14 @@
 ﻿import React from 'react'
-import { connectLinks, featureTiles, gameCards, links, navItems, ownerDashboardLinks, whatIDoSections } from './content'
+import {
+  businessCardPricing,
+  connectLinks,
+  featureTiles,
+  gameCards,
+  links,
+  navItems,
+  ownerDashboardLinks,
+  whatIDoSections,
+} from './content'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const homePath = `${import.meta.env.BASE_URL}main/`
@@ -627,7 +636,10 @@ function WhatIDoPage() {
 
       <div className="what-section-stack">
         {whatIDoSections.map((section) => (
-          <WhatIDoSection key={section.title} section={section} />
+          <React.Fragment key={section.title}>
+            <WhatIDoSection section={section} />
+            {section.title === 'Guides + Websites' ? <BusinessCardPricingSection /> : null}
+          </React.Fragment>
         ))}
       </div>
 
@@ -910,7 +922,11 @@ function OwnerDashboardCard({ card }) {
 
 function WhatIDoSection({ section }) {
   return (
-    <section className="what-section" aria-labelledby={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}>
+    <section
+      className="what-section"
+      id={section.title === 'Guides + Websites' ? 'demo-cards' : undefined}
+      aria-labelledby={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}
+    >
       <div className="section-rule">
         <span />
         <h2 id={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}>
@@ -923,6 +939,81 @@ function WhatIDoSection({ section }) {
         {section.cards.map((card) => (
           <WhatIDoCard key={card.title} card={card} />
         ))}
+      </div>
+    </section>
+  )
+}
+
+function BusinessCardPricingSection() {
+  return (
+    <section className="pricing-section" aria-labelledby="business-card-pricing-title">
+      <div className="section-rule pricing-rule">
+        <span />
+        <h2 id="business-card-pricing-title">
+          <AnimatedText text={businessCardPricing.title} />
+        </h2>
+        <span />
+      </div>
+      <p className="pricing-intro">{businessCardPricing.intro}</p>
+
+      <div className="pricing-tier-grid" aria-label="Digital business card tiers">
+        {businessCardPricing.tiers.map((tier) => (
+          <article className="pricing-tier-card" key={tier.title}>
+            <div className="pricing-tier-top">
+              <span className="pricing-tier-badge" aria-hidden="true">
+                <AnimatedText text={tier.title === 'Premium Tier' ? 'PR' : 'ST'} />
+              </span>
+              <div>
+                <strong>
+                  <AnimatedText text={tier.title} />
+                </strong>
+                <small>{tier.summary}</small>
+              </div>
+            </div>
+            <div className="pricing-amount">
+              <span>{tier.price}</span>
+              <small>{tier.label}</small>
+            </div>
+            <ul>
+              {tier.features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div className="pricing-service-grid" aria-label="Digital business card service options">
+        {businessCardPricing.services.map((service) => (
+          <article className="pricing-service-card" key={service.title}>
+            <div className="pricing-service-heading">
+              <span aria-hidden="true">
+                <AnimatedText text={service.title.slice(0, 2)} />
+              </span>
+              <div>
+                <strong>
+                  <AnimatedText text={service.title} />
+                </strong>
+                <small>{service.price}</small>
+              </div>
+            </div>
+            <p>{service.description}</p>
+            <ul>
+              {service.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div className="pricing-cta-row" aria-label="Digital business card pricing actions">
+        <a className="button button-primary" href={contactPath}>
+          <AnimatedText text="Request A Digital Business Card" />
+        </a>
+        <a className="button button-secondary" href="#demo-cards">
+          <AnimatedText text="View Demo Cards" />
+        </a>
       </div>
     </section>
   )

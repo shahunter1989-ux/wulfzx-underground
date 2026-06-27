@@ -329,3 +329,96 @@ export const whatIDoSections = [
     ],
   },
 ]
+
+export const businessCardPricing = {
+  title: 'Business Card Pricing',
+  intro:
+    'Professional digital business card packages by Wulfzx.Underground. One link, your brand, and a polished mobile-ready hub built to represent you.',
+  tiers: [
+    {
+      title: 'Standard Tier',
+      price: '$99-$149',
+      label: 'One-time payment',
+      summary: 'Simple, polished, ready to share.',
+      features: [
+        'Fully branded digital business card',
+        'Mobile-friendly and contact-ready',
+        'Easy to share across any platform',
+        'Basic customization for colors, links, and info',
+        '1 revision included',
+      ],
+    },
+    {
+      title: 'Premium Tier',
+      price: '$299-$399',
+      label: 'One-time payment',
+      summary: 'Custom, powerful, built for more.',
+      features: [
+        'Full customization to match your brand',
+        'Advanced features and integrations',
+        'Future expansion potential as your needs grow',
+        'Designed for professionals who want more',
+        'Priority setup and delivery',
+      ],
+    },
+  ],
+  services: [
+    {
+      title: 'One-Time Setup',
+      price: 'Starting at $99-$149',
+      description:
+        'Your digital business card is professionally designed and built specifically for your brand.',
+      items: [
+        'Professional custom design',
+        'Mobile-friendly layout',
+        'Contact information',
+        'Social media links',
+        'Portfolio, photos, videos, and more',
+        'One revision included',
+        'Courtesy post-launch quality check',
+        'You own your digital business card',
+      ],
+    },
+    {
+      title: 'Pay-As-You-Go Updates',
+      price: 'Small update - $10',
+      description:
+        'Only pay when you need changes. Includes up to 8 minor updates within a 7-day period.',
+      items: [
+        'Updating links',
+        'Replacing photos',
+        'Editing text',
+        'Updating contact information',
+        'Adding or removing social media links',
+        'Updating business hours',
+      ],
+    },
+    {
+      title: 'Monthly Care Plan',
+      price: 'Starting at $10/month',
+      description: 'Designed for businesses that update their information regularly.',
+      items: [
+        'Up to 2 scheduled update sessions per week',
+        'Priority scheduling',
+        'Minor text and image changes',
+        'Link updates',
+        'Routine maintenance',
+        'Courtesy quality monitoring',
+      ],
+    },
+    {
+      title: 'Larger Updates',
+      price: 'Custom quote',
+      description:
+        'Projects requiring new sections, major design changes, new features, or extensive content additions may require a custom quote before work begins.',
+      items: ['New sections', 'Major design changes', 'New features', 'Extensive content additions'],
+    },
+    {
+      title: 'Project Ownership',
+      price: 'You own it',
+      description:
+        'Your digital business card belongs to you. If you move providers or host it yourself, project files can be provided when applicable.',
+      items: ['HTML, CSS, JavaScript, and related assets', 'No forced long-term contracts', 'Built for your brand'],
+    },
+  ],
+}

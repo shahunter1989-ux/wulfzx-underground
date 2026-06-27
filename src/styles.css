@@ -1931,6 +1931,24 @@ a.what-card:focus-visible {
   object-position: center;
 }
 
+.what-card-gta-countdown .what-card-media {
+  padding: clamp(18px, 8%, 30px);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 58, 216, 0.2), transparent 44%),
+    radial-gradient(circle at 46% 56%, rgba(255, 151, 62, 0.12), transparent 54%),
+    radial-gradient(circle at 54% 42%, rgba(54, 215, 255, 0.14), transparent 62%),
+    #020406;
+}
+
+.what-card-gta-countdown .what-card-media img {
+  width: min(64%, 136px);
+  height: min(64%, 136px);
+  border-radius: 6px;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 58, 216, 0.28))
+    drop-shadow(0 0 18px rgba(0, 180, 255, 0.14));
+}
+
 .what-card-symbol {
   color: var(--accent-hot);
   font-family: Orbitron, Rajdhani, sans-serif;
@@ -1940,6 +1958,87 @@ a.what-card:focus-visible {
   text-shadow:
     0 0 10px rgba(54, 215, 255, 0.6),
     0 0 22px rgba(0, 156, 255, 0.28);
+}
+
+.what-card-icon svg {
+  width: min(44%, 82px);
+  height: min(44%, 82px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.what-card-basic-card .what-card-symbol {
+  color: #9af2ff;
+  border-color: rgba(154, 242, 255, 0.38);
+  background:
+    radial-gradient(circle at 52% 46%, rgba(154, 242, 255, 0.14), transparent 44%),
+    linear-gradient(135deg, rgba(0, 156, 255, 0.12), transparent 58%),
+    #020406;
+}
+
+.what-card-basic-card .what-card-icon svg {
+  width: min(38%, 76px);
+  height: min(38%, 76px);
+  filter:
+    drop-shadow(0 0 10px rgba(154, 242, 255, 0.46))
+    drop-shadow(0 0 18px rgba(0, 156, 255, 0.24));
+}
+
+a.what-card-basic-card:hover .what-card-symbol,
+a.what-card-basic-card:focus-visible .what-card-symbol {
+  border-color: rgba(154, 242, 255, 0.72);
+  box-shadow:
+    inset 0 0 24px rgba(0, 156, 255, 0.12),
+    0 0 20px rgba(154, 242, 255, 0.12);
+}
+
+.what-card-standard-card .what-card-symbol {
+  color: #67e8ff;
+  border-color: rgba(103, 232, 255, 0.42);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(103, 232, 255, 0.18), transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(50, 255, 196, 0.08), transparent 64%),
+    #020406;
+  box-shadow: inset 0 0 26px rgba(0, 156, 255, 0.08);
+}
+
+.what-card-standard-card .what-card-icon svg {
+  filter:
+    drop-shadow(0 0 10px rgba(103, 232, 255, 0.48))
+    drop-shadow(0 0 20px rgba(0, 156, 255, 0.24));
+}
+
+a.what-card-standard-card:hover .what-card-symbol,
+a.what-card-standard-card:focus-visible .what-card-symbol {
+  border-color: rgba(103, 232, 255, 0.72);
+  box-shadow:
+    inset 0 0 28px rgba(0, 156, 255, 0.12),
+    0 0 22px rgba(103, 232, 255, 0.12);
+}
+
+.what-card-premium-card .what-card-media {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(103, 232, 255, 0.16), transparent 46%),
+    radial-gradient(circle at 50% 58%, rgba(0, 156, 255, 0.1), transparent 62%),
+    #020406;
+}
+
+.what-card-premium-card .what-card-media img {
+  object-fit: cover;
+  object-position: 50% 36%;
+  filter:
+    saturate(1.05)
+    contrast(1.04)
+    drop-shadow(0 0 12px rgba(54, 215, 255, 0.12));
+}
+
+a.what-card-premium-card:hover .what-card-media,
+a.what-card-premium-card:focus-visible .what-card-media {
+  border-color: rgba(103, 232, 255, 0.68);
+  box-shadow: 0 0 24px rgba(103, 232, 255, 0.12);
 }
 
 .what-card-copy {

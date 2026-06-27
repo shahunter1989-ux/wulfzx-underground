@@ -928,15 +928,48 @@ function WhatIDoSection({ section }) {
   )
 }
 
+function WhatCardIcon({ icon }) {
+  if (icon === 'external-link') {
+    return (
+      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+        <path d="M15 3h6v6" />
+        <path d="M10 14 21 3" />
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      </svg>
+    )
+  }
+
+  if (icon === 'aperture') {
+    return (
+      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <path d="m14.31 8 5.74 9.94" />
+        <path d="M9.69 8h11.48" />
+        <path d="m7.38 12 5.74-9.94" />
+        <path d="m9.69 16-5.74-9.94" />
+        <path d="M14.31 16H2.83" />
+        <path d="m16.62 12-5.74 9.94" />
+      </svg>
+    )
+  }
+
+  return null
+}
+
 function WhatIDoCard({ card }) {
   const isPlaceholder = card.href === '#'
   const isInternal = card.href.startsWith('/')
   const href = mainSiteHref(card.href)
+  const cardClassName = `what-card${card.variant ? ` what-card-${card.variant}` : ''}`
   const content = (
     <>
       {card.image ? (
         <span className="what-card-media">
           <img src={card.image} alt={card.imageAlt} loading="lazy" />
+        </span>
+      ) : card.icon ? (
+        <span className="what-card-symbol what-card-icon" aria-hidden="true">
+          <WhatCardIcon icon={card.icon} />
         </span>
       ) : (
         <span className="what-card-symbol" aria-hidden="true">
@@ -960,14 +993,14 @@ function WhatIDoCard({ card }) {
 
   if (isPlaceholder) {
     return (
-      <article className="what-card what-card-disabled" aria-disabled="true">
+      <article className={`${cardClassName} what-card-disabled`} aria-disabled="true">
         {content}
       </article>
     )
   }
 
   return (
-    <a className="what-card" href={href} target={isInternal ? undefined : '_blank'} rel={isInternal ? undefined : 'noreferrer'}>
+    <a className={cardClassName} href={href} target={isInternal ? undefined : '_blank'} rel={isInternal ? undefined : 'noreferrer'}>
       {content}
     </a>
   )

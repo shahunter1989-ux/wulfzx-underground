@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WULFZX-hosted Fallout 76 weekly silo codes dashboard for Alpha, Bravo, and Charlie launch sites."
+    />
+    <title>Weekly Silo Codes - Fallout 76 Nuke Launch Codes | WULFZX</title>
+    <link rel="stylesheet" crossorigin href="/wasteland-companion-guide-app/assets/index-BU8wmEMl.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      (() => {
+        if (window.location.pathname.endsWith('/index.html')) {
+          window.history.replaceState(
+            null,
+            '',
+            window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash,
+          )
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-background noise-bg p-2 sm:p-4 md:p-6 flex items-stretch">
+      <div class="pip-chassis mx-auto w-full max-w-[1400px] p-3 sm:p-5 md:p-6 flex flex-col">
+        <div class="flex items-center justify-between mb-3 px-2">
+          <div class="flex items-center gap-3">
+            <div class="terminal-node terminal-node-sys hidden sm:flex" aria-hidden="true">
+              SYS
+              <div class="sys-scanner"></div>
+            </div>
+            <div class="terminal-node terminal-node-db hidden sm:flex" aria-hidden="true">DB</div>
+            <a class="flex flex-col leading-none group title-shimmer-wrap" href="/wasteland-companion-guide-app/index.html">
+              <span class="font-display text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.22em] text-pip-green glow-text-green">
+                <span class="hidden sm:inline">WULFZX ENCLAVE DATABASE SYSTEM</span>
+                <span class="sm:hidden">WULFZX ENCLAVE DATABASE</span>
+              </span>
+              <span class="hidden md:block font-mono text-[10px] uppercase tracking-[0.25em] text-pip-green/60 mt-0.5">
+                WASTELAND COMMAND TERMINAL
+              </span>
+              <span class="hidden sm:block terminal-status-strip mt-0.5">
+                ACCESS GRANTED // DATABASE ONLINE // CLEARANCE: WULFZX
+              </span>
+              <span class="sm:hidden terminal-status-strip mt-0.5">ACCESS GRANTED // ONLINE</span>
+            </a>
+          </div>
+          <div class="flex items-center gap-1 sm:gap-2" aria-hidden="true">
+            <div class="pip-rivet hidden sm:block ml-2"></div>
+            <div class="pip-rivet hidden sm:block"></div>
+          </div>
+        </div>
+
+        <main class="pip-screen flex-1 mt-0 animate-crt-flicker-heavy">
+          <div class="crt-scanline-dense" aria-hidden="true"></div>
+          <div class="crt-sweep" aria-hidden="true"></div>
+          <div class="crt-fringe" aria-hidden="true"></div>
+          <div class="crt-vignette" aria-hidden="true"></div>
+          <div class="crt-tear" aria-hidden="true"></div>
+          <div class="pip-hud pip-hud-tl" aria-hidden="true">[ SIGNAL: ###-- ]</div>
+          <div class="pip-hud pip-hud-tr" aria-hidden="true">
+            <span>REC</span>
+            <span class="rec-dot"></span>
+            <span id="hudClock">00:00:00</span>
+          </div>
+          <div class="pip-hud pip-hud-bl truncate" aria-hidden="true">&gt; APPALACHIA RADIO :: signal nominal</div>
+
+          <div class="relative z-[1] h-full overflow-y-auto max-h-[calc(100vh-12rem)]">
+            <div class="animate-fade-in pt-2">
+              <div class="px-3 sm:px-4 pt-3 pb-2 flex items-center justify-between gap-2 text-[11px] font-mono uppercase tracking-widest">
+                <a
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-pip-green/50 bg-pip-green/10 text-pip-green text-xs hover:bg-pip-green/20 hover:border-pip-green transition-colors"
+                  href="/wasteland-companion-guide-app/index.html"
+                >
+                  Dashboard
+                </a>
+                <div class="flex items-center gap-1 min-w-0 overflow-hidden whitespace-nowrap">
+                  <span class="truncate text-pip-green">Silo Codes</span>
+                </div>
+                <a
+                  class="hidden sm:inline-flex items-center px-2 py-1 rounded-sm border border-pip-green/20 text-pip-green/70 hover:text-pip-green hover:border-pip-green/40 transition-colors"
+                  href="/wasteland-companion-guide-app/categories"
+                >
+                  All Tools
+                </a>
+              </div>
+
+              <div class="pt-2">
+                <div class="container py-8 max-w-4xl">
+                  <section class="mb-5" aria-labelledby="silo-page-title">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                      <span class="pip-tag-green text-xs">Weekly Ops</span>
+                      <span class="pip-tag-green text-xs">Live Game</span>
+                      <span class="text-[10px] font-mono uppercase tracking-widest text-pip-green">
+                        Checked Jun 28, 2026
+                      </span>
+                      <span class="text-[10px] font-mono uppercase tracking-widest text-pip-green">
+                        Resets Tuesday 20:00 UTC
+                      </span>
+                    </div>
+                    <h1 id="silo-page-title" class="text-3xl md:text-4xl font-display font-bold text-primary glow-text-amber mb-3 leading-tight">
+                      Weekly Silo Codes
+                    </h1>
+                    <p class="text-muted-foreground text-base leading-relaxed">
+                      Alpha, Bravo, and Charlie launch authorization for Appalachia. This WULFZX-hosted terminal mirrors
+                      the live silo source inside the local Wasteland Companion Guide.
+                    </p>
+                  </section>
+
+                  <section class="silo-valid-panel mb-5 rounded-md p-3 md:p-4 border border-pip-green/50 bg-pip-green/[0.04]" aria-label="Weekly validity and reset">
+                    <div>
+                      <span class="silo-command-prefix" aria-hidden="true">&gt;</span>
+                      <span class="silo-label-inline">Valid</span>
+                      <strong id="validRange">Awaiting source</strong>
+                    </div>
+                    <div>
+                      <span class="silo-label-inline">Next Reset In</span>
+                      <strong id="countdownText">--d --h --m --s</strong>
+                    </div>
+                  </section>
+
+                  <section class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-6" aria-label="Current weekly launch codes">
+                    <article class="wasteland-panel rounded-md p-4 scanline silo-code-card">
+                      <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="silo-card-title">Silo Alpha</span>
+                        <span class="silo-live-badge" id="alphaStatus">Live</span>
+                      </div>
+                      <strong id="alphaCode" data-copy-code>--------</strong>
+                      <button class="silo-copy-button" type="button" data-copy-target="alphaCode" aria-label="Copy Site Alpha launch code">
+                        Copy Code
+                      </button>
+                    </article>
+                    <article class="wasteland-panel rounded-md p-4 scanline silo-code-card">
+                      <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="silo-card-title">Silo Bravo</span>
+                        <span class="silo-live-badge" id="bravoStatus">Live</span>
+                      </div>
+                      <strong id="bravoCode" data-copy-code>--------</strong>
+                      <button class="silo-copy-button" type="button" data-copy-target="bravoCode" aria-label="Copy Site Bravo launch code">
+                        Copy Code
+                      </button>
+                    </article>
+                    <article class="wasteland-panel rounded-md p-4 scanline silo-code-card">
+                      <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="silo-card-title">Silo Charlie</span>
+                        <span class="silo-live-badge" id="charlieStatus">Live</span>
+                      </div>
+                      <strong id="charlieCode" data-copy-code>--------</strong>
+                      <button class="silo-copy-button" type="button" data-copy-target="charlieCode" aria-label="Copy Site Charlie launch code">
+                        Copy Code
+                      </button>
+                    </article>
+                  </section>
+
+                  <section class="mb-6 terminal-border rounded-md p-4 md:p-5" aria-labelledby="how-to-launch-title">
+                    <h2 id="how-to-launch-title" class="text-xl font-display font-semibold text-primary mb-4">
+                      How To Launch
+                    </h2>
+                    <ol class="silo-launch-steps">
+                      <li>Collect a Nuclear Keycard from a cargobot, event reward, vendor route, or player source.</li>
+                      <li>Enter Site Alpha, Bravo, or Charlie and fight through to the launch control room.</li>
+                      <li>Insert the Nuclear Keycard, complete launch prep, and enter the matching weekly 8-digit code.</li>
+                      <li>Pick your target on the Appalachian map. The selected silo enters personal cooldown after launch.</li>
+                      <li>Codes rotate every Tuesday at 20:00 UTC. Recheck this page after reset.</li>
+                    </ol>
+                  </section>
+
+                  <section class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2" aria-label="Related Wasteland guide tools">
+                    <a
+                      class="silo-quick-link"
+                      href="/wasteland-companion-guide-app/map-regions"
+                    >
+                      <span>Map &amp; Nuke Zones</span>
+                      <span aria-hidden="true">-&gt;</span>
+                    </a>
+                    <a
+                      class="silo-quick-link"
+                      href="/wasteland-companion-guide-app/weekly-sale"
+                    >
+                      <span>Weekly Atomic Shop</span>
+                      <span aria-hidden="true">-&gt;</span>
+                    </a>
+                  </section>
+
+                  <section class="mb-2" aria-label="Weekly silo code sources">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                      <span class="silo-source-label">Source</span>
+                      <a
+                        class="silo-source-link"
+                        href="https://wzxu76.pro/silo-codes"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        External Source - wzxu76.pro
+                      </a>
+                      <a
+                        class="silo-source-link"
+                        href="https://www.falloutbuilds.com/fo76/nuke-codes/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        External Reference - falloutbuilds.com
+                      </a>
+                      <a
+                        class="silo-source-link"
+                        href="https://fallout.fandom.com/wiki/Appalachian_launch_codes"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Fallout Wiki - Appalachian Launch Codes
+                      </a>
+                    </div>
+                    <p class="text-xs font-mono text-muted-foreground leading-relaxed" id="sourceStatus">
+                      Bethesda does not publish weekly codes directly; community trackers decode the in-game cipher each Tuesday.
+                    </p>
+                  </section>
+
+                  <div class="silo-hidden-source" aria-hidden="true">
+                    <span id="resetText">Every Tuesday</span>
+                    <span id="requiredItem">Nuclear Keycard</span>
+                    <span id="statusText">Syncing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      const hudClock = document.getElementById('hudClock')
+      const codeIds = ['alphaCode', 'bravoCode', 'charlieCode']
+
+      function updateHudClock() {
+        if (!hudClock) return
+        hudClock.textContent = new Intl.DateTimeFormat('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+        }).format(new Date())
+      }
+
+      function getDigits(value) {
+        return String(value || '').replace(/\D/g, '')
+      }
+
+      function formatLaunchCode(value) {
+        const digits = getDigits(value)
+        if (digits.length !== 8) {
+          return value || '--------'
+        }
+        return `${digits.slice(0, 3)}-${digits.slice(3, 5)}-${digits.slice(5)}`
+      }
+
+      function formatDetailedValidRange(value) {
+        const text = String(value || '').trim()
+        const match = text.match(/^([A-Za-z]{3})\s+(\d{1,2})\s+[–-]\s+([A-Za-z]{3})\s+(\d{1,2}),\s+(\d{4})$/)
+        if (!match) {
+          return text || 'Awaiting source'
+        }
+        const [, startMonth, startDay, endMonth, endDay, year] = match
+        return `${startMonth} ${startDay}, ${year} 20:00 UTC -> ${endMonth} ${endDay}, ${year} 19:59 UTC`
+      }
+
+      function normalizeSiloDisplay() {
+        codeIds.forEach((id) => {
+          const element = document.getElementById(id)
+          if (!element) return
+          const digits = getDigits(element.textContent)
+          if (digits.length === 8) {
+            element.dataset.copyValue = digits
+            element.textContent = formatLaunchCode(digits)
+          }
+        })
+
+        const validRange = document.getElementById('validRange')
+        if (validRange) {
+          validRange.textContent = formatDetailedValidRange(validRange.textContent)
+        }
+
+        const status = document.getElementById('statusText')?.textContent.trim()
+        if (status) {
+          document.querySelectorAll('.silo-live-badge').forEach((badge) => {
+            badge.textContent = status === 'AUTHORIZED' ? 'Live' : status
+          })
+        }
+      }
+
+      async function copyCode(button) {
+        const target = document.getElementById(button.dataset.copyTarget)
+        const code = target?.dataset.copyValue || getDigits(target?.textContent)
+        if (!code) return
+
+        let copied = false
+        try {
+          await navigator.clipboard.writeText(code)
+          copied = true
+        } catch {
+          const fallbackInput = document.createElement('textarea')
+          fallbackInput.value = code
+          fallbackInput.setAttribute('readonly', '')
+          fallbackInput.style.position = 'fixed'
+          fallbackInput.style.left = '-9999px'
+          document.body.appendChild(fallbackInput)
+          fallbackInput.select()
+          copied = document.execCommand('copy')
+          fallbackInput.remove()
+        }
+
+        if (copied) {
+          const originalText = button.textContent
+          button.textContent = 'Copied'
+          button.classList.add('silo-copy-button-copied')
+          window.setTimeout(() => {
+            button.textContent = originalText
+            button.classList.remove('silo-copy-button-copied')
+          }, 1400)
+          return
+        }
+
+        const sourceStatus = document.getElementById('sourceStatus')
+        if (sourceStatus) {
+          sourceStatus.textContent = `Copy failed. Manual code: ${code}`
+          sourceStatus.classList.add('source-note-error')
+        }
+      }
+
+      updateHudClock()
+      window.setInterval(updateHudClock, 1000)
+      window.setInterval(normalizeSiloDisplay, 250)
+      window.setTimeout(() => window.setInterval(normalizeSiloDisplay, 1000), 2500)
+
+      document.querySelectorAll('.silo-copy-button').forEach((button) => {
+        button.addEventListener('click', () => copyCode(button))
+      })
+
+      window.addEventListener('error', (event) => {
+        const sourceStatus = document.getElementById('sourceStatus')
+        if (sourceStatus && String(event.filename || '').includes('wulfzx-underground-silo-codes')) {
+          sourceStatus.textContent = 'External source did not load. Open External Source for the latest weekly codes.'
+          sourceStatus.classList.add('source-note-error')
+        }
+      })
+    </script>
+    <script src="https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/script.js"></script>
+  </body>
+</html>

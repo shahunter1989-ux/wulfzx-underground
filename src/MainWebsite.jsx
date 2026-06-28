@@ -275,12 +275,18 @@ function storeEntryTextSize(textSize) {
   }
 }
 
-function AnimatedText({ text, className = '' }) {
-  const words = String(text).split(/(\s+)/)
+function AnimatedText({ text, className = '', mode = 'animated' }) {
+  const normalizedText = String(text)
+
+  if (mode === 'static') {
+    return <span className={`text-fx text-fx-static-render ${className}`.trim()}>{normalizedText}</span>
+  }
+
+  const words = normalizedText.split(/(\s+)/)
   let charIndex = 0
 
   return (
-    <span className={`text-fx ${className}`.trim()} aria-label={text}>
+    <span className={`text-fx ${className}`.trim()} aria-label={normalizedText}>
       {words.map((word, wordIndex) => {
         if (/^\s+$/.test(word)) {
           return (
@@ -438,11 +444,11 @@ function EntryAgreementGate({ onAccept }) {
       aria-labelledby="entry-title"
     >
       <div className="entry-brand" aria-label={content.brandAlt}>
-        <img src={assetPath('wulfzx-brand.png')} alt="" aria-hidden="true" />
+        <img src={assetPath('wulfzx-brand-opt.webp')} alt="" aria-hidden="true" decoding="async" />
         <span>
-          <AnimatedText text="WULFZX" />
+          <AnimatedText text="WULFZX" mode="static" />
           <small>
-            <AnimatedText text="Underground" />
+            <AnimatedText text="Underground" mode="static" />
           </small>
         </span>
         <em>AI Company</em>
@@ -570,23 +576,23 @@ function Header({ page = 'home' }) {
   return (
     <header className="site-header">
       <a className="brand-lockup" href={isSubPage ? homePath : '#top'} aria-label="WULFZX home">
-        <img src={assetPath('wulfzx-brand.png')} alt="" aria-hidden="true" />
+        <img src={assetPath('wulfzx-brand-opt.webp')} alt="" aria-hidden="true" decoding="async" />
         <span>
-          <AnimatedText text="WULFZX" />
+          <AnimatedText text="WULFZX" mode="static" />
           <small>
-            <AnimatedText text="Underground" />
+            <AnimatedText text="Underground" mode="static" />
           </small>
         </span>
       </a>
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
           <a key={item.href} href={navHref(item.href)}>
-            <AnimatedText text={item.label} />
+            <AnimatedText text={item.label} mode="static" />
           </a>
         ))}
       </nav>
       <a className="header-cta" href={contactPath}>
-        <AnimatedText text="Contact Me" />
+        <AnimatedText text="Contact Me" mode="static" />
       </a>
     </header>
   )
@@ -602,6 +608,8 @@ function HeroDashboard() {
         className="hero-banner"
         src={assetPath('wulfzx-hero-banner.png')}
         alt="WULFZX Underground AI Company banner with metallic wolf artwork"
+        decoding="async"
+        fetchPriority="high"
       />
       <div className="hero-actions" aria-label="Primary actions">
         <a className="button button-primary" href="#linktree">
@@ -621,7 +629,7 @@ function WhatIDoPage() {
       <div className="what-hero">
         <div>
           <h1 id="what-page-title">
-            <AnimatedText text="What I Do" />
+            <AnimatedText text="What I Do" mode="static" />
           </h1>
           <p>
             WULFZX Underground builds custom AI-assisted projects, games, guides, websites, apps, QA tools, and
@@ -630,7 +638,7 @@ function WhatIDoPage() {
           </p>
         </div>
         <a className="button button-secondary what-back" href={homePath}>
-          <AnimatedText text="Back Home" />
+          <AnimatedText text="Back Home" mode="static" />
         </a>
       </div>
 
@@ -645,10 +653,10 @@ function WhatIDoPage() {
 
       <div className="what-action-row" aria-label="What I Do actions">
         <a className="button button-primary" href={homePath}>
-          <AnimatedText text="Back Home" />
+          <AnimatedText text="Back Home" mode="static" />
         </a>
         <a className="button button-secondary" href={`${homePath}#connect`}>
-          <AnimatedText text="Connect" />
+          <AnimatedText text="Connect" mode="static" />
         </a>
       </div>
     </section>
@@ -770,10 +778,23 @@ function WastelandCompanionGuidePage() {
             <a className="button button-secondary" href={links.guide76} target="_blank" rel="noreferrer">
               <AnimatedText text="Open Live Lovable Guide" />
             </a>
+            <a
+              className="button guide-silo-button"
+              href={links.guide76SiloCodes}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AnimatedText text="Open Weekly Silo Codes" />
+            </a>
           </div>
         </div>
         <div className="guide-hero-media">
-          <img src={assetPath('wulfzx-76-guide.png')} alt="WULFZX Fallout 76 Wasteland Guide artwork" />
+          <img
+            src={assetPath('wulfzx-76-guide-opt.webp')}
+            alt="WULFZX Fallout 76 Wasteland Guide artwork"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
 
@@ -803,6 +824,15 @@ function WastelandCompanionGuidePage() {
           <span>
             Both options demonstrate that WULFZX can publish independently, work alongside industry platforms, and stay
             competitive with modern web standards.
+          </span>
+        </article>
+        <article>
+          <strong>
+            <AnimatedText text="Field Tools" />
+          </strong>
+          <span>
+            Weekly Silo Codes opens a separate WULFZX-hosted utility for Fallout 76 launch codes, keeping the main guide
+            focused while still connecting players to quick field support.
           </span>
         </article>
       </section>
@@ -897,23 +927,23 @@ function OwnerDashboardCard({ card }) {
     <a className="owner-card" href={card.href} target="_blank" rel="noreferrer">
       {card.image ? (
         <span className="owner-card-icon owner-card-image">
-          <img src={card.image} alt={card.imageAlt} loading="lazy" />
+          <img src={card.image} alt={card.imageAlt} loading="lazy" decoding="async" />
         </span>
       ) : (
         <span className="owner-card-icon" aria-hidden="true">
-          <AnimatedText text={card.category.slice(0, 2)} />
+          <AnimatedText text={card.category.slice(0, 2)} mode="static" />
         </span>
       )}
       <span className="owner-card-copy">
         <small>
-          <AnimatedText text={card.category} />
+          <AnimatedText text={card.category} mode="static" />
         </small>
         <strong>
-          <AnimatedText text={card.title} />
+          <AnimatedText text={card.title} mode="static" />
         </strong>
         <span>{card.description}</span>
         <em>
-          <AnimatedText text={card.status} />
+          <AnimatedText text={card.status} mode="static" />
         </em>
       </span>
     </a>
@@ -930,7 +960,7 @@ function WhatIDoSection({ section }) {
       <div className="section-rule">
         <span />
         <h2 id={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}>
-          <AnimatedText text={section.title} />
+          <AnimatedText text={section.title} mode="static" />
         </h2>
         <span />
       </div>
@@ -950,7 +980,7 @@ function BusinessCardPricingSection() {
       <div className="section-rule pricing-rule">
         <span />
         <h2 id="business-card-pricing-title">
-          <AnimatedText text={businessCardPricing.title} />
+          <AnimatedText text={businessCardPricing.title} mode="static" />
         </h2>
         <span />
       </div>
@@ -961,11 +991,11 @@ function BusinessCardPricingSection() {
           <article className="pricing-tier-card" key={tier.title}>
             <div className="pricing-tier-top">
               <span className="pricing-tier-badge" aria-hidden="true">
-                <AnimatedText text={tier.title === 'Premium Tier' ? 'PR' : 'ST'} />
+                <AnimatedText text={tier.title === 'Premium Tier' ? 'PR' : 'ST'} mode="static" />
               </span>
               <div>
                 <strong>
-                  <AnimatedText text={tier.title} />
+                  <AnimatedText text={tier.title} mode="static" />
                 </strong>
                 <small>{tier.summary}</small>
               </div>
@@ -988,11 +1018,11 @@ function BusinessCardPricingSection() {
           <article className="pricing-service-card" key={service.title}>
             <div className="pricing-service-heading">
               <span aria-hidden="true">
-                <AnimatedText text={service.title.slice(0, 2)} />
+                <AnimatedText text={service.title.slice(0, 2)} mode="static" />
               </span>
               <div>
                 <strong>
-                  <AnimatedText text={service.title} />
+                  <AnimatedText text={service.title} mode="static" />
                 </strong>
                 <small>{service.price}</small>
               </div>
@@ -1009,10 +1039,10 @@ function BusinessCardPricingSection() {
 
       <div className="pricing-cta-row" aria-label="Digital business card pricing actions">
         <a className="button button-primary" href={contactPath}>
-          <AnimatedText text="Request A Digital Business Card" />
+          <AnimatedText text="Request A Digital Business Card" mode="static" />
         </a>
         <a className="button button-secondary" href="#demo-cards">
-          <AnimatedText text="View Demo Cards" />
+          <AnimatedText text="View Demo Cards" mode="static" />
         </a>
       </div>
     </section>
@@ -1056,7 +1086,7 @@ function WhatIDoCard({ card }) {
     <>
       {card.image ? (
         <span className="what-card-media">
-          <img src={card.image} alt={card.imageAlt} loading="lazy" />
+          <img src={card.image} alt={card.imageAlt} loading="lazy" decoding="async" />
         </span>
       ) : card.icon ? (
         <span className="what-card-symbol what-card-icon" aria-hidden="true">
@@ -1064,19 +1094,19 @@ function WhatIDoCard({ card }) {
         </span>
       ) : (
         <span className="what-card-symbol" aria-hidden="true">
-          <AnimatedText text={card.category.slice(0, 2)} />
+          <AnimatedText text={card.category.slice(0, 2)} mode="static" />
         </span>
       )}
       <span className="what-card-copy">
         <small>
-          <AnimatedText text={card.category} />
+          <AnimatedText text={card.category} mode="static" />
         </small>
         <strong>
-          <AnimatedText text={card.title} />
+          <AnimatedText text={card.title} mode="static" />
         </strong>
         <span>{card.description}</span>
         <em>
-          <AnimatedText text={card.status || (isPlaceholder ? 'Coming Soon' : 'Open link')} />
+          <AnimatedText text={card.status || (isPlaceholder ? 'Coming Soon' : 'Open link')} mode="static" />
         </em>
       </span>
     </>
@@ -1156,7 +1186,7 @@ function TileVisual({ tile }) {
   if (tile.image) {
     return (
       <span className="tile-visual tile-visual-image">
-        <img src={tile.image} alt={tile.imageAlt} loading="lazy" />
+        <img src={tile.image} alt={tile.imageAlt} loading="lazy" decoding="async" />
       </span>
     )
   }
@@ -1182,7 +1212,7 @@ function GamesShowcase() {
         {gameCards.map((game) => (
           <a className="game-card" key={game.title} href={game.href} target="_blank" rel="noreferrer">
             <div className="game-media">
-              <img src={game.image} alt={game.imageAlt} loading="lazy" />
+              <img src={game.image} alt={game.imageAlt} loading="lazy" decoding="async" />
             </div>
             <div className="game-copy">
               <h3>
@@ -1223,7 +1253,7 @@ function ConnectStrip() {
           {connectLinks.map((link) => (
             <a key={link.title} href={link.href} target="_blank" rel="noreferrer">
               <span className={`connect-symbol ${link.image ? 'connect-symbol-image' : ''}`} aria-hidden="true">
-                {link.image ? <img src={link.image} alt="" loading="lazy" /> : <AnimatedText text={link.symbol} />}
+                {link.image ? <img src={link.image} alt="" loading="lazy" decoding="async" /> : <AnimatedText text={link.symbol} />}
               </span>
               <span>
                 <strong>
@@ -1254,6 +1284,7 @@ function WelcomeSection() {
           src={assetPath('wulfzx-welcome-message.png')}
           alt="WULFZX Underground about me and welcome message artwork"
           loading="lazy"
+          decoding="async"
         />
       </div>
     </section>

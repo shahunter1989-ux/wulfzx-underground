@@ -1852,6 +1852,8 @@ img {
 }
 
 .what-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
   padding: 20px 18px 22px;
   border: 1px solid rgba(72, 151, 206, 0.28);
   background:
@@ -2092,6 +2094,8 @@ a.what-card-premium-card:focus-visible .what-card-media {
 
 .pricing-section {
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 960px;
   overflow: hidden;
   padding: 24px 18px 26px;
   border: 1px solid rgba(198, 136, 39, 0.36);
@@ -2108,6 +2112,10 @@ a.what-card-premium-card:focus-visible .what-card-media {
   pointer-events: none;
   border: 1px solid rgba(198, 136, 39, 0.14);
   content: '';
+}
+
+.text-fx-static-render {
+  display: inline;
 }
 
 .pricing-rule h2 {
@@ -2639,6 +2647,50 @@ a.what-card-premium-card:focus-visible .what-card-media {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 4px;
+}
+
+.guide-silo-button {
+  border-color: rgba(88, 255, 96, 0.62);
+  color: #dfffe4;
+  background:
+    linear-gradient(135deg, rgba(64, 255, 72, 0.2), rgba(8, 32, 14, 0.9) 42%, rgba(4, 13, 9, 0.96)),
+    radial-gradient(circle at 18% 20%, rgba(148, 255, 74, 0.26), transparent 34%);
+  box-shadow:
+    inset 0 0 0 1px rgba(172, 255, 104, 0.16),
+    inset 0 0 20px rgba(18, 180, 52, 0.16),
+    0 0 18px rgba(88, 255, 96, 0.22);
+  text-shadow: 0 0 12px rgba(104, 255, 112, 0.62);
+}
+
+.guide-silo-button::before {
+  background:
+    linear-gradient(90deg, transparent 0 16%, rgba(165, 255, 114, 0.38) 45%, transparent 74%),
+    repeating-linear-gradient(180deg, transparent 0 6px, rgba(107, 255, 92, 0.08) 7px 8px);
+  opacity: 0.22;
+}
+
+.guide-silo-button::after {
+  border-color: rgba(111, 255, 102, 0.36);
+  box-shadow: inset 0 0 16px rgba(88, 255, 96, 0.12);
+}
+
+.guide-silo-button:hover,
+.guide-silo-button:focus-visible {
+  border-color: rgba(176, 255, 104, 0.92);
+  color: #f2fff1;
+  background:
+    linear-gradient(135deg, rgba(97, 255, 88, 0.32), rgba(12, 53, 20, 0.92) 42%, rgba(4, 13, 9, 0.98)),
+    radial-gradient(circle at 22% 24%, rgba(198, 255, 86, 0.42), transparent 38%);
+  box-shadow:
+    inset 0 0 0 1px rgba(211, 255, 126, 0.25),
+    inset 0 0 24px rgba(46, 226, 74, 0.24),
+    0 0 26px rgba(101, 255, 88, 0.52),
+    0 0 56px rgba(50, 224, 76, 0.22);
+}
+
+.guide-silo-button:hover::before,
+.guide-silo-button:focus-visible::before {
+  opacity: 0.46;
 }
 
 .guide-hero-media {
@@ -3429,7 +3481,7 @@ svg {
   background:
     linear-gradient(90deg, transparent 0 18%, rgba(255, 59, 215, 0.12) 31%, transparent 44% 56%, rgba(42, 247, 255, 0.11) 70%, transparent 84%),
     linear-gradient(180deg, transparent, rgba(255, 156, 85, 0.06) 48%, transparent);
-  filter: blur(18px);
+  filter: blur(10px);
 }
 
 .business-card-page:has(.link-gta-countdown:hover)::before,
@@ -3479,11 +3531,12 @@ svg {
   inset: -3%;
   background:
     linear-gradient(180deg, rgba(1, 4, 8, 0.04), rgba(1, 4, 8, 0.5) 66%, #010408 98%),
-    url("/assets/business-card-circuit-bg.png") center / cover no-repeat;
-  filter: saturate(1.24) contrast(1.14) brightness(0.95);
-  opacity: 0.98;
+    url("/assets/business-card-circuit-bg-opt.webp") center / cover no-repeat;
+  filter: saturate(1.14) contrast(1.08) brightness(0.95);
+  opacity: 0.94;
   transform-origin: center;
-  animation: circuit-breathe 12s ease-in-out infinite;
+  animation: circuit-breathe 20s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .business-card-page:has(.link-gta-countdown:hover) .backdrop-image,
@@ -3500,7 +3553,7 @@ svg {
     linear-gradient(90deg, rgba(82, 220, 255, 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at center, black 0 48%, transparent 78%);
-  animation: grid-drift 18s linear infinite;
+  animation: grid-drift 34s linear infinite;
 }
 
 .business-card-page:has(.link-gta-countdown:hover) .circuit-grid,
@@ -3524,7 +3577,7 @@ svg {
     conic-gradient(from 0deg at 50% 50%, transparent 0 20deg, rgba(82, 220, 255, 0.12) 23deg, transparent 27deg 160deg, rgba(105, 255, 63, 0.07) 164deg, transparent 170deg 360deg);
   mix-blend-mode: screen;
   opacity: 0.55;
-  animation: circuit-scan 16s linear infinite;
+  animation: circuit-scan 28s linear infinite;
 }
 
 .business-card-page:has(.link-gta-countdown:hover) .circuit-backdrop::before,
@@ -3550,7 +3603,7 @@ svg {
     0 0 18px rgba(0, 167, 255, 0.9),
     0 0 42px rgba(0, 109, 255, 0.42);
   opacity: 0.45;
-  animation: pulse-track 5.8s ease-in-out infinite;
+  animation: pulse-track 8.5s ease-in-out infinite;
 }
 
 .business-card-page:has(.link-gta-countdown:hover) .pulse-line,
@@ -3594,7 +3647,7 @@ svg {
     0 0 12px rgba(82, 220, 255, 0.9),
     0 0 28px rgba(0, 167, 255, 0.78);
   opacity: 0.85;
-  animation: node-flare 3.8s ease-in-out infinite;
+  animation: node-flare 6.2s ease-in-out infinite;
 }
 
 .business-card-page:has(.link-gta-countdown:hover) .hub-circuit-node,

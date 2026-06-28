@@ -37,7 +37,7 @@ const links = [
     description: 'Support Wulfzx.Underground.',
     href: 'https://cash.app/$wulfzx',
     accent: 'green',
-    image: assetPath('business-card-cashapp.png'),
+    image: assetPath('business-card-cashapp-opt.webp'),
     imageAlt: 'Wulfzx.Underground Cash App themed icon',
   },
   {
@@ -54,7 +54,7 @@ const links = [
     description: 'Join the Wulfzx.Underground community.',
     href: 'https://discord.com/invite/dRpQjcEj',
     accent: 'blue',
-    image: assetPath('business-card-discord.png'),
+    image: assetPath('business-card-discord-opt.webp'),
     imageAlt: 'Wulfzx.Underground Discord themed icon',
   },
 ]
@@ -78,8 +78,10 @@ function HubPage() {
           <header className="brand-hero">
             <div className="logo-frame">
               <img
-                src={assetPath('business-card-wulfzx-logo.png')}
+                src={assetPath('business-card-wulfzx-logo-opt.webp')}
                 alt="Wulfzx.Underground cybernetic wolf logo"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
             <div className="brand-copy">
@@ -140,6 +142,7 @@ function MediaPreview() {
               src="https://i.ytimg.com/vi/tHeIOBE9_QM/maxresdefault.jpg"
               alt=""
               loading="lazy"
+              decoding="async"
               aria-hidden="true"
             />
             <span className="video-play-core" aria-hidden="true">
@@ -183,7 +186,7 @@ function LinkButton({ link }) {
       aria-label={`${link.title}: ${link.description}`}
     >
       <span className="link-icon">
-        {link.image ? <img src={link.image} alt={link.imageAlt} loading="lazy" /> : <Icon />}
+        {link.image ? <img src={link.image} alt={link.imageAlt} loading="lazy" decoding="async" /> : <Icon />}
       </span>
       <span className="link-copy">
         <strong>{link.title}</strong>

@@ -3313,12 +3313,35 @@ a.what-card-premium-card:focus-visible .what-card-media {
   }
 
   .what-section {
+    min-width: 0;
     padding: 18px 14px 20px;
+  }
+
+  .what-section-stack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .what-section-stack > *,
+  .what-card-grid,
+  .owner-card-grid,
+  .what-card,
+  .what-card-copy,
+  .what-card-media,
+  .what-card-symbol,
+  .ai-image-section,
+  .ai-image-content,
+  .ai-image-copy,
+  .ai-image-feature-list,
+  .ai-image-feature-list li,
+  .ai-image-focus,
+  .pricing-section {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .what-card-grid,
   .owner-card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .pricing-section {
@@ -3329,8 +3352,21 @@ a.what-card-premium-card:focus-visible .what-card-media {
     padding: 20px 14px 22px;
   }
 
+  .ai-image-section h2,
+  .ai-image-price,
+  .ai-image-feature-list li,
+  .ai-image-focus strong,
+  .what-card-copy strong,
+  .what-card-copy span {
+    overflow-wrap: anywhere;
+  }
+
+  .ai-image-price {
+    width: 100%;
+  }
+
   .ai-image-feature-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .ai-image-cta {
@@ -3357,6 +3393,11 @@ a.what-card-premium-card:focus-visible .what-card-media {
 
   .what-card {
     padding: 12px;
+  }
+
+  .what-card-media,
+  .what-card-symbol {
+    width: 100%;
   }
 
   .welcome-frame img {

@@ -1,5 +1,6 @@
 ﻿import React from 'react'
 import {
+  aiImageCreation,
   businessCardPricing,
   connectLinks,
   featureTiles,
@@ -646,6 +647,7 @@ function WhatIDoPage() {
         {whatIDoSections.map((section) => (
           <React.Fragment key={section.title}>
             <WhatIDoSection section={section} />
+            {section.title === 'AI + QA Systems' ? <AIImageCreationSection /> : null}
             {section.title === 'Guides + Websites' ? <BusinessCardPricingSection /> : null}
           </React.Fragment>
         ))}
@@ -969,6 +971,37 @@ function WhatIDoSection({ section }) {
         {section.cards.map((card) => (
           <WhatIDoCard key={card.title} card={card} />
         ))}
+      </div>
+    </section>
+  )
+}
+
+function AIImageCreationSection() {
+  return (
+    <section className="ai-image-section" aria-labelledby="ai-image-creation-title">
+      <div className="ai-image-content">
+        <div className="ai-image-copy">
+          <span className="ai-image-kicker">
+            <AnimatedText text="Creative Service" mode="static" />
+          </span>
+          <h2 id="ai-image-creation-title">
+            <AnimatedText text={aiImageCreation.title} mode="static" />
+          </h2>
+          <p className="ai-image-subtitle">{aiImageCreation.subtitle}</p>
+          <strong className="ai-image-price">{aiImageCreation.price}</strong>
+          <ul className="ai-image-feature-list">
+            {aiImageCreation.features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+          <div className="ai-image-focus">
+            <span>Primary Focus</span>
+            <strong>{aiImageCreation.focus}</strong>
+          </div>
+          <a className="button button-primary ai-image-cta" href={mainSiteHref(aiImageCreation.ctaHref)}>
+            <AnimatedText text={aiImageCreation.ctaLabel} mode="static" />
+          </a>
+        </div>
       </div>
     </section>
   )

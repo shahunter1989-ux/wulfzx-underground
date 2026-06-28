@@ -15,6 +15,7 @@ export const links = {
   websiteSample: 'https://wzxuwebview.lovable.app/',
   basicBusinessCard: 'https://wzxulink.lovable.app/',
   standardPhotoBusinessCard: 'https://wzxu-photo-demo-1.vercel.app/',
+  lunaDailyVlogs: 'https://shahunter1989-ux.github.io/luna-daily-vlogs/index.html',
   premiumBusinessCardDemo: 'https://shahunter1989-ux.github.io/wzxu-coffee-sd/',
   gtaCountdown: 'https://gta-vi-countdown-sable.vercel.app/',
   email: 'wulfzxunderground@gmail.com',
@@ -182,6 +183,23 @@ export const ownerDashboardLinks = [
   },
 ]
 
+export const aiImageCreation = {
+  title: 'AI Image Creation',
+  subtitle: 'Premium AI artwork made just for you.',
+  price: 'Custom images starting at $1.',
+  ctaLabel: 'Request AI Artwork',
+  ctaHref: '/contact/',
+  features: [
+    'Unique creations based on your idea, vibe, theme, or style.',
+    'No templates - every image is made to feel original.',
+    'Flexible styles including cute, luxury, gaming, anime, cartoon, cinematic, realistic, fantasy, and more.',
+    'Personalized details, colors, mood, background, and composition.',
+    'Great for profile pictures, posters, flyers, characters, gaming content, social media, thumbnails, and brand visuals.',
+    'Prices vary depending on detail, complexity, revisions, and final style.',
+  ],
+  focus: 'Your idea turned into a polished AI image with a custom creative touch.',
+}
+
 export const whatIDoSections = [
   {
     title: 'AI + QA Systems',
@@ -270,6 +288,17 @@ export const whatIDoSections = [
         href: links.standardPhotoBusinessCard,
         icon: 'aperture',
         variant: 'standard-card',
+      },
+      {
+        title: 'Creator Vlog Website',
+        category: 'Creator site demo',
+        description:
+          'A live Luna Daily Vlogs sample for a creator-style website, featuring a clean homepage, video-focused sections, and a simple contact flow.',
+        status: 'Open demo',
+        href: links.lunaDailyVlogs,
+        image: assetPath('luna-daily-vlogs-preview.webp'),
+        imageAlt: 'Luna Daily Vlogs creator website preview',
+        variant: 'luna-vlog',
       },
       {
         title: 'Premium Digital Business Card',

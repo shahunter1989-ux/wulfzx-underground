@@ -8,6 +8,7 @@ export const links = {
   guide76Local: '/wasteland-companion-guide-app/index.html',
   guide76Landing: '/wasteland-companion-guide/',
   guide76SiloCodes: 'https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/',
+  guide76SiloCodesInternal: '/wasteland-companion-guide-app/weekly-silo-codes/index.html',
   discord: 'https://discord.gg/dRpQjcEj',
   qaPortal: 'https://web-production-97ee.up.railway.app/',
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',

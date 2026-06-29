@@ -15,6 +15,7 @@ export const links = {
   websiteSample: 'https://wzxuwebview.lovable.app/',
   basicBusinessCard: 'https://wzxulink.lovable.app/',
   standardPhotoBusinessCard: 'https://wzxu-photo-demo-1.vercel.app/',
+  nukaCardDemo: 'https://wzxunukacard.lovable.app/',
   lunaDailyVlogs: 'https://shahunter1989-ux.github.io/luna-daily-vlogs/index.html',
   premiumBusinessCardDemo: 'https://shahunter1989-ux.github.io/wzxu-coffee-sd/',
   gtaCountdown: 'https://gta-vi-countdown-sable.vercel.app/',
@@ -288,6 +289,17 @@ export const whatIDoSections = [
         href: links.standardPhotoBusinessCard,
         icon: 'aperture',
         variant: 'standard-card',
+      },
+      {
+        title: 'Atomic Digital Business Card',
+        category: 'Enhanced standard demo',
+        description:
+          'A one-page WULFZX demo with animation, themed visuals, and flexible feature sections for clients who want more personality than a basic card without needing a full premium package.',
+        status: 'Open demo',
+        href: links.nukaCardDemo,
+        image: assetPath('nuka-card-preview.webp'),
+        imageAlt: 'Atomic digital business card website preview',
+        variant: 'nuka-card',
       },
       {
         title: 'Creator Vlog Website',

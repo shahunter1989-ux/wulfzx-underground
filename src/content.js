@@ -17,6 +17,8 @@ export const links = {
   standardPhotoBusinessCard: 'https://wzxu-photo-demo-1.vercel.app/',
   nukaCardDemo: 'https://wzxunukacard.lovable.app/',
   lunaDailyVlogs: 'https://shahunter1989-ux.github.io/luna-daily-vlogs/index.html',
+  darkBookClubDemo: 'https://wzxudarkclub.lovable.app/',
+  sparkBeautyFolio: 'https://spark-beauty-folio.lovable.app/',
   premiumBusinessCardDemo: 'https://shahunter1989-ux.github.io/wzxu-coffee-sd/',
   gtaCountdown: 'https://gta-vi-countdown-sable.vercel.app/',
   email: 'wulfzxunderground@gmail.com',
@@ -311,6 +313,28 @@ export const whatIDoSections = [
         image: assetPath('luna-daily-vlogs-preview.webp'),
         imageAlt: 'Luna Daily Vlogs creator website preview',
         variant: 'luna-vlog',
+      },
+      {
+        title: 'Book Club Website',
+        category: 'One-page website demo',
+        description:
+          'A live Nocturne Reads demo for a themed book club website, showing a polished one-page experience with atmosphere, calls to action, featured content, and client-ready presentation.',
+        status: 'Open demo',
+        href: links.darkBookClubDemo,
+        image: assetPath('dark-book-club-preview.webp'),
+        imageAlt: 'Nocturne Reads dark romance book club website preview',
+        variant: 'dark-book-club',
+      },
+      {
+        title: 'Beauty Portfolio Website',
+        category: 'Third-party portfolio demo',
+        description:
+          'A simple third-party makeup artist portfolio demo for Maya Noor, featuring service-focused presentation, selected work, and a clean contact path for bridal, editorial, and special-event clients.',
+        status: 'Open demo',
+        href: links.sparkBeautyFolio,
+        image: assetPath('spark-beauty-portfolio-preview.webp'),
+        imageAlt: 'Maya Noor makeup artist portfolio website preview',
+        variant: 'spark-beauty',
       },
       {
         title: 'Premium Digital Business Card',

@@ -60,7 +60,20 @@ const links = [
 ]
 
 function App() {
-  const isMainWebsiteRoute = window.location.pathname.startsWith(`${import.meta.env.BASE_URL}main/`)
+  const basePath = import.meta.env.BASE_URL
+  const currentPath = window.location.pathname
+  const guideRoot = `${basePath}wasteland-companion-guide-app`
+  const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
+
+  const isGuideRoute = currentPath === guideRoot || currentPath.startsWith(`${guideRoot}/`)
+  const isGuideIndex = currentPath.endsWith('/index.html')
+  const hasFileExtension = /\.[^/]+$/.test(currentPath)
+
+  if (isGuideRoute && !isGuideIndex && !hasFileExtension) {
+    const staticGuidePath = currentPath.endsWith('/') ? `${currentPath}index.html` : `${currentPath}/index.html`
+    window.location.replace(`${staticGuidePath}${window.location.search}${window.location.hash}`)
+    return null
+  }
 
   if (isMainWebsiteRoute) {
     return <MainWebsite />

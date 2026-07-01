@@ -21,7 +21,8 @@
         }
       })()
     </script>
-  </head>
+    <link rel="stylesheet" crossorigin href="/wasteland-companion-guide-app/guide-status.css">
+  <script defer src="/wasteland-companion-guide-app/guide-status.js"></script></head>
   <body>
     <div class="min-h-screen bg-background noise-bg p-2 sm:p-4 md:p-6 flex items-stretch">
       <div class="pip-chassis mx-auto w-full max-w-[1400px] p-3 sm:p-5 md:p-6 flex flex-col">
@@ -92,8 +93,8 @@
                     <div class="flex flex-wrap items-center gap-2 mb-3">
                       <span class="pip-tag-green text-xs">Weekly Ops</span>
                       <span class="pip-tag-green text-xs">Live Game</span>
-                      <span class="text-[10px] font-mono uppercase tracking-widest text-pip-green">
-                        Checked Jun 28, 2026
+                      <span class="text-[10px] font-mono uppercase tracking-widest text-pip-green" id="checkedText">
+                        Syncing FalloutBuilds
                       </span>
                       <span class="text-[10px] font-mono uppercase tracking-widest text-pip-green">
                         Resets Tuesday 20:00 UTC
@@ -103,8 +104,8 @@
                       Weekly Silo Codes
                     </h1>
                     <p class="text-muted-foreground text-base leading-relaxed">
-                      Alpha, Bravo, and Charlie launch authorization for Appalachia. This WULFZX-hosted terminal mirrors
-                      the live silo source inside the local Wasteland Companion Guide.
+                      Alpha, Bravo, and Charlie launch authorization for Appalachia. This WULFZX-hosted terminal syncs
+                      weekly code data from FalloutBuilds into the local Wasteland Companion Guide.
                     </p>
                   </section>
 
@@ -220,6 +221,11 @@
                     <span id="resetText">Every Tuesday</span>
                     <span id="requiredItem">Nuclear Keycard</span>
                     <span id="statusText">Syncing</span>
+                    <span id="visitorZone">UTC</span>
+                    <span id="visitorTime">00:00:00</span>
+                    <span id="visitorDate">Awaiting telemetry</span>
+                    <span id="visitorDayOfYear">-- / ----</span>
+                    <div id="worldClockGrid"></div>
                   </div>
                 </div>
               </div>
@@ -231,7 +237,8 @@
 
     <script>
       const hudClock = document.getElementById('hudClock')
-      const codeIds = ['alphaCode', 'bravoCode', 'charlieCode']
+      const SILO_DATA_URL = '/wasteland-companion-guide-app/weekly-silo-codes/silo-codes.json'
+      let siloData = null
 
       function updateHudClock() {
         if (!hudClock) return
@@ -255,44 +262,158 @@
         return `${digits.slice(0, 3)}-${digits.slice(3, 5)}-${digits.slice(5)}`
       }
 
-      function formatDetailedValidRange(value) {
-        const text = String(value || '').trim()
-        const match = text.match(/^([A-Za-z]{3})\s+(\d{1,2})\s+[–-]\s+([A-Za-z]{3})\s+(\d{1,2}),\s+(\d{4})$/)
-        if (!match) {
-          return text || 'Awaiting source'
+      function formatDateTime(value) {
+        const date = new Date(value)
+        if (Number.isNaN(date.getTime())) {
+          return 'Awaiting source'
         }
-        const [, startMonth, startDay, endMonth, endDay, year] = match
-        return `${startMonth} ${startDay}, ${year} 20:00 UTC -> ${endMonth} ${endDay}, ${year} 19:59 UTC`
+        return new Intl.DateTimeFormat('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZoneName: 'short',
+        }).format(date)
       }
 
-      function normalizeSiloDisplay() {
-        codeIds.forEach((id) => {
-          const element = document.getElementById(id)
-          if (!element) return
-          const digits = getDigits(element.textContent)
-          if (digits.length === 8) {
-            element.dataset.copyValue = digits
-            element.textContent = formatLaunchCode(digits)
+      function formatValidRange(data) {
+        if (!data?.validFrom || !data?.validTo) {
+          return 'Awaiting source'
+        }
+        return `${formatDateTime(data.validFrom)} -> ${formatDateTime(data.validTo)}`
+      }
+
+      function formatCheckedDate(value) {
+        const date = new Date(value)
+        if (Number.isNaN(date.getTime())) {
+          return 'Source sync pending'
+        }
+        return `Synced ${new Intl.DateTimeFormat('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZoneName: 'short',
+        }).format(date)}`
+      }
+
+      function setCopyButtonsDisabled(disabled) {
+        document.querySelectorAll('.silo-copy-button').forEach((button) => {
+          button.disabled = disabled
+          button.setAttribute('aria-disabled', String(disabled))
+        })
+      }
+
+      function setStatusBadges(label) {
+        document.querySelectorAll('.silo-live-badge').forEach((badge) => {
+          badge.textContent = label
+        })
+      }
+
+      function updateCountdown() {
+        if (!siloData?.validTo) {
+          return
+        }
+
+        const target = new Date(siloData.validTo).getTime()
+        const remaining = target - Date.now()
+        const countdownText = document.getElementById('countdownText')
+        const sourceStatus = document.getElementById('sourceStatus')
+
+        if (remaining <= 0) {
+          if (countdownText) {
+            countdownText.textContent = 'AWAITING NEW WEEKLY CODES'
           }
+          setStatusBadges('Expired')
+          document.querySelectorAll('[data-copy-code]').forEach((element) => {
+            element.textContent = 'AWAITING'
+            delete element.dataset.copyValue
+          })
+          setCopyButtonsDisabled(true)
+          if (sourceStatus) {
+            sourceStatus.textContent = 'The stored weekly code window has expired. The scheduled updater will refresh this page when FalloutBuilds publishes the new codes.'
+            sourceStatus.classList.add('source-note-warning')
+          }
+          return
+        }
+
+        const totalSeconds = Math.floor(remaining / 1000)
+        const days = Math.floor(totalSeconds / 86400)
+        const hours = Math.floor((totalSeconds % 86400) / 3600)
+        const minutes = Math.floor((totalSeconds % 3600) / 60)
+        const seconds = totalSeconds % 60
+
+        if (countdownText) {
+          countdownText.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`
+        }
+      }
+
+      function renderSiloData(data) {
+        siloData = data
+
+        const codeMap = {
+          alphaCode: data.alpha,
+          bravoCode: data.bravo,
+          charlieCode: data.charlie,
+        }
+
+        Object.entries(codeMap).forEach(([id, code]) => {
+          const element = document.getElementById(id)
+          const digits = getDigits(code)
+          if (!element || digits.length !== 8) return
+          element.dataset.copyValue = digits
+          element.textContent = formatLaunchCode(digits)
         })
 
         const validRange = document.getElementById('validRange')
-        if (validRange) {
-          validRange.textContent = formatDetailedValidRange(validRange.textContent)
+        const resetText = document.getElementById('resetText')
+        const requiredItem = document.getElementById('requiredItem')
+        const statusText = document.getElementById('statusText')
+        const sourceStatus = document.getElementById('sourceStatus')
+        const checkedText = document.getElementById('checkedText')
+
+        if (validRange) validRange.textContent = formatValidRange(data)
+        if (resetText) resetText.textContent = data.resetText || 'Weekly reset'
+        if (requiredItem) requiredItem.textContent = data.requiredItem || 'Nuclear Keycard'
+        if (statusText) statusText.textContent = data.status || 'AUTHORIZED'
+        if (checkedText) checkedText.textContent = formatCheckedDate(data.lastUpdated)
+
+        setStatusBadges(data.status === 'AUTHORIZED' ? 'Live' : data.status || 'Live')
+        setCopyButtonsDisabled(false)
+
+        if (sourceStatus) {
+          sourceStatus.textContent = `Codes synced from ${data.sourceName || 'FalloutBuilds'}. Bethesda does not publish weekly codes directly; community trackers decode the in-game cipher each reset.`
+          sourceStatus.classList.remove('source-note-error', 'source-note-warning')
         }
 
-        const status = document.getElementById('statusText')?.textContent.trim()
-        if (status) {
-          document.querySelectorAll('.silo-live-badge').forEach((badge) => {
-            badge.textContent = status === 'AUTHORIZED' ? 'Live' : status
-          })
+        updateCountdown()
+      }
+
+      async function loadSiloData() {
+        const sourceStatus = document.getElementById('sourceStatus')
+        try {
+          const response = await fetch(`${SILO_DATA_URL}?v=${Date.now()}`, { cache: 'no-store' })
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`)
+          }
+          renderSiloData(await response.json())
+        } catch (error) {
+          console.error('Unable to load weekly silo code data', error)
+          if (sourceStatus) {
+            sourceStatus.textContent = 'Unable to sync latest codes from the WULFZX local data file. Open External Source for the latest weekly codes.'
+            sourceStatus.classList.add('source-note-error')
+          }
+          setStatusBadges('Offline')
+          setCopyButtonsDisabled(true)
         }
       }
 
       async function copyCode(button) {
         const target = document.getElementById(button.dataset.copyTarget)
         const code = target?.dataset.copyValue || getDigits(target?.textContent)
-        if (!code) return
+        if (!code || button.disabled) return
 
         let copied = false
         try {
@@ -329,22 +450,13 @@
       }
 
       updateHudClock()
+      loadSiloData()
       window.setInterval(updateHudClock, 1000)
-      window.setInterval(normalizeSiloDisplay, 250)
-      window.setTimeout(() => window.setInterval(normalizeSiloDisplay, 1000), 2500)
+      window.setInterval(updateCountdown, 1000)
 
       document.querySelectorAll('.silo-copy-button').forEach((button) => {
         button.addEventListener('click', () => copyCode(button))
       })
-
-      window.addEventListener('error', (event) => {
-        const sourceStatus = document.getElementById('sourceStatus')
-        if (sourceStatus && String(event.filename || '').includes('wulfzx-underground-silo-codes')) {
-          sourceStatus.textContent = 'External source did not load. Open External Source for the latest weekly codes.'
-          sourceStatus.classList.add('source-note-error')
-        }
-      })
     </script>
-    <script src="https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/script.js"></script>
   </body>
 </html>

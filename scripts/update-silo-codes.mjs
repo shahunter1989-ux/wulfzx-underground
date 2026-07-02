@@ -1,7 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises'
 
 // Local Windows runs may need: $env:NODE_OPTIONS='--use-system-ca'
-const SOURCE_URL = 'https://www.falloutbuilds.com/fo76/nuke-codes/'
+const FALLOUT_BUILDS_URL = 'https://www.falloutbuilds.com/fo76/nuke-codes/'
+const WULFZX_SILO_SCRIPT_URL = 'https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/script.js'
 const OUTPUT_PATH = new URL('../public/wasteland-companion-guide-app/weekly-silo-codes/silo-codes.json', import.meta.url)
 
 function decodeEntities(value) {
@@ -55,7 +56,7 @@ function parseCodes(html) {
   }
 }
 
-function createPayload(html) {
+function createPayloadFromFalloutBuilds(html) {
   const fromUnix = getUnixTimestamp(html, 'from')
   const toUnix = getUnixTimestamp(html, 'to')
   const codes = parseCodes(html)
@@ -67,9 +68,45 @@ function createPayload(html) {
     resetText: 'Weekly reset - Tuesday after 20:00 UTC',
     requiredItem: 'Nuclear Keycard',
     status: 'AUTHORIZED',
-    sourceUrl: SOURCE_URL,
+    sourceUrl: FALLOUT_BUILDS_URL,
     externalSourceUrl: 'https://wzxu76.pro/silo-codes',
     sourceName: 'FalloutBuilds',
+    lastUpdated: new Date().toISOString(),
+  }
+}
+
+function getConfigValue(script, key) {
+  const pattern = new RegExp(`${key}:\\s*["']([^"']+)["']`)
+  const match = script.match(pattern)
+  if (!match) {
+    throw new Error(`Could not find ${key} in WULFZX silo utility config`)
+  }
+  return match[1]
+}
+
+function createPayloadFromWulfzxUtility(script) {
+  const alpha = cleanCode(getConfigValue(script, 'alpha'))
+  const bravo = cleanCode(getConfigValue(script, 'bravo'))
+  const charlie = cleanCode(getConfigValue(script, 'charlie'))
+  const validFrom = new Date(getConfigValue(script, 'validFrom'))
+  const validTo = new Date(getConfigValue(script, 'validTo'))
+
+  if (Number.isNaN(validFrom.getTime()) || Number.isNaN(validTo.getTime())) {
+    throw new Error('WULFZX silo utility returned invalid validity dates')
+  }
+
+  return {
+    alpha,
+    bravo,
+    charlie,
+    validFrom: validFrom.toISOString(),
+    validTo: validTo.toISOString(),
+    resetText: 'Weekly reset - Tuesday after 20:00 UTC',
+    requiredItem: getConfigValue(script, 'requiredItem') || 'Nuclear Keycard',
+    status: getConfigValue(script, 'status') || 'AUTHORIZED',
+    sourceUrl: WULFZX_SILO_SCRIPT_URL,
+    externalSourceUrl: 'https://wzxu76.pro/silo-codes',
+    sourceName: 'WULFZX Silo Utility',
     lastUpdated: new Date().toISOString(),
   }
 }
@@ -84,11 +121,13 @@ async function readExistingPayload() {
 
 function isSameCodeWindow(current, next) {
   if (!current) return false
-  return ['alpha', 'bravo', 'charlie', 'validFrom', 'validTo'].every((key) => current[key] === next[key])
+  const hasSameCodes = ['alpha', 'bravo', 'charlie'].every((key) => current[key] === next[key])
+  const isSameTime = (key) => Math.abs(new Date(current[key]).getTime() - new Date(next[key]).getTime()) <= 60000
+  return hasSameCodes && isSameTime('validFrom') && isSameTime('validTo')
 }
 
-async function main() {
-  const response = await fetch(SOURCE_URL, {
+async function fetchText(url) {
+  const response = await fetch(url, {
     headers: {
       'user-agent': 'WULFZX-Underground-Silo-Code-Updater/1.0 (+https://wzxu.pro)',
       accept: 'text/html,application/xhtml+xml',
@@ -96,11 +135,31 @@ async function main() {
   })
 
   if (!response.ok) {
-    throw new Error(`FalloutBuilds returned HTTP ${response.status}`)
+    throw new Error(`${url} returned HTTP ${response.status}`)
   }
 
-  const html = await response.text()
-  const nextPayload = createPayload(html)
+  return response.text()
+}
+
+async function getNextPayload() {
+  if (process.env.WZXU_SILO_SOURCE === 'wulfzx-utility') {
+    const script = await fetchText(WULFZX_SILO_SCRIPT_URL)
+    return createPayloadFromWulfzxUtility(script)
+  }
+
+  try {
+    const html = await fetchText(FALLOUT_BUILDS_URL)
+    return createPayloadFromFalloutBuilds(html)
+  } catch (error) {
+    console.warn(`FalloutBuilds sync failed: ${error.message}`)
+    console.warn('Falling back to WULFZX silo utility config.')
+    const script = await fetchText(WULFZX_SILO_SCRIPT_URL)
+    return createPayloadFromWulfzxUtility(script)
+  }
+}
+
+async function main() {
+  const nextPayload = await getNextPayload()
   const currentPayload = await readExistingPayload()
 
   if (isSameCodeWindow(currentPayload, nextPayload)) {
@@ -109,7 +168,7 @@ async function main() {
   }
 
   await writeFile(OUTPUT_PATH, `${JSON.stringify(nextPayload, null, 2)}\n`, 'utf8')
-  console.log(`Updated weekly silo codes from ${stripTags(SOURCE_URL)}.`)
+  console.log(`Updated weekly silo codes from ${stripTags(nextPayload.sourceName)}.`)
 }
 
 main().catch((error) => {

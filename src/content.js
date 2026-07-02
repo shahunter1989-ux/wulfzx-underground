@@ -176,13 +176,13 @@ export const aiImageCreation = {
 
 export const whatIDoSections = [
   {
-    title: 'AI Systems',
-    intro: 'AI-assisted workflows and tools that turn WULFZX ideas into useful public experiences.',
+    title: 'AI Creative + Workflow Tools',
+    intro: 'Creative AI services and workflow builds for custom visuals, project support, and polished digital tools.',
     cards: [
       {
         title: 'AI Workflow Builds',
         category: 'AI Tools',
-        description: 'Custom AI-assisted workflows and tools that turn WULFZX ideas into useful public experiences.',
+        description: 'Custom AI-assisted workflows for organizing ideas, speeding up creative tasks, and turning project needs into practical tools.',
         status: 'In development',
         href: '#',
       },

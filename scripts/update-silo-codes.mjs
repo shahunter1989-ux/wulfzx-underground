@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises'
 
+// Local Windows runs may need: $env:NODE_OPTIONS='--use-system-ca'
 const SOURCE_URL = 'https://www.falloutbuilds.com/fo76/nuke-codes/'
 const OUTPUT_PATH = new URL('../public/wasteland-companion-guide-app/weekly-silo-codes/silo-codes.json', import.meta.url)
 

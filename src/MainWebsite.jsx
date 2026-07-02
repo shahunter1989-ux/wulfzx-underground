@@ -647,7 +647,7 @@ function WhatIDoPage() {
         {whatIDoSections.map((section) => (
           <React.Fragment key={section.title}>
             <WhatIDoSection section={section} />
-            {section.title === 'AI + QA Systems' ? <AIImageCreationSection /> : null}
+            {section.title === 'AI Creative + Workflow Tools' ? <AIImageCreationSection /> : null}
             {section.title === 'Guides + Websites' ? <BusinessCardPricingSection /> : null}
           </React.Fragment>
         ))}

@@ -3807,6 +3807,16 @@ svg {
   animation: gta-page-aurora 4.6s ease-in-out infinite alternate;
 }
 
+.business-card-page:has(.link-xeno3:hover)::before,
+.business-card-page:has(.link-xeno3:focus-visible)::before,
+.business-card-page:has(.link-xeno3:active)::before,
+.business-card-page:has(.link-xeno3:hover)::after,
+.business-card-page:has(.link-xeno3:focus-visible)::after,
+.business-card-page:has(.link-xeno3:active)::after {
+  opacity: 1;
+  animation: xeno-page-aura 3.4s ease-in-out infinite alternate;
+}
+
 .hub-content {
   position: relative;
   z-index: 1;
@@ -3839,6 +3849,16 @@ svg {
     #010408;
 }
 
+.business-card-page:has(.link-xeno3:hover) .circuit-backdrop,
+.business-card-page:has(.link-xeno3:focus-visible) .circuit-backdrop,
+.business-card-page:has(.link-xeno3:active) .circuit-backdrop {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 221, 54, 0.28), transparent 22rem),
+    radial-gradient(circle at 32% 52%, rgba(255, 155, 28, 0.13), transparent 32rem),
+    radial-gradient(circle at 70% 38%, rgba(82, 220, 255, 0.14), transparent 36rem),
+    #010408;
+}
+
 .backdrop-image {
   position: absolute;
   inset: -3%;
@@ -3858,6 +3878,12 @@ svg {
   filter: saturate(1.45) contrast(1.18) brightness(1.02) hue-rotate(248deg);
 }
 
+.business-card-page:has(.link-xeno3:hover) .backdrop-image,
+.business-card-page:has(.link-xeno3:focus-visible) .backdrop-image,
+.business-card-page:has(.link-xeno3:active) .backdrop-image {
+  filter: saturate(1.35) contrast(1.16) brightness(1.04) hue-rotate(188deg);
+}
+
 .circuit-grid {
   position: absolute;
   inset: 0;
@@ -3875,6 +3901,14 @@ svg {
   background-image:
     linear-gradient(rgba(255, 59, 215, 0.075) 1px, transparent 1px),
     linear-gradient(90deg, rgba(42, 247, 255, 0.062) 1px, transparent 1px);
+}
+
+.business-card-page:has(.link-xeno3:hover) .circuit-grid,
+.business-card-page:has(.link-xeno3:focus-visible) .circuit-grid,
+.business-card-page:has(.link-xeno3:active) .circuit-grid {
+  background-image:
+    linear-gradient(rgba(255, 221, 54, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 220, 255, 0.052) 1px, transparent 1px);
 }
 
 .circuit-backdrop::before,
@@ -3899,6 +3933,14 @@ svg {
   background:
     conic-gradient(from 0deg at 50% 50%, transparent 0 18deg, rgba(255, 59, 215, 0.2) 22deg, transparent 28deg 132deg, rgba(255, 156, 85, 0.12) 138deg, transparent 146deg 252deg, rgba(42, 247, 255, 0.16) 258deg, transparent 266deg 360deg);
   opacity: 0.82;
+}
+
+.business-card-page:has(.link-xeno3:hover) .circuit-backdrop::before,
+.business-card-page:has(.link-xeno3:focus-visible) .circuit-backdrop::before,
+.business-card-page:has(.link-xeno3:active) .circuit-backdrop::before {
+  background:
+    conic-gradient(from 0deg at 50% 50%, transparent 0 18deg, rgba(255, 221, 54, 0.24) 23deg, transparent 31deg 124deg, rgba(82, 220, 255, 0.14) 132deg, transparent 140deg 244deg, rgba(255, 155, 28, 0.16) 252deg, transparent 262deg 360deg);
+  opacity: 0.86;
 }
 
 .circuit-backdrop::after {
@@ -3928,6 +3970,17 @@ svg {
     0 0 46px rgba(42, 247, 255, 0.35),
     0 0 58px rgba(255, 156, 85, 0.18);
   opacity: 0.72;
+}
+
+.business-card-page:has(.link-xeno3:hover) .pulse-line,
+.business-card-page:has(.link-xeno3:focus-visible) .pulse-line,
+.business-card-page:has(.link-xeno3:active) .pulse-line {
+  background: linear-gradient(90deg, transparent, rgba(255, 241, 97, 0.98), rgba(255, 172, 36, 0.66), rgba(82, 220, 255, 0.45), transparent);
+  box-shadow:
+    0 0 22px rgba(255, 221, 54, 0.82),
+    0 0 48px rgba(255, 155, 28, 0.34),
+    0 0 58px rgba(82, 220, 255, 0.2);
+  opacity: 0.78;
 }
 
 .pulse-line-a {
@@ -3971,6 +4024,16 @@ svg {
     0 0 14px rgba(255, 59, 215, 0.95),
     0 0 30px rgba(42, 247, 255, 0.72),
     0 0 42px rgba(255, 156, 85, 0.34);
+}
+
+.business-card-page:has(.link-xeno3:hover) .hub-circuit-node,
+.business-card-page:has(.link-xeno3:focus-visible) .hub-circuit-node,
+.business-card-page:has(.link-xeno3:active) .hub-circuit-node {
+  background: #ffdd36;
+  box-shadow:
+    0 0 15px rgba(255, 241, 97, 0.98),
+    0 0 34px rgba(255, 172, 36, 0.76),
+    0 0 46px rgba(82, 220, 255, 0.24);
 }
 
 .hub-circuit-node-a {
@@ -4019,6 +4082,16 @@ svg {
     inset 0 0 46px rgba(141, 77, 255, 0.18),
     0 0 72px rgba(255, 59, 215, 0.22),
     0 0 92px rgba(42, 247, 255, 0.12);
+}
+
+.business-card-page:has(.link-xeno3:hover) .scan-ring,
+.business-card-page:has(.link-xeno3:focus-visible) .scan-ring,
+.business-card-page:has(.link-xeno3:active) .scan-ring {
+  border-color: rgba(255, 221, 54, 0.42);
+  box-shadow:
+    inset 0 0 48px rgba(255, 221, 54, 0.16),
+    0 0 82px rgba(255, 221, 54, 0.24),
+    0 0 96px rgba(82, 220, 255, 0.1);
 }
 
 .scan-ring::before,
@@ -4074,6 +4147,23 @@ svg {
     0 0 64px rgba(42, 247, 255, 0.12);
 }
 
+.business-card-page:has(.link-xeno3:hover) .link-hub-card,
+.business-card-page:has(.link-xeno3:focus-visible) .link-hub-card,
+.business-card-page:has(.link-xeno3:active) .link-hub-card {
+  border-color: rgba(255, 221, 54, 0.5);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 221, 54, 0.1), transparent 38%),
+    radial-gradient(circle at 72% 62%, rgba(255, 155, 28, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(18, 17, 9, 0.92), rgba(5, 9, 16, 0.9) 46%, rgba(0, 4, 8, 0.95)),
+    var(--panel);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.055),
+    inset 0 0 82px rgba(255, 221, 54, 0.12),
+    0 26px 88px rgba(0, 0, 0, 0.78),
+    0 0 88px rgba(255, 221, 54, 0.24),
+    0 0 64px rgba(82, 220, 255, 0.12);
+}
+
 .link-hub-card::before,
 .link-hub-card::after {
   position: absolute;
@@ -4098,6 +4188,15 @@ svg {
     linear-gradient(180deg, rgba(255, 59, 215, 0.12), transparent 18% 82%, rgba(42, 247, 255, 0.09));
 }
 
+.business-card-page:has(.link-xeno3:hover) .link-hub-card::before,
+.business-card-page:has(.link-xeno3:focus-visible) .link-hub-card::before,
+.business-card-page:has(.link-xeno3:active) .link-hub-card::before {
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 241, 97, 0.92), rgba(255, 155, 28, 0.5), transparent) top center / 88% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgba(82, 220, 255, 0.56), rgba(255, 221, 54, 0.5), transparent) bottom center / 78% 1px no-repeat,
+    linear-gradient(180deg, rgba(255, 221, 54, 0.12), transparent 18% 82%, rgba(82, 220, 255, 0.08));
+}
+
 .link-hub-card::after {
   inset: -1px;
   padding: 1px;
@@ -4115,6 +4214,14 @@ svg {
   background:
     linear-gradient(135deg, rgba(255, 59, 215, 0.52), transparent 18% 80%, rgba(42, 247, 255, 0.46)),
     linear-gradient(90deg, rgba(255, 156, 85, 0.34), transparent 18% 82%, rgba(141, 77, 255, 0.52));
+}
+
+.business-card-page:has(.link-xeno3:hover) .link-hub-card::after,
+.business-card-page:has(.link-xeno3:focus-visible) .link-hub-card::after,
+.business-card-page:has(.link-xeno3:active) .link-hub-card::after {
+  background:
+    linear-gradient(135deg, rgba(255, 241, 97, 0.56), transparent 18% 80%, rgba(82, 220, 255, 0.42)),
+    linear-gradient(90deg, rgba(255, 155, 28, 0.38), transparent 18% 82%, rgba(255, 221, 54, 0.5));
 }
 
 .brand-hero {
@@ -4337,6 +4444,11 @@ svg {
 .link-button-gta {
   --row-accent: #21f2ff;
   --row-secondary: #7eff4f;
+}
+
+.link-button-xeno {
+  --row-accent: #21f2ff;
+  --row-secondary: #ffdd36;
 }
 
 .link-button-featured {
@@ -4660,6 +4772,119 @@ svg {
   filter:
     drop-shadow(0 0 9px rgba(255, 59, 215, 0.56))
     drop-shadow(0 0 7px rgba(255, 156, 85, 0.4));
+  animation-duration: 1.2s;
+}
+
+.link-xeno3 {
+  --row-accent: #21f2ff;
+  --row-secondary: #ffdd36;
+  --xeno-gold: #ffdd36;
+  --xeno-yellow: #fff161;
+  --xeno-amber: #ff9f1c;
+  --xeno-blue: #52dcff;
+  grid-template-columns: 104px minmax(0, 1fr) 30px;
+  background:
+    radial-gradient(circle at 13% 30%, rgba(33, 242, 255, 0.11), transparent 34%),
+    linear-gradient(90deg, rgba(255, 221, 54, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(3, 18, 21, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+}
+
+.link-xeno3 .link-icon {
+  width: 104px;
+  height: 64px;
+  border-color: color-mix(in srgb, var(--row-accent) 68%, var(--xeno-gold) 16%);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(33, 242, 255, 0.12), transparent 66%),
+    radial-gradient(circle at 74% 26%, rgba(255, 221, 54, 0.12), transparent 44%),
+    linear-gradient(145deg, rgba(2, 5, 7, 0.98), rgba(0, 0, 0, 0.98));
+  box-shadow:
+    inset 0 0 20px rgba(33, 242, 255, 0.08),
+    0 0 18px rgba(255, 221, 54, 0.1);
+}
+
+.link-xeno3 .link-icon img {
+  object-fit: contain;
+  padding: 5px;
+  filter: grayscale(0.24) saturate(0.86) contrast(1.08) brightness(0.78) hue-rotate(176deg);
+  transform: scale(0.98);
+  transition:
+    filter 220ms ease,
+    opacity 220ms ease,
+    transform 320ms ease;
+}
+
+.link-xeno3 .link-icon::before {
+  inset: -16%;
+  z-index: 2;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 241, 97, 0.45), transparent 48%),
+    conic-gradient(from 0deg, transparent, rgba(255, 221, 54, 0.58), transparent 28%, rgba(82, 220, 255, 0.26), transparent 62%, rgba(255, 159, 28, 0.5), transparent);
+  opacity: 0.35;
+  filter: blur(3px) drop-shadow(0 0 8px rgba(255, 221, 54, 0.26));
+  transform: scale(0.94);
+  animation: xeno-energy-ring 4.8s linear infinite;
+}
+
+.link-xeno3 .link-icon::after {
+  z-index: 3;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 241, 97, 0.72) 0 2px, transparent 3px 100%),
+    radial-gradient(circle at 80% 74%, rgba(82, 220, 255, 0.62) 0 2px, transparent 3px 100%),
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.2) 50%, transparent 56% 100%);
+  animation:
+    icon-scan 4.8s ease-in-out infinite,
+    xeno-energy-flicker 2.8s ease-in-out infinite;
+}
+
+.link-xeno3:hover,
+.link-xeno3:focus-visible {
+  --row-accent: var(--xeno-gold);
+  --row-secondary: var(--xeno-blue);
+  border-color: color-mix(in srgb, var(--xeno-yellow) 72%, var(--xeno-blue) 20%);
+  background:
+    radial-gradient(circle at 16% 26%, rgba(255, 241, 97, 0.24), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(255, 159, 28, 0.18), transparent 38%),
+    linear-gradient(100deg, rgba(82, 220, 255, 0.14), transparent 30%, rgba(255, 221, 54, 0.16) 68%, rgba(255, 159, 28, 0.16)),
+    linear-gradient(180deg, rgba(22, 19, 4, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 54, 0.38),
+    0 0 46px rgba(255, 221, 54, 0.34),
+    0 0 34px rgba(255, 159, 28, 0.18),
+    0 0 26px rgba(82, 220, 255, 0.14),
+    inset 0 0 42px rgba(255, 221, 54, 0.14);
+}
+
+.link-xeno3:hover .link-icon,
+.link-xeno3:focus-visible .link-icon {
+  border-color: color-mix(in srgb, var(--xeno-yellow) 76%, var(--xeno-blue) 22%);
+  background:
+    radial-gradient(circle at 52% 46%, rgba(255, 241, 97, 0.32), transparent 64%),
+    radial-gradient(circle at 75% 26%, rgba(255, 159, 28, 0.2), transparent 42%),
+    radial-gradient(circle at 22% 74%, rgba(82, 220, 255, 0.18), transparent 48%),
+    linear-gradient(145deg, rgba(23, 18, 5, 0.96), rgba(2, 7, 13, 0.98));
+  box-shadow:
+    inset 0 0 26px rgba(255, 221, 54, 0.16),
+    0 0 30px rgba(255, 221, 54, 0.42),
+    0 0 20px rgba(82, 220, 255, 0.2);
+}
+
+.link-xeno3:hover .link-icon img,
+.link-xeno3:focus-visible .link-icon img {
+  filter: saturate(1.36) contrast(1.16) brightness(1.12);
+  transform: scale(1.02);
+  animation: xeno-thumbnail-power-up 940ms cubic-bezier(0.2, 0.9, 0.25, 1.12);
+}
+
+.link-xeno3:hover .link-icon::before,
+.link-xeno3:focus-visible .link-icon::before {
+  opacity: 0.92;
+  filter:
+    blur(2px)
+    drop-shadow(0 0 12px rgba(255, 221, 54, 0.68))
+    drop-shadow(0 0 8px rgba(82, 220, 255, 0.28));
   animation-duration: 1.2s;
 }
 
@@ -5014,6 +5239,18 @@ svg {
   }
 }
 
+@keyframes xeno-page-aura {
+  0% {
+    filter: saturate(1) brightness(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    filter: saturate(1.16) brightness(1.1);
+    transform: translate3d(0, -0.7%, 0) scale(1.018);
+  }
+}
+
 @keyframes grid-drift {
   to {
     background-position: 56px 56px;
@@ -5269,6 +5506,46 @@ svg {
   }
 }
 
+@keyframes xeno-energy-ring {
+  from {
+    transform: rotate(0deg) scale(0.94);
+  }
+
+  to {
+    transform: rotate(360deg) scale(0.94);
+  }
+}
+
+@keyframes xeno-energy-flicker {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+
+  45% {
+    opacity: 0.98;
+  }
+
+  62% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes xeno-thumbnail-power-up {
+  0%,
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+
+  34% {
+    transform: scale(1.06) translate3d(1px, -1px, 0);
+  }
+
+  68% {
+    transform: scale(1.03) translate3d(-1px, 1px, 0);
+  }
+}
+
 @keyframes icon-mist-roll {
   0% {
     filter: blur(12px);
@@ -5335,6 +5612,15 @@ svg {
 
   .link-button-featured .link-icon {
     width: 76px;
+    height: 76px;
+  }
+
+  .link-xeno3 {
+    grid-template-columns: 118px minmax(0, 1fr) 36px;
+  }
+
+  .link-xeno3 .link-icon {
+    width: 118px;
     height: 76px;
   }
 
@@ -5408,6 +5694,19 @@ svg {
   .link-button-featured .link-icon {
     width: 58px;
     height: 58px;
+  }
+
+  .link-xeno3 {
+    grid-template-columns: 80px minmax(0, 1fr) 22px;
+  }
+
+  .link-xeno3 .link-icon {
+    width: 80px;
+    height: 58px;
+  }
+
+  .link-xeno3 .link-icon img {
+    padding: 4px;
   }
 
   .link-button-featured .link-icon svg {

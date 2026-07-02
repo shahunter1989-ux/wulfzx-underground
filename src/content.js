@@ -10,7 +10,6 @@ export const links = {
   guide76SiloCodes: 'https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/',
   guide76SiloCodesInternal: '/wasteland-companion-guide-app/weekly-silo-codes/index.html',
   discord: 'https://discord.gg/dRpQjcEj',
-  qaPortal: 'https://web-production-97ee.up.railway.app/',
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',
   websiteSample: 'https://wzxuwebview.lovable.app/',
   basicBusinessCard: 'https://wzxulink.lovable.app/',
@@ -33,7 +32,6 @@ export const navItems = [
   { label: '76 Guide', href: links.guide76Landing },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'Music', href: '/painter-of-dreams/' },
-  { label: 'WZXQA Portal', href: '#wzxqa-portal' },
   { label: 'Staff', href: '#staff-portal' },
   { label: 'Connect', href: '#connect' },
 ]
@@ -60,16 +58,6 @@ export const featureTiles = [
     image: assetPath('wulfzx-76-guide-opt.webp'),
     imageAlt: 'WULFZX Fallout 76 Wasteland Guide artwork',
     variant: 'gold',
-  },
-  {
-    title: 'WZXQA Portal',
-    id: 'wzxqa-portal',
-    eyebrow: 'Game QA',
-    description: 'Bug reports, guide and game status, tester forms, and admin access.',
-    cta: 'Open Portal',
-    href: links.qaPortal,
-    image: assetPath('wulfzx-qa-portal-opt.webp'),
-    imageAlt: 'WULFZX Underground WZXQA Portal artwork',
   },
   {
     title: 'Staff Portal',
@@ -136,14 +124,6 @@ export const connectLinks = [
     imageAlt: 'WULFZX Underground Linktree Shop icon',
   },
   {
-    title: 'WZXQA Portal',
-    status: 'Bug reports and live status',
-    href: links.qaPortal,
-    symbol: 'QA',
-    image: assetPath('wulfzx-qa-portal-opt.webp'),
-    imageAlt: 'WULFZX Underground WZXQA Portal icon',
-  },
-  {
     title: 'Staff Login',
     status: 'Ops Clock access',
     href: links.opsClock,
@@ -175,15 +155,6 @@ export const ownerDashboardLinks = [
     status: 'Owner access',
     href: links.gmailMessages,
   },
-  {
-    title: 'WZXQA Portal',
-    category: 'Operations',
-    description: 'Open the live QA portal for reports, status, tester forms, and project tracking.',
-    status: 'Live portal',
-    href: links.qaPortal,
-    image: assetPath('wulfzx-qa-portal-opt.webp'),
-    imageAlt: 'WULFZX Underground WZXQA Portal artwork',
-  },
 ]
 
 export const aiImageCreation = {
@@ -205,18 +176,9 @@ export const aiImageCreation = {
 
 export const whatIDoSections = [
   {
-    title: 'AI + QA Systems',
-    intro: 'Public tools for quality tracking, project status, tester feedback, and future AI-assisted workflows.',
+    title: 'AI Systems',
+    intro: 'AI-assisted workflows and tools that turn WULFZX ideas into useful public experiences.',
     cards: [
-      {
-        title: 'WZXQA Portal',
-        category: 'Live QA',
-        description: 'A public quality hub for bug reports, live guide and game status, tester forms, and project tracking.',
-        status: 'Live portal',
-        href: links.qaPortal,
-        image: assetPath('wulfzx-qa-portal-opt.webp'),
-        imageAlt: 'WULFZX Underground WZXQA Portal artwork',
-      },
       {
         title: 'AI Workflow Builds',
         category: 'AI Tools',

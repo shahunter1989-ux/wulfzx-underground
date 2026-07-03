@@ -67,6 +67,15 @@ const links = [
     image: assetPath('business-card-discord-opt.webp'),
     imageAlt: 'Wulfzx.Underground Discord themed icon',
   },
+  {
+    id: 'qa-portal',
+    title: 'WZXU QA Portal (Staff)',
+    description: 'Status Live / Report a Bug - Public',
+    href: 'https://web-production-97ee.up.railway.app/start',
+    accent: 'qa',
+    image: assetPath('wzx-qa-portal-hub-icon.webp'),
+    imageAlt: 'Wulfzx.Underground QA Portal staff icon',
+  },
 ]
 
 function App() {

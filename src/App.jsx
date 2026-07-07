@@ -14,6 +14,24 @@ const links = [
     Icon: WebsiteIcon,
   },
   {
+    id: 'guide',
+    title: 'WULFZX Fallout 76 Wasteland Guide',
+    description: 'WZXU76.pro',
+    href: 'https://wzxu76.pro',
+    accent: 'silver',
+    image: assetPath('wzxu76-guide-hub-icon.webp'),
+    imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
+  },
+  {
+    id: 'duck-nuke',
+    title: 'Duck Duck Nuke',
+    description: 'Wasteland arcade game by Wulfzx.Underground.',
+    href: 'https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check',
+    accent: 'duck',
+    image: assetPath('duck-duck-nuke-hub-icon.webp'),
+    imageAlt: 'Duck Duck Nuke arcade game preview',
+  },
+  {
     id: 'gta-countdown',
     title: 'GTA VI Countdown',
     description: 'Grand Theft Auto VI countdown timer.',
@@ -32,14 +50,6 @@ const links = [
     featured: true,
     image: assetPath('xeno3-fan-hub-logo.webp'),
     imageAlt: 'Dragon Ball Xenoverse 3 fan hub logo artwork',
-  },
-  {
-    id: 'guide',
-    title: 'WULFZX Fallout 76 Wasteland Guide',
-    description: 'WZXU76.pro',
-    href: 'https://wzxu76.pro',
-    accent: 'silver',
-    Icon: WastelandIcon,
   },
   {
     id: 'cashapp',
@@ -239,18 +249,6 @@ function WebsiteIcon() {
       <circle className="website-globe-shell" cx="32" cy="32" r="23" />
       <path className="website-globe-equator" d="M9 32h46M15 20h34M15 44h34" />
       <path className="website-globe-meridians" d="M32 9c7 7 10 15 10 23S39 48 32 55M32 9c-7 7-10 15-10 23s3 16 10 23" />
-    </svg>
-  )
-}
-
-function WastelandIcon() {
-  return (
-    <svg viewBox="0 0 64 64" role="img" aria-label="Custom wasteland tech guide icon">
-      <path className="guide-page-back" d="M15 11h26l8 8v34H15z" />
-      <path className="guide-page-turn" d="M40 12l9 8v31H28c6-7 9-17 12-39z" />
-      <path className="guide-page-lines" d="M41 11v10h10M22 28h20M22 36h15" />
-      <path className="guide-wasteland-mark" d="M20 50l7-8 6 5 8-11 6 14" />
-      <circle className="guide-node" cx="47" cy="48" r="4" />
     </svg>
   )
 }

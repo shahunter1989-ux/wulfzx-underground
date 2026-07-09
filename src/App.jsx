@@ -52,6 +52,15 @@ const links = [
     imageAlt: 'Dragon Ball Xenoverse 3 fan hub logo artwork',
   },
   {
+    id: 'gaming-history',
+    title: 'Gaming History',
+    description: 'Explore the SNES era with console history, hardware notes, iconic games, and retro gaming legacy.',
+    href: 'https://snes-deploy.vercel.app/',
+    accent: 'history',
+    featured: true,
+    Icon: GamingHistoryIcon,
+  },
+  {
     id: 'cashapp',
     title: 'Cash App',
     description: 'Support Wulfzx.Underground.',
@@ -259,6 +268,18 @@ function TikTokIcon() {
       <path className="social-note-main" d="M38 10v27.5c0 8-6.2 14.5-14.2 14.5S10 46.4 10 39.3 15.9 26 23.6 26c1.5 0 2.9.2 4.2.7v9.8a6 6 0 1 0 2.2 4.6V10z" />
       <path className="social-note-signal" d="M38 10c2.4 7.3 7.4 12.2 16 12.9v10.3c-6.9-.1-12.1-2.3-16-6" />
       <path className="social-note-sparks" d="M17 18h7M12 23h4M48 41h5M42 47h8" />
+    </svg>
+  )
+}
+
+function GamingHistoryIcon() {
+  return (
+    <svg viewBox="0 0 64 64" role="img" aria-label="Retro gaming history console icon">
+      <path className="history-console-shell" d="M12 18h40c3 0 5 2 5 5v18c0 3-2 5-5 5H12c-3 0-5-2-5-5V23c0-3 2-5 5-5z" />
+      <path className="history-cartridge" d="M23 12h18v12H23z" />
+      <path className="history-dpad" d="M18 29h12M24 23v12" />
+      <path className="history-buttons" d="M41 29h.1M49 34h.1" />
+      <path className="history-signal" d="M16 51h32M22 56h20" />
     </svg>
   )
 }

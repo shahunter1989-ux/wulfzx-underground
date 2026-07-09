@@ -4461,6 +4461,11 @@ svg {
   --row-secondary: #ffdd36;
 }
 
+.link-button-history {
+  --row-accent: #ff4d8d;
+  --row-secondary: #52dcff;
+}
+
 .link-button-featured {
   grid-template-columns: 64px minmax(0, 1fr) 30px;
   min-height: 90px;
@@ -4586,6 +4591,22 @@ svg {
 
 .link-button:nth-child(6) .link-icon::after {
   animation-delay: -4s;
+}
+
+.link-button:nth-child(7) .link-icon::after {
+  animation-delay: -4.8s;
+}
+
+.link-button:nth-child(8) .link-icon::after {
+  animation-delay: -5.6s;
+}
+
+.link-button:nth-child(9) .link-icon::after {
+  animation-delay: -6.4s;
+}
+
+.link-button:nth-child(10) .link-icon::after {
+  animation-delay: -7.2s;
 }
 
 .link-icon img {
@@ -5033,6 +5054,116 @@ svg {
     drop-shadow(0 0 12px rgba(255, 221, 54, 0.68))
     drop-shadow(0 0 8px rgba(82, 220, 255, 0.28));
   animation-duration: 1.2s;
+}
+
+.link-gaming-history {
+  --history-pink: #ff4d8d;
+  --history-cyan: #52dcff;
+  --history-amber: #ffcb5c;
+  --history-purple: #8a6bff;
+  background:
+    radial-gradient(circle at 13% 28%, rgba(255, 77, 141, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(82, 220, 255, 0.09), transparent 42%),
+    linear-gradient(180deg, rgba(16, 8, 24, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+}
+
+.link-gaming-history .link-icon {
+  border-color: color-mix(in srgb, var(--history-pink) 62%, var(--history-cyan) 26%);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 8px 8px,
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 8px 8px,
+    radial-gradient(circle at 50% 46%, rgba(255, 77, 141, 0.2), transparent 64%),
+    linear-gradient(145deg, rgba(20, 9, 28, 0.96), rgba(1, 7, 13, 0.98));
+  color: color-mix(in srgb, var(--history-amber) 76%, white 14%);
+  box-shadow:
+    inset 0 0 22px rgba(255, 77, 141, 0.08),
+    0 0 18px rgba(82, 220, 255, 0.1);
+}
+
+.link-gaming-history .link-icon::before {
+  inset: -18%;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 30% 72%, rgba(255, 203, 92, 0.54), transparent 34%),
+    radial-gradient(circle at 76% 28%, rgba(82, 220, 255, 0.48), transparent 33%),
+    conic-gradient(from 0deg, transparent, rgba(255, 77, 141, 0.5), transparent 35%, rgba(138, 107, 255, 0.36), transparent);
+  opacity: 0.38;
+  filter: blur(4px) drop-shadow(0 0 8px rgba(255, 77, 141, 0.24));
+  transform: scale(0.96);
+  animation: history-pixel-glow 4.2s ease-in-out infinite alternate;
+}
+
+.link-gaming-history .link-icon::after {
+  z-index: 3;
+  background:
+    radial-gradient(circle at 20% 22%, rgba(255, 203, 92, 0.74) 0 2px, transparent 3px 100%),
+    radial-gradient(circle at 78% 78%, rgba(82, 220, 255, 0.68) 0 2px, transparent 3px 100%),
+    linear-gradient(115deg, transparent 0 44%, rgba(255, 255, 255, 0.2) 50%, transparent 56% 100%);
+  animation:
+    icon-scan 4.8s ease-in-out infinite,
+    history-scanline-flicker 2.6s ease-in-out infinite;
+}
+
+.link-gaming-history .link-icon svg {
+  stroke-width: 2.8;
+}
+
+.link-gaming-history .history-console-shell,
+.link-gaming-history .history-cartridge {
+  fill: rgba(3, 8, 14, 0.62);
+}
+
+.link-gaming-history .history-cartridge {
+  animation: history-cartridge-pulse 3.2s ease-in-out infinite;
+}
+
+.link-gaming-history .history-buttons {
+  stroke-width: 7;
+}
+
+.link-gaming-history:hover,
+.link-gaming-history:focus-visible {
+  --row-accent: var(--history-amber);
+  --row-secondary: var(--history-cyan);
+  border-color: color-mix(in srgb, var(--history-amber) 58%, var(--history-cyan) 32%);
+  background:
+    radial-gradient(circle at 12% 28%, rgba(255, 203, 92, 0.22), transparent 34%),
+    radial-gradient(circle at 80% 76%, rgba(255, 77, 141, 0.18), transparent 38%),
+    linear-gradient(100deg, rgba(82, 220, 255, 0.16), transparent 30%, rgba(138, 107, 255, 0.16) 68%, rgba(255, 203, 92, 0.14)),
+    linear-gradient(180deg, rgba(21, 12, 26, 0.98), rgba(3, 6, 13, 0.98)),
+    var(--panel-strong);
+  box-shadow:
+    0 0 0 1px rgba(255, 203, 92, 0.34),
+    0 0 42px rgba(255, 77, 141, 0.28),
+    0 0 32px rgba(82, 220, 255, 0.18),
+    inset 0 0 40px rgba(138, 107, 255, 0.14);
+}
+
+.link-gaming-history:hover .link-icon,
+.link-gaming-history:focus-visible .link-icon {
+  border-color: color-mix(in srgb, var(--history-amber) 70%, var(--history-cyan) 22%);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px) 0 0 / 8px 8px,
+    linear-gradient(0deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 8px 8px,
+    radial-gradient(circle at 50% 46%, rgba(255, 203, 92, 0.28), transparent 64%),
+    radial-gradient(circle at 24% 74%, rgba(82, 220, 255, 0.18), transparent 48%),
+    linear-gradient(145deg, rgba(24, 11, 29, 0.96), rgba(2, 7, 13, 0.98));
+  box-shadow:
+    inset 0 0 26px rgba(255, 203, 92, 0.14),
+    0 0 28px rgba(255, 77, 141, 0.36),
+    0 0 20px rgba(82, 220, 255, 0.22);
+}
+
+.link-gaming-history:hover .link-icon::before,
+.link-gaming-history:focus-visible .link-icon::before {
+  opacity: 0.9;
+  filter:
+    blur(3px)
+    drop-shadow(0 0 12px rgba(255, 203, 92, 0.55))
+    drop-shadow(0 0 8px rgba(82, 220, 255, 0.3));
+  transform: scale(1.04);
 }
 
 .link-cashapp .link-icon::before {
@@ -5710,6 +5841,44 @@ svg {
 
   68% {
     transform: scale(1.03) translate3d(-1px, 1px, 0);
+  }
+}
+
+@keyframes history-pixel-glow {
+  0% {
+    opacity: 0.34;
+    transform: scale(0.94) translate3d(-1%, 1%, 0);
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: scale(1.04) translate3d(1%, -1%, 0);
+  }
+}
+
+@keyframes history-scanline-flicker {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+
+  46% {
+    opacity: 0.95;
+  }
+
+  62% {
+    opacity: 0.68;
+  }
+}
+
+@keyframes history-cartridge-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(255, 203, 92, 0.28));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px rgba(82, 220, 255, 0.46));
   }
 }
 

@@ -805,31 +805,6 @@ function WastelandCompanionGuidePage() {
             WZXU76.pro is the active Fallout 76 companion experience for builds, resources, and survival support.
           </span>
         </article>
-        <article>
-          <strong>
-            <AnimatedText text="External Platform" />
-          </strong>
-          <span>
-            The guide now opens on the custom WZXU76 domain instead of loading a copied version from this site.
-          </span>
-        </article>
-        <article>
-          <strong>
-            <AnimatedText text="Business Ready" />
-          </strong>
-          <span>
-            Keeping one active guide source avoids duplicate maintenance while preserving the WULFZX guide entry.
-          </span>
-        </article>
-        <article>
-          <strong>
-            <AnimatedText text="Field Tools" />
-          </strong>
-          <span>
-            Weekly Silo Codes opens a separate WULFZX-hosted utility for Fallout 76 launch codes, keeping the main guide
-            focused while still connecting players to quick field support.
-          </span>
-        </article>
       </section>
 
       <div className="what-action-row" aria-label="Guide page secondary actions">

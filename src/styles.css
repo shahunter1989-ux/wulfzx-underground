@@ -2974,7 +2974,8 @@ a.what-card-premium-card:focus-visible .what-card-media {
 
 .guide-status-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, min(100%, 720px));
+  justify-content: center;
   gap: 16px;
 }
 

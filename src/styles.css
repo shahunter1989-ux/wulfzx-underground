@@ -5330,6 +5330,229 @@ svg {
   animation: scroll-cue-pulse 2.8s ease-in-out infinite;
 }
 
+.gaming-history-page {
+  display: block;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  background: #010408;
+}
+
+.gaming-history-page::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  opacity: 1;
+  background:
+    linear-gradient(180deg, rgba(1, 4, 8, 0.78) 0 19%, rgba(1, 4, 8, 0.08) 33% 78%, rgba(1, 4, 8, 0.26)),
+    var(--gaming-history-bg) center bottom / cover no-repeat;
+  filter: saturate(1.05) contrast(1.04) brightness(0.92);
+  pointer-events: none;
+}
+
+.gaming-history-page::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  opacity: 1;
+  background:
+    linear-gradient(180deg, rgba(1, 4, 8, 0.88) 0 17%, transparent 30%),
+    linear-gradient(90deg, rgba(1, 4, 8, 0.32), transparent 18% 82%, rgba(1, 4, 8, 0.3));
+  pointer-events: none;
+}
+
+.gaming-history-back {
+  position: fixed;
+  top: clamp(12px, 3vw, 24px);
+  left: clamp(12px, 3vw, 24px);
+  z-index: 2;
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(82, 220, 255, 0.28);
+  border-radius: 7px;
+  background:
+    linear-gradient(90deg, rgba(82, 220, 255, 0.08), transparent 70%),
+    rgba(2, 9, 15, 0.48);
+  color: #dff6ff;
+  box-shadow:
+    inset 0 0 14px rgba(82, 220, 255, 0.04),
+    0 0 18px rgba(82, 220, 255, 0.08);
+  backdrop-filter: blur(6px);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.gaming-history-back span {
+  display: grid;
+  place-items: center;
+  color: rgba(223, 246, 255, 0.86);
+}
+
+.gaming-history-back svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.gaming-history-back:hover,
+.gaming-history-back:focus-visible {
+  border-color: rgba(82, 220, 255, 0.74);
+  background: rgba(2, 9, 15, 0.72);
+  box-shadow:
+    inset 0 0 18px rgba(82, 220, 255, 0.08),
+    0 0 28px rgba(82, 220, 255, 0.22);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.gaming-history-hotspot {
+  position: fixed;
+  z-index: 1;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(82, 220, 255, 0.36);
+  background:
+    linear-gradient(180deg, rgba(82, 220, 255, 0.05), transparent 42%),
+    rgba(1, 4, 8, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 203, 92, 0.08),
+    0 0 22px rgba(82, 220, 255, 0.12),
+    inset 0 0 28px rgba(82, 220, 255, 0.06);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.gaming-history-hotspot span {
+  position: absolute;
+  right: 50%;
+  bottom: -28px;
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  padding: 0 9px;
+  border: 1px solid rgba(82, 220, 255, 0.46);
+  border-radius: 999px;
+  background: rgba(1, 6, 11, 0.72);
+  color: #dff6ff;
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(82, 220, 255, 0.46);
+  transform: translateX(50%);
+  box-shadow: 0 0 16px rgba(82, 220, 255, 0.16);
+}
+
+.gaming-history-hotspot::after {
+  position: absolute;
+  inset: -4px;
+  content: "";
+  border: 1px solid rgba(255, 203, 92, 0.34);
+  border-radius: inherit;
+  opacity: 0.56;
+  animation: snes-hotspot-pulse 2.6s ease-in-out infinite;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+}
+
+.gaming-history-hotspot:hover::after,
+.gaming-history-hotspot:focus-visible::after {
+  border-color: rgba(82, 220, 255, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(255, 203, 92, 0.28),
+    0 0 24px rgba(82, 220, 255, 0.24);
+  opacity: 1;
+}
+
+.gaming-history-hotspot:hover,
+.gaming-history-hotspot:focus-visible {
+  border-color: rgba(255, 203, 92, 0.8);
+  background:
+    linear-gradient(180deg, rgba(255, 203, 92, 0.1), transparent 44%),
+    rgba(1, 4, 8, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(82, 220, 255, 0.22),
+    0 0 30px rgba(255, 203, 92, 0.24),
+    0 0 34px rgba(82, 220, 255, 0.2),
+    inset 0 0 32px rgba(255, 203, 92, 0.08);
+  transform: translateY(-2px);
+}
+
+.gaming-history-hotspot:focus-visible {
+  outline: none;
+}
+
+.gaming-history-hotspot-snes {
+  left: 18.8%;
+  top: 67%;
+  width: 8%;
+  height: 18%;
+}
+
+@media (max-aspect-ratio: 16 / 9) {
+  .gaming-history-page::before {
+    background:
+      linear-gradient(180deg, rgba(1, 4, 8, 0.78) 0 17%, rgba(1, 4, 8, 0.1) 34% 78%, rgba(1, 4, 8, 0.28)),
+      var(--gaming-history-bg) center bottom / auto 100% no-repeat;
+  }
+
+  .gaming-history-hotspot-snes {
+    left: calc(50% - 43vh);
+    top: 67%;
+    width: 14vh;
+    height: 18vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .gaming-history-page::before {
+    background:
+      linear-gradient(180deg, rgba(1, 4, 8, 0.78) 0 17%, rgba(1, 4, 8, 0.08) 34% 78%, rgba(1, 4, 8, 0.26)),
+      var(--gaming-history-bg) 23% bottom / auto 100% no-repeat;
+  }
+
+  .gaming-history-hotspot-snes {
+    left: 30vw;
+    top: 66%;
+    width: 15vw;
+    height: 18%;
+  }
+}
+
+@keyframes snes-hotspot-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.035);
+  }
+}
+
 .media-preview {
   position: relative;
   width: min(100%, 590px);

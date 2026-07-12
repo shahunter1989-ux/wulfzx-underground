@@ -3,12 +3,9 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 export const links = {
   youtube: 'https://www.youtube.com/@Wulfzx.underground',
   linktree: 'https://linktr.ee/Wulfzx',
-  guide76: 'https://wulfzx-wasteland-wise-guide.lovable.app/',
-  guide76Hosted: '/wasteland-companion-guide-app/index.html',
-  guide76Local: '/wasteland-companion-guide-app/index.html',
+  guide76: 'https://wzxu76.pro/',
   guide76Landing: '/wasteland-companion-guide/',
   guide76SiloCodes: 'https://shahunter1989-ux.github.io/wulfzx-underground-silo-codes/',
-  guide76SiloCodesInternal: '/wasteland-companion-guide-app/weekly-silo-codes/index.html',
   discord: 'https://discord.gg/dRpQjcEj',
   opsClock: 'https://crewmate-daylong-astrology.ngrok-free.dev/login',
   websiteSample: 'https://wzxuwebview.lovable.app/',

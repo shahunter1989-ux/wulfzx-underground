@@ -769,16 +769,12 @@ function WastelandCompanionGuidePage() {
             <AnimatedText text="Wasteland Companion Guide" />
           </h1>
           <p>
-            Choose how to view the companion guide. The WULFZX-hosted guide shows our maintained build of the companion
-            guide on the main site, while the live Lovable guide keeps the external platform version available for
-            comparison and support.
+            Open the live WZXU76 Fallout 76 companion guide for builds, resources, survival support, and field tools.
+            The local WULFZX-hosted replica has been removed so the custom-domain guide stays as the active source.
           </p>
           <div className="guide-actions" aria-label="Wasteland Companion Guide actions">
-            <a className="button button-primary" href={links.guide76Hosted} target="_blank" rel="noreferrer">
-              <AnimatedText text="Open WULFZX Hosted Guide" />
-            </a>
-            <a className="button button-secondary" href={links.guide76} target="_blank" rel="noreferrer">
-              <AnimatedText text="Open Live Lovable Guide" />
+            <a className="button button-primary" href={links.guide76} target="_blank" rel="noreferrer">
+              <AnimatedText text="WZXU76.pro" />
             </a>
             <a
               className="button guide-silo-button"
@@ -803,11 +799,10 @@ function WastelandCompanionGuidePage() {
       <section className="guide-status-grid" aria-label="Guide testing status">
         <article>
           <strong>
-            <AnimatedText text="WULFZX AI Tools" />
+            <AnimatedText text="Live Guide" />
           </strong>
           <span>
-            The hosted guide is packaged with the main WULFZX site, showing that WULFZX can build, maintain, and publish
-            AI-assisted tools directly.
+            WZXU76.pro is the active Fallout 76 companion experience for builds, resources, and survival support.
           </span>
         </article>
         <article>
@@ -815,8 +810,7 @@ function WastelandCompanionGuidePage() {
             <AnimatedText text="External Platform" />
           </strong>
           <span>
-            The live Lovable version runs on an external web hosting platform, showing that WULFZX can meet modern
-            platform standards while supporting the wider web-building ecosystem.
+            The guide now opens on the custom WZXU76 domain instead of loading a copied version from this site.
           </span>
         </article>
         <article>
@@ -824,8 +818,7 @@ function WastelandCompanionGuidePage() {
             <AnimatedText text="Business Ready" />
           </strong>
           <span>
-            Both options demonstrate that WULFZX can publish independently, work alongside industry platforms, and stay
-            competitive with modern web standards.
+            Keeping one active guide source avoids duplicate maintenance while preserving the WULFZX guide entry.
           </span>
         </article>
         <article>

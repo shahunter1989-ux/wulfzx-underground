@@ -2,6 +2,9 @@ import React from 'react'
 import MainWebsite from './MainWebsite'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
+const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
+const gamingHistoryBackground = assetPath('gaming-history-console-timeline.webp')
+const snesHistoryHref = 'https://snes-deploy.vercel.app/'
 
 const links = [
   {
@@ -55,9 +58,10 @@ const links = [
     id: 'gaming-history',
     title: 'Gaming History',
     description: 'Explore the SNES era with console history, hardware notes, iconic games, and retro gaming legacy.',
-    href: 'https://snes-deploy.vercel.app/',
+    href: gamingHistoryPath,
     accent: 'history',
     featured: true,
+    isInternal: true,
     Icon: GamingHistoryIcon,
   },
   {
@@ -100,21 +104,16 @@ const links = [
 function App() {
   const basePath = import.meta.env.BASE_URL
   const currentPath = window.location.pathname
-  const guideRoot = `${basePath}wasteland-companion-guide-app`
+  const gamingHistoryRoot = `${basePath}gaming-history`
   const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
-
-  const isGuideRoute = currentPath === guideRoot || currentPath.startsWith(`${guideRoot}/`)
-  const isGuideIndex = currentPath.endsWith('/index.html')
-  const hasFileExtension = /\.[^/]+$/.test(currentPath)
-
-  if (isGuideRoute && !isGuideIndex && !hasFileExtension) {
-    const staticGuidePath = currentPath.endsWith('/') ? `${currentPath}index.html` : `${currentPath}/index.html`
-    window.location.replace(`${staticGuidePath}${window.location.search}${window.location.hash}`)
-    return null
-  }
+  const isGamingHistoryRoute = currentPath === gamingHistoryRoot || currentPath.startsWith(`${gamingHistoryRoot}/`)
 
   if (isMainWebsiteRoute) {
     return <MainWebsite />
+  }
+
+  if (isGamingHistoryRoute) {
+    return <GamingHistoryPage />
   }
 
   return <HubPage />
@@ -160,6 +159,36 @@ function HubPage() {
 
         <MediaPreview />
       </div>
+    </main>
+  )
+}
+
+function GamingHistoryPage() {
+  return (
+    <main
+      className="business-card-page gaming-history-page"
+      style={{ '--gaming-history-bg': `url("${gamingHistoryBackground}")` }}
+      aria-labelledby="gaming-history-title"
+    >
+      <h1 className="sr-only" id="gaming-history-title">
+        Gaming History
+      </h1>
+      <a className="gaming-history-back" href={import.meta.env.BASE_URL} aria-label="Back to hub">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+        </span>
+      </a>
+      <a
+        className="gaming-history-hotspot gaming-history-hotspot-snes"
+        href={snesHistoryHref}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open the Super Nintendo history page"
+      >
+        <span aria-hidden="true">SNES</span>
+      </a>
     </main>
   )
 }

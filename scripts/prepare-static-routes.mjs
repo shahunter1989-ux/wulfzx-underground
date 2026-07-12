@@ -10,6 +10,7 @@ const routes = [
   'main/gallery',
   'main/painter-of-dreams',
   'main/wasteland-companion-guide',
+  'gaming-history',
 ]
 
 await Promise.all(

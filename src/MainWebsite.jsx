@@ -1205,13 +1205,19 @@ function GamesShowcase() {
       <div className="section-rule">
         <span />
         <h2 id="games-heading">
-          <AnimatedText text="Three Games. One Vision." />
+          <AnimatedText text="Games. Tools. One Vision." />
         </h2>
         <span />
       </div>
       <div className="game-card-grid">
         {gameCards.map((game) => (
-          <a className="game-card" key={game.title} href={game.href} target="_blank" rel="noreferrer">
+          <a
+            className={`game-card ${game.variant ? `game-card-${game.variant}` : ''}`}
+            key={game.title}
+            href={game.href}
+            target="_blank"
+            rel="noreferrer"
+          >
             <div className="game-media">
               <img src={game.image} alt={game.imageAlt} loading="lazy" decoding="async" />
             </div>

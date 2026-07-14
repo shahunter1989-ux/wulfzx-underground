@@ -5,6 +5,7 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
 const gamingHistoryBackground = assetPath('gaming-history-console-timeline.webp')
 const snesHistoryHref = 'https://snes-deploy.vercel.app/'
+const survivalScenarioHref = 'https://wzxu-survival-scenario--shahunter1989.replit.app'
 
 const links = [
   {
@@ -33,6 +34,15 @@ const links = [
     accent: 'duck',
     image: assetPath('duck-duck-nuke-hub-icon.webp'),
     imageAlt: 'Duck Duck Nuke arcade game preview',
+  },
+  {
+    id: 'survival-scenario',
+    title: 'WZXU Nuclear Survival Scenario',
+    description: 'When the sirens hit, make the call: test your nuclear survival instincts in a fast WZXU emergency scenario.',
+    href: survivalScenarioHref,
+    accent: 'survival',
+    featured: true,
+    Icon: SurvivalScenarioIcon,
   },
   {
     id: 'gta-countdown',
@@ -309,6 +319,18 @@ function GamingHistoryIcon() {
       <path className="history-dpad" d="M18 29h12M24 23v12" />
       <path className="history-buttons" d="M41 29h.1M49 34h.1" />
       <path className="history-signal" d="M16 51h32M22 56h20" />
+    </svg>
+  )
+}
+
+function SurvivalScenarioIcon() {
+  return (
+    <svg viewBox="0 0 64 64" role="img" aria-label="Nuclear survival scenario icon">
+      <path className="survival-warning-frame" d="M32 8l26 46H6L32 8z" />
+      <path className="survival-warning-core" d="M32 20v15" />
+      <path className="survival-warning-dot" d="M32 44h.1" />
+      <path className="survival-radar-ring" d="M20 50a16 16 0 0 1 24 0" />
+      <path className="survival-radar-sweep" d="M32 50l11-11" />
     </svg>
   )
 }

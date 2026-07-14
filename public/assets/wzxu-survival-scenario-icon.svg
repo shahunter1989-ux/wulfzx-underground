@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">WZXU Nuclear Survival Scenario</title>
+  <desc id="desc">A WZXU styled nuclear survival warning icon with a hazard triangle, radar sweep, and emergency signal lines.</desc>
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="46%" r="58%">
+      <stop offset="0" stop-color="#eaff66" stop-opacity=".58"/>
+      <stop offset=".45" stop-color="#58ff67" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#04100a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hazardEdge" x1="110" x2="530" y1="306" y2="54">
+      <stop offset="0" stop-color="#5cff68"/>
+      <stop offset=".48" stop-color="#ffe866"/>
+      <stop offset="1" stop-color="#ff9a3c"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 .45 0 0 0 0 1 0 0 0 0 .32 0 0 0 .8 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="640" height="360" fill="#020806"/>
+  <rect width="640" height="360" fill="url(#coreGlow)"/>
+  <path d="M42 74h146M452 74h146M74 286h108M458 286h108" stroke="#36ff73" stroke-width="4" stroke-linecap="round" opacity=".34"/>
+  <path d="M320 42 542 318H98L320 42z" fill="#07130b" stroke="url(#hazardEdge)" stroke-width="12" filter="url(#glow)"/>
+  <path d="M320 80 500 298H140L320 80z" fill="none" stroke="#eaff66" stroke-width="3" opacity=".38"/>
+  <circle cx="320" cy="212" r="60" fill="none" stroke="#58ff67" stroke-width="8"/>
+  <circle cx="320" cy="212" r="24" fill="#eaff66"/>
+  <path d="M320 212 273 294h94l-47-82zM320 212l47-82h-94l47 82zM320 212h94l-47-82-47 82zM320 212h-94l47 82 47-82z" fill="#58ff67" opacity=".28"/>
+  <path d="M320 116v86M320 248v22" stroke="#07130b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M320 116v86M320 248v22" stroke="#eaff66" stroke-width="8" stroke-linecap="round"/>
+  <path d="M245 306a94 94 0 0 1 150 0M272 306a62 62 0 0 1 96 0" fill="none" stroke="#36d7ff" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+  <path d="M320 306 388 246" stroke="#36d7ff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+  <text x="320" y="336" fill="#dfffe4" font-family="Orbitron, Rajdhani, Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle" letter-spacing="4">WZXU SURVIVAL</text>
+</svg>

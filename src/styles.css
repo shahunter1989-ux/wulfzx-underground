@@ -3905,6 +3905,20 @@ a.what-card-premium-card:focus-visible .what-card-media {
   }
 }
 
+@keyframes field-guide-map-scan {
+  0% {
+    filter: blur(14px);
+    opacity: 0.48;
+    transform: scale(0.86) translate(-8%, 8%);
+  }
+
+  100% {
+    filter: blur(8px);
+    opacity: 0.9;
+    transform: scale(1.12) translate(8%, -8%);
+  }
+}
+
 @keyframes text-light-sweep {
   0%,
   62% {
@@ -4768,6 +4782,11 @@ svg {
   --row-accent: var(--silver);
 }
 
+.link-button-field-guide {
+  --row-accent: #d6b97a;
+  --row-secondary: #7a6446;
+}
+
 .link-button-social {
   --row-accent: #21f2ff;
 }
@@ -5043,6 +5062,96 @@ svg {
   filter: saturate(1.22) contrast(1.16) brightness(1.08);
   transform: scale(1.01);
   animation: icon-image-breathe 1s ease-in-out infinite alternate;
+}
+
+.link-field-guide {
+  grid-template-columns: 78px minmax(0, 1fr) 28px;
+  column-gap: 16px;
+  --row-accent: #d6b97a;
+  --row-secondary: #7a6446;
+  background:
+    radial-gradient(circle at 16% 26%, rgba(214, 185, 122, 0.16), transparent 34%),
+    linear-gradient(90deg, rgba(122, 100, 70, 0.12), transparent 44%),
+    linear-gradient(180deg, rgba(22, 17, 11, 0.98), rgba(8, 7, 5, 0.98)),
+    var(--panel-strong);
+}
+
+.link-field-guide .link-copy {
+  padding-left: 3px;
+}
+
+.link-field-guide .link-icon {
+  width: 78px;
+  height: 58px;
+  border-color: color-mix(in srgb, var(--row-accent) 74%, #f2dfb2 8%);
+  background:
+    radial-gradient(circle at 48% 42%, rgba(214, 185, 122, 0.2), transparent 66%),
+    linear-gradient(145deg, rgba(34, 27, 18, 0.96), rgba(8, 7, 5, 0.98));
+  box-shadow:
+    inset 0 0 20px rgba(214, 185, 122, 0.1),
+    0 0 18px rgba(214, 185, 122, 0.12);
+}
+
+.link-field-guide .link-icon img {
+  object-fit: cover;
+  object-position: 50% 36%;
+  padding: 0;
+  filter: sepia(0.24) saturate(0.92) contrast(1.12) brightness(0.88);
+  transform: scale(1.24);
+  transition:
+    filter 220ms ease,
+    transform 320ms ease;
+}
+
+.link-field-guide .link-icon::before {
+  background:
+    linear-gradient(115deg, transparent 0 28%, rgba(246, 221, 172, 0.36) 46%, transparent 66%),
+    radial-gradient(circle at 28% 68%, rgba(214, 185, 122, 0.34), transparent 38%),
+    radial-gradient(circle at 76% 26%, rgba(122, 100, 70, 0.38), transparent 36%);
+}
+
+.link-field-guide:hover,
+.link-field-guide:focus-visible,
+.link-field-guide:active {
+  --row-accent: #f0d596;
+  --row-secondary: #a88954;
+  border-color: rgba(240, 213, 150, 0.82);
+  background:
+    radial-gradient(circle at 14% 30%, rgba(240, 213, 150, 0.24), transparent 34%),
+    radial-gradient(circle at 82% 70%, rgba(122, 100, 70, 0.18), transparent 36%),
+    linear-gradient(96deg, rgba(240, 213, 150, 0.16), transparent 38%, rgba(122, 100, 70, 0.14)),
+    linear-gradient(180deg, rgba(29, 22, 13, 0.98), rgba(10, 8, 5, 0.98)),
+    var(--panel-strong);
+  box-shadow:
+    0 0 0 1px rgba(240, 213, 150, 0.36),
+    0 0 34px rgba(214, 185, 122, 0.34),
+    0 0 22px rgba(122, 100, 70, 0.2),
+    inset 0 0 30px rgba(240, 213, 150, 0.1);
+}
+
+.link-field-guide:hover .link-icon,
+.link-field-guide:focus-visible .link-icon,
+.link-field-guide:active .link-icon {
+  border-color: rgba(240, 213, 150, 0.9);
+  box-shadow:
+    inset 0 0 24px rgba(240, 213, 150, 0.12),
+    0 0 26px rgba(214, 185, 122, 0.46),
+    0 0 18px rgba(122, 100, 70, 0.28);
+}
+
+.link-field-guide:hover .link-icon::before,
+.link-field-guide:focus-visible .link-icon::before,
+.link-field-guide:active .link-icon::before {
+  opacity: 0.92;
+  transform: scale(1.1) translateY(-2%);
+  animation: field-guide-map-scan 1.8s ease-in-out infinite alternate;
+}
+
+.link-field-guide:hover .link-icon img,
+.link-field-guide:focus-visible .link-icon img,
+.link-field-guide:active .link-icon img {
+  filter: sepia(0.18) saturate(1.08) contrast(1.16) brightness(1.04);
+  transform: scale(1.18);
 }
 
 .link-duck-nuke {

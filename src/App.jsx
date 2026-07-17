@@ -27,6 +27,15 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
+    id: 'field-guide',
+    title: 'WULFZX Wasteland Field Guide',
+    description: 'A friendly field version powered by WZXU76.',
+    href: 'https://wulfzx-field-guide-65qtgyxjc-shahunter1989-9152s-projects.vercel.app/',
+    accent: 'field-guide',
+    image: assetPath('wulfzx-wasteland-field-guide-hub-icon.png'),
+    imageAlt: 'WULFZX Wasteland Field Guide map artwork',
+  },
+  {
     id: 'duck-nuke',
     title: 'Duck Duck Nuke',
     description: 'Wasteland arcade game by Wulfzx.Underground.',

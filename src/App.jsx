@@ -7,6 +7,15 @@ const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
 const gamingHistoryBackground = assetPath('gaming-history-console-timeline.webp')
 const snesHistoryHref = 'https://snes-deploy.vercel.app/'
 const survivalScenarioHref = 'https://wzxu-survival-scenario--shahunter1989.replit.app'
+const dayRangeInstructions = [
+  { title: 'Storage and Home Screen', image: assetPath('dayrange-storage-home.png') },
+  { title: 'DayRange Overview', image: assetPath('dayrange-instructions-cover.png') },
+  { title: 'Today', image: assetPath('dayrange-today.png') },
+  { title: 'Add a Reading', image: assetPath('dayrange-add-reading.png') },
+  { title: 'Insights', image: assetPath('dayrange-insights.png') },
+  { title: 'Reports', image: assetPath('dayrange-reports.png') },
+  { title: 'Profile', image: assetPath('dayrange-profile.png') },
+]
 
 const links = [
   {
@@ -26,6 +35,16 @@ const links = [
     accent: 'silver',
     image: assetPath('wzxu76-guide-hub-icon.webp'),
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
+  },
+  {
+    id: 'dayrange',
+    title: 'DayRange by WZXU',
+    description: 'Private glucose tracking and organization app.',
+    href: 'https://wzxu-coder.github.io/dayrange/',
+    accent: 'dayrange',
+    image: assetPath('dayrange-cover.png'),
+    imageAlt: 'DayRange by WZXU app logo',
+    howTo: true,
   },
   {
     id: 'fallout76-instagram',
@@ -148,6 +167,8 @@ function App() {
 }
 
 function HubPage() {
+  const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
+
   return (
     <main className="business-card-page" aria-labelledby="brand-title">
       <CircuitBackdrop />
@@ -171,7 +192,7 @@ function HubPage() {
 
           <nav className="link-stack" aria-label="Wulfzx.Underground links">
             {links.map((link) => (
-              <LinkButton key={link.title} link={link} />
+              <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} />
             ))}
           </nav>
 
@@ -187,7 +208,68 @@ function HubPage() {
 
         <MediaPreview />
       </div>
+      {isDayRangeGuideOpen ? (
+        <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />
+      ) : null}
     </main>
+  )
+}
+
+function InstructionViewer({ instructions, onClose }) {
+  const [activeIndex, setActiveIndex] = React.useState(0)
+  const activeInstruction = instructions[activeIndex]
+
+  React.useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') onClose()
+      if (event.key === 'ArrowLeft') setActiveIndex((index) => (index - 1 + instructions.length) % instructions.length)
+      if (event.key === 'ArrowRight') setActiveIndex((index) => (index + 1) % instructions.length)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [instructions.length, onClose])
+
+  return (
+    <div className="instruction-viewer" role="dialog" aria-modal="true" aria-labelledby="instruction-viewer-title">
+      <div className="instruction-viewer-backdrop" onClick={onClose} />
+      <section className="instruction-viewer-panel">
+        <header className="instruction-viewer-header">
+          <div>
+            <p>DayRange by WZXU</p>
+            <h2 id="instruction-viewer-title">How to Use DayRange</h2>
+          </div>
+          <button className="instruction-viewer-close" type="button" onClick={onClose} aria-label="Close instructions">
+            ×
+          </button>
+        </header>
+        <div className="instruction-viewer-image-wrap">
+          <img src={activeInstruction.image} alt={`${activeInstruction.title} DayRange instruction`} />
+        </div>
+        <div className="instruction-viewer-controls">
+          <button type="button" onClick={() => setActiveIndex((index) => (index - 1 + instructions.length) % instructions.length)}>
+            Previous
+          </button>
+          <span>{activeInstruction.title} · {activeIndex + 1} of {instructions.length}</span>
+          <button type="button" onClick={() => setActiveIndex((index) => (index + 1) % instructions.length)}>
+            Next
+          </button>
+        </div>
+        <div className="instruction-viewer-thumbnails" aria-label="Choose an instruction page">
+          {instructions.map((instruction, index) => (
+            <button
+              key={instruction.image}
+              className={index === activeIndex ? 'is-active' : ''}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-label={`View ${instruction.title} instructions`}
+            >
+              <img src={instruction.image} alt="" />
+            </button>
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
 
@@ -282,7 +364,7 @@ function CircuitBackdrop() {
   )
 }
 
-function LinkButton({ link }) {
+function LinkButton({ link, onHowTo }) {
   const Icon = link.Icon
 
   return (
@@ -299,6 +381,27 @@ function LinkButton({ link }) {
       <span className="link-copy">
         <strong>{link.title}</strong>
         <span>{link.description}</span>
+        {link.howTo ? (
+          <span
+            className="link-how-to"
+            role="button"
+            tabIndex="0"
+            onClick={(event) => {
+              event.preventDefault()
+              event.stopPropagation()
+              onHowTo()
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                event.stopPropagation()
+                onHowTo()
+              }
+            }}
+          >
+            How to use DayRange
+          </span>
+        ) : null}
       </span>
       <span className="link-arrow" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false">

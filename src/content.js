@@ -230,7 +230,7 @@ export const whatIDoSections = [
       {
         title: 'WZXU Invoice Maker',
         category: 'Business tool',
-        description: 'Create professional invoices quickly and easily with a focused WULFZX business tool.',
+        description: 'Create professional invoices quickly and easily with a WZXU Business Tool.',
         status: 'Open app',
         href: links.invoiceMaker,
         image: links.invoiceMakerImage,

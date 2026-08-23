@@ -4694,11 +4694,43 @@ svg {
   font-weight: 600;
 }
 
+.link-sections {
+  display: grid;
+  gap: clamp(22px, 5vw, 34px);
+  margin-top: clamp(18px, 4.5vw, 26px);
+}
+
+.link-section {
+  display: grid;
+  gap: 10px;
+}
+
+.link-section h2 {
+  margin: 0;
+  color: #8ff8ed;
+  font-family: Orbitron, Rajdhani, sans-serif;
+  font-size: clamp(0.76rem, 3vw, 0.94rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.link-section h2::before {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  margin: 0 9px 0.25em 0;
+  background: currentColor;
+  content: '';
+  opacity: 0.7;
+  vertical-align: middle;
+}
+
 .link-stack {
   position: relative;
   display: grid;
   gap: 12px;
-  margin-top: clamp(18px, 4.5vw, 26px);
 }
 
 .link-button {

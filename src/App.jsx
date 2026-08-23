@@ -16,10 +16,12 @@ const dayRangeInstructions = [
   { title: 'Reports', image: assetPath('dayrange-reports.png') },
   { title: 'Profile', image: assetPath('dayrange-profile.png') },
 ]
+const categoryOrder = ['Featured', 'Apps & Tools', 'Gaming', 'Fallout 76', 'Social', 'Support']
 
 const links = [
   {
     id: 'official',
+    category: 'Featured',
     title: 'Official Website',
     description: 'Main Wulfzx.Underground official website.',
     href: `${import.meta.env.BASE_URL}main/`,
@@ -29,6 +31,7 @@ const links = [
   },
   {
     id: 'guide',
+    category: 'Fallout 76',
     title: 'WULFZX Fallout 76 Wasteland Guide',
     description: 'WZXU76.pro',
     href: 'https://wzxu76.pro',
@@ -38,6 +41,7 @@ const links = [
   },
   {
     id: 'dayrange',
+    category: 'Apps & Tools',
     title: 'DayRange by WZXU',
     description: 'Private glucose tracking and organization app.',
     href: 'https://wzxu-coder.github.io/dayrange/',
@@ -48,6 +52,7 @@ const links = [
   },
   {
     id: 'fallout76-instagram',
+    category: 'Fallout 76',
     title: 'WZXU76 Instagram',
     description: 'Fallout 76 gaming updates and community content.',
     href: sharedLinks.fallout76Instagram,
@@ -56,6 +61,7 @@ const links = [
   },
   {
     id: 'fallout76-youtube',
+    category: 'Fallout 76',
     title: 'WZXU76 YouTube',
     description: 'Fallout 76 videos and updates.',
     href: sharedLinks.fallout76Youtube,
@@ -65,6 +71,7 @@ const links = [
   },
   {
     id: 'field-guide',
+    category: 'Fallout 76',
     title: 'WULFZX Wasteland Field Guide',
     description: 'A friendly field version powered by WZXU76.',
     href: 'https://wulfzx-field-guide.vercel.app/',
@@ -74,6 +81,7 @@ const links = [
   },
   {
     id: 'duck-nuke',
+    category: 'Gaming',
     title: 'Duck Duck Nuke',
     description: 'Wasteland arcade game by Wulfzx.Underground.',
     href: 'https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check',
@@ -83,6 +91,7 @@ const links = [
   },
   {
     id: 'survival-scenario',
+    category: 'Featured',
     title: 'WZXU Nuclear Survival Scenario',
     description: 'When the sirens hit, make the call: test your nuclear survival instincts in a fast WZXU emergency scenario.',
     href: survivalScenarioHref,
@@ -92,6 +101,7 @@ const links = [
   },
   {
     id: 'gta-countdown',
+    category: 'Gaming',
     title: 'GTA VI Countdown',
     description: 'Grand Theft Auto VI countdown timer.',
     href: 'https://gta-vi-countdown-sable.vercel.app/',
@@ -102,6 +112,7 @@ const links = [
   },
   {
     id: 'xeno3',
+    category: 'Gaming',
     title: 'Dragon Ball Xenoverse 3 Fan Hub',
     description: 'Fan-made Xenoverse 3 information hub.',
     href: 'https://wzxuxeno3.vercel.app/',
@@ -112,6 +123,7 @@ const links = [
   },
   {
     id: 'gaming-history',
+    category: 'Gaming',
     title: 'Gaming History',
     description: 'Explore the SNES era with console history, hardware notes, iconic games, and retro gaming legacy.',
     href: gamingHistoryPath,
@@ -122,6 +134,7 @@ const links = [
   },
   {
     id: 'cashapp',
+    category: 'Support',
     title: 'Cash App',
     description: 'Support Wulfzx.Underground.',
     href: 'https://cash.app/$wulfzx',
@@ -131,6 +144,7 @@ const links = [
   },
   {
     id: 'tiktok',
+    category: 'Social',
     title: 'TikTok',
     description: 'Follow Wulfzx on TikTok.',
     href: 'https://www.tiktok.com/@wulfzx',
@@ -139,6 +153,7 @@ const links = [
   },
   {
     id: 'discord',
+    category: 'Fallout 76',
     title: 'WZXU76 Discord',
     description: 'Join the Fallout 76 community server.',
     href: sharedLinks.fallout76Discord,
@@ -168,6 +183,10 @@ function App() {
 
 function HubPage() {
   const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
+  const groupedLinks = categoryOrder.map((category) => ({
+    category,
+    links: links.filter((link) => link.category === category),
+  }))
 
   return (
     <main className="business-card-page" aria-labelledby="brand-title">
@@ -190,9 +209,16 @@ function HubPage() {
             </div>
           </header>
 
-          <nav className="link-stack" aria-label="Wulfzx.Underground links">
-            {links.map((link) => (
-              <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} />
+          <nav className="link-sections" aria-label="Wulfzx.Underground links">
+            {groupedLinks.map(({ category, links: categoryLinks }) => (
+              <section className="link-section" key={category} aria-labelledby={`link-section-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                <h2 id={`link-section-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{category}</h2>
+                <div className="link-stack">
+                  {categoryLinks.map((link) => (
+                    <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} />
+                  ))}
+                </div>
+              </section>
             ))}
           </nav>
 

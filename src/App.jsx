@@ -1,5 +1,6 @@
 import React from 'react'
 import MainWebsite from './MainWebsite'
+import { links as sharedLinks } from './content'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
@@ -25,6 +26,23 @@ const links = [
     accent: 'silver',
     image: assetPath('wzxu76-guide-hub-icon.webp'),
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
+  },
+  {
+    id: 'fallout76-instagram',
+    title: 'WZXU76 Instagram',
+    description: 'Fallout 76 gaming updates and community content.',
+    href: sharedLinks.fallout76Instagram,
+    accent: 'social',
+    Icon: InstagramIcon,
+  },
+  {
+    id: 'fallout76-youtube',
+    title: 'WZXU76 YouTube',
+    description: 'Fallout 76 videos and updates.',
+    href: sharedLinks.fallout76Youtube,
+    accent: 'social',
+    image: assetPath('wulfzx-youtube-opt.webp'),
+    imageAlt: 'WZXU76 Fallout 76 YouTube icon',
   },
   {
     id: 'field-guide',
@@ -102,21 +120,12 @@ const links = [
   },
   {
     id: 'discord',
-    title: 'Discord',
-    description: 'Join the Wulfzx.Underground community.',
-    href: 'https://discord.com/invite/dRpQjcEj',
+    title: 'WZXU76 Discord',
+    description: 'Join the Fallout 76 community server.',
+    href: sharedLinks.fallout76Discord,
     accent: 'blue',
     image: assetPath('business-card-discord-opt.webp'),
-    imageAlt: 'Wulfzx.Underground Discord themed icon',
-  },
-  {
-    id: 'qa-portal',
-    title: 'WZXU QA Portal (Staff)',
-    description: 'Status Live / Report a Bug - Public',
-    href: 'https://web-production-97ee.up.railway.app/start',
-    accent: 'qa',
-    image: assetPath('wzx-qa-portal-hub-icon.webp'),
-    imageAlt: 'Wulfzx.Underground QA Portal staff icon',
+    imageAlt: 'WZXU76 Fallout 76 Discord icon',
   },
 ]
 
@@ -328,6 +337,16 @@ function GamingHistoryIcon() {
       <path className="history-dpad" d="M18 29h12M24 23v12" />
       <path className="history-buttons" d="M41 29h.1M49 34h.1" />
       <path className="history-signal" d="M16 51h32M22 56h20" />
+    </svg>
+  )
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 64 64" role="img" aria-label="Instagram icon">
+      <rect x="11" y="11" width="42" height="42" rx="12" />
+      <circle cx="32" cy="32" r="10" />
+      <circle cx="44" cy="20" r="2.5" />
     </svg>
   )
 }

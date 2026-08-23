@@ -2,6 +2,9 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 
 export const links = {
   youtube: 'https://www.youtube.com/@Wulfzx.underground',
+  fallout76Instagram: 'https://www.instagram.com/wzxu76/',
+  fallout76Discord: 'https://discord.gg/xSCtRYn4p',
+  fallout76Youtube: 'https://www.youtube.com/@WZXU76',
   linktree: 'https://linktr.ee/Wulfzx',
   guide76: 'https://wzxu76.pro/',
   guide76Landing: '/wasteland-companion-guide/',
@@ -26,26 +29,13 @@ export const links = {
 
 export const navItems = [
   { label: 'Home', href: '#top' },
-  { label: 'Linktree Shop', href: '#linktree' },
   { label: '76 Guide', href: links.guide76Landing },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'Music', href: '/painter-of-dreams/' },
-  { label: 'Staff', href: '#staff-portal' },
   { label: 'Connect', href: '#connect' },
 ]
 
 export const featureTiles = [
-  {
-    title: 'Linktree Shop',
-    id: 'linktree',
-    eyebrow: 'Launchpad',
-    description: 'Linktree shop and WULFZX links in one place.',
-    cta: 'Open Linktree Shop',
-    href: links.linktree,
-    image: assetPath('wulfzx-linktree-shop-opt.webp'),
-    imageAlt: 'WULFZX Underground Linktree Shop artwork',
-    variant: 'linktree',
-  },
   {
     title: 'Fallout 76 Guide',
     id: 'fallout-76-guide',
@@ -67,16 +57,6 @@ export const featureTiles = [
     image: assetPath('wzxu-survival-scenario-icon.svg'),
     imageAlt: 'WZXU nuclear survival scenario warning icon',
     variant: 'survival-scenario',
-  },
-  {
-    title: 'Staff Portal',
-    id: 'staff-portal',
-    eyebrow: 'Ops Clock',
-    description: 'Clock-in and staff operations access for WULFZX team members.',
-    cta: 'Staff Login',
-    href: links.opsClock,
-    image: assetPath('wulfzx-staff-portal-opt.webp'),
-    imageAlt: 'WULFZX Underground Staff Portal artwork',
   },
 ]
 
@@ -118,36 +98,27 @@ export const gameCards = [
 
 export const connectLinks = [
   {
-    title: 'Discord',
-    status: 'Join My Server',
-    href: links.discord,
+    title: 'WZXU76 Discord',
+    status: 'Fallout 76 community server',
+    href: links.fallout76Discord,
     symbol: 'DC',
     image: assetPath('wulfzx-discord-opt.webp'),
-    imageAlt: 'WULFZX Underground Discord icon',
+    imageAlt: 'WZXU76 Fallout 76 Discord icon',
   },
   {
-    title: 'YouTube',
-    status: '@Wulfzx.underground',
-    href: links.youtube,
+    title: 'WZXU76 YouTube',
+    status: 'Fallout 76 videos and updates',
+    href: links.fallout76Youtube,
     symbol: 'YT',
     image: assetPath('wulfzx-youtube-opt.webp'),
-    imageAlt: 'WULFZX Underground YouTube icon',
+    imageAlt: 'WZXU76 Fallout 76 YouTube icon',
   },
   {
-    title: 'Linktree Shop',
-    status: 'Shop and WULFZX links',
-    href: links.linktree,
-    symbol: 'LT',
-    image: assetPath('wulfzx-linktree-shop-opt.webp'),
-    imageAlt: 'WULFZX Underground Linktree Shop icon',
-  },
-  {
-    title: 'Staff Login',
-    status: 'Ops Clock access',
-    href: links.opsClock,
-    symbol: 'OP',
-    image: assetPath('wulfzx-staff-portal-opt.webp'),
-    imageAlt: 'WULFZX Underground Staff Login icon',
+    title: 'WZXU76 Instagram',
+    status: 'Fallout 76 gaming Instagram',
+    href: links.fallout76Instagram,
+    symbol: 'IG',
+    imageAlt: 'WZXU76 Fallout 76 Instagram icon',
   },
 ]
 

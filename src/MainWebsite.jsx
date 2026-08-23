@@ -613,7 +613,7 @@ function HeroDashboard() {
         fetchPriority="high"
       />
       <div className="hero-actions" aria-label="Primary actions">
-        <a className="button button-primary" href="#linktree">
+        <a className="button button-primary" href="#fallout-76-guide">
           <AnimatedText text="Explore My Work" />
         </a>
         <a className="button button-secondary" href={whatIDoPath}>

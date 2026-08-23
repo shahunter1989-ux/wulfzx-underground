@@ -5,6 +5,9 @@ export const links = {
   fallout76Instagram: 'https://www.instagram.com/wzxu76/',
   fallout76Discord: 'https://discord.gg/xSCtRYn4p',
   fallout76Youtube: 'https://www.youtube.com/@WZXU76',
+  dayRange: 'https://wzxu-coder.github.io/dayrange/',
+  invoiceMaker: 'https://wzxu-invoice-maker.vercel.app/',
+  invoiceMakerImage: assetPath('wzxu-invoice-maker.png'),
   linktree: 'https://linktr.ee/Wulfzx',
   guide76: 'https://wzxu76.pro/',
   guide76Landing: '/wasteland-companion-guide/',
@@ -211,6 +214,32 @@ export const whatIDoSections = [
     ],
   },
   {
+    title: 'Apps + Tools',
+    intro: 'Practical WULFZX-built apps and tools designed to make everyday organization and business workflows easier.',
+    cards: [
+      {
+        title: 'DayRange by WZXU',
+        category: 'Health organization app',
+        description: 'A private glucose tracking and organization app with local-first storage, insights, and reports.',
+        status: 'Open app',
+        href: links.dayRange,
+        image: assetPath('dayrange-cover.png'),
+        imageAlt: 'DayRange by WZXU app logo',
+        variant: 'dayrange',
+      },
+      {
+        title: 'WZXU Invoice Maker',
+        category: 'Business tool',
+        description: 'Create professional invoices quickly and easily with a focused WULFZX business tool.',
+        status: 'Open app',
+        href: links.invoiceMaker,
+        image: links.invoiceMakerImage,
+        imageAlt: 'WZXU Invoice Maker professional invoice artwork',
+        variant: 'invoice-maker',
+      },
+    ],
+  },
+  {
     title: 'Guides + Websites',
     intro: 'Live public examples of WULFZX guides and custom web experiences.',
     cards: [
@@ -322,13 +351,6 @@ export const whatIDoSections = [
           'A basic example business website, such as a tire shop or smoke shop. WULFZX builds custom websites around each customer and client need, from business pages to social media-focused hubs.',
         status: 'Live sample',
         href: links.websiteSample,
-      },
-      {
-        title: 'AI-Assisted Apps',
-        category: 'Apps + Tools',
-        description: 'Useful apps and tools shaped with AI support, custom design, and hands-on WULFZX development.',
-        status: 'In development',
-        href: '#',
       },
       {
         title: 'Community Ecosystem',

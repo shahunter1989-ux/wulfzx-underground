@@ -51,6 +51,16 @@ const links = [
     howTo: true,
   },
   {
+    id: 'invoice-maker',
+    category: 'Apps & Tools',
+    title: 'WZXU Invoice Maker',
+    description: 'Create professional invoices quickly and easily.',
+    href: sharedLinks.invoiceMaker,
+    accent: 'dayrange',
+    image: sharedLinks.invoiceMakerImage,
+    imageAlt: 'WZXU Invoice Maker professional invoice artwork',
+  },
+  {
     id: 'fallout76-instagram',
     category: 'Fallout 76',
     title: 'WZXU76 Instagram',

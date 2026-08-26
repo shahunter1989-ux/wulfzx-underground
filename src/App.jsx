@@ -6,7 +6,6 @@ const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
 const gamingHistoryBackground = assetPath('gaming-history-console-timeline.webp')
 const snesHistoryHref = 'https://snes-deploy.vercel.app/'
-const survivalScenarioHref = 'https://wzxu-survival-scenario--shahunter1989.replit.app'
 const dayRangeInstructions = [
   { title: 'Storage and Home Screen', image: assetPath('dayrange-storage-home.png') },
   { title: 'DayRange Overview', image: assetPath('dayrange-instructions-cover.png') },
@@ -28,6 +27,16 @@ const links = [
     accent: 'blue',
     isInternal: true,
     Icon: WebsiteIcon,
+  },
+  {
+    id: 'featured-guide',
+    category: 'Featured',
+    title: 'WULFZX Fallout 76 Wasteland Guide',
+    description: 'WZXU76.pro',
+    href: 'https://wzxu76.pro',
+    accent: 'silver',
+    image: assetPath('wzxu76-guide-hub-icon.webp'),
+    imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
     id: 'guide',
@@ -98,16 +107,6 @@ const links = [
     accent: 'duck',
     image: assetPath('duck-duck-nuke-hub-icon.webp'),
     imageAlt: 'Duck Duck Nuke arcade game preview',
-  },
-  {
-    id: 'survival-scenario',
-    category: 'Featured',
-    title: 'WZXU Nuclear Survival Scenario',
-    description: 'When the sirens hit, make the call: test your nuclear survival instincts in a fast WZXU emergency scenario.',
-    href: survivalScenarioHref,
-    accent: 'survival',
-    featured: true,
-    Icon: SurvivalScenarioIcon,
   },
   {
     id: 'gta-countdown',
@@ -486,18 +485,6 @@ function InstagramIcon() {
       <rect x="11" y="11" width="42" height="42" rx="12" />
       <circle cx="32" cy="32" r="10" />
       <circle cx="44" cy="20" r="2.5" />
-    </svg>
-  )
-}
-
-function SurvivalScenarioIcon() {
-  return (
-    <svg viewBox="0 0 64 64" role="img" aria-label="Nuclear survival scenario icon">
-      <path className="survival-warning-frame" d="M32 8l26 46H6L32 8z" />
-      <path className="survival-warning-core" d="M32 20v15" />
-      <path className="survival-warning-dot" d="M32 44h.1" />
-      <path className="survival-radar-ring" d="M20 50a16 16 0 0 1 24 0" />
-      <path className="survival-radar-sweep" d="M32 50l11-11" />
     </svg>
   )
 }

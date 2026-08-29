@@ -10,6 +10,7 @@ export const links = {
   invoiceMakerImage: assetPath('wzxu-invoice-maker.png'),
   sellerInventory: 'https://wzxu-seller-inventory.vercel.app/',
   sellerInventoryImage: assetPath('wzxu-seller-inventory.png'),
+  magic8Ball: 'https://wzxu-magic-8-ball.vercel.app/',
   linktree: 'https://linktr.ee/Wulfzx',
   guide76: 'https://wzxu76.pro/',
   guide76Landing: '/wasteland-companion-guide/',

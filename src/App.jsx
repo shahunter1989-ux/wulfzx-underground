@@ -39,6 +39,16 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
+    id: 'magic-8-ball',
+    category: 'Featured',
+    title: 'WZXU Magic 8-Ball',
+    description: 'Ask a question and let the WZXU Magic 8-Ball reveal your answer.',
+    href: sharedLinks.magic8Ball,
+    accent: 'social',
+    image: assetPath('wzxu-magic-8-ball.png'),
+    imageAlt: 'WZXU Magic 8-Ball app artwork',
+  },
+  {
     id: 'guide',
     category: 'Fallout 76',
     title: 'WULFZX Fallout 76 Wasteland Guide',

@@ -70,6 +70,16 @@ const links = [
     imageAlt: 'WZXU Invoice Maker professional invoice artwork',
   },
   {
+    id: 'seller-inventory',
+    category: 'Apps & Tools',
+    title: 'WZXU Seller Inventory',
+    description: 'Organize and manage seller inventory with a focused WZXU business tool.',
+    href: sharedLinks.sellerInventory,
+    accent: 'dayrange',
+    image: sharedLinks.sellerInventoryImage,
+    imageAlt: 'WZXU Seller Inventory app icon',
+  },
+  {
     id: 'fallout76-instagram',
     category: 'Fallout 76',
     title: 'WZXU76 Instagram',

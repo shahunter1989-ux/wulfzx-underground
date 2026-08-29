@@ -8,6 +8,8 @@ export const links = {
   dayRange: 'https://wzxu-coder.github.io/dayrange/',
   invoiceMaker: 'https://wzxu-invoice-maker.vercel.app/',
   invoiceMakerImage: assetPath('wzxu-invoice-maker.png'),
+  sellerInventory: 'https://wzxu-seller-inventory.vercel.app/',
+  sellerInventoryImage: assetPath('wzxu-seller-inventory.png'),
   linktree: 'https://linktr.ee/Wulfzx',
   guide76: 'https://wzxu76.pro/',
   guide76Landing: '/wasteland-companion-guide/',

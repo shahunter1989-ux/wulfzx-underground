@@ -39,7 +39,7 @@ function PrivacyPolicyPage() {
           <section><h2>Children’s privacy</h2><p>WZXU QR Code Maker is a general-purpose utility and does not knowingly collect personal information from children.</p></section>
           <section><h2>Security</h2><p>Because QR content and selected images are processed locally, they are not transmitted to WZXU. Users remain responsible for the content they place inside QR codes and for choosing trusted destinations before opening scanned links.</p></section>
           <section><h2>Changes to this policy</h2><p>This policy may be updated if the application’s features or privacy practices change. The latest version will remain available at <a href="https://wzxu.pro/privacy">https://wzxu.pro/privacy</a>, with its effective date shown at the top.</p></section>
-          <section><h2>Contact and support</h2><p>For questions about this privacy policy or WZXU QR Code Maker, visit:</p><p><a href="https://wzxu.pro/support">https://wzxu.pro/support</a></p></section>
+          <section><h2>Contact and support</h2><p>For questions about this privacy policy or WZXU QR Code Maker, contact:</p><p><a href="mailto:wzxu.pro@outlook.com">wzxu.pro@outlook.com</a></p></section>
         </div>
 
         <footer className="privacy-footer"><span>WZXU QR Code Maker</span><a href="/">Return to WZXU</a></footer>

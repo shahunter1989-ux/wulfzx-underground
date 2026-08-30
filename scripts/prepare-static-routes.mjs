@@ -11,6 +11,7 @@ const routes = [
   'main/painter-of-dreams',
   'main/wasteland-companion-guide',
   'gaming-history',
+  'privacy',
 ]
 
 await Promise.all(

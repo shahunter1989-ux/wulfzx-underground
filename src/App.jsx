@@ -1,6 +1,7 @@
 import React from 'react'
 import MainWebsite from './MainWebsite'
 import { links as sharedLinks } from './content'
+import PrivacyPolicyPage from './PrivacyPolicyPage'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
@@ -195,9 +196,14 @@ const links = [
 function App() {
   const basePath = import.meta.env.BASE_URL
   const currentPath = window.location.pathname
+  const isPrivacyRoute = currentPath === `${basePath}privacy` || currentPath === `${basePath}privacy/`
   const gamingHistoryRoot = `${basePath}gaming-history`
   const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
   const isGamingHistoryRoute = currentPath === gamingHistoryRoot || currentPath.startsWith(`${gamingHistoryRoot}/`)
+
+  if (isPrivacyRoute) {
+    return <PrivacyPolicyPage />
+  }
 
   if (isMainWebsiteRoute) {
     return <MainWebsite />

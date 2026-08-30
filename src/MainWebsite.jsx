@@ -408,6 +408,10 @@ function MainWebsite() {
             </>
           )}
         </main>
+        <footer className="site-footer">
+          <span>© 2026 Wulfzx.Underground</span>
+          <a href="/privacy">Privacy</a>
+        </footer>
       </div>
     </div>
   )

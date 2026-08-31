@@ -72,7 +72,7 @@ function SellerInventoryPrivacyPage() {
           <section><h2>Children’s privacy</h2><p>WZXU Seller Inventory is a general-purpose business utility and is not directed to children under 13. WZXU does not knowingly collect children’s personal information through the application.</p></section>
           <section><h2>External links</h2><p>The application may open WZXU.pro or other external destinations when the user selects a link. Those websites and services operate outside the inventory app and are governed by the privacy policies applicable to them.</p></section>
           <section><h2>Policy changes</h2><p>This policy may be updated when the application’s behavior or legal requirements change. Revisions and their effective dates will be published on this page, with the latest version available at <a href={`https://wzxu.pro${route}`}>https://wzxu.pro{route}</a>.</p></section>
-          <section><h2>Contact</h2><p>For questions about this policy or WZXU Seller Inventory, contact WZXU at <a href="mailto:wzxu.pro@outlook.com">wzxu.pro@outlook.com</a>.</p></section>
+          <section><h2>Contact</h2><p>For questions about this policy or WZXU Seller Inventory, visit <a href="https://wzxu.pro/">https://wzxu.pro/</a>.</p></section>
         </div>
         <footer className="privacy-footer"><span>WZXU Seller Inventory</span><a href="/main/">Return to WZXU.pro</a></footer>
       </article>

@@ -12,6 +12,7 @@ const routes = [
   'main/wasteland-companion-guide',
   'gaming-history',
   'privacy',
+  'privacy/wzxu-seller-inventory',
 ]
 
 await Promise.all(

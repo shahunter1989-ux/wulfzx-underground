@@ -2,6 +2,7 @@ import React from 'react'
 import MainWebsite from './MainWebsite'
 import { links as sharedLinks } from './content'
 import PrivacyPolicyPage from './PrivacyPolicyPage'
+import SellerInventoryPrivacyPage from './SellerInventoryPrivacyPage'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
@@ -197,12 +198,16 @@ function App() {
   const basePath = import.meta.env.BASE_URL
   const currentPath = window.location.pathname
   const isPrivacyRoute = currentPath === `${basePath}privacy` || currentPath === `${basePath}privacy/`
+  const isSellerInventoryPrivacyRoute = currentPath === `${basePath}privacy/wzxu-seller-inventory` || currentPath === `${basePath}privacy/wzxu-seller-inventory/`
   const gamingHistoryRoot = `${basePath}gaming-history`
   const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
   const isGamingHistoryRoute = currentPath === gamingHistoryRoot || currentPath.startsWith(`${gamingHistoryRoot}/`)
 
   if (isPrivacyRoute) {
     return <PrivacyPolicyPage />
+  }
+  if (isSellerInventoryPrivacyRoute) {
+    return <SellerInventoryPrivacyPage />
   }
 
   if (isMainWebsiteRoute) {

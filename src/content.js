@@ -52,6 +52,17 @@ export const featureTiles = [
     imageAlt: 'WULFZX Fallout 76 Wasteland Guide artwork',
     variant: 'gold',
   },
+  {
+    title: 'WZXU Seller Inventory',
+    id: 'seller-inventory',
+    eyebrow: 'Business Tool',
+    description: 'An offline-first inventory workspace for independent sellers to organize products, photos, activity, and backups.',
+    cta: 'Open Inventory App',
+    href: links.sellerInventory,
+    image: links.sellerInventoryImage,
+    imageAlt: 'WZXU Seller Inventory app icon',
+    variant: 'seller-inventory',
+  },
 ]
 
 export const gameCards = [
@@ -150,6 +161,8 @@ export const aiImageCreation = {
 
 export const whatIDoSections = [
   {
+    id: 'ai-creative',
+    navLabel: 'AI Creative',
     title: 'AI Creative + Workflow Tools',
     intro: 'Creative AI services and workflow builds for custom visuals, project support, and polished digital tools.',
     cards: [
@@ -163,6 +176,8 @@ export const whatIDoSections = [
     ],
   },
   {
+    id: 'games-testing',
+    navLabel: 'Games',
     title: 'Games + Testing',
     intro: 'Playable browser games, status tracking, and tester pathways for launch checks and feedback.',
     cards: [
@@ -196,6 +211,8 @@ export const whatIDoSections = [
     ],
   },
   {
+    id: 'apps-tools',
+    navLabel: 'Apps & Tools',
     title: 'Apps + Tools',
     intro: 'Practical WULFZX-built apps and tools designed to make everyday organization and business workflows easier.',
     cards: [
@@ -233,6 +250,8 @@ export const whatIDoSections = [
     ],
   },
   {
+    id: 'guides-websites',
+    navLabel: 'Websites',
     title: 'Guides + Websites',
     intro: 'Live public examples of WULFZX guides and custom web experiences.',
     cards: [
@@ -334,6 +353,8 @@ export const whatIDoSections = [
     ],
   },
   {
+    id: 'expansion-roadmap',
+    navLabel: 'Roadmap',
     title: 'Expansion Roadmap',
     intro: 'The long-term direction is a larger WULFZX ecosystem of websites, apps, tools, experiments, and communities.',
     cards: [

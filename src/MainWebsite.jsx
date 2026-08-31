@@ -29,6 +29,8 @@ const ENTRY_ACK_DURATION_MS = 30 * 24 * 60 * 60 * 1000
 const entryLanguages = ['en', 'es']
 const entryTextSizes = ['compact', 'normal', 'large']
 const fxClasses = ['text-fx-drift-x', 'text-fx-drift-y', 'text-fx-static', 'text-fx-glow', 'text-fx-still']
+const whatIDoSectionOrder = ['apps-tools', 'guides-websites', 'ai-creative', 'games-testing', 'expansion-roadmap']
+const orderedWhatIDoSections = whatIDoSectionOrder.map((id) => whatIDoSections.find((section) => section.id === id))
 
 function mainSiteHref(href) {
   if (!href || href === '#' || href.startsWith('http') || href.startsWith('mailto:')) {
@@ -647,8 +649,17 @@ function WhatIDoPage() {
         </a>
       </div>
 
+      <nav className="what-category-nav" aria-label="Explore What I Do categories">
+        {orderedWhatIDoSections.map((section, index) => (
+          <a href={`#${section.id}`} key={section.id}>
+            <span aria-hidden="true">0{index + 1}</span>
+            <AnimatedText text={section.navLabel} mode="static" />
+          </a>
+        ))}
+      </nav>
+
       <div className="what-section-stack">
-        {whatIDoSections.map((section) => (
+        {orderedWhatIDoSections.map((section) => (
           <React.Fragment key={section.title}>
             <WhatIDoSection section={section} />
             {section.title === 'AI Creative + Workflow Tools' ? <AIImageCreationSection /> : null}
@@ -928,7 +939,7 @@ function WhatIDoSection({ section }) {
   return (
     <section
       className="what-section"
-      id={section.title === 'Guides + Websites' ? 'demo-cards' : undefined}
+      id={section.id}
       aria-labelledby={`what-${section.title.replace(/\W+/g, '-').toLowerCase()}`}
     >
       <div className="section-rule">
@@ -939,7 +950,7 @@ function WhatIDoSection({ section }) {
         <span />
       </div>
       <p className="what-section-intro">{section.intro}</p>
-      <div className="what-card-grid">
+      <div className="what-card-grid" id={section.id === 'guides-websites' ? 'demo-cards' : undefined}>
         {section.cards.map((card) => (
           <WhatIDoCard key={card.title} card={card} />
         ))}

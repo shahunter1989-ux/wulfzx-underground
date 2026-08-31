@@ -92,6 +92,16 @@ const links = [
     imageAlt: 'WZXU Seller Inventory app icon',
   },
   {
+    id: 'qr-code-maker',
+    category: 'Apps & Tools',
+    title: 'WZXU QR Code Maker',
+    description: 'Create, customize, scan, and save private QR codes in your browser.',
+    href: sharedLinks.qrCodeMaker,
+    accent: 'dayrange',
+    image: sharedLinks.qrCodeMakerIcon,
+    imageAlt: 'WZXU QR Code Maker icon',
+  },
+  {
     id: 'fallout76-instagram',
     category: 'Fallout 76',
     title: 'WZXU76 Instagram',

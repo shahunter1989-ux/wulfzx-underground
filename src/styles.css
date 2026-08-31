@@ -585,30 +585,6 @@ img {
   animation: fallout-siren-sweep 2.1s linear infinite;
 }
 
-.site-shell:has(.feature-tile-survival-scenario:is(:hover, :focus-visible, :active))::before {
-  background:
-    radial-gradient(circle at 18% 28%, rgba(126, 255, 79, 0.24), transparent 22rem),
-    radial-gradient(circle at 72% 16%, rgba(234, 255, 102, 0.18), transparent 24rem),
-    radial-gradient(circle at 60% 78%, rgba(88, 255, 103, 0.16), transparent 28rem),
-    linear-gradient(180deg, rgba(8, 24, 6, 0.28), transparent 48%, rgba(234, 255, 102, 0.07));
-  mix-blend-mode: screen;
-  opacity: 1;
-  animation: survival-radiation-breathe 2.35s ease-in-out infinite alternate;
-}
-
-.site-shell:has(.feature-tile-survival-scenario:is(:hover, :focus-visible, :active))::after {
-  background:
-    radial-gradient(ellipse at 22% 64%, rgba(220, 255, 130, 0.2), transparent 18rem),
-    radial-gradient(ellipse at 72% 48%, rgba(88, 255, 103, 0.18), transparent 22rem),
-    repeating-linear-gradient(16deg, rgba(234, 255, 102, 0.055) 0 2px, transparent 4px 42px),
-    linear-gradient(110deg, transparent 0 18%, rgba(126, 255, 79, 0.12) 30%, transparent 46% 100%);
-  filter: blur(10px) saturate(1.16);
-  mix-blend-mode: screen;
-  opacity: 0.86;
-  transform: scale(1.04);
-  animation: survival-fog-drift 3.4s ease-in-out infinite alternate;
-}
-
 .dashboard-frame {
   position: relative;
   width: min(100%, var(--max-width));
@@ -1343,61 +1319,6 @@ img {
   text-shadow: 0 0 18px rgba(85, 255, 70, 0.28);
 }
 
-.feature-tile-survival-scenario {
-  border-color: rgba(234, 255, 102, 0.4);
-  background:
-    radial-gradient(circle at 20% 18%, rgba(234, 255, 102, 0.16), transparent 24rem),
-    radial-gradient(circle at 78% 70%, rgba(88, 255, 103, 0.1), transparent 22rem),
-    linear-gradient(135deg, rgba(234, 255, 102, 0.08), transparent 58%),
-    rgba(3, 10, 16, 0.9);
-}
-
-.feature-tile-survival-scenario h2 {
-  color: #f5ffd0;
-  text-shadow:
-    0 0 12px rgba(234, 255, 102, 0.34),
-    0 0 28px rgba(88, 255, 103, 0.2);
-}
-
-.feature-tile-survival-scenario .tile-visual-image {
-  border-color: rgba(234, 255, 102, 0.54);
-  box-shadow:
-    inset 0 0 18px rgba(234, 255, 102, 0.1),
-    0 0 24px rgba(88, 255, 103, 0.14);
-}
-
-.feature-tile-survival-scenario:is(:hover, :focus-visible, :active) {
-  border-color: rgba(234, 255, 102, 0.86);
-  background:
-    radial-gradient(circle at 20% 18%, rgba(234, 255, 102, 0.24), transparent 22rem),
-    radial-gradient(circle at 78% 70%, rgba(88, 255, 103, 0.18), transparent 22rem),
-    linear-gradient(135deg, rgba(234, 255, 102, 0.13), transparent 58%),
-    rgba(7, 17, 6, 0.96);
-  box-shadow:
-    inset 0 0 0 1px rgba(234, 255, 102, 0.34),
-    inset 0 0 34px rgba(88, 255, 103, 0.12),
-    0 0 38px rgba(126, 255, 79, 0.3),
-    0 0 58px rgba(234, 255, 102, 0.14);
-}
-
-.feature-tile-survival-scenario:is(:hover, :focus-visible, :active) .tile-visual-image {
-  border-color: rgba(234, 255, 102, 0.92);
-  filter: saturate(1.14) brightness(1.08);
-  box-shadow:
-    inset 0 0 24px rgba(234, 255, 102, 0.16),
-    0 0 30px rgba(126, 255, 79, 0.46),
-    0 0 20px rgba(234, 255, 102, 0.2);
-}
-
-.feature-tile-survival-scenario:is(:hover, :focus-visible, :active) .tile-cta {
-  border-color: rgba(234, 255, 102, 0.96);
-  background: rgba(88, 255, 103, 0.16);
-  color: #f5ffd0;
-  box-shadow:
-    0 0 28px rgba(126, 255, 79, 0.42),
-    0 0 18px rgba(234, 255, 102, 0.22);
-}
-
 .tile-body {
   position: relative;
   z-index: 1;
@@ -1575,95 +1496,6 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.game-card-survival-scenario {
-  border-color: rgba(234, 255, 102, 0.38);
-  background:
-    radial-gradient(circle at 14% 28%, rgba(234, 255, 102, 0.12), transparent 32%),
-    linear-gradient(90deg, rgba(88, 255, 103, 0.08), transparent 46%),
-    rgba(3, 10, 16, 0.9);
-}
-
-.game-card-survival-scenario .game-media {
-  overflow: hidden;
-  border-color: rgba(234, 255, 102, 0.46);
-  background:
-    radial-gradient(circle at 50% 46%, rgba(234, 255, 102, 0.22), transparent 58%),
-    radial-gradient(circle at 60% 70%, rgba(88, 255, 103, 0.12), transparent 72%),
-    linear-gradient(135deg, rgba(234, 255, 102, 0.08), rgba(2, 8, 5, 0.96)),
-    #020806;
-  box-shadow:
-    inset 0 0 24px rgba(234, 255, 102, 0.08),
-    0 0 20px rgba(88, 255, 103, 0.12);
-}
-
-.game-card-survival-scenario .game-media::before,
-.game-card-survival-scenario .game-media::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  content: "";
-  opacity: 0.62;
-}
-
-.game-card-survival-scenario .game-media::before {
-  background:
-    repeating-linear-gradient(16deg, rgba(234, 255, 102, 0.08) 0 2px, transparent 4px 28px),
-    radial-gradient(circle at 50% 54%, transparent 0 38%, rgba(88, 255, 103, 0.12) 40%, transparent 44%);
-  mix-blend-mode: screen;
-  animation: survival-game-fog-sweep 4.2s ease-in-out infinite alternate;
-}
-
-.game-card-survival-scenario .game-media::after {
-  inset: 12%;
-  border: 1px solid rgba(234, 255, 102, 0.24);
-  background:
-    linear-gradient(90deg, transparent, rgba(234, 255, 102, 0.26), transparent) center / 68% 1px no-repeat,
-    linear-gradient(180deg, transparent, rgba(88, 255, 103, 0.22), transparent) center / 1px 68% no-repeat;
-  border-radius: 50%;
-  transform: scale(0.86);
-  animation: survival-game-radar-pulse 2.4s ease-in-out infinite;
-}
-
-.game-card-survival-scenario .game-media img {
-  inset: 10px;
-  z-index: 2;
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  object-fit: contain;
-  filter: saturate(1.1) brightness(1.04) drop-shadow(0 0 10px rgba(234, 255, 102, 0.26));
-  transform: scale(0.94);
-  transition:
-    filter 180ms ease,
-    transform 180ms ease;
-}
-
-.game-card-survival-scenario:hover,
-.game-card-survival-scenario:focus-visible,
-.game-card-survival-scenario:active {
-  border-color: rgba(234, 255, 102, 0.86);
-  box-shadow:
-    0 0 0 1px rgba(234, 255, 102, 0.24),
-    0 0 34px rgba(126, 255, 79, 0.3),
-    inset 0 0 28px rgba(88, 255, 103, 0.08);
-}
-
-.game-card-survival-scenario:hover .game-media,
-.game-card-survival-scenario:focus-visible .game-media,
-.game-card-survival-scenario:active .game-media {
-  border-color: rgba(234, 255, 102, 0.92);
-  box-shadow:
-    inset 0 0 30px rgba(234, 255, 102, 0.14),
-    0 0 28px rgba(126, 255, 79, 0.42);
-}
-
-.game-card-survival-scenario:hover .game-media img,
-.game-card-survival-scenario:focus-visible .game-media img,
-.game-card-survival-scenario:active .game-media img {
-  filter: saturate(1.24) brightness(1.14) drop-shadow(0 0 16px rgba(234, 255, 102, 0.48));
-  transform: scale(1);
 }
 
 .game-copy h3 {
@@ -3889,65 +3721,6 @@ a.what-card-premium-card:focus-visible .what-card-media {
   }
 }
 
-@keyframes survival-radiation-breathe {
-  0% {
-    filter: saturate(1) brightness(1);
-  }
-
-  100% {
-    filter: saturate(1.26) brightness(1.12);
-  }
-}
-
-@keyframes survival-fog-drift {
-  0% {
-    background-position:
-      0 0,
-      0 0,
-      0 0,
-      -70vw 0;
-    opacity: 0.72;
-  }
-
-  100% {
-    background-position:
-      6vw -2vh,
-      -5vw 3vh,
-      70px 42px,
-      80vw 0;
-    opacity: 0.92;
-  }
-}
-
-@keyframes survival-game-fog-sweep {
-  0% {
-    background-position:
-      0 0,
-      center;
-    opacity: 0.42;
-  }
-
-  100% {
-    background-position:
-      42px 26px,
-      center;
-    opacity: 0.78;
-  }
-}
-
-@keyframes survival-game-radar-pulse {
-  0%,
-  100% {
-    opacity: 0.36;
-    transform: scale(0.76) rotate(0deg);
-  }
-
-  50% {
-    opacity: 0.82;
-    transform: scale(1.02) rotate(18deg);
-  }
-}
-
 @keyframes field-guide-map-scan {
   0% {
     filter: blur(14px);
@@ -4844,11 +4617,6 @@ svg {
   --row-secondary: #ffd84f;
 }
 
-.link-button-survival {
-  --row-accent: #eaff66;
-  --row-secondary: #58ff67;
-}
-
 .link-button-green {
   --row-accent: var(--green);
 }
@@ -5306,59 +5074,6 @@ svg {
   filter: saturate(1.2) contrast(1.14) brightness(1.08);
   transform: scale(1.08);
   animation: icon-image-breathe 1s ease-in-out infinite alternate;
-}
-
-.link-survival-scenario {
-  --row-accent: #eaff66;
-  --row-secondary: #58ff67;
-  background:
-    radial-gradient(circle at 13% 30%, rgba(234, 255, 102, 0.16), transparent 34%),
-    radial-gradient(circle at 84% 68%, rgba(88, 255, 103, 0.12), transparent 36%),
-    linear-gradient(100deg, rgba(234, 255, 102, 0.14), transparent 40%, rgba(88, 255, 103, 0.1)),
-    linear-gradient(180deg, rgba(9, 22, 6, 0.98), rgba(2, 8, 5, 0.98)),
-    var(--panel-strong);
-}
-
-.link-survival-scenario .link-icon {
-  border-color: color-mix(in srgb, var(--row-accent) 70%, var(--row-secondary) 18%);
-  background:
-    radial-gradient(circle at 50% 48%, rgba(234, 255, 102, 0.22), transparent 68%),
-    linear-gradient(135deg, rgba(88, 255, 103, 0.16), rgba(5, 15, 8, 0.94)),
-    #020806;
-}
-
-.link-survival-scenario .link-icon::before {
-  background:
-    radial-gradient(circle at 50% 54%, rgba(234, 255, 102, 0.48), transparent 52%),
-    radial-gradient(circle at 50% 48%, rgba(88, 255, 103, 0.32), transparent 68%);
-}
-
-.link-survival-scenario .survival-warning-frame {
-  stroke-width: 4;
-}
-
-.link-survival-scenario .survival-warning-core,
-.link-survival-scenario .survival-warning-dot {
-  stroke-width: 5;
-}
-
-.link-survival-scenario .survival-radar-ring,
-.link-survival-scenario .survival-radar-sweep {
-  stroke: color-mix(in srgb, var(--row-secondary) 78%, white 8%);
-  stroke-width: 3;
-}
-
-.link-survival-scenario:hover,
-.link-survival-scenario:focus-visible {
-  --row-accent: #fff06a;
-  --row-secondary: #7eff4f;
-}
-
-.link-survival-scenario:hover .link-icon,
-.link-survival-scenario:focus-visible .link-icon {
-  box-shadow:
-    inset 0 0 26px rgba(234, 255, 102, 0.16),
-    0 0 28px rgba(126, 255, 79, 0.42);
 }
 
 .link-tiktok .link-icon {

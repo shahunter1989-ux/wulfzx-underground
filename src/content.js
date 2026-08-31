@@ -25,7 +25,6 @@ export const links = {
   darkBookClubDemo: 'https://wzxudarkclub.lovable.app/',
   sparkBeautyFolio: 'https://spark-beauty-folio.lovable.app/',
   premiumBusinessCardDemo: 'https://shahunter1989-ux.github.io/wzxu-coffee-sd/',
-  survivalScenario: 'https://wzxu-survival-scenario--shahunter1989.replit.app',
   gtaCountdown: 'https://gta-vi-countdown-sable.vercel.app/',
   email: 'wulfzxunderground@gmail.com',
   githubTraffic: 'https://github.com/shahunter1989-ux/wulfzx-underground/graphs/traffic',
@@ -53,17 +52,6 @@ export const featureTiles = [
     imageAlt: 'WULFZX Fallout 76 Wasteland Guide artwork',
     variant: 'gold',
   },
-  {
-    title: 'WZXU Nuclear Survival Scenario',
-    id: 'nuclear-survival-scenario',
-    eyebrow: 'Interactive Scenario',
-    description: 'A fast WZXU nuclear survival scenario that puts your emergency choices to the test before the clock runs out.',
-    cta: 'Run Scenario',
-    href: links.survivalScenario,
-    image: assetPath('wzxu-survival-scenario-icon.svg'),
-    imageAlt: 'WZXU nuclear survival scenario warning icon',
-    variant: 'survival-scenario',
-  },
 ]
 
 export const gameCards = [
@@ -74,15 +62,6 @@ export const gameCards = [
     href: 'https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check',
     image: assetPath('duck-duck-nuke-opt.webp'),
     imageAlt: 'Duck Duck Nuke game artwork with characters riding a rocket',
-  },
-  {
-    title: 'WZXU Nuclear Survival Scenario',
-    meta: 'Scenario - Survival - Choices',
-    description: 'When the sirens hit, make the call: test your nuclear survival instincts in a fast WZXU emergency scenario.',
-    href: links.survivalScenario,
-    image: assetPath('wzxu-survival-scenario-icon.svg'),
-    imageAlt: 'WZXU nuclear survival scenario warning icon',
-    variant: 'survival-scenario',
   },
   {
     title: 'WZX Pong',
@@ -239,6 +218,17 @@ export const whatIDoSections = [
         image: links.invoiceMakerImage,
         imageAlt: 'WZXU Invoice Maker professional invoice artwork',
         variant: 'invoice-maker',
+      },
+      {
+        title: 'WZXU Seller Inventory',
+        category: 'Business inventory tool',
+        description:
+          'An offline-first business tool for independent sellers to organize inventory, product details, photos, activity, and backups locally on their device.',
+        status: 'Open app',
+        href: links.sellerInventory,
+        image: links.sellerInventoryImage,
+        imageAlt: 'WZXU Seller Inventory app icon',
+        variant: 'seller-inventory',
       },
     ],
   },

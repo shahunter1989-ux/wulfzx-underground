@@ -5,8 +5,6 @@ import PrivacyPolicyPage from './PrivacyPolicyPage'
 import SellerInventoryPrivacyPage from './SellerInventoryPrivacyPage'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
-const gamingHistoryPath = `${import.meta.env.BASE_URL}gaming-history/`
-const gamingHistoryBackground = assetPath('gaming-history-console-timeline.webp')
 const snesHistoryHref = 'https://snes-deploy.vercel.app/'
 const dayRangeInstructions = [
   { title: 'Storage and Home Screen', image: assetPath('dayrange-storage-home.png') },
@@ -18,6 +16,7 @@ const dayRangeInstructions = [
   { title: 'Profile', image: assetPath('dayrange-profile.png') },
 ]
 const categoryOrder = ['Featured', 'Apps & Tools', 'Gaming', 'Fallout 76', 'Social', 'Support']
+const categorySlug = (category) => category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
 const links = [
   {
@@ -28,7 +27,8 @@ const links = [
     href: `${import.meta.env.BASE_URL}main/`,
     accent: 'blue',
     isInternal: true,
-    Icon: WebsiteIcon,
+    image: assetPath('wulfzx-official-link-icon.webp'),
+    imageAlt: 'WULFZX network globe icon',
   },
   {
     id: 'featured-guide',
@@ -157,11 +157,11 @@ const links = [
     category: 'Gaming',
     title: 'Gaming History',
     description: 'Explore the SNES era with console history, hardware notes, iconic games, and retro gaming legacy.',
-    href: gamingHistoryPath,
+    href: snesHistoryHref,
     accent: 'history',
     featured: true,
-    isInternal: true,
-    Icon: GamingHistoryIcon,
+    image: assetPath('wulfzx-gaming-history-link-icon.webp'),
+    imageAlt: 'WULFZX retro gaming history icon',
   },
   {
     id: 'cashapp',
@@ -199,9 +199,7 @@ function App() {
   const currentPath = window.location.pathname
   const isPrivacyRoute = currentPath === `${basePath}privacy` || currentPath === `${basePath}privacy/`
   const isSellerInventoryPrivacyRoute = currentPath === `${basePath}privacy/wzxu-seller-inventory` || currentPath === `${basePath}privacy/wzxu-seller-inventory/`
-  const gamingHistoryRoot = `${basePath}gaming-history`
   const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
-  const isGamingHistoryRoute = currentPath === gamingHistoryRoot || currentPath.startsWith(`${gamingHistoryRoot}/`)
 
   if (isPrivacyRoute) {
     return <PrivacyPolicyPage />
@@ -212,10 +210,6 @@ function App() {
 
   if (isMainWebsiteRoute) {
     return <MainWebsite />
-  }
-
-  if (isGamingHistoryRoute) {
-    return <GamingHistoryPage />
   }
 
   return <HubPage />
@@ -229,18 +223,33 @@ function HubPage() {
   }))
 
   return (
-    <main className="business-card-page" aria-labelledby="brand-title">
+    <main className="business-card-page hub-v2" aria-labelledby="brand-title">
+      <link rel="preload" as="image" href={assetPath('wulfzx-hub-hero.webp')} type="image/webp" media="(min-width: 601px)" />
+      <link rel="preload" as="image" href={assetPath('wulfzx-hub-hero-mobile.webp')} type="image/webp" media="(max-width: 600px)" />
       <CircuitBackdrop />
       <div className="hub-content">
         <section className="link-hub-card" aria-label="Wulfzx.Underground premium digital business card demo">
           <header className="brand-hero">
-            <div className="logo-frame">
+            <picture className="hub-hero-art" aria-hidden="true">
+              <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-hub-hero-mobile.webp')} />
               <img
-                src={assetPath('business-card-wulfzx-logo-opt.webp')}
-                alt="Wulfzx.Underground cybernetic wolf logo"
+                src={assetPath('wulfzx-hub-hero.webp')}
+                alt=""
                 decoding="async"
                 fetchPriority="high"
+                width="1600"
+                height="900"
               />
+            </picture>
+            <div className="wolf-blink-layer" aria-hidden="true">
+              <picture className="wolf-blink-frame wolf-blink-half">
+                <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-wolf-eyes-half-mobile.webp')} />
+                <img src={assetPath('wulfzx-wolf-eyes-half.webp')} alt="" width="1600" height="900" />
+              </picture>
+              <picture className="wolf-blink-frame wolf-blink-closed">
+                <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-wolf-eyes-closed-mobile.webp')} />
+                <img src={assetPath('wulfzx-wolf-eyes-closed.webp')} alt="" width="1600" height="900" />
+              </picture>
             </div>
             <div className="brand-copy">
               <h1 id="brand-title">Wulfzx.Underground</h1>
@@ -249,10 +258,18 @@ function HubPage() {
             </div>
           </header>
 
+          <nav className="hub-category-nav" aria-label="Jump to a link category">
+            {groupedLinks.map(({ category }) => (
+              <a key={category} href={`#link-section-${categorySlug(category)}`}>
+                {category}
+              </a>
+            ))}
+          </nav>
+
           <nav className="link-sections" aria-label="Wulfzx.Underground links">
             {groupedLinks.map(({ category, links: categoryLinks }) => (
-              <section className="link-section" key={category} aria-labelledby={`link-section-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
-                <h2 id={`link-section-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{category}</h2>
+              <section className="link-section" key={category} aria-labelledby={`link-section-${categorySlug(category)}`}>
+                <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
                     <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} />
@@ -262,17 +279,13 @@ function HubPage() {
             ))}
           </nav>
 
+          <MediaPreview />
+
           <footer className="card-footer">
             <p>Powered by Wulfzx.Underground</p>
             <p>Premium Digital Business Card Demo</p>
           </footer>
         </section>
-
-        <div className="scroll-cue" aria-hidden="true">
-          <span />
-        </div>
-
-        <MediaPreview />
       </div>
       {isDayRangeGuideOpen ? (
         <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />
@@ -339,36 +352,6 @@ function InstructionViewer({ instructions, onClose }) {
   )
 }
 
-function GamingHistoryPage() {
-  return (
-    <main
-      className="business-card-page gaming-history-page"
-      style={{ '--gaming-history-bg': `url("${gamingHistoryBackground}")` }}
-      aria-labelledby="gaming-history-title"
-    >
-      <h1 className="sr-only" id="gaming-history-title">
-        Gaming History
-      </h1>
-      <a className="gaming-history-back" href={import.meta.env.BASE_URL} aria-label="Back to hub">
-        <span aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M15 5l-7 7 7 7" />
-          </svg>
-        </span>
-      </a>
-      <a
-        className="gaming-history-hotspot gaming-history-hotspot-snes"
-        href={snesHistoryHref}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Open the Super Nintendo history page"
-      >
-        <span aria-hidden="true">SNES</span>
-      </a>
-    </main>
-  )
-}
-
 function MediaPreview() {
   const [isVideoActive, setIsVideoActive] = React.useState(false)
 
@@ -417,15 +400,7 @@ function CircuitBackdrop() {
   return (
     <div className="circuit-backdrop" aria-hidden="true">
       <div className="backdrop-image" />
-      <div className="circuit-grid" />
       <div className="pulse-line pulse-line-a" />
-      <div className="pulse-line pulse-line-b" />
-      <div className="pulse-line pulse-line-c" />
-      <div className="hub-circuit-node hub-circuit-node-a" />
-      <div className="hub-circuit-node hub-circuit-node-b" />
-      <div className="hub-circuit-node hub-circuit-node-c" />
-      <div className="hub-circuit-node hub-circuit-node-d" />
-      <div className="scan-ring" />
     </div>
   )
 }
@@ -478,34 +453,12 @@ function LinkButton({ link, onHowTo }) {
   )
 }
 
-function WebsiteIcon() {
-  return (
-    <svg viewBox="0 0 64 64" role="img" aria-label="Metallic website globe icon">
-      <circle className="website-globe-shell" cx="32" cy="32" r="23" />
-      <path className="website-globe-equator" d="M9 32h46M15 20h34M15 44h34" />
-      <path className="website-globe-meridians" d="M32 9c7 7 10 15 10 23S39 48 32 55M32 9c-7 7-10 15-10 23s3 16 10 23" />
-    </svg>
-  )
-}
-
 function TikTokIcon() {
   return (
     <svg viewBox="0 0 64 64" role="img" aria-label="Custom cyber social video icon">
       <path className="social-note-main" d="M38 10v27.5c0 8-6.2 14.5-14.2 14.5S10 46.4 10 39.3 15.9 26 23.6 26c1.5 0 2.9.2 4.2.7v9.8a6 6 0 1 0 2.2 4.6V10z" />
       <path className="social-note-signal" d="M38 10c2.4 7.3 7.4 12.2 16 12.9v10.3c-6.9-.1-12.1-2.3-16-6" />
       <path className="social-note-sparks" d="M17 18h7M12 23h4M48 41h5M42 47h8" />
-    </svg>
-  )
-}
-
-function GamingHistoryIcon() {
-  return (
-    <svg viewBox="0 0 64 64" role="img" aria-label="Retro gaming history console icon">
-      <path className="history-console-shell" d="M12 18h40c3 0 5 2 5 5v18c0 3-2 5-5 5H12c-3 0-5-2-5-5V23c0-3 2-5 5-5z" />
-      <path className="history-cartridge" d="M23 12h18v12H23z" />
-      <path className="history-dpad" d="M18 29h12M24 23v12" />
-      <path className="history-buttons" d="M41 29h.1M49 34h.1" />
-      <path className="history-signal" d="M16 51h32M22 56h20" />
     </svg>
   )
 }

@@ -121,16 +121,6 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 YouTube icon',
   },
   {
-    id: 'field-guide',
-    category: 'Fallout 76',
-    title: 'WULFZX Wasteland Field Guide',
-    description: 'A friendly field version powered by WZXU76.',
-    href: 'https://wulfzx-field-guide.vercel.app/',
-    accent: 'field-guide',
-    image: assetPath('wulfzx-wasteland-field-guide-hub-icon.png'),
-    imageAlt: 'WULFZX Wasteland Field Guide map artwork',
-  },
-  {
     id: 'duck-nuke',
     category: 'Gaming',
     title: 'Duck Duck Nuke',

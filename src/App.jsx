@@ -92,6 +92,16 @@ const links = [
     imageAlt: 'WZXU Seller Inventory app icon',
   },
   {
+    id: 'labels',
+    category: 'Apps & Tools',
+    title: 'WZXU Labels',
+    description: 'Create, save, and print shipping address labels right on your device.',
+    href: sharedLinks.labels,
+    accent: 'dayrange',
+    image: sharedLinks.labelsImage,
+    imageAlt: 'WZXU Labels metallic wolf icon',
+  },
+  {
     id: 'qr-code-maker',
     category: 'Apps & Tools',
     title: 'WZXU QR Code Maker',

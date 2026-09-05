@@ -10,6 +10,8 @@ export const links = {
   invoiceMakerImage: assetPath('wzxu-invoice-maker.png'),
   sellerInventory: 'https://wzxu-seller-inventory.vercel.app/',
   sellerInventoryImage: assetPath('wzxu-seller-inventory.png'),
+  labels: 'https://wzxu-labels.vercel.app/',
+  labelsImage: assetPath('wzxu-labels-icon.webp'),
   qrCodeMaker: 'https://wzxu-qr-code-maker-web.vercel.app/',
   qrCodeMakerLogo: assetPath('wzxu-qr-code-maker-logo.png'),
   qrCodeMakerIcon: assetPath('wzxu-qr-code-maker-icon.png'),
@@ -249,6 +251,17 @@ export const whatIDoSections = [
         image: links.sellerInventoryImage,
         imageAlt: 'WZXU Seller Inventory app icon',
         variant: 'seller-inventory',
+      },
+      {
+        title: 'WZXU Labels',
+        category: 'Shipping label tool',
+        description:
+          'Create, preview, save, and print shipping address labels in small, standard, and full-sheet sizes, with drafts and saved addresses stored locally in your browser.',
+        status: 'Open app',
+        href: links.labels,
+        image: links.labelsImage,
+        imageAlt: 'WZXU Labels metallic wolf icon',
+        variant: 'labels',
       },
       {
         title: 'WZXU QR Code Maker',

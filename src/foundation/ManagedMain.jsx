@@ -265,6 +265,10 @@ export default function ManagedMain({ ContactForm, children, title }) {
     if (data)
       document.title = `${title || (page === "home" ? data.business.name : page === "work" ? "Work" : "Contact")} | WZXU`;
   }, [data, page, title]);
+  const homepageLinks = data.links.filter((link) => link.enabled && ![
+    "https://www.youtube.com/@WZXU76",
+    "https://www.instagram.com/wzxu76/",
+  ].includes(link.href));
   return (
     <div
       className={`wf-site wf-buttons-${data.appearance.buttons}`}
@@ -328,10 +332,9 @@ export default function ManagedMain({ ContactForm, children, title }) {
             </div>
           </>
         )}
-        {page === "home" && (
+        {page === "home" && homepageLinks.length > 0 && (
           <nav className="wf-social-row" aria-label="Social links">
-            {data.links
-              .filter((i) => i.enabled)
+            {homepageLinks
               .map((l) => (
                 <Destination key={l.id} href={l.href} newTab={l.newTab}>
                   {l.label} ↗

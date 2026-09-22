@@ -7,6 +7,10 @@ import SellerInventoryPrivacyPage from './SellerInventoryPrivacyPage'
 
 const assetPath = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`
 const snesHistoryHref = 'https://snes-deploy.vercel.app/'
+const historyConsoles = [
+  { name: 'NES', title: 'Nintendo Entertainment System', href: 'https://shahunter1989-ux.github.io/old-systems-1-nes-site/' },
+  { name: 'SNES', title: 'Super Nintendo Entertainment System', href: snesHistoryHref },
+]
 const dayRangeInstructions = [
   { title: 'Storage and Home Screen', image: assetPath('dayrange-storage-home.png') },
   { title: 'DayRange Overview', image: assetPath('dayrange-instructions-cover.png') },
@@ -167,7 +171,8 @@ const links = [
     id: 'gaming-history',
     category: 'Gaming',
     title: 'Gaming History',
-    description: 'Explore the SNES era with console history, hardware notes, iconic games, and retro gaming legacy.',
+    opensConsoleChooser: true,
+    description: 'Explore NES and SNES history, iconic games, and console hardware.',
     href: snesHistoryHref,
     accent: 'history',
     featured: true,
@@ -232,6 +237,7 @@ function App() {
 }
 
 function HubPage() {
+  const [isConsoleChooserOpen, setIsConsoleChooserOpen] = React.useState(false)
   const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
   const groupedLinks = categoryOrder.map((category) => ({
     category,
@@ -288,7 +294,7 @@ function HubPage() {
                 <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
-                    <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} />
+                    <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />
                   ))}
                 </div>
               </section>
@@ -306,8 +312,33 @@ function HubPage() {
       {isDayRangeGuideOpen ? (
         <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />
       ) : null}
+      {isConsoleChooserOpen && <ConsoleChooser onClose={() => setIsConsoleChooserOpen(false)} />}
     </main>
   )
+}
+
+function ConsoleChooser({ onClose }) {
+  const dialog = React.useRef(null)
+  React.useEffect(() => {
+    const trigger = document.activeElement
+    const modal = dialog.current
+    const previousOverflow = document.body.style.overflow
+    modal.showModal()
+    document.body.style.overflow = 'hidden'
+    return () => {
+      modal.close()
+      document.body.style.overflow = previousOverflow
+      trigger?.focus()
+    }
+  }, [])
+  return <dialog ref={dialog} className="console-chooser" aria-labelledby="console-chooser-title" onCancel={event => { event.preventDefault(); onClose() }} onClick={event => { if (event.target === event.currentTarget) onClose() }}>
+    <div className="console-chooser-panel">
+      <header><div><p>GAMING HISTORY</p><h2 id="console-chooser-title">Choose your console</h2></div><button type="button" autoFocus onClick={onClose} aria-label="Close console chooser">×</button></header>
+      <p>Explore the consoles that shaped a generation.</p>
+      <div className="console-choices">{historyConsoles.map(console => <a key={console.name} href={console.href} target="_blank" rel="noopener noreferrer"><strong>{console.name}</strong><span>{console.title}</span><small>Explore history ↗</small></a>)}</div>
+      <p className="console-chooser-note">Each console opens in a new tab.</p>
+    </div>
+  </dialog>
 }
 
 function InstructionViewer({ instructions, onClose }) {
@@ -421,15 +452,19 @@ function CircuitBackdrop() {
   )
 }
 
-function LinkButton({ link, onHowTo }) {
+function LinkButton({ link, onHowTo, onChooseConsole }) {
   const Icon = link.Icon
+  const Tag = link.opensConsoleChooser ? 'button' : 'a'
 
   return (
-    <a
+    <Tag
       className={`link-button link-button-${link.accent} link-${link.id}${link.featured ? ' link-button-featured' : ''}`}
-      href={link.href}
-      target={link.isInternal ? undefined : '_blank'}
-      rel={link.isInternal ? undefined : 'noreferrer'}
+      href={link.opensConsoleChooser ? undefined : link.href}
+      type={link.opensConsoleChooser ? 'button' : undefined}
+      onClick={link.opensConsoleChooser ? onChooseConsole : undefined}
+      aria-haspopup={link.opensConsoleChooser ? 'dialog' : undefined}
+      target={link.isInternal || link.opensConsoleChooser ? undefined : '_blank'}
+      rel={link.isInternal || link.opensConsoleChooser ? undefined : 'noreferrer'}
       aria-label={`${link.title}: ${link.description}`}
     >
       <span className="link-icon">
@@ -465,7 +500,7 @@ function LinkButton({ link, onHowTo }) {
           <path d="M8 5l7 7-7 7" />
         </svg>
       </span>
-    </a>
+    </Tag>
   )
 }
 

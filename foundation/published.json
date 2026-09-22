@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "business": {
+    "name": "Wulfzx.Underground",
+    "tagline": "Create. Build. Entertain. Inspire.",
+    "email": "wulfzxunderground@gmail.com",
+    "phone": "",
+    "address": "",
+    "hours": "",
+    "footer": "Independent ideas. Built with purpose."
+  },
+  "appearance": {
+    "palette": "blue",
+    "buttons": "rounded"
+  },
+  "pages": {
+    "home": {
+      "heading": "Ideas built into real experiences.",
+      "description": "Apps, websites, games, and creative work from Wulfzx.Underground.",
+      "primaryLabel": "Explore my work",
+      "primaryHref": "/main/what-i-do/",
+      "secondaryLabel": "Let’s talk",
+      "secondaryHref": "/main/contact/",
+      "image": "/assets/business-card-wulfzx-logo-opt.webp",
+      "imageAlt": "Wulfzx metallic wolf emblem with blue accents",
+      "projectsTitle": "Featured projects",
+      "servicesTitle": "What I can build for you",
+      "announcementsTitle": "From the studio",
+      "contactTitle": "Have something in mind?",
+      "contactDescription": "A website, a creative idea, or something completely new. Let’s make it happen."
+    },
+    "work": {
+      "heading": "A little curiosity. A lot of building.",
+      "description": "Explore the apps, games, websites, and creative experiments that make up WZXU."
+    },
+    "contact": {
+      "heading": "Let’s build something together.",
+      "description": "Project inquiries, creative ideas, community feedback, or just a hello. I’d love to hear from you."
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "enabled": true
+    },
+    {
+      "type": "projects",
+      "enabled": true
+    },
+    {
+      "type": "services",
+      "enabled": true
+    },
+    {
+      "type": "announcements",
+      "enabled": true
+    },
+    {
+      "type": "contact",
+      "enabled": true
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "Fallout 76 Guide",
+      "description": "The WULFZX Wasteland Guide with builds, resources, and survival support.",
+      "category": "Guide",
+      "href": "/main/wasteland-companion-guide/",
+      "buttonLabel": "Open Guide Page",
+      "enabled": true,
+      "featured": true,
+      "newTab": false,
+      "image": "/assets/wulfzx-76-guide-opt.webp",
+      "imageAlt": "WULFZX Fallout 76 Wasteland Guide artwork"
+    },
+    {
+      "id": "project-11",
+      "title": "WZXU Invoice Maker",
+      "description": "Create professional invoices quickly and easily with a WZXU Business Tool.",
+      "category": "Business tool",
+      "href": "https://wzxu-invoice-maker.vercel.app/",
+      "buttonLabel": "Open app",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/wzxu-invoice-maker.png",
+      "imageAlt": "WZXU Invoice Maker professional invoice artwork"
+    },
+    {
+      "id": "project-2",
+      "title": "WZXU Seller Inventory",
+      "description": "An offline-first inventory workspace for independent sellers to organize products, photos, activity, and backups.",
+      "category": "Business Tool",
+      "href": "https://wzxu-seller-inventory.vercel.app/",
+      "buttonLabel": "Open Inventory App",
+      "enabled": true,
+      "featured": true,
+      "newTab": true,
+      "image": "/assets/wzxu-seller-inventory.png",
+      "imageAlt": "WZXU Seller Inventory app icon"
+    },
+    {
+      "id": "project-3",
+      "title": "WZXU Starfighter",
+      "description": "Choose your ship. Own the stars. A retro 3D arcade demo.",
+      "category": "Games",
+      "href": "https://wzxu-starfighter.vercel.app/",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": true,
+      "newTab": true,
+      "image": "/assets/starfighter.png",
+      "imageAlt": "WZXU Starfighter spacecraft flying through an asteroid field"
+    },
+    {
+      "id": "project-4",
+      "title": "Wulf Pack",
+      "description": "Wulf. Amy. One electric maze. A 3D arcade chase game.",
+      "category": "Games",
+      "href": "https://wulf-pack.vercel.app/",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/wulf-pack.svg",
+      "imageAlt": "Wulf Pack title over a purple maze"
+    },
+    {
+      "id": "project-5",
+      "title": "Coffee's Pong",
+      "description": "Step into Coffee’s arcade for a dog-themed take on Pong. One dog. One bone. Endless fun.",
+      "category": "Games",
+      "href": "https://coffees-pong.wzxu-cloud.workers.dev/",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/coffees-pong.jpg",
+      "imageAlt": "Coffee’s Pong green pixel artwork featuring a Chihuahua and bone-shaped paddles"
+    },
+    {
+      "id": "project-6",
+      "title": "Duck Duck Nuke",
+      "description": "A chaotic duck-powered launch game built for quick runs, explosive timing, and score chasing.",
+      "category": "Games",
+      "href": "https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/duck-duck-nuke-opt.webp",
+      "imageAlt": "Duck Duck Nuke game artwork with characters riding a rocket"
+    },
+    {
+      "id": "project-7",
+      "title": "WZX Pong",
+      "description": "A WULFZX-styled Pong build with fast rallies, clean controls, and neon arcade energy.",
+      "category": "Games",
+      "href": "https://shahunter1989-ux.github.io/wzx-pong/",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/wzx-pong-opt.webp",
+      "imageAlt": "WZX Pong neon arcade artwork with glowing paddles and ball"
+    },
+    {
+      "id": "project-8",
+      "title": "How Far Will Your Duck Flap?",
+      "description": "A bright tap-to-flap distance challenge built for clean timing and quick replay attempts.",
+      "category": "Games",
+      "href": "https://shahunter1989-ux.github.io/how-far-will-your-duck-fly/",
+      "buttonLabel": "Explore project",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/how-far-duck-flap-opt.webp",
+      "imageAlt": "How Far Will Your Duck Flap game artwork with a duck flying through a bright sky"
+    },
+    {
+      "id": "project-9",
+      "title": "AI Workflow Builds",
+      "description": "Custom AI-assisted workflows for organizing ideas, speeding up creative tasks, and turning project needs into practical tools.",
+      "category": "AI Tools",
+      "href": "",
+      "buttonLabel": "In development",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "project-10",
+      "title": "DayRange by WZXU",
+      "description": "A private glucose tracking and organization app with local-first storage, insights, and reports.",
+      "category": "Health organization app",
+      "href": "https://wzxu-coder.github.io/dayrange/",
+      "buttonLabel": "Open app",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/dayrange-cover.png",
+      "imageAlt": "DayRange by WZXU app logo"
+    },
+    {
+      "id": "project-12",
+      "title": "WZXU Labels",
+      "description": "Create, preview, save, and print shipping address labels in small, standard, and full-sheet sizes, with drafts and saved addresses stored locally in your browser.",
+      "category": "Shipping label tool",
+      "href": "https://wzxu-labels.vercel.app/",
+      "buttonLabel": "Open app",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/wzxu-labels-icon.webp",
+      "imageAlt": "WZXU Labels metallic wolf icon"
+    },
+    {
+      "id": "project-13",
+      "title": "WZXU QR Code Maker",
+      "description": "Create, customize, scan, save, and download QR codes for URLs, text, Wi-Fi, vCards, and more—locally in your browser with no account or tracking.",
+      "category": "Private QR utility",
+      "href": "https://wzxu-qr-code-maker-web.vercel.app/",
+      "buttonLabel": "Open app",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/wzxu-qr-code-maker-logo.png",
+      "imageAlt": "WZXU QR Code Maker logo"
+    },
+    {
+      "id": "project-14",
+      "title": "Basic Digital Business Card",
+      "description": "A basic third-party digital card sample. WULFZX can create this same simple link-hub style with in-house tools when a client wants a cleaner owned build.",
+      "category": "Third-party sample",
+      "href": "https://wzxulink.lovable.app/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "project-15",
+      "title": "Standard Digital Business Card",
+      "description": "A WULFZX-built photography business card demo made with in-house tools, showing a cleaner standard package with profile, portfolio-style visuals, and contact-ready presentation.",
+      "category": "Standard tier demo",
+      "href": "https://wzxu-photo-demo-1.vercel.app/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "project-16",
+      "title": "Atomic Digital Business Card",
+      "description": "A one-page WULFZX demo with animation, themed visuals, and flexible feature sections for clients who want more personality than a basic card without needing a full premium package.",
+      "category": "Enhanced standard demo",
+      "href": "https://wzxunukacard.lovable.app/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/nuka-card-preview.webp",
+      "imageAlt": "Atomic digital business card website preview"
+    },
+    {
+      "id": "project-17",
+      "title": "Creator Vlog Website",
+      "description": "A live Luna Daily Vlogs sample for a creator-style website, featuring a clean homepage, video-focused sections, and a simple contact flow.",
+      "category": "Creator site demo",
+      "href": "https://shahunter1989-ux.github.io/luna-daily-vlogs/index.html",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/luna-daily-vlogs-preview.webp",
+      "imageAlt": "Luna Daily Vlogs creator website preview"
+    },
+    {
+      "id": "project-18",
+      "title": "Book Club Website",
+      "description": "A live Nocturne Reads demo for a themed book club website, showing a polished one-page experience with atmosphere, calls to action, featured content, and client-ready presentation.",
+      "category": "One-page website demo",
+      "href": "https://wzxudarkclub.lovable.app/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/dark-book-club-preview.webp",
+      "imageAlt": "Nocturne Reads dark romance book club website preview"
+    },
+    {
+      "id": "project-19",
+      "title": "Beauty Portfolio Website",
+      "description": "A simple third-party makeup artist portfolio demo for Maya Noor, featuring service-focused presentation, selected work, and a clean contact path for bridal, editorial, and special-event clients.",
+      "category": "Third-party portfolio demo",
+      "href": "https://spark-beauty-folio.lovable.app/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/spark-beauty-portfolio-preview.webp",
+      "imageAlt": "Maya Noor makeup artist portfolio website preview"
+    },
+    {
+      "id": "project-20",
+      "title": "Premium Digital Business Card",
+      "description": "A premium pet-focused business card demo for Coffee, built to show custom branding, personality, visuals, and a polished WULFZX-hosted presentation.",
+      "category": "Premium service demo",
+      "href": "https://shahunter1989-ux.github.io/wzxu-coffee-sd/",
+      "buttonLabel": "Open demo",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/coffee-profile-real.jpg",
+      "imageAlt": "Coffee the Chihuahua profile photo on a Ford Mustang hood"
+    },
+    {
+      "id": "project-21",
+      "title": "GTA VI Countdown Timer",
+      "description": "A countdown website built with WULFZX tools and hosted from the WULFZX side as a product-quality public demo.",
+      "category": "Hosted tool demo",
+      "href": "https://gta-vi-countdown-sable.vercel.app/",
+      "buttonLabel": "Open countdown",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/gta-vi-countdown-icon.jpg",
+      "imageAlt": "Neon VI artwork for the GTA VI countdown timer demo"
+    },
+    {
+      "id": "project-22",
+      "title": "Custom Websites",
+      "description": "A basic example business website, such as a tire shop or smoke shop. WULFZX builds custom websites around each customer and client need, from business pages to social media-focused hubs.",
+      "category": "Web Builds",
+      "href": "https://wzxuwebview.lovable.app/",
+      "buttonLabel": "Live sample",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "project-23",
+      "title": "Community Ecosystem",
+      "description": "A connected universe where players, creators, testers, and supporters can grow together.",
+      "category": "Community",
+      "href": "",
+      "buttonLabel": "Expanding soon",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "project-24",
+      "title": "Future Experiments",
+      "description": "New samples, prototypes, AI experiments, and creative builds will be added as the company grows.",
+      "category": "Research",
+      "href": "",
+      "buttonLabel": "In development",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "",
+      "imageAlt": ""
+    }
+  ],
+  "services": [
+    {
+      "id": "service-1",
+      "title": "Websites & link hubs",
+      "description": "Professional digital business card packages by Wulfzx.Underground. One link, your brand, and a polished mobile-ready hub built to represent you.",
+      "category": "Web design",
+      "href": "/main/contact/",
+      "buttonLabel": "Discuss a website",
+      "enabled": true,
+      "featured": true,
+      "newTab": false,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "service-2",
+      "title": "Apps & tools",
+      "description": "Practical tools and custom workflows that make everyday tasks easier.",
+      "category": "Development",
+      "href": "/main/contact/",
+      "buttonLabel": "Talk about your idea",
+      "enabled": true,
+      "featured": true,
+      "newTab": false,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "service-3",
+      "title": "AI creative",
+      "description": "Your idea turned into a polished AI image with a custom creative touch.",
+      "category": "Creative work",
+      "href": "/main/contact/",
+      "buttonLabel": "Request artwork",
+      "enabled": true,
+      "featured": true,
+      "newTab": false,
+      "image": "",
+      "imageAlt": ""
+    }
+  ],
+  "links": [
+    {
+      "id": "link-2",
+      "label": "WZXU76 YouTube",
+      "href": "https://www.youtube.com/@WZXU76",
+      "enabled": true,
+      "newTab": true
+    },
+    {
+      "id": "link-3",
+      "label": "WZXU76 Instagram",
+      "href": "https://www.instagram.com/wzxu76/",
+      "enabled": true,
+      "newTab": true
+    }
+  ],
+  "announcements": []
+}

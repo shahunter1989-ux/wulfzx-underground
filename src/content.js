@@ -39,6 +39,7 @@ export const links = {
 
 export const navItems = [
   { label: 'Home', href: '#top' },
+  { label: 'Arcade', href: '/arcade/' },
   { label: '76 Guide', href: links.guide76Landing },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'Music', href: '/painter-of-dreams/' },
@@ -72,7 +73,38 @@ export const featureTiles = [
 
 export const gameCards = [
   {
+    title: 'WZXU Starfighter',
+    menuImage: true,
+    viewport: { width: 1280, height: 900 },
+    meta: 'Arcade - Space - Playable Demo',
+    description: 'Choose your ship. Own the stars. A retro 3D arcade demo.',
+    href: 'https://wzxu-starfighter.vercel.app/',
+    image: assetPath('starfighter.png'),
+    imageAlt: 'WZXU Starfighter spacecraft flying through an asteroid field',
+  },
+  {
+    title: 'Wulf Pack',
+    viewport: { width: 1280, height: 960 },
+    meta: 'Arcade - Maze - Chase',
+    description: 'Wulf. Amy. One electric maze. A 3D arcade chase game.',
+    href: 'https://wulf-pack.vercel.app/',
+    image: assetPath('wulf-pack.svg'),
+    imageAlt: 'Wulf Pack title over a purple maze',
+    launchMode: 'window',
+  },
+  {
+    title: "Coffee's Pong",
+    viewport: { width: 1100, height: 1100 },
+    meta: 'Arcade - Pong - Retro',
+    description: 'Step into Coffee’s arcade for a dog-themed take on Pong. One dog. One bone. Endless fun.',
+    href: 'https://coffees-pong.wzxu-cloud.workers.dev/',
+    image: assetPath('coffees-pong.jpg'),
+    imageAlt: 'Coffee’s Pong green pixel artwork featuring a Chihuahua and bone-shaped paddles',
+    containArtwork: true,
+  },
+  {
     title: 'Duck Duck Nuke',
+    viewport: { width: 450, height: 800 },
     meta: 'Arcade - Launch - Action',
     description: 'A chaotic duck-powered launch game built for quick runs, explosive timing, and score chasing.',
     href: 'https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check',
@@ -81,6 +113,7 @@ export const gameCards = [
   },
   {
     title: 'WZX Pong',
+    viewport: { width: 1280, height: 900 },
     meta: 'Arcade - Neon - Versus',
     description: 'A WULFZX-styled Pong build with fast rallies, clean controls, and neon arcade energy.',
     href: 'https://shahunter1989-ux.github.io/wzx-pong/',
@@ -89,6 +122,7 @@ export const gameCards = [
   },
   {
     title: 'How Far Will Your Duck Flap?',
+    viewport: { width: 480, height: 900 },
     meta: 'Tap - Distance - Score Run',
     description: 'A bright tap-to-flap distance challenge built for clean timing and quick replay attempts.',
     href: 'https://shahunter1989-ux.github.io/how-far-will-your-duck-fly/',

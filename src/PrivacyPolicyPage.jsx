@@ -1,3 +1,4 @@
+import { SiteFrame } from './foundation/SpecialtyPages'
 import { useEffect } from 'react'
 
 const description = 'Privacy Policy for WZXU QR Code Maker, including local processing, storage, and user controls.'
@@ -18,7 +19,7 @@ function PrivacyPolicyPage() {
   }, [])
 
   return (
-    <main className="privacy-page" aria-labelledby="privacy-title">
+    <SiteFrame><main className="privacy-page" aria-labelledby="privacy-title">
       <article className="privacy-page-frame">
         <header className="privacy-header">
           <a className="privacy-brand" href="/" aria-label="WZXU home">WZXU</a>
@@ -44,7 +45,7 @@ function PrivacyPolicyPage() {
 
         <footer className="privacy-footer"><span>WZXU QR Code Maker</span><a href="/">Return to WZXU</a></footer>
       </article>
-    </main>
+    </main></SiteFrame>
   )
 }
 

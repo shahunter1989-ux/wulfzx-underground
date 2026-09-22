@@ -1,5 +1,6 @@
 import React from 'react'
 import MainWebsite from './MainWebsite'
+import ArcadePage from './ArcadePage'
 import { links as sharedLinks } from './content'
 import PrivacyPolicyPage from './PrivacyPolicyPage'
 import SellerInventoryPrivacyPage from './SellerInventoryPrivacyPage'
@@ -207,9 +208,14 @@ const links = [
 function App() {
   const basePath = import.meta.env.BASE_URL
   const currentPath = window.location.pathname
+  if (['/admin', '/admin/', '/main/owner', '/main/owner/'].includes(currentPath)) {
+    window.location.replace('/main/');
+    return null;
+  }
+  if (['/arcade', '/arcade/', '/main/arcade', '/main/arcade/'].includes(currentPath)) return <ArcadePage />
   const isPrivacyRoute = currentPath === `${basePath}privacy` || currentPath === `${basePath}privacy/`
   const isSellerInventoryPrivacyRoute = currentPath === `${basePath}privacy/wzxu-seller-inventory` || currentPath === `${basePath}privacy/wzxu-seller-inventory/`
-  const isMainWebsiteRoute = currentPath.startsWith(`${basePath}main/`)
+  const isMainWebsiteRoute = currentPath === `${basePath}main` || currentPath.startsWith(`${basePath}main/`)
 
   if (isPrivacyRoute) {
     return <PrivacyPolicyPage />

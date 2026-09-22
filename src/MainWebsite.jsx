@@ -1,4 +1,6 @@
 ﻿import React from 'react'
+import { GallerySurface, GuideSurface, MusicRedirect } from './foundation/SpecialtyPages'
+import ManagedMain, { CommunityAgreement, OwnerRedirect } from './foundation/ManagedMain'
 import {
   aiImageCreation,
   businessCardPricing,
@@ -350,13 +352,13 @@ function useAnalytics(page) {
 }
 
 function MainWebsite() {
-  const [hasEntryAccess, setHasEntryAccess] = React.useState(hasValidEntryAcknowledgement)
-  const isWhatIDoPage = window.location.pathname.startsWith(whatIDoPath)
-  const isContactPage = window.location.pathname.startsWith(contactPath)
-  const isOwnerPage = window.location.pathname.startsWith(ownerPath)
-  const isGalleryPage = window.location.pathname.startsWith(galleryPath)
-  const isPainterOfDreamsPage = window.location.pathname.startsWith(painterOfDreamsPath)
-  const isWastelandGuidePage = window.location.pathname.startsWith(wastelandGuidePath)
+  const normalizedPath = `${window.location.pathname.replace(/\/+$/, '')}/`
+  const isWhatIDoPage = normalizedPath.startsWith(whatIDoPath)
+  const isContactPage = normalizedPath.startsWith(contactPath)
+  const isOwnerPage = normalizedPath.startsWith(ownerPath)
+  const isGalleryPage = normalizedPath.startsWith(galleryPath)
+  const isPainterOfDreamsPage = normalizedPath.startsWith(painterOfDreamsPath)
+  const isWastelandGuidePage = normalizedPath.startsWith(wastelandGuidePath)
   const page = isOwnerPage
     ? 'owner'
     : isContactPage
@@ -373,50 +375,12 @@ function MainWebsite() {
 
   useAnalytics(page)
 
-  const acceptEntryAgreement = () => {
-    storeEntryAcknowledgement()
-    setHasEntryAccess(true)
-  }
-
-  if (!hasEntryAccess) {
-    return <EntryAgreementGate onAccept={acceptEntryAgreement} />
-  }
-
-  return (
-    <div className="site-shell">
-      <CircuitLayer />
-      <div className="dashboard-frame">
-        <Header page={page} />
-        <main>
-          {isOwnerPage ? (
-            <OwnerDashboardPage />
-          ) : isContactPage ? (
-            <ContactPage />
-          ) : isWhatIDoPage ? (
-            <WhatIDoPage />
-          ) : isGalleryPage ? (
-            <GalleryPage />
-          ) : isPainterOfDreamsPage ? (
-            <PainterOfDreamsPage />
-          ) : isWastelandGuidePage ? (
-            <WastelandCompanionGuidePage />
-          ) : (
-            <>
-              <HeroDashboard />
-              <FeatureTiles />
-              <GamesShowcase />
-              <ConnectStrip />
-              <WelcomeSection />
-            </>
-          )}
-        </main>
-        <footer className="site-footer">
-          <span>© 2026 Wulfzx.Underground</span>
-          <a href="/privacy">Privacy</a>
-        </footer>
-      </div>
-    </div>
-  )
+  if (isOwnerPage) return <OwnerRedirect />
+  if (window.location.pathname.startsWith(`${homePath}community-agreement`)) return <CommunityAgreement content={entryAgreementContent} />
+  if (isPainterOfDreamsPage) return <MusicRedirect />
+  if (isGalleryPage) return <ManagedMain title="Gallery"><GallerySurface /></ManagedMain>
+  if (isWastelandGuidePage) return <ManagedMain title="Wasteland Companion Guide"><GuideSurface /></ManagedMain>
+  return <ManagedMain ContactForm={ContactForm} />
 }
 
 function EntryAgreementGate({ onAccept }) {
@@ -1313,7 +1277,8 @@ function WelcomeSection() {
   )
 }
 
-function ContactForm() {
+function ContactForm({ email = links.email }) {
+  const contactFormEndpoint = `https://formsubmit.co/ajax/${email}`
   const [contactForm, setContactForm] = React.useState({
     name: '',
     replyEmail: '',
@@ -1323,7 +1288,7 @@ function ContactForm() {
   const [submitStatus, setSubmitStatus] = React.useState('idle')
   const [submitMessage, setSubmitMessage] = React.useState('')
 
-  const mailtoHref = buildMailtoHref(contactForm)
+  const mailtoHref = buildMailtoHref(contactForm, email)
 
   const updateContactField = (event) => {
     const { name, value } = event.target
@@ -1447,7 +1412,7 @@ function ContactForm() {
   )
 }
 
-function buildMailtoHref({ name, replyEmail, topic, message }) {
+function buildMailtoHref({ name, replyEmail, topic, message }, email = links.email) {
   const subject = `WULFZX Underground - ${topic || 'New inquiry'}`
   const body = [
     `Topic: ${topic || 'New inquiry'}`,
@@ -1458,7 +1423,7 @@ function buildMailtoHref({ name, replyEmail, topic, message }) {
     message || '',
   ].join('\n')
 
-  return `mailto:${links.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
 export default MainWebsite

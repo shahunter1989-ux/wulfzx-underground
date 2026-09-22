@@ -3,10 +3,14 @@ import { join } from 'node:path'
 
 const distDir = 'dist'
 const routes = [
+  'arcade',
+  'main/arcade',
   'main',
   'main/what-i-do',
   'main/contact',
   'main/owner',
+  'admin',
+  'main/community-agreement',
   'main/gallery',
   'main/painter-of-dreams',
   'main/wasteland-companion-guide',

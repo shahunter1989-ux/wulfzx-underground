@@ -1,3 +1,4 @@
+import { SiteFrame } from './foundation/SpecialtyPages'
 import { useEffect } from 'react'
 
 const route = '/privacy/wzxu-seller-inventory/'
@@ -52,7 +53,7 @@ function SellerInventoryPrivacyPage() {
   }, [])
 
   return (
-    <main className="privacy-page" aria-labelledby="seller-privacy-title">
+    <SiteFrame><main className="privacy-page" aria-labelledby="seller-privacy-title">
       <article className="privacy-page-frame">
         <header className="privacy-header">
           <a className="privacy-brand" href="/" aria-label="WZXU home">WZXU</a>
@@ -76,7 +77,7 @@ function SellerInventoryPrivacyPage() {
         </div>
         <footer className="privacy-footer"><span>WZXU Seller Inventory</span><a href="/main/">Return to WZXU.pro</a></footer>
       </article>
-    </main>
+    </main></SiteFrame>
   )
 }
 

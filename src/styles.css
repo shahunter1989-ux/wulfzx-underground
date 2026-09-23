@@ -7387,3 +7387,11 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
 .console-chooser a:focus-visible, .console-chooser button:focus-visible { outline: 3px solid #b7e5ff; outline-offset: 4px; }
 .console-chooser .console-chooser-note { margin: 20px 0 0; font-size: 13px; }
 @media (max-width: 520px) { .console-chooser-panel { padding: 20px; } .console-choices { grid-template-columns: 1fr; } .console-chooser h2 { font-size: 24px; } .console-choices a { padding: 18px; } }
+
+/* Frame Amy’s character while preserving the source artwork. */
+.hub-v2 .link-button.link-amy-nuka-nightmare .link-icon img {
+  padding: 0;
+  object-fit: cover;
+  object-position: 78% center;
+  filter: none;
+}

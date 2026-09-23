@@ -61,7 +61,8 @@ const links = [
     description: 'Official streams, socials, and community links.',
     href: 'https://amy-nuka-nightmare-link-hub.vercel.app/',
     accent: 'social',
-    Icon: SparkIcon,
+    image: assetPath('amy-nuka-nightmare.png'),
+    imageAlt: 'Amy the Nuka-Nightmare in green Fallout terminal artwork',
   },
   {
     id: 'magic-8-ball',

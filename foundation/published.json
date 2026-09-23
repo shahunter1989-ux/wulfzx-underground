@@ -372,6 +372,19 @@
       "newTab": true,
       "image": "",
       "imageAlt": ""
+    },
+    {
+      "id": "project-amy-nuka-nightmare",
+      "title": "Amy the Nuka-Nightmare",
+      "description": "A customizable creator link hub featuring a personal character, streaming and social links, and automatically updated weekly Fallout 76 silo codes.",
+      "category": "Creator link hub",
+      "href": "https://amy-nuka-nightmare-link-hub.vercel.app/",
+      "buttonLabel": "Explore creator hub",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/amy-nuka-nightmare.png",
+      "imageAlt": "Amy the Nuka-Nightmare character portrait and lettering in green Fallout terminal artwork"
     }
   ],
   "services": [

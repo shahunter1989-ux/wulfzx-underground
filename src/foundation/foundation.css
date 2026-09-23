@@ -1382,3 +1382,9 @@
 .wf-site .privacy-page a { color:#69b5ff; }
 .wf-site .privacy-footer { background:none; padding:24px 0; }
 @media(max-width:640px) { .wf-site .wf-gallery-empty { grid-template-columns:1fr; } .wf-site .wf-gallery-empty img { max-width:240px; } }
+
+/* Show the complete creator artwork at every card size. */
+.wf-project img[src="/assets/amy-nuka-nightmare.png"] {
+  object-fit: contain;
+  background: #020702;
+}

@@ -46,6 +46,24 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
+    id: 'painter-of-dreams',
+    category: 'Featured',
+    title: 'The Painter of Dreams',
+    description: 'Music, artist profiles, and official links.',
+    href: 'https://tpod-pi.vercel.app/',
+    accent: 'blue',
+    Icon: MusicIcon,
+  },
+  {
+    id: 'amy-nuka-nightmare',
+    category: 'Featured',
+    title: 'Amy Nuka Nightmare',
+    description: 'Official streams, socials, and community links.',
+    href: 'https://amy-nuka-nightmare-link-hub.vercel.app/',
+    accent: 'social',
+    Icon: SparkIcon,
+  },
+  {
     id: 'magic-8-ball',
     category: 'Featured',
     title: 'WZXU Magic 8-Ball',
@@ -502,6 +520,14 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
       </span>
     </Tag>
   )
+}
+
+function MusicIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13M9 9l11-2" /><ellipse cx="6" cy="18" rx="3" ry="2.5" /><ellipse cx="17" cy="16" rx="3" ry="2.5" /></svg>
+}
+
+function SparkIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m12 3 2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3Z" /></svg>
 }
 
 function TikTokIcon() {

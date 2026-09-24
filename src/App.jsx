@@ -62,8 +62,8 @@ const links = [
     description: 'Painting, concrete, and window estimates with PDF quotes.',
     href: 'https://wzxu-fieldquote.vercel.app/',
     accent: 'blue',
-    image: assetPath('fieldquote.svg'),
-    imageAlt: 'FieldQuote estimate clipboard icon',
+    image: assetPath('fieldquote-logo.png'),
+    imageAlt: 'WZXU FieldQuote green and white clipboard, house, and WZ logo',
   },
   {
     id: 'amy-nuka-nightmare',

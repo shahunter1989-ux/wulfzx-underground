@@ -76,7 +76,6 @@ export function SiteFooter({ business }) {
       </div>
       <nav aria-label="Footer">
         <a href="/main/community-agreement/">Community agreement</a>
-        <a href="/privacy/">Privacy</a>
         <a href="/">Link hub ↗</a>
 
       </nav>
@@ -95,7 +94,7 @@ function ProjectCard({ item }) {
           </div>
         )}
         <div className="wf-project-copy">
-          <span className="wf-category">{item.category}</span>
+          <span className="wf-category">{projectCategory(item.category)}</span>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
           <span className="wf-card-action">
@@ -107,6 +106,11 @@ function ProjectCard({ item }) {
     </article>
   );
 }
+function projectCategory(value) {
+  const category = value.trim();
+  return /^(business tools?|shipping label tool|private qr utility)$/i.test(category)
+    ? "Business tools" : category;
+}
 function Projects({ content, all = false }) {
   const [category, setCategory] = React.useState("All");
   const projects = content.projects.filter(
@@ -114,7 +118,7 @@ function Projects({ content, all = false }) {
     ),
     categories = [
       "All",
-      ...new Set(projects.map((i) => i.category).filter(Boolean)),
+      ...new Set(projects.map((i) => projectCategory(i.category)).filter(Boolean)),
     ];
   return (
     <section className="wf-section" id="projects">
@@ -139,7 +143,7 @@ function Projects({ content, all = false }) {
       )}
       <div className="wf-project-grid">
         {projects
-          .filter((i) => category === "All" || i.category === category)
+          .filter((i) => category === "All" || projectCategory(i.category) === category)
           .map((item) => (
             <ProjectCard key={item.id} item={item} />
           ))}

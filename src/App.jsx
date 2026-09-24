@@ -55,6 +55,16 @@ const links = [
     Icon: MusicIcon,
   },
   {
+    id: 'fieldquote',
+    category: 'Featured',
+    title: 'WZXU FieldQuote',
+    description: 'Painting, concrete, and window estimates with PDF quotes.',
+    href: 'https://wzxu-fieldquote.vercel.app/',
+    accent: 'blue',
+    image: assetPath('fieldquote.svg'),
+    imageAlt: 'FieldQuote estimate clipboard icon',
+  },
+  {
     id: 'amy-nuka-nightmare',
     category: 'Featured',
     title: 'Amy Nuka Nightmare',

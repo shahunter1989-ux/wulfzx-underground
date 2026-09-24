@@ -1388,3 +1388,9 @@
   object-fit: contain;
   background: #020702;
 }
+
+/* Keep the complete FieldQuote logo visible in its project card. */
+.wf-project img[src="/assets/fieldquote-logo.png"] {
+  object-fit: contain;
+  background: #0d1011;
+}

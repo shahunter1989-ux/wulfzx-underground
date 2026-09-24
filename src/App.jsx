@@ -58,6 +58,7 @@ const links = [
     id: 'fieldquote',
     category: 'Featured',
     title: 'WZXU FieldQuote',
+    tooltip: 'Explore this sample demo of the apps and websites WZXU can build. Available online for a limited time.',
     description: 'Painting, concrete, and window estimates with PDF quotes.',
     href: 'https://wzxu-fieldquote.vercel.app/',
     accent: 'blue',
@@ -495,6 +496,8 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
       target={link.isInternal || link.opensConsoleChooser ? undefined : '_blank'}
       rel={link.isInternal || link.opensConsoleChooser ? undefined : 'noreferrer'}
       aria-label={`${link.title}: ${link.description}`}
+      title={link.tooltip}
+      aria-description={link.tooltip}
     >
       <span className="link-icon">
         {link.image ? <img src={link.image} alt={link.imageAlt} loading="lazy" decoding="async" /> : <Icon />}

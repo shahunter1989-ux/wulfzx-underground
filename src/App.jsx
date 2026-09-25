@@ -187,17 +187,6 @@ const links = [
     imageAlt: 'Neon VI icon for the GTA VI countdown timer',
   },
   {
-    id: 'xeno3',
-    category: 'Gaming',
-    title: 'Dragon Ball Xenoverse 3 Fan Hub',
-    description: 'Fan-made Xenoverse 3 information hub.',
-    href: 'https://wzxuxeno3.vercel.app/',
-    accent: 'xeno',
-    featured: true,
-    image: assetPath('xeno3-fan-hub-logo.webp'),
-    imageAlt: 'Dragon Ball Xenoverse 3 fan hub logo artwork',
-  },
-  {
     id: 'gaming-history',
     category: 'Gaming',
     title: 'Gaming History',

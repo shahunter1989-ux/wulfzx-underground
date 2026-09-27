@@ -402,7 +402,7 @@
     {
       "id": "project-garage-flow",
       "title": "WZXU Garage Flow",
-      "description": "Organize workshop jobs, customers, vehicles, estimates, invoices, and service history in one place. Records are saved on your device, with backup and restore tools.",
+      "description": "A simple, all-in-one management app for auto repair shops. Track customers and vehicles, create jobs and estimates, manage invoices and payments, record inspections, and keep service history organized in one place. Data stays on your device, with easy backup and restore.",
       "category": "Business tools",
       "href": "https://wzxu-garage-flow.vercel.app/",
       "buttonLabel": "Open Garage Flow",

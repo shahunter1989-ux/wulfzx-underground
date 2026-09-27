@@ -398,6 +398,19 @@
       "newTab": true,
       "image": "/assets/fieldquote-logo.png",
       "imageAlt": "WZXU FieldQuote green and white clipboard, house, and WZ logo"
+    },
+    {
+      "id": "project-garage-flow",
+      "title": "WZXU Garage Flow",
+      "description": "Organize workshop jobs, customers, vehicles, estimates, invoices, and service history in one place. Records are saved on your device, with backup and restore tools.",
+      "category": "Business tools",
+      "href": "https://wzxu-garage-flow.vercel.app/",
+      "buttonLabel": "Open Garage Flow",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/garage-flow-logo.png",
+      "imageAlt": "WZXU Garage Flow logo"
     }
   ],
   "services": [

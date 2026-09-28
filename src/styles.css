@@ -7404,3 +7404,30 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
   filter: none;
   transform: none;
 }
+
+/* Hub app badges and uncropped Workshop emblem. */
+.hub-v2 .link-copy strong {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+}
+.hub-v2 .link-copy strong .link-new-badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid #70e4ee;
+  border-radius: 0.3rem;
+  background: #123b44;
+  color: #baf8ff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+}
+.hub-v2 .link-wyldwolf-workshop .link-icon img {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  filter: none;
+}

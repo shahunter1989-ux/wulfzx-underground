@@ -55,25 +55,14 @@ const links = [
     Icon: MusicIcon,
   },
   {
-    id: 'fieldquote',
+    id: 'wyldwolf-workshop',
     category: 'Featured',
-    title: 'WZXU FieldQuote',
-    tooltip: 'Explore this sample demo of the apps and websites WZXU can build. Available online for a limited time.',
-    description: 'Painting, concrete, and window estimates with PDF quotes.',
-    href: 'https://wzxu-fieldquote.vercel.app/',
+    title: 'Wyldwolf Workshop',
+    description: 'Gaming, craftsmanship, and live streams from Wyldwolf Workshop.',
+    href: 'https://wyldwolfworkshop.vercel.app/',
     accent: 'blue',
-    image: assetPath('fieldquote-logo.png'),
-    imageAlt: 'WZXU FieldQuote green and white clipboard, house, and WZ logo',
-  },
-  {
-    id: 'garage-flow',
-    category: 'Featured',
-    title: 'WZXU Garage Flow',
-    description: 'Auto repair shop management: customers, vehicles, jobs, estimates, invoices, payments, and inspections—with local storage and backup/restore.',
-    href: 'https://wzxu-garage-flow.vercel.app/',
-    accent: 'blue',
-    image: assetPath('garage-flow-logo.png'),
-    imageAlt: 'WZXU Garage Flow logo',
+    image: assetPath('wyldwolf-workshop.jpg'),
+    imageAlt: 'Wyldwolf Workshop wolf emblem',
   },
   {
     id: 'amy-nuka-nightmare',
@@ -87,7 +76,7 @@ const links = [
   },
   {
     id: 'magic-8-ball',
-    category: 'Featured',
+    category: 'Gaming',
     title: 'WZXU Magic 8-Ball',
     description: 'Ask a question and let the WZXU Magic 8-Ball reveal your answer.',
     href: sharedLinks.magic8Ball,
@@ -107,6 +96,7 @@ const links = [
   },
   {
     id: 'garage-flow-tools',
+    isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU Garage Flow',
     description: 'Auto repair shop management: customers, vehicles, jobs, estimates, invoices, payments, and inspections—with local storage and backup/restore.',
@@ -117,6 +107,7 @@ const links = [
   },
   {
     id: 'fieldquote-tools',
+    isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU FieldQuote',
     tooltip: 'Explore this sample demo of the apps and websites WZXU can build. Available online for a limited time.',
@@ -515,7 +506,7 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
       aria-haspopup={link.opensConsoleChooser ? 'dialog' : undefined}
       target={link.isInternal || link.opensConsoleChooser ? undefined : '_blank'}
       rel={link.isInternal || link.opensConsoleChooser ? undefined : 'noreferrer'}
-      aria-label={`${link.title}: ${link.description}`}
+      aria-label={`${link.title}${link.isNew ? ", new" : ""}: ${link.description}`}
       title={link.tooltip}
       aria-description={link.tooltip}
     >
@@ -523,7 +514,7 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
         {link.image ? <img src={link.image} alt={link.imageAlt} loading="lazy" decoding="async" /> : <Icon />}
       </span>
       <span className="link-copy">
-        <strong>{link.title}</strong>
+        <strong>{link.title}{link.isNew ? <span className="link-new-badge" aria-hidden="true">NEW</span> : null}</strong>
         <span>{link.description}</span>
         {link.howTo ? (
           <span

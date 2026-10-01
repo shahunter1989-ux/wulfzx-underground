@@ -19,7 +19,7 @@
       "description": "Apps, websites, games, and creative work from Wulfzx.Underground.",
       "primaryLabel": "Explore my work",
       "primaryHref": "/main/what-i-do/",
-      "secondaryLabel": "Letâ€™s talk",
+      "secondaryLabel": "Let’s talk",
       "secondaryHref": "/main/contact/",
       "image": "/assets/business-card-wulfzx-logo-opt.webp",
       "imageAlt": "Wulfzx metallic wolf emblem with blue accents",
@@ -27,15 +27,15 @@
       "servicesTitle": "What I can build for you",
       "announcementsTitle": "From the studio",
       "contactTitle": "Have something in mind?",
-      "contactDescription": "A website, a creative idea, or something completely new. Letâ€™s make it happen."
+      "contactDescription": "A website, a creative idea, or something completely new. Let’s make it happen."
     },
     "work": {
       "heading": "A little curiosity. A lot of building.",
       "description": "Explore the apps, games, websites, and creative experiments that make up WZXU."
     },
     "contact": {
-      "heading": "Letâ€™s build something together.",
-      "description": "Project inquiries, creative ideas, community feedback, or just a hello. Iâ€™d love to hear from you."
+      "heading": "Let’s build something together.",
+      "description": "Project inquiries, creative ideas, community feedback, or just a hello. I’d love to hear from you."
     }
   },
   "sections": [
@@ -129,7 +129,7 @@
     {
       "id": "project-5",
       "title": "Coffee's Pong",
-      "description": "Step into Coffeeâ€™s arcade for a dog-themed take on Pong. One dog. One bone. Endless fun.",
+      "description": "Step into Coffee’s arcade for a dog-themed take on Pong. One dog. One bone. Endless fun.",
       "category": "Games",
       "href": "https://coffees-pong.wzxu-cloud.workers.dev/",
       "buttonLabel": "Explore project",
@@ -137,7 +137,7 @@
       "featured": false,
       "newTab": true,
       "image": "/assets/coffees-pong.jpg",
-      "imageAlt": "Coffeeâ€™s Pong green pixel artwork featuring a Chihuahua and bone-shaped paddles"
+      "imageAlt": "Coffee’s Pong green pixel artwork featuring a Chihuahua and bone-shaped paddles"
     },
     {
       "id": "project-6",
@@ -220,7 +220,7 @@
     {
       "id": "project-13",
       "title": "WZXU QR Code Maker",
-      "description": "Create, customize, scan, save, and download QR codes for URLs, text, Wi-Fi, vCards, and moreâ€”locally in your browser with no account or tracking.",
+      "description": "Create, customize, scan, save, and download QR codes for URLs, text, Wi-Fi, vCards, and more—locally in your browser with no account or tracking.",
       "category": "Business tools",
       "href": "https://wzxu-qr-code-maker-web.vercel.app/",
       "buttonLabel": "Open app",

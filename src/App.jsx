@@ -95,6 +95,17 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
+    id: 'car-detailing-tools',
+    isNew: true,
+    category: 'Apps & Tools',
+    title: 'WZXU Car Detailing App',
+    description: 'Manage customers, bookings, services, products, and invoices. Track jobs, deposits, and balances—with on-device records and backup options.',
+    href: 'https://wzxu-cda.vercel.app/',
+    accent: 'blue',
+    image: assetPath('car-detailing-logo.png'),
+    imageAlt: 'WZXU Car Detailing App logo',
+  },
+  {
     id: 'garage-flow-tools',
     isNew: true,
     category: 'Apps & Tools',

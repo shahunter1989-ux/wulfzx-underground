@@ -95,6 +95,17 @@ const links = [
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
   },
   {
+    id: 'sticker-maker-tools',
+    isNew: true,
+    category: 'Apps & Tools',
+    title: 'WZXU Sticker Maker',
+    description: 'Create printable stickers with your images or 50 designs. Add To / From names, set your sheet layout, and print or save as PDF with optional cutting guides.',
+    href: 'https://wzxu-sticker-maker.vercel.app/',
+    accent: 'blue',
+    image: assetPath('sticker-maker-icon.svg'),
+    imageAlt: 'Orange sticker sheets inspired by the WZXU Sticker Maker brand mark',
+  },
+  {
     id: 'car-detailing-tools',
     isNew: true,
     category: 'Apps & Tools',

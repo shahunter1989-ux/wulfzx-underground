@@ -424,6 +424,19 @@
       "newTab": true,
       "image": "/assets/car-detailing-logo.png",
       "imageAlt": "WZXU Car Detailing App logo"
+    },
+    {
+      "id": "project-sticker-maker",
+      "title": "WZXU Sticker Maker",
+      "description": "Make printable stickers with your own image or choose from 50 fun, seasonal, and holiday designs. Add To / From names, choose how many stickers fit on your sheet, and print or save as PDF with optional cutting guides.",
+      "category": "Business tools",
+      "href": "https://wzxu-sticker-maker.vercel.app/",
+      "buttonLabel": "Open Sticker Maker",
+      "enabled": true,
+      "featured": false,
+      "newTab": true,
+      "image": "/assets/sticker-maker-icon.svg",
+      "imageAlt": "Orange sticker sheets inspired by the WZXU Sticker Maker brand mark"
     }
   ],
   "services": [

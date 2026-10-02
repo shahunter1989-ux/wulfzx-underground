@@ -1,3 +1,4 @@
+import fieldquoteGuidePages from './fieldquote-guide.json'
 import garageGuidePages from './garage-guide.json'
 import CarDetailingGuide from './CarDetailingGuide'
 import React from 'react'
@@ -302,6 +303,7 @@ function App() {
 }
 
 function HubPage() {
+  const [isFieldQuoteGuideOpen, setIsFieldQuoteGuideOpen] = React.useState(false)
   const [isGarageGuideOpen, setIsGarageGuideOpen] = React.useState(false)
   const [isCdaGuideOpen, setIsCdaGuideOpen] = React.useState(false)
   const [isConsoleChooserOpen, setIsConsoleChooserOpen] = React.useState(false)
@@ -361,7 +363,7 @@ function HubPage() {
                 <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
-                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}</React.Fragment>
+                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}{link.id === 'fieldquote-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsFieldQuoteGuideOpen(true)}>How to use FieldQuote</button>}</React.Fragment>
                   ))}
                 </div>
               </section>
@@ -376,6 +378,7 @@ function HubPage() {
           </footer>
         </section>
       </div>
+      {isFieldQuoteGuideOpen && <CarDetailingGuide pages={fieldquoteGuidePages} title="How to use FieldQuote" assetFolder="fieldquote-guide" onClose={() => setIsFieldQuoteGuideOpen(false)} />}
       {isGarageGuideOpen && <CarDetailingGuide pages={garageGuidePages} title="How to use Garage Flow" assetFolder="garage-guide" onClose={() => setIsGarageGuideOpen(false)} />}
       {isCdaGuideOpen && <CarDetailingGuide onClose={() => setIsCdaGuideOpen(false)} />}
       {isDayRangeGuideOpen ? (

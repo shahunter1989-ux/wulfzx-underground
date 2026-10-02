@@ -1,3 +1,4 @@
+import garageGuidePages from './garage-guide.json'
 import CarDetailingGuide from './CarDetailingGuide'
 import React from 'react'
 import MainWebsite from './MainWebsite'
@@ -301,6 +302,7 @@ function App() {
 }
 
 function HubPage() {
+  const [isGarageGuideOpen, setIsGarageGuideOpen] = React.useState(false)
   const [isCdaGuideOpen, setIsCdaGuideOpen] = React.useState(false)
   const [isConsoleChooserOpen, setIsConsoleChooserOpen] = React.useState(false)
   const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
@@ -359,7 +361,7 @@ function HubPage() {
                 <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
-                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}</React.Fragment>
+                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}</React.Fragment>
                   ))}
                 </div>
               </section>
@@ -374,6 +376,7 @@ function HubPage() {
           </footer>
         </section>
       </div>
+      {isGarageGuideOpen && <CarDetailingGuide pages={garageGuidePages} title="How to use Garage Flow" assetFolder="garage-guide" onClose={() => setIsGarageGuideOpen(false)} />}
       {isCdaGuideOpen && <CarDetailingGuide onClose={() => setIsCdaGuideOpen(false)} />}
       {isDayRangeGuideOpen ? (
         <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />

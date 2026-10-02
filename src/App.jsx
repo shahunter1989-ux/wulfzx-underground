@@ -1,3 +1,4 @@
+import CarDetailingGuide from './CarDetailingGuide'
 import React from 'react'
 import MainWebsite from './MainWebsite'
 import ArcadePage from './ArcadePage'
@@ -300,6 +301,7 @@ function App() {
 }
 
 function HubPage() {
+  const [isCdaGuideOpen, setIsCdaGuideOpen] = React.useState(false)
   const [isConsoleChooserOpen, setIsConsoleChooserOpen] = React.useState(false)
   const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
   const groupedLinks = categoryOrder.map((category) => ({
@@ -357,7 +359,7 @@ function HubPage() {
                 <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
-                    <LinkButton key={link.title} link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />
+                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}</React.Fragment>
                   ))}
                 </div>
               </section>
@@ -372,6 +374,7 @@ function HubPage() {
           </footer>
         </section>
       </div>
+      {isCdaGuideOpen && <CarDetailingGuide onClose={() => setIsCdaGuideOpen(false)} />}
       {isDayRangeGuideOpen ? (
         <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />
       ) : null}

@@ -7431,3 +7431,21 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
   transform: none;
   filter: none;
 }
+
+/* Car Detailing scrolling guide. */
+.hub-v2 .cda-guide { width:min(1100px,96vw); max-width:96vw; height:92dvh; max-height:92dvh; padding:0; border:1px solid #4ca9c9; border-radius:14px; background:#0b1520; color:#eef7ff; overflow:auto; }
+.hub-v2 .cda-guide::backdrop { background:rgb(0 0 0 / 80%); }
+.hub-v2 .cda-guide-toolbar { position:sticky; top:0; z-index:1; background:#0b1520; padding:16px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; border-bottom:1px solid #426172; }
+.hub-v2 .cda-guide-toolbar h2 { flex:1; margin:0; font-size:1.2rem; }
+.hub-v2 .cda-guide-toolbar label, .hub-v2 .cda-guide-toolbar p { width:100%; margin:0; }
+.hub-v2 .cda-guide button, .hub-v2 .cda-guide select, .hub-v2 .cda-guide-trigger { background:#17374a; color:#fff; border:1px solid #76cee5; border-radius:6px; padding:10px; font:inherit; cursor:pointer; }
+.hub-v2 .cda-guide select { max-width:100%; width:100%; margin-top:5px; }
+.hub-v2 .cda-guide :focus-visible, .hub-v2 .cda-guide-trigger:focus-visible { outline:3px solid #a7edff; outline-offset:3px; }
+.hub-v2 .cda-guide-pages { padding:16px; }
+.hub-v2 .cda-guide-pages section { scroll-margin-top:245px; margin-bottom:28px; }
+.hub-v2 .cda-guide-image-scroll { overflow:auto; margin-top:12px; }
+.hub-v2 .cda-guide img { display:block; width:100%; height:auto; }
+.hub-v2 .cda-guide img.is-enlarged { width:1600px; max-width:none; }
+.hub-v2 .cda-guide-text { white-space:pre-wrap; line-height:1.6; }
+.hub-v2 .cda-guide summary { cursor:pointer; padding:12px 0; }
+.hub-v2 .cda-guide-trigger { margin:8px 0 12px 12px; font-size:.85rem; }

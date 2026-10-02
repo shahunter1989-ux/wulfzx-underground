@@ -4169,6 +4169,8 @@ a.what-card-premium-card:focus-visible .what-card-media {
 }
 
 .hub-v2 .link-section {
+  align-self: start;
+  align-content: start;
   min-width: 0;
   scroll-margin-top: 92px;
 }

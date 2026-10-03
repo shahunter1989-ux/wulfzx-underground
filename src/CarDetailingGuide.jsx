@@ -2,18 +2,19 @@ import React from 'react'
 import defaultPages from './cda-guide.json'
 export default function CarDetailingGuide({ onClose, pages = defaultPages, title = "How to use Car Detailing", assetFolder = "cda-guide" }) {
   const dialog = React.useRef(null)
+  const triggerRef = React.useRef(document.activeElement)
   const [expanded, setExpanded] = React.useState(null)
   React.useEffect(() => {
-    const trigger = document.activeElement
+    const trigger = triggerRef.current
     const previous = document.body.style.overflow
     dialog.current.showModal()
     document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = previous; trigger?.focus() }
+    return () => { document.body.style.overflow = previous; queueMicrotask(() => trigger?.focus()) }
   }, [])
   return <dialog ref={dialog} className="cda-guide" aria-labelledby="cda-guide-title" onCancel={event => { event.preventDefault(); onClose() }}>
     <header className="cda-guide-toolbar">
       <h2 id="cda-guide-title">{title}</h2>
-      <button type="button" autoFocus onClick={onClose}>Close guide</button>
+      <button type="button" onClick={onClose}>Close guide</button>
       <label>Jump to topic <select defaultValue="" onChange={event => document.getElementById(`cda-page-${event.target.value}`)?.scrollIntoView({block:'start'})}>
         <option value="" disabled>Choose a topic</option>
         {pages.map((page,index) => <option value={index} key={page.image}>{index+1}. {page.title}</option>)}

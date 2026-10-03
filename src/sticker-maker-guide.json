@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Choose your sticker",
+    "image": "01.png",
+    "width": 1086,
+    "height": 1448,
+    "text": "Choose a file or drag an image into Your image. Supports PNG, JPG, WebP and GIF up to 30 MB. Or open Sticker library and choose Fun, a season, or Holidays from 50 designs. Under Holidays, use Holiday or celebration to find a design. Click a thumbnail to update the sheet; one design repeats across the page. Your images and names stay on your device."
+  },
+  {
+    "title": "Personalize and arrange",
+    "image": "02.png",
+    "width": 1086,
+    "height": 1448,
+    "text": "Add To / From names for gift labels, or leave either blank for handwriting. Maximum 40 characters per field. Select 4, 6, 9 or 12 stickers, or a custom quantity from 1 to 100. More stickers means smaller stickers. Choose US Letter or A4 to match your paper. Check the preview for count and dimensions. Original preserves image proportions; Square and Circle crop uploads and fun stickers. Gift labels keep their rectangular shape. Cutting guides: Off for no lines, Sticker outlines for scissors, or Straight sheet guides for a paper cutter. Preview everything before printing."
+  },
+  {
+    "title": "Print, cut and share",
+    "image": "03.png",
+    "width": 1086,
+    "height": 1448,
+    "text": "Load full-sheet sticker paper compatible with your printer, following its instructions for which side faces up. Click Print sticker sheet. Match paper size to Letter or A4 in the app; use 100% or Actual size, turn headers and footers off, choose Portrait, and check the preview shows one page. Print a test on plain paper first. Choose your printer or Save as PDF. Cut along sticker outlines with scissors, or straight sheet guides with a paper cutter. Peel and apply. Pre-cut label sheets need a different template; this app uses full-sheet paper. Print options vary by browser."
+  },
+  {
+    "title": "Example sticker sheet",
+    "image": "04.png",
+    "width": 1505,
+    "height": 1045,
+    "text": "Example screen showing an uploaded image repeated as 12 stickers on US Letter paper. Upload an image, choose the quantity, paper size and shape, then preview your sheet. Use full-sheet sticker paper and print at 100% scale, or save as PDF from the print dialog. This example illustrates the overall layout; follow the preceding tutorial pages for the available cutting-guide options."
+  }
+]

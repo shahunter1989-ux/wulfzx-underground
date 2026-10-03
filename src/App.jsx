@@ -1,3 +1,5 @@
+import documentReaderPages from './document-reader-guide.json'
+import stickerMakerPages from './sticker-maker-guide.json'
 import fieldquoteGuidePages from './fieldquote-guide.json'
 import garageGuidePages from './garage-guide.json'
 import CarDetailingGuide from './CarDetailingGuide'
@@ -96,6 +98,17 @@ const links = [
     accent: 'silver',
     image: assetPath('wzxu76-guide-hub-icon.webp'),
     imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
+  },
+  {
+    id: 'document-reader-tools',
+    isNew: true,
+    category: 'Apps & Tools',
+    title: 'WZXU Document Reader',
+    description: 'Free portable document reader for Windows—no installation required. Open PDFs, Office files, text, and images offline. Download from WZXU Cloud, extract the ZIP, and open WZXU Document Reader.exe from the extracted folder. Keep its supporting folders together.',
+    href: 'https://wzxu-cloud.wzxu-cloud.workers.dev/s/3da34fcd118a1f3856d77ceb3862bb04d388f825e72a16a69da43b0c961d992b',
+    accent: 'blue',
+    image: assetPath('document-reader-icon.png'),
+    imageAlt: 'WZXU Document Reader for Windows, silver document and gold magnifying glass',
   },
   {
     id: 'sticker-maker-tools',
@@ -303,6 +316,8 @@ function App() {
 }
 
 function HubPage() {
+  const [isDocumentGuideOpen, setIsDocumentGuideOpen] = React.useState(false)
+  const [isStickerGuideOpen, setIsStickerGuideOpen] = React.useState(false)
   const [isFieldQuoteGuideOpen, setIsFieldQuoteGuideOpen] = React.useState(false)
   const [isGarageGuideOpen, setIsGarageGuideOpen] = React.useState(false)
   const [isCdaGuideOpen, setIsCdaGuideOpen] = React.useState(false)
@@ -363,7 +378,7 @@ function HubPage() {
                 <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
                 <div className="link-stack">
                   {categoryLinks.map((link) => (
-                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}{link.id === 'fieldquote-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsFieldQuoteGuideOpen(true)}>How to use FieldQuote</button>}</React.Fragment>
+                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}{link.id === 'fieldquote-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsFieldQuoteGuideOpen(true)}>How to use FieldQuote</button>}{link.id === 'document-reader-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsDocumentGuideOpen(true)}>How to use Document Reader</button>}{link.id === 'sticker-maker-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsStickerGuideOpen(true)}>How to use Sticker Maker</button>}</React.Fragment>
                   ))}
                 </div>
               </section>
@@ -378,6 +393,8 @@ function HubPage() {
           </footer>
         </section>
       </div>
+      {isDocumentGuideOpen && <CarDetailingGuide pages={documentReaderPages} title="How to use Document Reader" assetFolder="document-reader-guide" onClose={() => setIsDocumentGuideOpen(false)} />}
+      {isStickerGuideOpen && <CarDetailingGuide pages={stickerMakerPages} title="How to use Sticker Maker" assetFolder="sticker-maker-guide" onClose={() => setIsStickerGuideOpen(false)} />}
       {isFieldQuoteGuideOpen && <CarDetailingGuide pages={fieldquoteGuidePages} title="How to use FieldQuote" assetFolder="fieldquote-guide" onClose={() => setIsFieldQuoteGuideOpen(false)} />}
       {isGarageGuideOpen && <CarDetailingGuide pages={garageGuidePages} title="How to use Garage Flow" assetFolder="garage-guide" onClose={() => setIsGarageGuideOpen(false)} />}
       {isCdaGuideOpen && <CarDetailingGuide onClose={() => setIsCdaGuideOpen(false)} />}

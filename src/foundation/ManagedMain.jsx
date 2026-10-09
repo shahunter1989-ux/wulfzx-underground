@@ -120,6 +120,13 @@ function Projects({ content, all = false }) {
       "All",
       ...new Set(projects.map((i) => projectCategory(i.category)).filter(Boolean)),
     ];
+  if (!all) {
+    const featuredOrder = ["project-6", "project-fieldquote", "project-1"];
+    projects.sort((a, b) => {
+      const rank = (id) => { const index = featuredOrder.indexOf(id); return index < 0 ? featuredOrder.length : index; };
+      return rank(a.id) - rank(b.id);
+    });
+  }
   return (
     <section className="wf-section" id="projects">
       <div className="wf-section-heading">

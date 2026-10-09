@@ -95,7 +95,7 @@
       "href": "https://wzxu-seller-inventory.vercel.app/",
       "buttonLabel": "Open Inventory App",
       "enabled": true,
-      "featured": true,
+      "featured": false,
       "newTab": true,
       "image": "/assets/wzxu-seller-inventory.png",
       "imageAlt": "WZXU Seller Inventory app icon"
@@ -108,7 +108,7 @@
       "href": "https://wzxu-starfighter.vercel.app/",
       "buttonLabel": "Explore project",
       "enabled": true,
-      "featured": true,
+      "featured": false,
       "newTab": true,
       "image": "/assets/starfighter.png",
       "imageAlt": "WZXU Starfighter spacecraft flying through an asteroid field"
@@ -142,15 +142,15 @@
     {
       "id": "project-6",
       "title": "Duck Duck Nuke",
-      "description": "A chaotic duck-powered launch game built for quick runs, explosive timing, and score chasing.",
+      "description": "A wasteland arcade flying game with selectable pilots, three game modes, cap collecting, and daily leaderboards.",
       "category": "Games",
       "href": "https://shahunter1989-ux.github.io/duck-duck-nuke/?v=launch-check",
-      "buttonLabel": "Explore project",
+      "buttonLabel": "Play Duck Duck Nuke",
       "enabled": true,
-      "featured": false,
+      "featured": true,
       "newTab": true,
-      "image": "/assets/duck-duck-nuke-opt.webp",
-      "imageAlt": "Duck Duck Nuke game artwork with characters riding a rocket"
+      "image": "/assets/duck-duck-nuke-landing.png",
+      "imageAlt": "Duck Duck Nuke landing screen with its title and Howler aircraft over the wasteland"
     },
     {
       "id": "project-7",
@@ -394,7 +394,7 @@
       "href": "https://wzxu-fieldquote.vercel.app/",
       "buttonLabel": "Open FieldQuote",
       "enabled": true,
-      "featured": false,
+      "featured": true,
       "newTab": true,
       "image": "/assets/fieldquote-logo.png",
       "imageAlt": "WZXU FieldQuote green and white clipboard, house, and WZ logo"

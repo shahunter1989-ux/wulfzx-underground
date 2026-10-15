@@ -105,7 +105,7 @@ const links = [
     category: 'Apps & Tools',
     title: 'WZXU Document Reader',
     description: 'Free portable document reader for Windows—no installation required. Open PDFs, Office files, text, and images offline. Download from WZXU Cloud, extract the ZIP, and open WZXU Document Reader.exe from the extracted folder. Keep its supporting folders together.',
-    href: 'https://wzxu-cloud.wzxu-cloud.workers.dev/s/3da34fcd118a1f3856d77ceb3862bb04d388f825e72a16a69da43b0c961d992b',
+    href: 'https://wzxu-cloud.wzxu-cloud.workers.dev/s/49fa9251f3e2e85b06b4e53ee6e0edf4a8716e89a340391f9fca7502e76e509c',
     accent: 'blue',
     image: assetPath('document-reader-icon.png'),
     imageAlt: 'WZXU Document Reader for Windows, silver document and gold magnifying glass',

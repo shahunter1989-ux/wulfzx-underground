@@ -60,6 +60,15 @@ const links = [
     Icon: MusicIcon,
   },
   {
+    id: 'suno-profile',
+    category: 'Featured',
+    title: 'WZXU on Suno',
+    description: 'Listen to original music and explore my latest creations on Suno.',
+    href: 'https://suno.com/@wulfzxunderground',
+    accent: 'blue',
+    Icon: MusicIcon,
+  },
+  {
     id: 'wyldwolf-workshop',
     category: 'Featured',
     title: 'Wyldwolf Workshop',

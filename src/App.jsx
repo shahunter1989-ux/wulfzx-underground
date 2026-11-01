@@ -30,6 +30,15 @@ const categorySlug = (category) => category.toLowerCase().replace(/[^a-z0-9]+/g,
 
 const links = [
   {
+    id: 'pipboy-simulator',
+    category: 'Featured',
+    title: 'WZXU76 Pip-Boy Simulator',
+    description: 'Explore the Fallout 76 interface and WZXU76 custom Pip-Boy, with character stats, inventory, guides, and lore in an interactive browser preview.',
+    href: 'https://wzxu-pipboy-web.vercel.app/?mode=simulator',
+    accent: 'blue',
+    Icon: PipBoyIcon,
+  },
+  {
     id: 'official',
     category: 'Featured',
     title: 'Official Website',
@@ -602,6 +611,10 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
       </span>
     </Tag>
   )
+}
+
+function PipBoyIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><rect x="5" y="7" width="11" height="10" rx="1"/><path d="M7 12h2l1-3 2 6 1-3h1M19 8v3M18 15h2M18 17h2"/></svg>
 }
 
 function MusicIcon() {

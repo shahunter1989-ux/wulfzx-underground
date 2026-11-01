@@ -36,7 +36,8 @@ const links = [
     description: 'Explore the Fallout 76 interface and WZXU76 custom Pip-Boy, with character stats, inventory, guides, and lore in an interactive browser preview.',
     href: 'https://wzxu-pipboy-web.vercel.app/?mode=simulator',
     accent: 'blue',
-    Icon: PipBoyIcon,
+    image: assetPath('pipboy-hub.png'),
+    imageAlt: 'WZXU76 custom Pip-Boy with red character display and weathered metal housing',
   },
   {
     id: 'official',
@@ -611,10 +612,6 @@ function LinkButton({ link, onHowTo, onChooseConsole }) {
       </span>
     </Tag>
   )
-}
-
-function PipBoyIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><rect x="5" y="7" width="11" height="10" rx="1"/><path d="M7 12h2l1-3 2 6 1-3h1M19 8v3M18 15h2M18 17h2"/></svg>
 }
 
 function MusicIcon() {

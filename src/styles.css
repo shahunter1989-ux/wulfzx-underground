@@ -7451,3 +7451,10 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
 .hub-v2 .cda-guide-text { white-space:pre-wrap; line-height:1.6; }
 .hub-v2 .cda-guide summary { cursor:pointer; padding:12px 0; }
 .hub-v2 .cda-guide-trigger { margin:8px 0 12px 12px; font-size:.85rem; }
+
+/* Frame the supplied Pip-Boy screenshot without changing its source. */
+.hub-v2 .link-pipboy-simulator .link-icon { overflow: hidden; }
+.hub-v2 .link-pipboy-simulator .link-icon img {
+  width: 100%; height: 100%; max-width: none; max-height: none;
+  object-fit: cover; object-position: 23% 50%; transform: scale(1.05);
+}

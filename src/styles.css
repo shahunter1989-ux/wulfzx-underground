@@ -7458,3 +7458,137 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
   width: 100%; height: 100%; max-width: none; max-height: none;
   object-fit: cover; object-position: 23% 50%; transform: scale(1.05);
 }
+
+/* Illustrated workshop navigation on the link hub. */
+.business-card-page.assembly-hub { background: #151311; }
+.assembly-hub .hub-content { max-width: 960px; margin: auto; }
+.assembly-hub .link-hub-card { padding: 0 12px 32px; }
+.assembly-header h1 { margin: 0; line-height: 0; }
+.assembly-header img, .assembly-tile img { display: block; width: 100%; height: auto; }
+.assembly-tiles { display: grid; grid-template-columns: repeat(60, minmax(0, 1fr)); gap: 5px 0; background: #171411; padding: 5px 0; }
+.assembly-tile { display: grid; align-items: stretch; margin: 0 2px; grid-column: span 20; }
+.assembly-pipboy, .assembly-official { grid-column: span 30; }
+.assembly-fallout { grid-column: span 36; }
+.assembly-radio, .assembly-camera { grid-column: span 12; }
+.assembly-tile:is(:hover,:focus-visible) { filter: brightness(1.16); }
+.assembly-tile:focus-visible { outline: 3px solid #ffcb70; outline-offset: 1px; z-index: 1; }
+.assembly-hub .hub-category-nav { width: 100%; margin-inline: 0; }
+@media (max-width: 540px) {
+  .assembly-hub .link-hub-card { padding-inline: 5px; }
+  .assembly-fallout { grid-column: span 60; }
+  .assembly-radio, .assembly-camera { grid-column: span 30; }
+}
+
+button.assembly-tile { padding: 0; border: 0; background: transparent; cursor: pointer; }
+.workshop-menu { position: fixed; inset: 0; margin: auto; padding: 0; width: min(26rem, 92vw); max-height: 80dvh; overflow: auto; overscroll-behavior: contain; background: #221e18; color: #ffe2b1; border: 3px solid #d7ae77; border-radius: 9px; box-shadow: 0 12px 55px #000b; }
+.workshop-menu::backdrop { background: #0e0c09c9; }
+.workshop-menu header { position: relative; background: #171411; border-bottom: 2px solid #c59962; }
+.workshop-menu header img { width: 100%; height: 100px; object-fit: contain; display: block; }
+.workshop-menu header button { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; border: 1px solid #d7ae77; border-radius: 50%; background: #281e16; color: #ffe2b1; font-size: 24px; cursor: pointer; }
+.workshop-menu ul { margin: 0; padding: 6px 14px; list-style: none; }
+.workshop-menu li + li { border-top: 1px solid #66503a; }
+.workshop-menu a, .workshop-menu summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 5px 10px; color: #ffebc8; font-weight: 650; text-decoration: none; cursor: pointer; }
+.workshop-menu summary::after { content: '+'; }
+.workshop-menu details[open] summary::after { content: '−'; }
+.workshop-menu details a { padding-left: 20px; font-weight: 400; }
+.workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background: #493524; color: #fff; outline-color: #ffc675; }
+.assembly-hub .workshop-description { display: block; color: #e2c9a4; font-size: .85rem; font-weight: 400; margin-top: 3px; }
+.assembly-hub .workshop-guide, .assembly-hub .assembly-support { display: inline-block; background: #30251b; color: #ffdcab; border: 1px solid #aa8153; border-radius: 4px; padding: 8px 12px; cursor: pointer; }
+.assembly-hub .workshop-guide { margin: 0 10px 9px; }
+.assembly-hub .assembly-support { margin-top: 8px; }
+.assembly-hub dialog.instruction-viewer { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0; background: transparent; }
+
+.assembly-header, .assembly-tile { position: relative; }
+.assembly-explore, .assembly-mark { background: #241c15; color: #ffe2ac; border: 1px solid #cfaa73; border-radius: 4px; }
+.assembly-explore { position: absolute; top: 4%; right: 3%; display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; font-weight: 700; text-decoration: none; }
+.assembly-explore:focus-visible { outline: 3px solid white; }
+.assembly-mark { position: absolute; right: 3%; bottom: 5%; display: grid; place-items: center; width: clamp(20px, 4vw, 44px); height: clamp(20px, 4vw, 44px); font: bold clamp(14px, 2.4vw, 24px)/1 system-ui; pointer-events: none; }
+.workshop-app { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 8px 12px; align-items: center; padding: 12px 0; }
+.workshop-app img { width: 46px; height: 46px; object-fit: contain; border-radius: 5px; background: #14120f; }
+.workshop-app p { margin: 3px 0 0; color: #edd2ad; font-size: .85rem; line-height: 1.35; }
+.workshop-app small { color: #ffd179; font-size: .68rem; }
+.workshop-actions { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; }
+.workshop-actions :is(a,button) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 5px 12px; border-radius: 4px; border: 1px solid #93734b; background: #2b2118; color: #ffe8c5; font: 600 .88rem/1.2 system-ui; cursor: pointer; }
+.workshop-actions a { background: #ebc18a; color: #24190f; }
+
+/* Anchor the lights to the meter and camera LED in the illustrated tiles. */
+.assembly-tile::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+/* Screen, shop sign, toolbox latch, controller button, record and 76 badge. */
+.assembly-pipboy::after {
+  inset: 18% 30% 34% 36%;
+  clip-path: polygon(20% 0, 100% 17%, 87% 100%, 0 77%);
+  background: linear-gradient(180deg, transparent 41%, #ffc08e99 49%, transparent 55%) 0 100% / 100% 300% no-repeat, #ff642629;
+}
+.assembly-official::after {
+  inset: 36% 22% 41% 50%;
+  background: radial-gradient(ellipse, #ffbd6859, transparent 74%);
+}
+.assembly-tools::after {
+  inset: 36% 30% 50% 61%;
+  transform: skewY(-13deg);
+  background: linear-gradient(120deg, transparent 40%, #fff2a6bb 50%, transparent 60%) 100% 0 / 300% 100% no-repeat, #ffbd5b33;
+}
+.assembly-gaming::after {
+  left: 75%; top: 23%; width: 6%; height: 8%;
+  border-radius: 50%; background: #ff613a88; box-shadow: 0 0 7px #f76e3899;
+}
+.assembly-music::after {
+  inset: 5% 24% 51% 12%;
+  border-radius: 50%;
+  background: conic-gradient(from 15deg, transparent, #f8ba6955 65deg, transparent 82deg, transparent 180deg, #ffb57944 240deg, transparent 262deg);
+}
+.assembly-fallout::after {
+  inset: 12% 18% 20% 60%;
+  background: radial-gradient(ellipse, #ffde5277, transparent 70%);
+}
+.assembly-radio::after {
+  left: 65.8%;
+  top: 31.8%;
+  width: 18%;
+  aspect-ratio: 1.8;
+  border-radius: 18%;
+  background: #ffd46888;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 7px #ffb73ab3;
+}
+.assembly-camera::after {
+  left: 53%;
+  top: 32.5%;
+  width: 3.3%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ff5842;
+  box-shadow: 0 0 5px 2px #ff3629ae;
+}
+.assembly-tile:is(:focus-visible, :active, [data-pressed])::after { opacity: 1; }
+@media (hover: hover) {
+  .assembly-tile:hover::after { opacity: 1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .assembly-tile::after { transition: opacity 100ms ease-out; }
+  .assembly-hub .workshop-menu[open] { animation: workshop-menu-enter 160ms ease-out !important; }
+}
+@keyframes workshop-menu-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .assembly-pipboy::after, .assembly-tools::after {
+    transition: background-position 440ms ease-out, opacity 100ms ease-out;
+  }
+  .assembly-tile:is(:focus-visible, :active, [data-pressed]) { --scan-y: 0%; --glint-x: 0%; }
+  @media (hover: hover) {
+    .assembly-tile:hover { --scan-y: 0%; --glint-x: 0%; }
+  }
+  .assembly-pipboy::after { background-position: 0 var(--scan-y, 100%); }
+  .assembly-tools::after { background-position: var(--glint-x, 100%) 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assembly-hub .assembly-tile::after { transition: none !important; }
+}

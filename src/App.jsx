@@ -1,5 +1,5 @@
-import documentReaderPages from './document-reader-guide.json'
 import stickerMakerPages from './sticker-maker-guide.json'
+import documentReaderPages from './document-reader-guide.json'
 import fieldquoteGuidePages from './fieldquote-guide.json'
 import garageGuidePages from './garage-guide.json'
 import CarDetailingGuide from './CarDetailingGuide'
@@ -25,8 +25,6 @@ const dayRangeInstructions = [
   { title: 'Reports', image: assetPath('dayrange-reports.png') },
   { title: 'Profile', image: assetPath('dayrange-profile.png') },
 ]
-const categoryOrder = ['Featured', 'Apps & Tools', 'Gaming', 'Fallout 76', 'Social', 'Support']
-const categorySlug = (category) => category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
 const links = [
   {
@@ -40,6 +38,17 @@ const links = [
     imageAlt: 'WZXU76 custom Pip-Boy with red character display and weathered metal housing',
   },
   {
+    id: 'arcade',
+    category: 'Gaming',
+    title: 'WZXU Arcade',
+    description: 'Six games to explore, including Starfighter and Wulf Pack.',
+    href: `${import.meta.env.BASE_URL}arcade/`,
+    accent: 'blue',
+    isInternal: true,
+    image: assetPath('wzx-pong-opt.webp'),
+    imageAlt: 'Neon arcade paddles and ball',
+  },
+  {
     id: 'official',
     category: 'Featured',
     title: 'Official Website',
@@ -51,18 +60,8 @@ const links = [
     imageAlt: 'WULFZX network globe icon',
   },
   {
-    id: 'featured-guide',
-    category: 'Featured',
-    title: 'WULFZX Fallout 76 Wasteland Guide',
-    description: 'WZXU76.pro',
-    href: 'https://wzxu76.pro',
-    accent: 'silver',
-    image: assetPath('wzxu76-guide-hub-icon.webp'),
-    imageAlt: 'WZXU76 Fallout 76 guide flag artwork',
-  },
-  {
     id: 'painter-of-dreams',
-    category: 'Featured',
+    category: 'Music & Creators',
     title: 'The Painter of Dreams',
     description: 'Music, artist profiles, and official links.',
     href: 'https://tpod-pi.vercel.app/',
@@ -71,7 +70,7 @@ const links = [
   },
   {
     id: 'suno-profile',
-    category: 'Featured',
+    category: 'Music & Creators',
     title: 'WZXU on Suno',
     description: 'Listen to original music and explore my latest creations on Suno.',
     href: 'https://suno.com/@wulfzxunderground',
@@ -80,7 +79,7 @@ const links = [
   },
   {
     id: 'wyldwolf-workshop',
-    category: 'Featured',
+    category: 'Music & Creators',
     title: 'Wyldwolf Workshop',
     description: 'Gaming, craftsmanship, and live streams from Wyldwolf Workshop.',
     href: 'https://wyldwolfworkshop.vercel.app/',
@@ -90,13 +89,44 @@ const links = [
   },
   {
     id: 'amy-nuka-nightmare',
-    category: 'Featured',
+    category: 'Music & Creators',
     title: 'Amy Nuka Nightmare',
     description: 'Official streams, socials, and community links.',
     href: 'https://amy-nuka-nightmare-link-hub.vercel.app/',
     accent: 'social',
     image: assetPath('amy-nuka-nightmare.png'),
     imageAlt: 'Amy the Nuka-Nightmare in green Fallout terminal artwork',
+  },
+
+  {
+    id: 'coffees-pong',
+    category: 'Gaming',
+    title: "Coffee's Pong",
+    description: 'One dog. One bone. Endless fun. Play Coffee’s arcade take on Pong.',
+    href: 'https://coffees-pong.wzxu-cloud.workers.dev/',
+    accent: 'blue',
+    image: assetPath('coffees-pong.jpg'),
+    imageAlt: 'Coffee’s Pong green pixel artwork featuring a Chihuahua and bone-shaped paddles',
+  },
+  {
+    id: 'wulf-pack',
+    category: 'Gaming',
+    title: 'Wulf Pack',
+    description: 'Wulf. Amy. One electric maze. Play the 3D arcade chase game.',
+    href: 'https://wulf-pack.vercel.app/',
+    accent: 'social',
+    image: assetPath('wulf-pack.svg'),
+    imageAlt: 'Wulf Pack title over a purple maze',
+  },
+  {
+    id: 'starfighter',
+    category: 'Gaming',
+    title: 'WZXU Starfighter',
+    description: 'Choose your ship. Own the stars. Play the retro 3D arcade demo.',
+    href: 'https://wzxu-starfighter.vercel.app/',
+    accent: 'blue',
+    image: assetPath('starfighter.png'),
+    imageAlt: 'WZXU Starfighter game artwork',
   },
   {
     id: 'magic-8-ball',
@@ -111,8 +141,8 @@ const links = [
   {
     id: 'guide',
     category: 'Fallout 76',
-    title: 'WULFZX Fallout 76 Wasteland Guide',
-    description: 'WZXU76.pro',
+    title: 'WZXU76.pro',
+    description: 'Fallout 76 Wasteland Guide',
     href: 'https://wzxu76.pro',
     accent: 'silver',
     image: assetPath('wzxu76-guide-hub-icon.webp'),
@@ -123,7 +153,7 @@ const links = [
     isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU Document Reader',
-    description: 'Free portable document reader for Windows—no installation required. Open PDFs, Office files, text, and images offline. Download from WZXU Cloud, extract the ZIP, and open WZXU Document Reader.exe from the extracted folder. Keep its supporting folders together.',
+    description: 'Read files offline on Windows. No installation.',
     href: 'https://wzxu-cloud.wzxu-cloud.workers.dev/s/49fa9251f3e2e85b06b4e53ee6e0edf4a8716e89a340391f9fca7502e76e509c',
     accent: 'blue',
     image: assetPath('document-reader-icon.png'),
@@ -134,7 +164,7 @@ const links = [
     isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU Sticker Maker',
-    description: 'Create printable stickers with your images or 50 designs. Add To / From names, set your sheet layout, and print or save as PDF with optional cutting guides.',
+    description: 'Design and print custom sticker sheets.',
     href: 'https://wzxu-sticker-maker.vercel.app/',
     accent: 'blue',
     image: assetPath('sticker-maker-icon.svg'),
@@ -145,7 +175,7 @@ const links = [
     isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU Car Detailing App',
-    description: 'Manage customers, bookings, services, products, and invoices. Track jobs, deposits, and balances—with on-device records and backup options.',
+    description: 'Manage detailing jobs and invoices.',
     href: 'https://wzxu-cda.vercel.app/',
     accent: 'blue',
     image: assetPath('car-detailing-logo.png'),
@@ -156,7 +186,7 @@ const links = [
     isNew: true,
     category: 'Apps & Tools',
     title: 'WZXU Garage Flow',
-    description: 'Auto repair shop management: customers, vehicles, jobs, estimates, invoices, payments, and inspections—with local storage and backup/restore.',
+    description: 'Track repairs, estimates, and payments.',
     href: 'https://wzxu-garage-flow.vercel.app/',
     accent: 'blue',
     image: assetPath('garage-flow-logo.png'),
@@ -168,7 +198,7 @@ const links = [
     category: 'Apps & Tools',
     title: 'WZXU FieldQuote',
     tooltip: 'Explore this sample demo of the apps and websites WZXU can build. Available online for a limited time.',
-    description: 'Painting, concrete, and window estimates with PDF quotes.',
+    description: 'Create job estimates and PDF quotes.',
     href: 'https://wzxu-fieldquote.vercel.app/',
     accent: 'blue',
     image: assetPath('fieldquote-logo.png'),
@@ -178,7 +208,7 @@ const links = [
     id: 'dayrange',
     category: 'Apps & Tools',
     title: 'DayRange by WZXU',
-    description: 'Private glucose tracking and organization app.',
+    description: 'Track glucose readings privately.',
     href: 'https://wzxu-coder.github.io/dayrange/',
     accent: 'dayrange',
     image: assetPath('dayrange-cover.png'),
@@ -189,7 +219,7 @@ const links = [
     id: 'invoice-maker',
     category: 'Apps & Tools',
     title: 'WZXU Invoice Maker',
-    description: 'Create professional invoices quickly and easily.',
+    description: 'Create professional invoices.',
     href: sharedLinks.invoiceMaker,
     accent: 'dayrange',
     image: sharedLinks.invoiceMakerImage,
@@ -199,7 +229,7 @@ const links = [
     id: 'seller-inventory',
     category: 'Apps & Tools',
     title: 'WZXU Seller Inventory',
-    description: 'Organize and manage seller inventory with a focused WZXU business tool.',
+    description: 'Track seller inventory.',
     href: sharedLinks.sellerInventory,
     accent: 'dayrange',
     image: sharedLinks.sellerInventoryImage,
@@ -209,7 +239,7 @@ const links = [
     id: 'labels',
     category: 'Apps & Tools',
     title: 'WZXU Labels',
-    description: 'Create, save, and print shipping address labels right on your device.',
+    description: 'Print shipping labels on your device.',
     href: sharedLinks.labels,
     accent: 'dayrange',
     image: sharedLinks.labelsImage,
@@ -219,7 +249,7 @@ const links = [
     id: 'qr-code-maker',
     category: 'Apps & Tools',
     title: 'WZXU QR Code Maker',
-    description: 'Create, customize, scan, and save private QR codes in your browser.',
+    description: 'Create and scan QR codes privately.',
     href: sharedLinks.qrCodeMaker,
     accent: 'dayrange',
     image: sharedLinks.qrCodeMakerIcon,
@@ -269,8 +299,8 @@ const links = [
     id: 'gaming-history',
     category: 'Gaming',
     title: 'Gaming History',
-    opensConsoleChooser: true,
     description: 'Explore NES and SNES history, iconic games, and console hardware.',
+    opensConsoleChooser: true,
     href: snesHistoryHref,
     accent: 'history',
     featured: true,
@@ -292,20 +322,22 @@ const links = [
     category: 'Social',
     title: 'TikTok',
     description: 'Follow Wulfzx on TikTok.',
-    href: 'https://www.tiktok.com/@wulfzx',
+    href: 'https://www.tiktok.com/@wzxu.pro',
     accent: 'social',
     Icon: TikTokIcon,
   },
-  {
-    id: 'discord',
-    category: 'Fallout 76',
-    title: 'WZXU76 Discord',
-    description: 'Join the Fallout 76 community server.',
-    href: sharedLinks.fallout76Discord,
-    accent: 'blue',
-    image: assetPath('business-card-discord-opt.webp'),
-    imageAlt: 'WZXU76 Fallout 76 Discord icon',
-  },
+]
+
+const destination = (id) => links.find((link) => link.id === id).href
+const workshopTiles = [
+  ['pipboy', 'Pip-Boy Simulator', destination('pipboy-simulator')],
+  ['official', 'Official Website', destination('official')],
+  ['tools', 'Apps & Tools', '#link-section-apps-tools'],
+  ['gaming', 'Gaming', '#link-section-gaming'],
+  ['music', 'Music & Creators', '#link-section-music-creators'],
+  ['fallout', 'Fallout 76', '#link-section-fallout-76'],
+  ['radio', 'WZXU on X', 'https://x.com/Wzxupruh'],
+  ['camera', 'WZXU on TikTok', destination('tiktok')],
 ]
 
 function App() {
@@ -334,128 +366,130 @@ function App() {
   return <HubPage />
 }
 
-function HubPage() {
-  const [isDocumentGuideOpen, setIsDocumentGuideOpen] = React.useState(false)
-  const [isStickerGuideOpen, setIsStickerGuideOpen] = React.useState(false)
-  const [isFieldQuoteGuideOpen, setIsFieldQuoteGuideOpen] = React.useState(false)
-  const [isGarageGuideOpen, setIsGarageGuideOpen] = React.useState(false)
-  const [isCdaGuideOpen, setIsCdaGuideOpen] = React.useState(false)
-  const [isConsoleChooserOpen, setIsConsoleChooserOpen] = React.useState(false)
-  const [isDayRangeGuideOpen, setIsDayRangeGuideOpen] = React.useState(false)
-  const groupedLinks = categoryOrder.map((category) => ({
-    category,
-    links: links.filter((link) => link.category === category),
-  }))
+const guides = {
+  'document-reader-tools': { pages: documentReaderPages, assetFolder: 'document-reader-guide' },
+  'sticker-maker-tools': { pages: stickerMakerPages, assetFolder: 'sticker-maker-guide' },
+  'fieldquote-tools': { pages: fieldquoteGuidePages, assetFolder: 'fieldquote-guide' },
+  'garage-flow-tools': { pages: garageGuidePages, assetFolder: 'garage-guide' },
+  'car-detailing-tools': {},
+  dayrange: {},
+}
+
+function WorkshopMenu({ art, category, onClose, onGuide }) {
+  const dialog = React.useRef(null)
+  React.useEffect(() => {
+    const modal = dialog.current
+    modal.showModal()
+    return () => modal.close()
+  }, [])
 
   return (
-    <main className="business-card-page hub-v2" aria-labelledby="brand-title">
-      <link rel="preload" as="image" href={assetPath('wulfzx-hub-hero.webp')} type="image/webp" media="(min-width: 601px)" />
-      <link rel="preload" as="image" href={assetPath('wulfzx-hub-hero-mobile.webp')} type="image/webp" media="(max-width: 600px)" />
-      <CircuitBackdrop />
-      <div className="hub-content">
-        <section className="link-hub-card" aria-label="Wulfzx.Underground premium digital business card demo">
-          <header className="brand-hero">
-            <picture className="hub-hero-art" aria-hidden="true">
-              <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-hub-hero-mobile.webp')} />
-              <img
-                src={assetPath('wulfzx-hub-hero.webp')}
-                alt=""
-                decoding="async"
-                fetchPriority="high"
-                width="1600"
-                height="900"
-              />
-            </picture>
-            <div className="wolf-blink-layer" aria-hidden="true">
-              <picture className="wolf-blink-frame wolf-blink-half">
-                <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-wolf-eyes-half-mobile.webp')} />
-                <img src={assetPath('wulfzx-wolf-eyes-half.webp')} alt="" width="1600" height="900" />
-              </picture>
-              <picture className="wolf-blink-frame wolf-blink-closed">
-                <source media="(max-width: 600px)" srcSet={assetPath('wulfzx-wolf-eyes-closed-mobile.webp')} />
-                <img src={assetPath('wulfzx-wolf-eyes-closed.webp')} alt="" width="1600" height="900" />
-              </picture>
-            </div>
-            <div className="brand-copy">
-              <h1 id="brand-title">Wulfzx.Underground</h1>
-              <p className="subtitle">Premium Digital Business Card</p>
-              <p className="tagline">Your Brand. Your Links. One Professional Hub.</p>
-            </div>
-          </header>
-
-          <nav className="hub-category-nav" aria-label="Jump to a link category">
-            {groupedLinks.map(({ category }) => (
-              <a key={category} href={`#link-section-${categorySlug(category)}`}>
-                {category}
-              </a>
-            ))}
-          </nav>
-
-          <nav className="link-sections" aria-label="Wulfzx.Underground links">
-            {groupedLinks.map(({ category, links: categoryLinks }) => (
-              <section className="link-section" key={category} aria-labelledby={`link-section-${categorySlug(category)}`}>
-                <h2 id={`link-section-${categorySlug(category)}`}>{category}</h2>
-                <div className="link-stack">
-                  {categoryLinks.map((link) => (
-                    <React.Fragment key={link.title}><LinkButton link={link} onHowTo={() => setIsDayRangeGuideOpen(true)} onChooseConsole={() => setIsConsoleChooserOpen(true)} />{link.id === 'car-detailing-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsCdaGuideOpen(true)}>How to use Car Detailing</button>}{link.id === 'garage-flow-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsGarageGuideOpen(true)}>How to use Garage Flow</button>}{link.id === 'fieldquote-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsFieldQuoteGuideOpen(true)}>How to use FieldQuote</button>}{link.id === 'document-reader-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsDocumentGuideOpen(true)}>How to use Document Reader</button>}{link.id === 'sticker-maker-tools' && <button className="cda-guide-trigger" type="button" aria-haspopup="dialog" onClick={() => setIsStickerGuideOpen(true)}>How to use Sticker Maker</button>}</React.Fragment>
-                  ))}
+    <dialog ref={dialog} className="workshop-menu" aria-label={category}
+      onCancel={onClose} onClick={(event) => { if (event.target === dialog.current) onClose() }}>
+      <div className="workshop-menu-body">
+        <header>
+          <img src={assetPath('assembly/' + art + '.webp')} alt={category} />
+          <button type="button" onClick={onClose} aria-label="Close menu">×</button>
+        </header>
+        <ul>
+          {links.filter((link) => link.category === category).map((link) => (
+            <li key={link.id}>
+              {category === 'Apps & Tools' ? (
+                <div className="workshop-app">
+                  <img src={link.image} alt="" width="46" height="46" />
+                  <div>
+                    <strong>{link.title}</strong>{link.isNew && <small> NEW</small>}
+                    <p>{link.description}</p>
+                  </div>
+                  <div className="workshop-actions">
+                    <a href={link.href} target="_blank" rel="noreferrer" title={link.tooltip}
+                      aria-label={link.id === 'document-reader-tools' ? 'Download WZXU Document Reader for Windows' : 'Open ' + link.title}>
+                      {link.id === 'document-reader-tools' ? 'Download for Windows' : 'Open app'} ↗
+                    </a>
+                    {guides[link.id] && <button type="button" aria-haspopup="dialog" aria-label={'How to use ' + link.title}
+                      onClick={() => onGuide(link)}>How to use</button>}
+                  </div>
                 </div>
-              </section>
-            ))}
-          </nav>
-
-          <MediaPreview />
-
-          <footer className="card-footer">
-            <p>Powered by Wulfzx.Underground</p>
-            <p>Premium Digital Business Card Demo</p>
-          </footer>
-        </section>
+              ) : link.opensConsoleChooser ? (
+                <details>
+                  <summary>{link.title}</summary>
+                  {historyConsoles.map((console) => (
+                    <a key={console.name} href={console.href} target="_blank" rel="noreferrer">
+                      {console.name} — {console.title}
+                    </a>
+                  ))}
+                </details>
+              ) : (
+                <a href={link.href} target={link.isInternal ? undefined : '_blank'} rel="noreferrer">
+                  <span><strong>{link.title}</strong>{link.isNew && <small> NEW</small>}<span className="workshop-description">{link.description}</span></span><span aria-hidden="true">›</span>
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
-      {isDocumentGuideOpen && <CarDetailingGuide pages={documentReaderPages} title="How to use Document Reader" assetFolder="document-reader-guide" onClose={() => setIsDocumentGuideOpen(false)} />}
-      {isStickerGuideOpen && <CarDetailingGuide pages={stickerMakerPages} title="How to use Sticker Maker" assetFolder="sticker-maker-guide" onClose={() => setIsStickerGuideOpen(false)} />}
-      {isFieldQuoteGuideOpen && <CarDetailingGuide pages={fieldquoteGuidePages} title="How to use FieldQuote" assetFolder="fieldquote-guide" onClose={() => setIsFieldQuoteGuideOpen(false)} />}
-      {isGarageGuideOpen && <CarDetailingGuide pages={garageGuidePages} title="How to use Garage Flow" assetFolder="garage-guide" onClose={() => setIsGarageGuideOpen(false)} />}
-      {isCdaGuideOpen && <CarDetailingGuide onClose={() => setIsCdaGuideOpen(false)} />}
-      {isDayRangeGuideOpen ? (
-        <InstructionViewer instructions={dayRangeInstructions} onClose={() => setIsDayRangeGuideOpen(false)} />
-      ) : null}
-      {isConsoleChooserOpen && <ConsoleChooser onClose={() => setIsConsoleChooserOpen(false)} />}
-    </main>
+    </dialog>
   )
 }
 
-function ConsoleChooser({ onClose }) {
-  const dialog = React.useRef(null)
-  React.useEffect(() => {
-    const trigger = document.activeElement
-    const modal = dialog.current
-    const previousOverflow = document.body.style.overflow
-    modal.showModal()
-    document.body.style.overflow = 'hidden'
-    return () => {
-      modal.close()
-      document.body.style.overflow = previousOverflow
-      trigger?.focus()
-    }
-  }, [])
-  return <dialog ref={dialog} className="console-chooser" aria-labelledby="console-chooser-title" onCancel={event => { event.preventDefault(); onClose() }} onClick={event => { if (event.target === event.currentTarget) onClose() }}>
-    <div className="console-chooser-panel">
-      <header><div><p>GAMING HISTORY</p><h2 id="console-chooser-title">Choose your console</h2></div><button type="button" autoFocus onClick={onClose} aria-label="Close console chooser">×</button></header>
-      <p>Explore the consoles that shaped a generation.</p>
-      <div className="console-choices">{historyConsoles.map(console => <a key={console.name} href={console.href} target="_blank" rel="noopener noreferrer"><strong>{console.name}</strong><span>{console.title}</span><small>Explore history ↗</small></a>)}</div>
-      <p className="console-chooser-note">Each console opens in a new tab.</p>
-    </div>
-  </dialog>
+function updateTilePress(event) {
+  const tile = event.target.closest('.assembly-tile')
+  if (event.pointerType !== 'touch' || !tile) return
+  if (event.type === 'pointerdown') tile.dataset.pressed = 'true'
+  else delete tile.dataset.pressed
+}
+
+function HubPage() {
+  const [menu, setMenu] = React.useState(null)
+  const [guide, setGuide] = React.useState(null)
+
+  return (
+    <main className="business-card-page hub-v2 assembly-hub" aria-labelledby="brand-title">
+      <div className="hub-content">
+        <section className="link-hub-card" aria-label="WZXU link hub">
+          <header className="assembly-header">
+            <h1 id="brand-title"><img src={assetPath('assembly/hero.webp')} alt="WZXU · Wulfzx.Underground" width="1024" height="810" fetchPriority="high" /></h1>
+            <a className="assembly-explore" href="#workshop-shortcuts">Explore links ↓</a>
+          </header>
+          <nav onPointerDown={updateTilePress} onPointerUp={updateTilePress} onPointerCancel={updateTilePress}
+            id="workshop-shortcuts" tabIndex={-1} className="assembly-tiles" aria-label="Workshop shortcuts">
+            {workshopTiles.map(([art, label, href]) => href.startsWith('#') ? (
+              <button key={art} type="button" aria-haspopup="dialog" className={'assembly-tile assembly-' + art}
+                onClick={(event) => setMenu({ art, category: label, trigger: event.currentTarget })}>
+                <img src={assetPath('assembly/' + art + '.webp')} alt={label} />
+                <span className="assembly-mark" aria-hidden="true">☰</span>
+              </button>
+            ) : (
+              <a key={art} className={'assembly-tile assembly-' + art} href={href}
+                target={href.startsWith('https://') ? '_blank' : undefined}
+                rel={href.startsWith('https://') ? 'noopener noreferrer' : undefined}>
+                <img src={assetPath('assembly/' + art + '.webp')} alt={label} />
+                <span className="assembly-mark" aria-hidden="true">{href.startsWith('https://') ? '↗' : '→'}</span>
+              </a>
+            ))}
+          </nav>
+          <a className="assembly-support" href={destination('cashapp')} target="_blank" rel="noreferrer">Support WZXU on Cash App ↗</a>
+        </section>
+      </div>
+      {menu && <WorkshopMenu {...menu} onGuide={setGuide} onClose={() => { setMenu(null); requestAnimationFrame(() => menu.trigger.focus()) }} />}
+      {guide?.id === 'dayrange' && <InstructionViewer instructions={dayRangeInstructions} onClose={() => setGuide(null)} />}
+      {guide && guide.id !== 'dayrange' && <CarDetailingGuide {...guides[guide.id]} title={'How to use ' + guide.title} onClose={() => setGuide(null)} />}
+    </main>
+  )
 }
 
 function InstructionViewer({ instructions, onClose }) {
   const [activeIndex, setActiveIndex] = React.useState(0)
   const activeInstruction = instructions[activeIndex]
+  const dialog = React.useRef(null)
+  React.useEffect(() => {
+    const modal = dialog.current
+    modal.showModal()
+    return () => modal.close()
+  }, [])
 
   React.useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
       if (event.key === 'ArrowLeft') setActiveIndex((index) => (index - 1 + instructions.length) % instructions.length)
       if (event.key === 'ArrowRight') setActiveIndex((index) => (index + 1) % instructions.length)
     }
@@ -465,7 +499,7 @@ function InstructionViewer({ instructions, onClose }) {
   }, [instructions.length, onClose])
 
   return (
-    <div className="instruction-viewer" role="dialog" aria-modal="true" aria-labelledby="instruction-viewer-title">
+    <dialog ref={dialog} className="instruction-viewer" onCancel={onClose} aria-labelledby="instruction-viewer-title">
       <div className="instruction-viewer-backdrop" onClick={onClose} />
       <section className="instruction-viewer-panel">
         <header className="instruction-viewer-header">
@@ -503,114 +537,7 @@ function InstructionViewer({ instructions, onClose }) {
           ))}
         </div>
       </section>
-    </div>
-  )
-}
-
-function MediaPreview() {
-  const [isVideoActive, setIsVideoActive] = React.useState(false)
-
-  return (
-    <section className="media-preview" aria-labelledby="media-preview-title">
-      <div className="media-preview-copy">
-        <p>Featured Signal</p>
-        <h2 id="media-preview-title">Wulfzx.Underground Preview</h2>
-      </div>
-      <div className="video-shell">
-        {isVideoActive ? (
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/tHeIOBE9_QM?autoplay=1"
-            title="Wulfzx.Underground YouTube preview"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        ) : (
-          <button
-            className="video-preview-button"
-            type="button"
-            aria-label="Play Wulfzx.Underground YouTube preview"
-            onClick={() => setIsVideoActive(true)}
-          >
-            <img
-              src="https://i.ytimg.com/vi/tHeIOBE9_QM/maxresdefault.jpg"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            />
-            <span className="video-play-core" aria-hidden="true">
-              <svg viewBox="0 0 64 64" focusable="false">
-                <path d="M25 19l22 13-22 13z" />
-              </svg>
-            </span>
-          </button>
-        )}
-      </div>
-    </section>
-  )
-}
-
-function CircuitBackdrop() {
-  return (
-    <div className="circuit-backdrop" aria-hidden="true">
-      <div className="backdrop-image" />
-      <div className="pulse-line pulse-line-a" />
-    </div>
-  )
-}
-
-function LinkButton({ link, onHowTo, onChooseConsole }) {
-  const Icon = link.Icon
-  const Tag = link.opensConsoleChooser ? 'button' : 'a'
-
-  return (
-    <Tag
-      className={`link-button link-button-${link.accent} link-${link.id}${link.featured ? ' link-button-featured' : ''}`}
-      href={link.opensConsoleChooser ? undefined : link.href}
-      type={link.opensConsoleChooser ? 'button' : undefined}
-      onClick={link.opensConsoleChooser ? onChooseConsole : undefined}
-      aria-haspopup={link.opensConsoleChooser ? 'dialog' : undefined}
-      target={link.isInternal || link.opensConsoleChooser ? undefined : '_blank'}
-      rel={link.isInternal || link.opensConsoleChooser ? undefined : 'noreferrer'}
-      aria-label={`${link.title}${link.isNew ? ", new" : ""}: ${link.description}`}
-      title={link.tooltip}
-      aria-description={link.tooltip}
-    >
-      <span className="link-icon">
-        {link.image ? <img src={link.image} alt={link.imageAlt} loading="lazy" decoding="async" /> : <Icon />}
-      </span>
-      <span className="link-copy">
-        <strong>{link.title}{link.isNew ? <span className="link-new-badge" aria-hidden="true">NEW</span> : null}</strong>
-        <span>{link.description}</span>
-        {link.howTo ? (
-          <span
-            className="link-how-to"
-            role="button"
-            tabIndex="0"
-            onClick={(event) => {
-              event.preventDefault()
-              event.stopPropagation()
-              onHowTo()
-            }}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault()
-                event.stopPropagation()
-                onHowTo()
-              }
-            }}
-          >
-            How to use DayRange
-          </span>
-        ) : null}
-      </span>
-      <span className="link-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false">
-          <path d="M8 5l7 7-7 7" />
-        </svg>
-      </span>
-    </Tag>
+    </dialog>
   )
 }
 

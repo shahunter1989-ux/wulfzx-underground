@@ -464,7 +464,7 @@ function HubPage() {
                 target={href.startsWith('https://') ? '_blank' : undefined}
                 rel={href.startsWith('https://') ? 'noopener noreferrer' : undefined}>
                 <img src={assetPath('assembly/' + art + '.webp')} alt={label} />
-                <span className="assembly-mark" aria-hidden="true">{href.startsWith('https://') ? '↗' : '→'}</span>
+                {art !== 'radio' && art !== 'camera' && <span className="assembly-mark" aria-hidden="true">{href.startsWith('https://') ? '↗' : '→'}</span>}
               </a>
             ))}
           </nav>

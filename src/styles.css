@@ -7466,7 +7466,7 @@ button.link-button { width: 100%; font: inherit; text-align: left; cursor: point
 .assembly-header h1 { margin: 0; line-height: 0; }
 .assembly-header img, .assembly-tile img { display: block; width: 100%; height: auto; }
 .assembly-tiles { display: grid; grid-template-columns: repeat(60, minmax(0, 1fr)); gap: 5px 0; background: #171411; padding: 5px 0; }
-.assembly-tile { display: grid; align-items: stretch; margin: 0 2px; grid-column: span 20; }
+.assembly-tile { display: grid; align-self: start; align-items: start; margin: 0 2px; grid-column: span 20; }
 .assembly-pipboy, .assembly-official { grid-column: span 30; }
 .assembly-fallout { grid-column: span 36; }
 .assembly-radio, .assembly-camera { grid-column: span 12; }
@@ -7502,7 +7502,19 @@ button.assembly-tile { padding: 0; border: 0; background: transparent; cursor: p
 .assembly-explore, .assembly-mark { background: #241c15; color: #ffe2ac; border: 1px solid #cfaa73; border-radius: 4px; }
 .assembly-explore { position: absolute; top: 4%; right: 3%; display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; font-weight: 700; text-decoration: none; }
 .assembly-explore:focus-visible { outline: 3px solid white; }
-.assembly-mark { position: absolute; right: 3%; bottom: 5%; display: grid; place-items: center; width: clamp(20px, 4vw, 44px); height: clamp(20px, 4vw, 44px); font: bold clamp(14px, 2.4vw, 24px)/1 system-ui; pointer-events: none; }
+.assembly-mark {
+  position: absolute;
+  right: 5%;
+  bottom: 9%;
+  height: 17%;
+  max-height: 38px;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  font: bold clamp(10px, 1.8vw, 21px)/1 system-ui;
+  pointer-events: none;
+}
 .workshop-app { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 8px 12px; align-items: center; padding: 12px 0; }
 .workshop-app img { width: 46px; height: 46px; object-fit: contain; border-radius: 5px; background: #14120f; }
 .workshop-app p { margin: 3px 0 0; color: #edd2ad; font-size: .85rem; line-height: 1.35; }

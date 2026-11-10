@@ -14,7 +14,23 @@ export function GallerySurface() {
 }
 
 export function GuideSurface() {
-  return <section className="wf-hero wf-guide-surface"><div><h1>Wasteland Companion Guide</h1><p>Builds, resources, survival support, and field tools for your next journey through Fallout 76.</p><div className="wf-actions"><a className="wf-button wf-primary" href={links.guide76} target="_blank" rel="noopener noreferrer">Open WZXU76.pro ↗</a><a className="wf-button" href={links.guide76SiloCodes} target="_blank" rel="noopener noreferrer">Weekly silo codes ↗</a></div><p>Explore the live guide, or <a href="/main/what-i-do/">see more WZXU projects</a>.</p></div><div className="wf-hero-art"><img src="/assets/wulfzx-76-guide-opt.webp" alt="WULFZX Fallout 76 Wasteland Guide artwork" /></div></section>;
+  return <><section className="wf-hero wf-guide-surface"><div><h1>Wasteland Companion Guide</h1><p>Builds, resources, survival support, and field tools for your next journey through Fallout 76.</p><div className="wf-actions"><a className="wf-button wf-primary" href={links.guide76} target="_blank" rel="noopener noreferrer">Open WZXU76.pro ↗</a></div><p>Explore the live guide, or <a href="/main/what-i-do/">see more WZXU projects</a>.</p></div><div className="wf-hero-art"><img src="/assets/wulfzx-76-guide-opt.webp" alt="WULFZX Fallout 76 Wasteland Guide artwork" /></div></section>
+    <section className="wf-page-title" aria-labelledby="pip-boys-title">
+      <h2 id="pip-boys-title">Pip-Boys</h2>
+      <div className="wf-pipboy-options">
+        <article>
+          <h3>WZXU76 Enclave Pip-Boy</h3>
+          <p>A fully custom Pip-Boy, built from scratch just for fun.</p>
+          <a className="wf-button" href={links.guide76SiloCodes} target="_blank" rel="noopener noreferrer">Open Enclave Pip-Boy ↗</a>
+        </article>
+        <article>
+      <h3>Fallout 76 Pip-Boy Simulator</h3>
+      <p>Explore the Fallout 76 Pip-Boy interface in your browser.</p>
+      <a className="wf-button wf-primary" href="https://wzxu-pipboy-web.vercel.app/?mode=simulator" target="_blank" rel="noopener noreferrer">Open Fallout 76 simulator ↗</a>
+        </article>
+      </div>
+    </section>
+  </>;
 }
 
 export function MusicRedirect() {

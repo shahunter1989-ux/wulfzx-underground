@@ -1,4 +1,5 @@
 import React from "react";
+import "./vault.css";
 import { SiteHeader, SiteFooter } from "./ManagedMain";
 import { links } from "../content";
 
@@ -14,23 +15,51 @@ export function GallerySurface() {
 }
 
 export function GuideSurface() {
-  return <><section className="wf-hero wf-guide-surface"><div><h1>Wasteland Companion Guide</h1><p>Builds, resources, survival support, and field tools for your next journey through Fallout 76.</p><div className="wf-actions"><a className="wf-button wf-primary" href={links.guide76} target="_blank" rel="noopener noreferrer">Open WZXU76.pro ↗</a></div><p>Explore the live guide, or <a href="/main/what-i-do/">see more WZXU projects</a>.</p></div><div className="wf-hero-art"><img src="/assets/wulfzx-76-guide-opt.webp" alt="WULFZX Fallout 76 Wasteland Guide artwork" /></div></section>
-    <section className="wf-page-title" aria-labelledby="pip-boys-title">
-      <h2 id="pip-boys-title">Pip-Boys</h2>
-      <div className="wf-pipboy-options">
-        <article>
-          <h3>WZXU76 Enclave Pip-Boy</h3>
-          <p>A fully custom Pip-Boy, built from scratch just for fun.</p>
-          <a className="wf-button" href={links.guide76SiloCodes} target="_blank" rel="noopener noreferrer">Open Enclave Pip-Boy ↗</a>
-        </article>
-        <article>
-      <h3>Fallout 76 Pip-Boy Simulator</h3>
-      <p>Explore the Fallout 76 Pip-Boy interface in your browser.</p>
-      <a className="wf-button wf-primary" href="https://wzxu-pipboy-web.vercel.app/?mode=simulator" target="_blank" rel="noopener noreferrer">Open Fallout 76 simulator ↗</a>
-        </article>
-      </div>
-    </section>
-  </>;
+  const [reducedMotion, setReducedMotion] = React.useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [videoReady, setVideoReady] = React.useState(false);
+  const videoRef = React.useRef(null);
+  React.useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => { setReducedMotion(query.matches); setVideoReady(false); };
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    let active = true;
+    const sync = () => {
+      if (document.hidden || reducedMotion) video.pause();
+      else video.play().catch(() => { if (active) setVideoReady(false); });
+    };
+    sync();
+    document.addEventListener("visibilitychange", sync);
+    return () => { active = false; document.removeEventListener("visibilitychange", sync); video.pause(); };
+  }, [reducedMotion]);
+  return <div className="wf-vault" data-video-active={videoReady && !reducedMotion}>
+    {!reducedMotion && <video ref={videoRef} className="wf-vault-video" src="/assets/vault-corridor-loop-v2.mp4" poster="/assets/vault-corridor.webp" muted loop playsInline preload="metadata" aria-hidden="true" onPlaying={() => setVideoReady(true)} onError={() => setVideoReady(false)} />}
+    <div className="wf-vault-video-shade" aria-hidden="true" />
+    <div className="wf-vault-hdr" aria-hidden="true"><div className="wf-vault-scene">
+      <div className="wf-vault-hdr-reflections" />
+      {[[50,6,17],[50,24,12],[32,31,10],[68,32,10],[38,39,7],[62,39,7],[11,59,10],[94,59,10]].map(([x,y,size],i) => <span key={i} className="wf-vault-hdr-bloom" style={{left:`${x}%`,top:`${y}%`,width:`${size}%`,animationDelay:`${-i*2.1}s`}} />)}
+    </div></div>
+    <div className="wf-vault-content">
+      <section className="wf-vault-intro" aria-labelledby="vault-title">
+        
+        <h1 id="vault-title">Wasteland Companion Guide</h1>
+        <p>Explore the wasteland. Make it your own.</p>
+        <a className="wf-button wf-primary" href={links.guide76} target="_blank" rel="noopener noreferrer">Open WZXU76.pro ↗</a>
+      </section>
+      <section className="wf-vault-pipboys" aria-labelledby="pip-boys-title">
+        <h2 id="pip-boys-title">Pip-Boys</h2>
+        <div className="wf-pipboy-options">
+          <article><img className="wf-vault-device" src="/assets/vault-enclave-cutout.webp" alt="Screenshot of the WULFZX Enclave Personal Pip-Boy" /><div className="wf-vault-card-copy"><h3>WZXU76 Enclave Pip-Boy</h3><p>A fully custom Pip-Boy, built from scratch just for fun.</p><a className="wf-button" href={links.guide76SiloCodes} target="_blank" rel="noopener noreferrer">Open Enclave Pip-Boy ↗</a></div></article>
+          <article><img className="wf-vault-device" src="/assets/vault-simulator-cutout.webp" alt="Screenshot of the Fallout 76 simulator with its red status screen" /><div className="wf-vault-card-copy"><h3>Fallout 76 Pip-Boy Simulator</h3><p>Explore the Fallout 76 Pip-Boy interface in your browser.</p><a className="wf-button wf-primary" href="https://wzxu-pipboy-web.vercel.app/?mode=simulator" target="_blank" rel="noopener noreferrer">Open simulator ↗</a></div></article>
+        </div>
+        <a className="wf-vault-more" href="/main/what-i-do/">Explore more WZXU projects →</a>
+      </section>
+    </div>
+  </div>;
 }
 
 export function MusicRedirect() {

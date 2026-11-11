@@ -1,0 +1,44 @@
+/* Cinematic companion guide. Every rule is scoped to this surface. */
+.wf-site:has(.wf-vault) { position:relative; isolation:isolate; background:#101820; }
+.wf-site:has(.wf-vault)::before { content:""; position:fixed; inset:0; z-index:-2; background:linear-gradient(180deg,#050b1266,transparent 48%,#070e1838),url('/assets/vault-corridor.webp') center / cover no-repeat; filter:contrast(1.055) saturate(1.12) brightness(1.025); pointer-events:none; }
+.wf-site:has(.wf-vault) .wf-header { max-width:none; width:100%; padding:22px 3.5vw; border:0; background:transparent; position:relative; z-index:5; }
+.wf-site:has(.wf-vault) .wf-brand { font-size:38px; font-style:italic; line-height:1; color:#fff; border-bottom:5px solid #009bea; padding-bottom:5px; }
+.wf-site:has(.wf-vault) .wf-brand span { color:inherit; }
+.wf-site:has(.wf-vault) .wf-brand small { display:none; }
+.wf-site:has(.wf-vault) .wf-header nav { font-size:18px; gap:30px; text-shadow:0 2px 8px #000; }
+.wf-site:has(.wf-vault) .wf-nav-contact { border:0; padding:0; }
+.wf-site:has(.wf-vault) main.wf-container { max-width:none; padding:0; width:100%; background:transparent; }
+.wf-vault { position:relative; }
+.wf-vault-content { position:relative; z-index:2; min-height:calc(100svh - 92px); max-width:1600px; margin:auto; padding:32px 4.3vw 24px; display:flex; flex-direction:column; }
+.wf-vault-intro { text-align:center; padding:16px 0 0; }
+.wf-site .wf-vault h1 { max-width:none; font-size:clamp(38px,4.65vw,72px); margin:0 auto 16px; text-shadow:0 3px 24px #000; }
+.wf-site .wf-vault-intro > p { font-size:clamp(19px,2.2vw,30px); max-width:none; margin:0 auto 22px; color:#e0e7ed; text-shadow:0 2px 8px #000; }
+.wf-site .wf-vault .wf-button { color:#f4f8ff; border:2px solid #5cc9ff; background:linear-gradient(#078ad5,#034d85); border-radius:9px; box-shadow:0 0 20px #00aaff30,inset 0 0 10px #52bbff30; font-weight:650; }
+.wf-site .wf-vault .wf-button:hover { color:#fff; background:linear-gradient(#17a4f0,#06669e); }
+.wf-site .wf-vault-intro > .wf-button { font-size:clamp(20px,2vw,28px); padding:10px 30px; }
+.wf-vault-pipboys { margin-top:auto; padding-top:clamp(140px,23vh,300px); }
+.wf-site .wf-vault-pipboys > h2 { display:flex; align-items:center; justify-content:center; white-space:nowrap; font-size:clamp(30px,3vw,44px); gap:28px; margin-bottom:24px; text-shadow:0 2px 12px #000; }
+.wf-vault-pipboys > h2::before,.wf-vault-pipboys > h2::after { content:''; height:1px; width:120px; background:#2baad0; }
+.wf-vault .wf-pipboy-options { display:grid; margin-top:0; gap:24px; grid-template-columns:1fr 1fr; }
+.wf-vault .wf-pipboy-options article { display:grid; grid-template-columns:32% 1fr; align-items:center; gap:18px; padding:20px; border-radius:20px; background:linear-gradient(120deg,#15212ae8,#202025e6); border:1px solid #7d9aaf; box-shadow:0 12px 40px #0005; }
+.wf-vault-device { width:100%; height:auto; aspect-ratio:3 / 2; object-fit:contain; filter:drop-shadow(0 10px 10px #0009); transition:transform .45s ease,filter .45s ease; }
+.wf-vault .wf-pipboy-options article:is(:hover,:focus-within) .wf-vault-device { transform:translateY(-4px) scale(1.045); filter:drop-shadow(0 12px 12px #000b) drop-shadow(0 0 8px #6acba52b); }
+.wf-vault-card-copy { display:flex; flex-direction:column; align-items:flex-start; height:100%; justify-content:center; }
+.wf-site .wf-vault-card-copy h3 { font-size:clamp(20px,1.8vw,28px); margin-bottom:10px; }
+.wf-site .wf-vault-card-copy p { font-size:clamp(16px,1.35vw,20px); line-height:1.5; margin-bottom:18px; color:#e0e2e6; }
+.wf-site .wf-vault-card-copy .wf-button { font-size:clamp(15px,1.25vw,20px); padding:8px 14px; }
+.wf-site .wf-vault-more { display:block; width:fit-content; margin:24px auto 0; color:#c7d8e7; font-size:12px; }
+.wf-site:has(.wf-vault) > .wf-container { max-width:none; background:#080e17b8; }
+.wf-site:has(.wf-vault) .wf-footer { max-width:1400px; margin:auto; }
+.wf-vault-video { position:fixed; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; z-index:0; opacity:0; filter:contrast(1.055) saturate(1.12) brightness(1.025); }
+.wf-vault[data-video-active='true'] .wf-vault-video { opacity:1; }
+.wf-vault-video-shade { display:none; position:fixed; inset:0; pointer-events:none; z-index:1; background:linear-gradient(180deg,#050b1266,transparent 48%,#070e1838); }
+.wf-vault[data-video-active='true'] .wf-vault-video-shade { display:block; }
+.wf-vault-hdr { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+.wf-vault-scene { position:absolute; width:max(100vw,150vh); height:max(100vh,66.666667vw); left:50%; top:50%; transform:translate(-50%,-50%); }
+.wf-vault-hdr-bloom { position:absolute; aspect-ratio:1; transform:translate(-50%,-50%); background:radial-gradient(ellipse,#ffde9c38 0%,#ffbc4d20 22%,#ff9b2310 44%,transparent 70%); mix-blend-mode:screen; opacity:.65; animation:wf-vault-hdr-breathe 19s ease-in-out infinite; }
+.wf-vault-hdr-reflections { position:absolute; inset:0; background:radial-gradient(ellipse 11% 23% at 50% 76%,#ffb64d1b,transparent 80%),radial-gradient(ellipse 12% 23% at 29% 76%,#238bd21c,transparent 80%),radial-gradient(ellipse 12% 23% at 76% 76%,#238bd21c,transparent 80%); mix-blend-mode:screen; }
+@keyframes wf-vault-hdr-breathe { 0%,100% { opacity:.55; } 43% { opacity:.75; } 71% { opacity:.6; } }
+@media(max-width:900px) { .wf-vault .wf-pipboy-options article { grid-template-columns:1fr; gap:8px; } .wf-vault-device { height:120px; } .wf-vault-card-copy { align-items:center; text-align:center; } .wf-vault-pipboys { padding-top:150px; } }
+@media(max-width:640px) { .wf-site:has(.wf-vault) .wf-header { padding:20px; } .wf-site:has(.wf-vault) .wf-header nav { background:#0c1724f5; font-size:16px; } .wf-site:has(.wf-vault) .wf-brand { font-size:30px; } .wf-vault-content { padding:24px 20px 32px; } .wf-site .wf-vault h1 { font-size:38px; } .wf-vault-intro { padding:0; } .wf-vault-pipboys { padding-top:150px; } .wf-vault .wf-pipboy-options { grid-template-columns:1fr; gap:16px; } .wf-vault .wf-pipboy-options article { grid-template-columns:28% 1fr; padding:16px; gap:14px; } .wf-vault-card-copy { align-items:flex-start; text-align:left; } .wf-vault-device { height:130px; } .wf-vault .wf-button { white-space:normal; text-align:center; } .wf-vault-pipboys > h2::before,.wf-vault-pipboys > h2::after { width:50px; flex-shrink:1; } }
+@media(prefers-reduced-motion:reduce) { .wf-vault-video,.wf-vault-video-shade { display:none; } .wf-vault-hdr-bloom { animation:none; } .wf-vault-device { transition:none; } .wf-vault .wf-pipboy-options article:is(:hover,:focus-within) .wf-vault-device { transform:none; } }

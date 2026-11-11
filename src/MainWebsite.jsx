@@ -1288,7 +1288,6 @@ function ContactForm({ email = links.email }) {
   const [submitStatus, setSubmitStatus] = React.useState('idle')
   const [submitMessage, setSubmitMessage] = React.useState('')
 
-  const mailtoHref = buildMailtoHref(contactForm, email)
 
   const updateContactField = (event) => {
     const { name, value } = event.target
@@ -1339,7 +1338,7 @@ function ContactForm({ email = links.email }) {
       setSubmitMessage('Message submitted from the website to WULFZX Underground.')
     } catch {
       setSubmitStatus('error')
-      setSubmitMessage('Message did not send. Please use the email-app backup below.')
+      setSubmitMessage('Message did not send. Please try again in a moment.')
     }
   }
 
@@ -1405,25 +1404,10 @@ function ContactForm({ email = links.email }) {
         </p>
       ) : null}
       <small>
-        Sends directly to WULFZX Underground. If the website service is unavailable,{' '}
-        <a href={mailtoHref}>open your email app instead</a>.
+        Sends directly to WULFZX Underground. Your email is used to reply to your message.
       </small>
     </form>
   )
-}
-
-function buildMailtoHref({ name, replyEmail, topic, message }, email = links.email) {
-  const subject = `WULFZX Underground - ${topic || 'New inquiry'}`
-  const body = [
-    `Topic: ${topic || 'New inquiry'}`,
-    `Name: ${name || ''}`,
-    `Reply email: ${replyEmail || ''}`,
-    '',
-    'Message:',
-    message || '',
-  ].join('\n')
-
-  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
 export default MainWebsite

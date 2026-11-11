@@ -323,9 +323,7 @@ export default function ManagedMain({ ContactForm, children, title }) {
             <div className="wf-contact-layout">
               <aside>
                 <h2>Get in touch</h2>
-                <a href={`mailto:${data.business.email}`}>
-                  {data.business.email}
-                </a>
+                <p>Use the message form to get in touch. I’ll reply to the email address you provide.</p>
                 {data.business.phone && <p>{data.business.phone}</p>}
                 {data.business.address && <p>{data.business.address}</p>}
                 {data.business.hours && <p>{data.business.hours}</p>}

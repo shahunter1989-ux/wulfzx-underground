@@ -447,9 +447,8 @@ function HubPage() {
     <main className="business-card-page hub-v2 assembly-hub" aria-labelledby="brand-title">
       <div className="hub-content">
         <section className="link-hub-card" aria-label="WZXU link hub">
-          <header className="assembly-header">
-            <h1 id="brand-title"><img src={assetPath('assembly/hero.webp')} alt="WZXU · Wulfzx.Underground" width="1024" height="810" fetchPriority="high" /></h1>
-            <a className="assembly-explore" href="#workshop-shortcuts">Explore links ↓</a>
+          <header className="assembly-header hub-midnight-header">
+            <h1 id="brand-title"><img src={assetPath('assembly/midnight-electric.webp')} alt="WZXU · Wulfzx.Underground" fetchPriority="high" /></h1>
           </header>
           <nav onPointerDown={updateTilePress} onPointerUp={updateTilePress} onPointerCancel={updateTilePress}
             id="workshop-shortcuts" tabIndex={-1} className="assembly-tiles" aria-label="Workshop shortcuts">

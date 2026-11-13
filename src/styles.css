@@ -7604,3 +7604,8 @@ button.assembly-tile { padding: 0; border: 0; background: transparent; cursor: p
 @media (prefers-reduced-motion: reduce) {
   .assembly-hub .assembly-tile::after { transition: none !important; }
 }
+
+/* Selected Midnight Electric header preview; preserve the destination artwork. */
+.assembly-hub .hub-midnight-header { margin:5px 4px 12px; border:3px solid #e8d4af; border-radius:6px; overflow:hidden; background:#061322; }
+.assembly-hub .hub-midnight-header h1 { margin:0; line-height:0; }
+.assembly-hub .hub-midnight-header img { display:block; width:100%; height:auto; object-fit:contain; }

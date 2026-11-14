@@ -7609,3 +7609,983 @@ button.assembly-tile { padding: 0; border: 0; background: transparent; cursor: p
 .assembly-hub .hub-midnight-header { margin:5px 4px 12px; border:3px solid #e8d4af; border-radius:6px; overflow:hidden; background:#061322; }
 .assembly-hub .hub-midnight-header h1 { margin:0; line-height:0; }
 .assembly-hub .hub-midnight-header img { display:block; width:100%; height:auto; object-fit:contain; }
+
+/* Local interactive style showcase. Shared destinations and menus remain the source of truth. */
+.assembly-hub .hub-demo-switcher { margin:0 4px 18px; padding:22px; border:1px solid #5d6470; border-radius:12px; color:#e7edf4; background:#161e29; text-align:left; }
+.assembly-hub .hub-demo-eyebrow { font:700 10px/1.5 system-ui; letter-spacing:.16em; color:#93b8ce; }
+.assembly-hub .hub-demo-switcher h2 { margin:8px 0; font:700 21px/1.25 system-ui; color:inherit; text-transform:none; letter-spacing:-.02em; }
+.assembly-hub .hub-demo-switcher p { margin:0; font:13px/1.5 system-ui; color:#b5c2d2; }
+.assembly-hub .hub-demo-options { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 12px; }
+.assembly-hub .hub-demo-options button { min-height:44px; padding:9px 14px; border:1px solid #677489; border-radius:7px; background:#212d3d; color:#e9f0f7; font:600 13px/1.3 system-ui; cursor:pointer; }
+.assembly-hub .hub-demo-options button[aria-pressed='true'] { background:#bceaff; border-color:#bceaff; color:#092031; }
+.assembly-hub .hub-demo-options button:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+.hub-v2.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) { background:#e9edf2; color:#172331; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .link-hub-card { background:transparent; }
+.assembly-hub .hub-demo-brand { text-align:left; padding:28px 12px 36px; }
+.assembly-hub .hub-demo-brand h1 { color:inherit; font:850 68px/1 system-ui; letter-spacing:-.06em; margin:12px 0 18px; text-shadow:none; }
+.assembly-hub .hub-demo-brand h1 span { display:block; font:500 20px/1.5 system-ui; letter-spacing:0; margin-top:8px; }
+.assembly-hub .hub-demo-brand p { color:inherit; font:15px/1.5 system-ui; margin:0; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tiles { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:0 4px; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tile { grid-column:auto; margin:0; width:100%; border:1px solid #ccd4df; border-radius:12px; background:#fff; color:#182a3d; padding:0; text-decoration:none; filter:none; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tile::after,.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-mark { display:none; }
+.assembly-hub .hub-demo-tile-content { display:flex; gap:14px; align-items:flex-start; padding:24px 18px; text-align:left; min-height:130px; box-sizing:border-box; }
+.assembly-hub .hub-demo-number { font:600 12px/1.5 monospace; color:#55718b; }
+.assembly-hub .hub-demo-tile-copy { flex:1; min-width:0; }
+.assembly-hub .hub-demo-tile-copy strong { display:block; font:650 18px/1.3 system-ui; }
+.assembly-hub .hub-demo-tile-copy small { display:block; font:13px/1.6 system-ui; color:#586a7a; margin-top:7px; }
+.assembly-hub .hub-demo-arrow { color:#527697; font:20px/1 system-ui; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tile:is(:hover,:focus-visible) { border-color:#2674a9; background:#f1f8fc; outline-color:#2674a9; }
+.assembly-hub.hub-demo-terminal { background:#07130e; color:#acf5bd; }
+.assembly-hub.hub-demo-terminal .hub-demo-brand h1,.assembly-hub.hub-demo-terminal .hub-demo-brand h1 span { font-family:Consolas,monospace; }
+.assembly-hub.hub-demo-terminal .hub-demo-eyebrow { color:#73b790; }
+.assembly-hub.hub-demo-terminal .assembly-tiles { grid-template-columns:1fr; gap:8px; }
+.assembly-hub.hub-demo-terminal .assembly-tile { background:#0b2116; border:1px solid #365d45; color:#b4f4bf; border-radius:3px; }
+.assembly-hub.hub-demo-terminal .hub-demo-tile-content { min-height:0; padding:18px; align-items:center; }
+.assembly-hub.hub-demo-terminal .hub-demo-tile-copy strong { font-family:Consolas,monospace; }
+.assembly-hub.hub-demo-terminal :is(.hub-demo-number,.hub-demo-arrow,.hub-demo-tile-copy small) { color:#86ae92; }
+.assembly-hub.hub-demo-terminal .assembly-tile:is(:hover,:focus-visible) { background:#173924; border-color:#a6e6b6; outline-color:#a6e6b6; }
+@media(max-width:540px) { .assembly-hub .hub-demo-switcher { padding:18px 14px; } .assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tiles { grid-template-columns:1fr; } .assembly-hub .hub-demo-tile-content { min-height:0; padding:20px 16px; } .assembly-hub .hub-demo-options button { flex:1; padding-inline:8px; font-size:12px; } }
+.assembly-hub.hub-demo-studio .workshop-menu { background:#f6f8fb; color:#182a3d; border-color:#778c9d; }
+.assembly-hub.hub-demo-studio .workshop-menu header { background:#23394d; border-color:#778c9d; }
+.assembly-hub.hub-demo-studio .workshop-menu :is(p,small,.workshop-description) { color:#52677c; }
+.assembly-hub.hub-demo-studio .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:#d8eaf5; color:#102a3d; }
+.assembly-hub.hub-demo-terminal .workshop-menu { background:#0b2116; color:#b4f4bf; border-color:#7ab48b; }
+.assembly-hub.hub-demo-terminal .workshop-menu header { background:#0b1710; border-color:#7ab48b; }
+.assembly-hub.hub-demo-terminal .workshop-menu :is(p,small,.workshop-description) { color:#a4c6ae; }
+.assembly-hub.hub-demo-terminal .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:#20492f; color:#d6ffe0; }
+.assembly-hub:is(.hub-demo-studio,.hub-demo-terminal) .assembly-tiles { background:transparent; }
+.assembly-hub.hub-demo-studio .hub-demo-brand .hub-demo-eyebrow { color:#426a83; }
+/* Two additional local showcase layouts, sharing the original content and navigation. */
+.hub-v2.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .link-hub-card { background:transparent; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .assembly-tiles { background:transparent; display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0 8px; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .assembly-tile { grid-column:auto; padding:0; margin:0; border-radius:0; width:100%; filter:none; text-decoration:none; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .assembly-tile::after,.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .assembly-mark { display:none; }
+.hub-v2.assembly-hub.hub-demo-editorial { background:#f2efe8; color:#283b32; }
+.assembly-hub.hub-demo-editorial .hub-demo-switcher { background:#e6e7de; border-color:#b6bdb1; color:#253b30; border-radius:0; }
+.assembly-hub.hub-demo-editorial .hub-demo-switcher :is(p,.hub-demo-eyebrow) { color:#526452; }
+.assembly-hub.hub-demo-editorial .hub-demo-options button { background:transparent; border-color:#9ca998; color:#2f4234; border-radius:0; }
+.assembly-hub.hub-demo-editorial .hub-demo-options button[aria-pressed='true'] { background:#293d31; color:#fffdf3; }
+.assembly-hub .index-brand { margin:36px 8px 0; text-align:left; }
+.assembly-hub .index-topline { display:flex; justify-content:space-between; gap:12px; padding:12px 0; border-top:2px solid #354d3b; font:700 10px/1.5 system-ui; letter-spacing:.12em; }
+.assembly-hub .index-brand h1 { margin:38px 0 32px; color:#293d31; font:400 clamp(44px,7vw,76px)/1.02 Georgia,serif; letter-spacing:-.055em; text-shadow:none; }
+.assembly-hub .index-brand h1 em { color:#687452; font-weight:400; }
+.assembly-hub .index-intro { display:grid; grid-template-columns:1fr 1.4fr; gap:24px; border-bottom:2px solid #354d3b; padding-bottom:28px; margin-bottom:0; }
+.assembly-hub .index-intro p { margin:0; color:#526052; font:14px/1.7 system-ui; }
+.assembly-hub .index-intro p:first-child { color:#293d31; font-weight:700; }
+.assembly-hub.hub-demo-editorial .assembly-tile { background:transparent; color:#293d31; border:0; border-bottom:1px solid #c1c7b9; }
+.assembly-hub.hub-demo-editorial .assembly-tile:nth-child(odd) { border-right:1px solid #c1c7b9; }
+.assembly-hub.hub-demo-editorial .hub-demo-tile-content { padding:28px 18px; min-height:155px; gap:12px; }
+.assembly-hub.hub-demo-editorial .hub-demo-tile-copy strong { font:400 24px/1.15 Georgia,serif; }
+.assembly-hub.hub-demo-editorial .hub-demo-tile-copy small { color:#586453; }
+.assembly-hub.hub-demo-editorial :is(.hub-demo-number,.hub-demo-arrow) { color:#5c7158; }
+.assembly-hub.hub-demo-editorial .assembly-tile:is(:hover,:focus-visible) { background:#e4e8dd; outline-color:#375c42; }
+.assembly-hub.hub-demo-editorial .assembly-support { margin:24px 8px; background:transparent; color:#293d31; border-color:#7e8e76; border-radius:0; }
+.hub-v2.assembly-hub.hub-demo-playroom { background-color:#f8e8ee; background-image:radial-gradient(#c9aebc 1px,transparent 1px); background-size:20px 20px; color:#332644; }
+.assembly-hub.hub-demo-playroom .hub-demo-switcher { background:#fff9ef; color:#332644; border:2px solid #332644; box-shadow:4px 4px 0 #332644; border-radius:16px; }
+.assembly-hub.hub-demo-playroom .hub-demo-switcher :is(p,.hub-demo-eyebrow) { color:#69516c; }
+.assembly-hub.hub-demo-playroom .hub-demo-options button { background:#fff9ef; border:1px solid #332644; color:#332644; border-radius:22px; }
+.assembly-hub.hub-demo-playroom .hub-demo-options button[aria-pressed='true'] { background:#6944a6; color:#fff; }
+.assembly-hub .playroom-brand { position:relative; margin:36px 12px 36px; padding:8px 0; text-align:left; }
+.assembly-hub .playroom-note { display:inline-block; background:#ffe780; padding:8px 12px; border:1px solid #332644; font:750 9px/1.5 system-ui; letter-spacing:.07em; transform:rotate(-2deg); }
+.assembly-hub .playroom-brand h1 { margin:26px 0 18px; color:#332644; font:850 clamp(38px,6.6vw,66px)/1.05 system-ui; text-shadow:none; letter-spacing:-.055em; }
+.assembly-hub .playroom-brand h1 span { color:#7144a5; }
+.assembly-hub .playroom-brand p { margin:0 0 14px; font:700 15px/1.5 system-ui; color:#332644; }
+.assembly-hub .playroom-brand .playroom-intro { max-width:75%; font:14px/1.6 system-ui; color:#66516b; }
+.assembly-hub .playroom-stamp { position:absolute; right:4px; bottom:12px; border:2px solid #332644; border-radius:50%; width:86px; height:86px; display:grid; place-content:center; text-align:center; background:#c5eecb; font:800 12px/1.2 system-ui; transform:rotate(12deg); }
+.assembly-hub.hub-demo-playroom .assembly-tiles { gap:18px; margin:0 12px; }
+.assembly-hub.hub-demo-playroom .assembly-tile { background:#fff9ef; color:#332644; border:2px solid #332644; border-radius:18px; box-shadow:4px 5px 0 #332644; }
+.assembly-hub.hub-demo-playroom .assembly-tile:nth-child(4n+2) { background:#e4dcfa; }
+.assembly-hub.hub-demo-playroom .assembly-tile:nth-child(4n+3) { background:#d7eedc; }
+.assembly-hub.hub-demo-playroom .assembly-tile:nth-child(4n+4) { background:#fff0b0; }
+.assembly-hub .playroom-card { display:flex; flex-direction:column; height:100%; padding:15px; gap:14px; text-align:left; box-sizing:border-box; }
+.assembly-hub .playroom-art { display:block; border:2px solid #332644; border-radius:10px; background:#241e1a; overflow:hidden; }
+.assembly-hub .playroom-art img { width:100%; height:110px; object-fit:contain; }
+.assembly-hub .playroom-copy strong { display:block; font:800 20px/1.2 system-ui; }
+.assembly-hub .playroom-copy small { display:block; font:13px/1.5 system-ui; color:#66516b; margin-top:7px; }
+.assembly-hub .playroom-action { margin-top:auto; font:750 12px/1.5 system-ui; padding-top:10px; border-top:1px dashed #8a7295; }
+.assembly-hub.hub-demo-playroom .assembly-tile:is(:hover,:focus-visible) { outline:3px solid #7048ae; outline-offset:4px; box-shadow:5px 7px 0 #332644; }
+.assembly-hub.hub-demo-playroom .assembly-support { margin:28px 12px 8px; background:#fff9ef; border:2px solid #332644; color:#332644; border-radius:20px; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .workshop-menu { background:#f9f6ed; color:#293d31; border-color:#576f57; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .workshop-menu :is(p,small,.workshop-description) { color:#53624e; }
+.assembly-hub:is(.hub-demo-editorial,.hub-demo-playroom) .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:#dce6d5; color:#203021; }
+.assembly-hub.hub-demo-playroom .workshop-menu { border:3px solid #332644; border-radius:18px; background:#fff9ef; color:#332644; }
+.assembly-hub.hub-demo-playroom .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:#e4dcfa; color:#332644; }
+@media(max-width:540px) { .assembly-hub .index-topline { font-size:8px; } .assembly-hub .index-intro { grid-template-columns:1fr; gap:10px; } .assembly-hub.hub-demo-editorial .assembly-tiles { grid-template-columns:1fr; } .assembly-hub.hub-demo-editorial .assembly-tile:nth-child(odd) { border-right:0; } .assembly-hub.hub-demo-editorial .hub-demo-tile-content { min-height:0; padding:22px 4px; } .assembly-hub.hub-demo-playroom .assembly-tiles { gap:12px; margin:0 7px; } .assembly-hub .playroom-card { padding:10px; gap:10px; } .assembly-hub .playroom-copy strong { font-size:16px; } .assembly-hub .playroom-art img { height:75px; } .assembly-hub .playroom-stamp { width:65px; height:65px; font-size:10px; right:0; } .assembly-hub .playroom-brand .playroom-intro { max-width:73%; } }
+/* Local immersive theme refinement. Decorative layers never capture input. */
+.assembly-hub.hub-demo-playroom .playroom-art { background-image:url('/assets/hub-themes/playroom-atlas.webp'); background-size:400% 200%; aspect-ratio:1; width:100%; border:0; border-radius:18px; }
+.assembly-hub.hub-demo-playroom .playroom-card { padding:18px; }
+.assembly-hub.hub-demo-playroom .assembly-tiles { align-items:stretch; }
+.assembly-hub.hub-demo-playroom .assembly-tile { height:100%; }
+.assembly-hub.hub-demo-playroom .playroom-copy { flex:1; }
+.assembly-hub.hub-demo-playroom .workshop-menu header { background:#6944a6; }
+.assembly-hub.hub-demo-studio { background:radial-gradient(ellipse at 90% 20%,#c7d9ec,transparent 48%),#e9edf2; }
+.assembly-hub.hub-demo-studio .hub-demo-brand { position:relative; overflow:hidden; border-top:1px solid #9aabbb; padding:48px 24px; margin:28px 4px; }
+.assembly-hub.hub-demo-studio .hub-demo-brand h1 { font-size:clamp(64px,10vw,110px); letter-spacing:-.085em; }
+.assembly-hub.hub-demo-studio .hub-demo-brand p { max-width:55%; line-height:1.7; }
+.assembly-hub .studio-signature { position:absolute; right:22px; top:35px; width:180px; height:180px; border-radius:50%; background:#1d3447; color:#dcf39c; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(8deg); box-shadow:12px 12px 0 #b4c6d5; }
+.assembly-hub .studio-signature span { font:900 90px/.9 Georgia,serif; }
+.assembly-hub .studio-signature small { font:700 8px/1.7 system-ui; letter-spacing:.08em; margin-top:15px; }
+.assembly-hub.hub-demo-studio .assembly-tiles { gap:20px; }
+.assembly-hub.hub-demo-studio .assembly-tile { overflow:hidden; border-radius:4px; box-shadow:0 8px 22px #182a3d0c; }
+.assembly-hub .studio-card { display:flex; flex-direction:column; text-align:left; height:100%; }
+.assembly-hub .studio-art { position:relative; display:grid; place-items:center; height:180px; background:radial-gradient(circle at 50% 50%,#426778,transparent 65%),#193647; color:#d9eea0; overflow:hidden; }
+.assembly-hub .studio-art::before { content:''; position:absolute; inset:20px; border:1px solid #a5c2c52b; border-radius:50%; }
+.assembly-hub .studio-art svg { width:100px; height:100px; filter:drop-shadow(5px 7px 0 #071b3277); }
+.assembly-hub .studio-art span { position:absolute; left:16px; bottom:14px; font:10px/1 monospace; letter-spacing:.15em; }
+.assembly-hub.hub-demo-studio .assembly-tile:nth-child(3n+2) .studio-art { background:radial-gradient(circle,#cbc6ae,transparent 70%),#e1ddcb; color:#314942; }
+.assembly-hub.hub-demo-studio .assembly-tile:nth-child(3n+3) .studio-art { background:radial-gradient(circle,#635174,transparent 70%),#302d45; color:#efc8ac; }
+.assembly-hub .studio-copy { display:flex; flex-direction:column; gap:12px; padding:24px; flex:1; }
+.assembly-hub .studio-copy small { font:700 9px/1.4 system-ui; letter-spacing:.13em; color:#587080; }
+.assembly-hub .studio-copy strong { font:650 24px/1.2 system-ui; letter-spacing:-.04em; }
+.assembly-hub .studio-copy>span { font:14px/1.6 system-ui; color:#536574; }
+.assembly-hub .studio-copy b { font:600 12px/1.5 system-ui; border-top:1px solid #d4dce1; padding-top:16px; margin-top:auto; }
+.assembly-hub.hub-demo-terminal { background:radial-gradient(ellipse at 50% 35%,#24342b,#090e0c 75%); padding-bottom:60px; }
+.assembly-hub.hub-demo-terminal .link-hub-card { position:relative; padding:28px; border:18px solid #272d2a; border-radius:45px; background:radial-gradient(ellipse at 50% 30%,#143b24,#051109 85%); box-shadow:inset 0 0 45px #000,0 0 0 2px #535c55,0 0 0 9px #151b17,0 24px 60px #000; }
+.assembly-hub.hub-demo-terminal .link-hub-card::after { content:''; pointer-events:none; position:absolute; z-index:2; inset:0; border-radius:26px; background:repeating-linear-gradient(0deg,#0002 0px,#0002 1px,transparent 1px,transparent 4px),linear-gradient(125deg,#c3ffd70c,transparent 40%); box-shadow:inset 0 0 70px #0009; }
+.assembly-hub.hub-demo-terminal .hub-demo-brand h1 { color:#baffb0; text-shadow:0 0 12px #7cff5c55,2px 0 #74ff8b33; }
+.assembly-hub.hub-demo-terminal .hub-demo-brand p { font:12px/1.8 Consolas,monospace; color:#9fcd9e; }
+.assembly-hub .terminal-status { display:flex; justify-content:space-between; gap:12px; margin-top:24px; border-block:1px solid #416e49; padding:12px 0; font:10px/1.5 Consolas,monospace; color:#a9eab2; }
+.assembly-hub.hub-demo-terminal .assembly-tile { background:#0a1e11a8; border:0; border-bottom:1px solid #305239; box-shadow:inset 3px 0 #507b48; }
+.assembly-hub .terminal-glyph { width:42px; height:42px; flex-shrink:0; color:#a1f296; filter:drop-shadow(0 0 4px #8fff7166); }
+.assembly-hub .terminal-glyph svg { width:100%; height:100%; }
+.assembly-hub.hub-demo-terminal .hub-demo-switcher { background:#091c10; border-color:#416b48; border-radius:6px; }
+.assembly-hub.hub-demo-terminal .hub-demo-options button { background:#102c19; border-color:#507b48; color:#b4efb2; font-family:Consolas,monospace; }
+.assembly-hub.hub-demo-terminal .hub-demo-options button[aria-pressed=true] { background:#a3d59d; color:#0b1d0f; }
+.assembly-hub.hub-demo-terminal .hub-demo-switcher :is(h2,p,.hub-demo-eyebrow) { color:#a2ce9f; }
+.assembly-hub.hub-demo-terminal .assembly-support { background:#102c19; color:#b4efb2; border-color:#507b48; font-family:Consolas,monospace; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub.hub-demo-terminal .link-hub-card::after { animation:crt-breathe 9s ease-in-out infinite !important; }
+ .assembly-hub.hub-demo-playroom .playroom-art,.assembly-hub.hub-demo-studio .studio-art svg { transition:transform .25s ease !important; }
+ .assembly-hub.hub-demo-playroom .assembly-tile:hover .playroom-art { transform:rotate(-2deg) scale(.96); }
+ .assembly-hub.hub-demo-studio .assembly-tile:hover .studio-art svg { transform:translateY(-5px); }
+}
+@keyframes crt-breathe { 0%,100% { opacity:.65; } 50% { opacity:1; } }
+@media(max-width:600px) {
+ .assembly-hub.hub-demo-terminal .link-hub-card { padding:12px; border-width:8px; border-radius:24px; }
+ .assembly-hub.hub-demo-terminal .hub-demo-tile-content { gap:10px; padding:18px 10px; }
+ .assembly-hub.hub-demo-terminal .hub-demo-number { display:none; }
+ .assembly-hub .terminal-glyph { width:32px; height:32px; }
+ .assembly-hub .studio-signature { width:88px; height:88px; right:8px; top:60px; box-shadow:5px 5px 0 #b4c6d5; }
+ .assembly-hub .studio-signature span { font-size:48px; }
+ .assembly-hub .studio-signature small { display:none; }
+ .assembly-hub.hub-demo-studio .hub-demo-brand { padding:28px 8px; }
+ .assembly-hub.hub-demo-studio .hub-demo-brand p { max-width:85%; }
+ .assembly-hub.hub-demo-studio .hub-demo-brand h1 span { font-size:17px; }
+ .assembly-hub.hub-demo-playroom .playroom-card { padding:10px; }
+}
+.hub-v2.assembly-hub.hub-demo-terminal { background:radial-gradient(ellipse at 50% 35%,#24342b,#090e0c 75%); }
+.hub-v2.assembly-hub.hub-demo-studio { background:radial-gradient(ellipse at 90% 20%,#c7d9ec,transparent 48%),#e9edf2; }
+.assembly-hub.hub-demo-studio .assembly-support { background:#1d3447; color:#e4efca; border-color:#426778; border-radius:4px; }
+/* Local theme lab: atmospheric motion and two complete visual directions. */
+.assembly-hub .theme-motion-toggle { padding:7px 12px; margin:0 0 12px; border:1px solid currentColor; border-radius:20px; color:inherit; background:transparent; font:600 11px/1.5 system-ui; cursor:pointer; }
+.assembly-hub .theme-motion-toggle:focus-visible { outline:3px solid currentColor; outline-offset:3px; }
+.assembly-hub .terminal-scope { position:relative; height:100px; margin:20px 12px 0; overflow:hidden; border:1px solid #416b48; background:repeating-linear-gradient(90deg,transparent 0 29px,#51885830 30px),repeating-linear-gradient(0deg,transparent 0 24px,#51885830 25px); }
+.assembly-hub .terminal-scope span { position:absolute; width:70px; height:70px; border:1px solid #81c385; border-radius:50%; top:14px; right:20px; background:repeating-radial-gradient(circle,transparent 0 11px,#51885866 12px 13px); }
+.assembly-hub .terminal-scope i { position:absolute; width:70px; height:70px; top:14px; right:20px; border-radius:50%; background:conic-gradient(transparent 200deg,#94ff8744 350deg,#beffa9 359deg,transparent 360deg); }
+.assembly-hub .terminal-scope b { position:absolute; left:16px; top:40px; color:#9bcf99; font:10px/1.5 monospace; letter-spacing:.1em; }
+.assembly-hub.hub-demo-terminal .hub-demo-brand { padding-top:22px; }
+.assembly-hub.hub-demo-terminal .assembly-tile:focus-visible { box-shadow:inset 5px 0 #bbffab,0 0 20px #79f96e18; }
+.assembly-hub.hub-demo-studio .assembly-tile { height:100%; }
+.hub-v2.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) { color:#eef0ff; background:#090e21; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .link-hub-card { background:transparent; position:relative; isolation:isolate; }
+.assembly-hub.hub-demo-aurora .link-hub-card::before { content:''; position:absolute; inset:180px -10px 10%; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 15% 20%,#7736bd55,transparent 45%),radial-gradient(ellipse at 90% 55%,#18b9bc44,transparent 45%); filter:blur(25px); }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tiles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; background:transparent; margin:0 8px; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tile { grid-column:auto; width:100%; margin:0; padding:0; text-decoration:none; filter:none; border:1px solid #b3c1ff38; border-radius:22px; background:linear-gradient(130deg,#ffffff10,#ffffff03); color:#eef0ff; height:100%; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tile::after,.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-mark { display:none; }
+.assembly-hub .concept-brand { text-align:left; padding:40px 16px 48px; }
+.assembly-hub .concept-brand>span { font:650 10px/1.6 monospace; letter-spacing:.16em; color:#bdc5eb; }
+.assembly-hub .concept-brand h1 { margin:22px 0; font:750 clamp(46px,8vw,84px)/1.03 system-ui; letter-spacing:-.065em; color:#f1f0ff; text-shadow:none; }
+.assembly-hub .concept-brand h1 em { font-style:normal; color:#a9e6e5; }
+.assembly-hub .concept-brand p { max-width:420px; font:15px/1.7 system-ui; color:#b9c2dc; }
+.assembly-hub .concept-brand>small { display:block; margin-top:25px; font:11px/1.6 monospace; color:#a1b8d7; }
+.assembly-hub .concept-card { display:flex; flex-direction:column; align-items:flex-start; gap:13px; padding:28px; height:100%; box-sizing:border-box; text-align:left; }
+.assembly-hub .concept-symbol { display:grid; place-items:center; width:80px; height:80px; border:1px solid #b9b6ff55; border-radius:25px; background:linear-gradient(135deg,#8a72cf44,#4bdbc322); box-shadow:inset 0 1px #ffffff33,0 12px 25px #0002; color:#c5c6ff; }
+.assembly-hub .concept-symbol svg { width:52px; height:52px; }
+.assembly-hub .concept-number { font:9px/1.5 monospace; letter-spacing:.13em; color:#a4b2da; margin-top:12px; }
+.assembly-hub .concept-card strong { font:650 24px/1.2 system-ui; letter-spacing:-.03em; }
+.assembly-hub .concept-card small { font:13px/1.7 system-ui; color:#bbc5de; }
+.assembly-hub .concept-action { margin-top:auto; padding-top:18px; font:600 12px/1.5 system-ui; color:#a9e6e5; }
+.assembly-hub.hub-demo-aurora .assembly-tile:nth-child(3n+2) .concept-symbol { color:#a7f0dc; background:linear-gradient(140deg,#39b9ad33,#7b84dc33); }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tile:is(:hover,:focus-visible) { border-color:#9db8ed; outline:2px solid #9db8ed; outline-offset:3px; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-support { background:transparent; border-color:#8fa7ca; color:#cfdef4; margin:30px 8px; }
+.hub-v2.assembly-hub.hub-demo-blueprint { background-color:#173e67; background-image:linear-gradient(#90b9df0c 1px,transparent 1px),linear-gradient(90deg,#90b9df0c 1px,transparent 1px); background-size:24px 24px; }
+.assembly-hub.hub-demo-blueprint .hub-demo-switcher { background:#103353; border-color:#83a4bc; border-radius:0; }
+.assembly-hub.hub-demo-blueprint .concept-brand { border-inline:1px dashed #a1bbd577; margin:28px 8px; padding-block:15px 25px; }
+.assembly-hub.hub-demo-blueprint .concept-brand h1 { font-family:Georgia,serif; font-weight:400; letter-spacing:-.04em; }
+.assembly-hub.hub-demo-blueprint .concept-brand h1 em { color:#f7da98; font-style:italic; }
+.assembly-hub.hub-demo-blueprint .assembly-tile { background:#133454aa; border:1px solid #b8d1e5; border-radius:0; }
+.assembly-hub.hub-demo-blueprint .concept-symbol { border:1px dashed #b8d1e5; border-radius:50%; box-shadow:none; background:none; color:#fff1cb; width:100%; height:105px; }
+.assembly-hub.hub-demo-blueprint .concept-symbol svg { width:70px; height:70px; }
+.assembly-hub.hub-demo-blueprint .concept-card strong { font-family:Georgia,serif; font-weight:400; }
+.assembly-hub.hub-demo-blueprint .concept-action { color:#ffdda0; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .workshop-menu { background:#14223b; color:#edf0ff; border-color:#8699b8; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .workshop-menu header { background:#182d49; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .workshop-menu :is(p,small,.workshop-description) { color:#c5d1e5; }
+.assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:#304d6d; color:white; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub .terminal-scope i { animation:terminal-radar 8s linear infinite !important; }
+ .assembly-hub.hub-demo-aurora .link-hub-card::before { animation:aurora-drift 18s ease-in-out infinite alternate !important; }
+ .assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .concept-symbol svg { transition:transform .3s ease !important; }
+ .assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tile:is(:hover,:focus-visible) .concept-symbol svg { transform:translateY(-4px); }
+}
+@keyframes terminal-radar { to { transform:rotate(360deg); } }
+@keyframes aurora-drift { to { transform:translateY(45px); opacity:.55; } }
+.assembly-hub[data-motion-paused=true] *, .assembly-hub[data-motion-paused=true] *::before,.assembly-hub[data-motion-paused=true] *::after { animation-play-state:paused !important; transition:none !important; }
+@media(max-width:540px) { .assembly-hub .concept-card { padding:18px 14px; } .assembly-hub .concept-card strong { font-size:19px; } .assembly-hub .concept-symbol { width:64px; height:64px; } .assembly-hub:is(.hub-demo-aurora,.hub-demo-blueprint) .assembly-tiles { gap:12px; } .assembly-hub .terminal-scope b { font-size:8px; max-width:120px; } }
+.hub-v2.assembly-hub[data-motion-paused=true] .terminal-scope i,
+.hub-v2.assembly-hub[data-motion-paused=true] .link-hub-card::before,
+.hub-v2.assembly-hub[data-motion-paused=true] .link-hub-card::after { animation-play-state:paused !important; }
+/* Theme refinement: readable drafting sheets and restrained tactile feedback. */
+.assembly-hub .blueprint-drawing { position:fixed; inset:0; width:100%; height:100vh; color:#b0d9f3; opacity:.24; pointer-events:none; }
+.assembly-hub .blueprint-drawing text { fill:currentColor; stroke:none; font:14px monospace; letter-spacing:2px; }
+.assembly-hub.hub-demo-blueprint .hub-content { position:relative; }
+.assembly-hub.hub-demo-blueprint .concept-brand { background:#173e67d9; }
+.assembly-hub.hub-demo-blueprint .assembly-tile { background:#133454eb; }
+.assembly-hub .blueprint-subjects { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; padding:12px; border:1px dashed #9ebed3; }
+.assembly-hub .blueprint-subjects legend { padding:0 7px; font:11px monospace; }
+.assembly-hub .blueprint-subjects button { min-height:40px; border:1px solid #9ebed3; color:#e4f3ff; background:#163b60; padding:8px 12px; text-transform:capitalize; cursor:pointer; }
+.assembly-hub .blueprint-subjects button[aria-pressed=true] { background:#f3dca7; color:#173451; }
+.assembly-hub .blueprint-subjects button:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+.assembly-hub .crt-static { position:fixed; inset:0; pointer-events:none; z-index:3; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); }
+.assembly-hub.hub-demo-studio .hub-demo-switcher { background:#e3eaf0; color:#193647; border-color:#a5b8c7; }
+.assembly-hub.hub-demo-studio .hub-demo-switcher :is(p,.hub-demo-eyebrow) { color:#426174; }
+.assembly-hub.hub-demo-studio .hub-demo-options button { background:#f5f7fa; color:#193647; border-color:#92a8b9; }
+.assembly-hub.hub-demo-studio .hub-demo-options button[aria-pressed=true] { background:#193647; color:#e1efb7; }
+.assembly-hub.hub-demo-studio .studio-art::after { content:''; position:absolute; inset:12px; border:1px solid #b6ced333; pointer-events:none; }
+.assembly-hub.hub-demo-studio .studio-copy { padding:28px; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub .crt-static { animation:crt-grain 1.2s steps(3) infinite !important; }
+ .assembly-hub:not(.hub-demo-comic) .assembly-tile { transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease !important; }
+ .assembly-hub:not(.hub-demo-comic) .assembly-tile:focus-visible { transform:translateY(-3px); }
+ @media(hover:hover) { .assembly-hub:not(.hub-demo-comic) .assembly-tile:hover { transform:translateY(-3px); } }
+ .assembly-hub:not(.hub-demo-comic) .assembly-tile:is(:active,[data-pressed]) { transform:scale(.98); }
+}
+@keyframes crt-grain { 0%,100% { background-position:0 0; } 33% { background-position:47px -29px; } 66% { background-position:-31px 53px; } }
+.hub-v2.assembly-hub[data-motion-paused=true] .crt-static { animation-play-state:paused !important; }
+.hub-v2.assembly-hub[data-motion-paused=true]:not(.hub-demo-comic) .assembly-tile { transform:none !important; }
+@media(max-width:540px) { .assembly-hub .blueprint-drawing { width:180%; max-width:none; left:-40%; } .assembly-hub.hub-demo-studio .studio-copy { padding:22px; } }
+/* Five local layout studies: newspaper, travel, nature, poster, and desktop. */
+.hub-v2.assembly-hub.hub-extra { --ink:#25251f; --paper:#f4f0e5; --line:#96938a; --accent:#b8462e; background:var(--paper); color:var(--ink); }
+.assembly-hub.hub-extra .link-hub-card { background:transparent; }
+.assembly-hub.hub-extra .hub-demo-switcher { background:var(--paper); color:var(--ink); border:1px solid var(--line); border-radius:8px; }
+.assembly-hub.hub-extra .hub-demo-switcher :is(p,.hub-demo-eyebrow) { color:var(--ink); }
+.assembly-hub.hub-extra .hub-demo-options button { background:var(--paper); color:var(--ink); border:1px solid var(--line); }
+.assembly-hub.hub-extra .hub-demo-options button[aria-pressed=true] { background:var(--ink); color:var(--paper); }
+.assembly-hub.hub-extra .assembly-tiles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; background:transparent; margin:0 8px; }
+.assembly-hub.hub-extra .assembly-tile { grid-column:auto; width:100%; margin:0; padding:0; height:100%; background:var(--paper); color:var(--ink); filter:none; text-decoration:none; border:1px solid var(--line); border-radius:0; }
+.assembly-hub.hub-extra .assembly-tile::after,.assembly-hub.hub-extra .assembly-mark { display:none; }
+.assembly-hub.hub-extra .assembly-tile:is(:hover,:focus-visible) { outline:3px solid var(--accent); outline-offset:3px; }
+.assembly-hub .extra-brand { margin:36px 8px; text-align:left; }
+.assembly-hub .extra-kicker { font:700 10px/1.6 monospace; letter-spacing:.12em; border-block:1px solid var(--line); padding:12px 0; }
+.assembly-hub .extra-brand h1 { margin:24px 0 16px; font:700 clamp(44px,6.5vw,76px)/1.05 Georgia,serif; letter-spacing:-.04em; color:var(--ink); text-shadow:none; }
+.assembly-hub .extra-brand p { font:16px/1.6 system-ui; color:var(--ink); }
+.assembly-hub .extra-note { display:flex; align-items:center; justify-content:space-between; gap:15px; font:11px/1.6 monospace; padding:16px 0; }
+.assembly-hub .extra-note>span:last-child { font:44px/1 Georgia,serif; color:var(--accent); }
+.assembly-hub .extra-card { display:flex; flex-direction:column; gap:18px; padding:24px; height:100%; box-sizing:border-box; text-align:left; }
+.assembly-hub .extra-card-top { display:flex; justify-content:space-between; flex-wrap:wrap; gap:5px; font:9px/1.6 monospace; letter-spacing:.08em; }
+.assembly-hub .extra-illustration { display:flex; align-items:center; justify-content:center; height:130px; background:#00000006; }
+.assembly-hub .extra-illustration svg { width:85px; height:85px; }
+.assembly-hub .extra-copy strong { display:block; font:700 26px/1.2 Georgia,serif; }
+.assembly-hub .extra-copy small { display:block; font:13px/1.65 system-ui; margin-top:10px; }
+.assembly-hub .extra-action { display:flex; justify-content:space-between; margin-top:auto; border-top:1px solid var(--line); padding-top:15px; font:600 12px/1.5 system-ui; }
+.assembly-hub.hub-extra .assembly-support { background:transparent; border-color:var(--line); color:var(--ink); margin:28px 8px; }
+.assembly-hub.hub-extra .workshop-menu { background:var(--paper); color:var(--ink); border-color:var(--line); }
+.assembly-hub.hub-extra .workshop-menu header { background:var(--ink); color:var(--paper); }
+.assembly-hub.hub-extra .workshop-menu :is(p,small,.workshop-description) { color:var(--ink); }
+.assembly-hub.hub-extra .workshop-menu :is(a,summary,button):is(:hover,:focus-visible) { background:var(--ink); color:var(--paper); }
+/* Dispatch: a broadsheet, with a lead story and narrow column rules. */
+.assembly-hub.hub-demo-dispatch .extra-brand { text-align:center; border-bottom:5px double var(--ink); }
+.assembly-hub.hub-demo-dispatch .extra-brand h1 { font-weight:900; letter-spacing:-.065em; }
+.assembly-hub.hub-demo-dispatch .assembly-tiles { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; border-top:1px solid var(--ink); }
+.assembly-hub.hub-demo-dispatch .assembly-tile { border:0; border-bottom:1px solid var(--line); border-right:1px solid var(--line); }
+.assembly-hub.hub-demo-dispatch .assembly-tile:first-child { grid-column:span 2; }
+.assembly-hub.hub-demo-dispatch .assembly-tile:first-child .extra-illustration { height:180px; background:repeating-linear-gradient(45deg,#25251f06 0 1px,transparent 1px 6px); }
+.assembly-hub.hub-demo-dispatch .extra-copy strong { font-size:24px; }
+.assembly-hub.hub-demo-dispatch .extra-card-top { color:#8f3524; }
+/* Departures: boarding passes and gate markers. */
+.hub-v2.assembly-hub.hub-demo-departures { --ink:#e8f1f7; --paper:#102530; --line:#54707c; --accent:#f6cb68; background:linear-gradient(135deg,#163947,#0c202c); }
+.assembly-hub.hub-demo-departures .extra-brand h1 { font-family:system-ui; font-weight:800; }
+.assembly-hub.hub-demo-departures .extra-note { color:#f6cb68; }
+.assembly-hub.hub-demo-departures .extra-card { display:grid; grid-template-columns:70px 1fr; gap:16px; }
+.assembly-hub.hub-demo-departures .extra-card-top { grid-column:1/-1; border-bottom:1px dashed var(--line); padding-bottom:14px; }
+.assembly-hub.hub-demo-departures .extra-card-top span:last-child { color:#b0e5bd; }
+.assembly-hub.hub-demo-departures .extra-illustration { height:70px; border:1px solid var(--line); border-radius:50%; color:#f6cb68; }
+.assembly-hub.hub-demo-departures .extra-illustration svg { width:48px; height:48px; }
+.assembly-hub.hub-demo-departures .extra-copy strong { font:650 22px/1.2 system-ui; }
+.assembly-hub.hub-demo-departures .extra-action { grid-column:1/-1; border-top-style:dashed; color:#f6cb68; }
+.assembly-hub.hub-demo-departures .assembly-tile { border-radius:15px; }
+/* Botanical: pressed botanical forms, arched illustrations and soft paper. */
+.hub-v2.assembly-hub.hub-demo-garden { --ink:#304938; --paper:#f0f0e4; --line:#a8b6a1; --accent:#9b503a; background:radial-gradient(ellipse at top right,#d0ddbd,transparent 50%),#f0f0e4; }
+.assembly-hub.hub-demo-garden .extra-brand { position:relative; padding:20px; }
+.assembly-hub.hub-demo-garden .extra-brand::after { content:''; position:absolute; right:0; top:70px; width:110px; height:180px; border:1px solid #738d6655; border-radius:100% 0 100% 0; transform:rotate(20deg); pointer-events:none; }
+.assembly-hub.hub-demo-garden .extra-brand h1 { font-weight:400; font-style:italic; }
+.assembly-hub.hub-demo-garden .assembly-tile { border-radius:80px 80px 12px 12px; background:#ffffff60; }
+.assembly-hub.hub-demo-garden .extra-card { padding:35px 25px 25px; }
+.assembly-hub.hub-demo-garden .extra-card-top { justify-content:center; font-size:8px; order:1; }
+.assembly-hub.hub-demo-garden .extra-illustration { border-radius:90px 90px 8px 8px; background:#dce5d1; height:160px; }
+.assembly-hub.hub-demo-garden .extra-copy { order:2; }
+.assembly-hub.hub-demo-garden .extra-copy strong { font-weight:400; }
+.assembly-hub.hub-demo-garden .extra-action { order:3; }
+.assembly-hub.hub-demo-garden .assembly-tile:nth-child(even) .extra-illustration { background:#e8dcc9; color:#835542; }
+/* Punch: oversized typography, graphic offsets and alternating columns. */
+.hub-v2.assembly-hub.hub-demo-punch { --ink:#191919; --paper:#f2f129; --line:#191919; --accent:#d13245; }
+.assembly-hub.hub-demo-punch .extra-brand h1 { font:950 clamp(58px,10vw,110px)/.9 Impact,'Arial Black',sans-serif; max-width:700px; letter-spacing:-.025em; }
+.assembly-hub.hub-demo-punch .assembly-tiles { gap:20px; }
+.assembly-hub.hub-demo-punch .assembly-tile { background:#f4f1e9; border:3px solid #191919; box-shadow:6px 6px 0 #191919; }
+.assembly-hub.hub-demo-punch .assembly-tile:nth-child(3n+2) { background:#ffb6ce; }
+.assembly-hub.hub-demo-punch .extra-illustration { justify-content:flex-start; height:100px; background:none; }
+.assembly-hub.hub-demo-punch .extra-copy strong { font:900 30px/1.05 system-ui; text-transform:uppercase; letter-spacing:-.04em; }
+.assembly-hub.hub-demo-punch .extra-action { border-top:3px solid #191919; }
+/* Desktop 98: desktop shortcuts inside raised application windows. */
+.hub-v2.assembly-hub.hub-demo-desktop { --ink:#1e2230; --paper:#d4d6d9; --line:#737b83; --accent:#163d99; background:linear-gradient(145deg,#246c7d,#193d6b); }
+.assembly-hub.hub-demo-desktop .extra-brand { background:#d4d6d9; border:3px outset #eef1f3; padding:20px; box-shadow:7px 7px #102d4966; }
+.assembly-hub.hub-demo-desktop .extra-kicker { background:linear-gradient(90deg,#12337b,#448caa); color:white; margin:-18px -18px 20px; padding:9px; border:0; }
+.assembly-hub.hub-demo-desktop .extra-brand h1 { font:700 44px/1.1 monospace; letter-spacing:-.06em; }
+.assembly-hub.hub-demo-desktop .assembly-tiles { grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.assembly-hub.hub-demo-desktop .assembly-tile { border:3px outset #f3f5f6; box-shadow:5px 5px #102d4955; }
+.assembly-hub.hub-demo-desktop .extra-card { padding:12px; gap:14px; text-align:center; }
+.assembly-hub.hub-demo-desktop .extra-card-top { font-size:8px; border-bottom:1px solid #a0a8b0; padding-bottom:8px; }
+.assembly-hub.hub-demo-desktop .extra-illustration { background:none; height:75px; color:#264d94; filter:drop-shadow(3px 3px #fff); }
+.assembly-hub.hub-demo-desktop .extra-illustration svg { width:65px; height:65px; }
+.assembly-hub.hub-demo-desktop .extra-copy strong { font:700 16px/1.3 monospace; }
+.assembly-hub.hub-demo-desktop .extra-copy small { font-size:11px; }
+.assembly-hub.hub-demo-desktop .extra-action { font:700 10px/1.5 monospace; border:2px outset #eef1f3; padding:7px; }
+.assembly-hub.hub-demo-desktop .assembly-support { background:#d4d6d9; border:2px outset #fff; }
+@media(max-width:650px) {
+ .assembly-hub.hub-demo-dispatch .assembly-tiles { grid-template-columns:1fr 1fr; }
+ .assembly-hub.hub-demo-dispatch .assembly-tile:first-child { grid-column:1/-1; }
+ .assembly-hub.hub-demo-departures .assembly-tiles { grid-template-columns:1fr; }
+ .assembly-hub.hub-demo-desktop .assembly-tiles { grid-template-columns:1fr 1fr; }
+ .assembly-hub .extra-card { padding:18px 14px; }
+ .assembly-hub .extra-copy strong,.assembly-hub.hub-demo-dispatch .extra-copy strong { font-size:21px; }
+ .assembly-hub.hub-demo-garden .extra-card { padding:25px 14px 18px; }
+ .assembly-hub.hub-demo-garden .extra-illustration { height:100px; }
+ .assembly-hub.hub-demo-punch .extra-copy strong { font-size:23px; }
+ .assembly-hub .extra-card-top { font-size:8px; }
+}
+/* Dedicated illustrated atlases. Each square shows one whole destination image. */
+.assembly-hub.hub-extra .extra-illustration { height:auto; min-height:0; background:transparent; overflow:visible; filter:none; }
+.assembly-hub.hub-extra .extra-theme-art { display:block; width:100%; max-width:240px; aspect-ratio:1; flex-shrink:0; background-size:400% 200%; background-repeat:no-repeat; border-radius:4px; }
+.assembly-hub.hub-demo-dispatch .assembly-tile:first-child .extra-illustration { height:auto; background:transparent; }
+.assembly-hub.hub-demo-dispatch .assembly-tile:first-child .extra-theme-art { max-width:300px; }
+.assembly-hub.hub-demo-departures .extra-card { grid-template-columns:110px 1fr; }
+.assembly-hub.hub-demo-departures .extra-illustration { border:0; border-radius:0; align-self:center; }
+.assembly-hub.hub-demo-departures .extra-theme-art { border-radius:8px; }
+.assembly-hub.hub-demo-garden .extra-illustration { background:transparent; }
+.assembly-hub.hub-demo-garden .assembly-tile:nth-child(even) .extra-illustration { background:transparent; }
+.assembly-hub.hub-demo-garden .extra-theme-art { border-radius:55% 55% 8px 8px; }
+.assembly-hub.hub-demo-punch .extra-theme-art { border:2px solid #191919; border-radius:0; }
+.assembly-hub.hub-demo-desktop .extra-theme-art { image-rendering:pixelated; border:2px inset #edf0f4; }
+.assembly-hub.hub-demo-departures .extra-card-top span:last-child::before { content:''; display:inline-block; width:5px; height:5px; margin-right:7px; border-radius:50%; background:#b0e5bd; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub.hub-extra .extra-theme-art { transition:transform .3s ease !important; }
+ .assembly-hub.hub-demo-dispatch .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:rotate(-1.5deg) translateY(-3px); }
+ .assembly-hub.hub-demo-departures .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateX(4px); }
+ .assembly-hub.hub-demo-garden .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:rotate(2deg) translateY(-3px); }
+ .assembly-hub.hub-demo-punch .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:rotate(-3deg) scale(.96); }
+ .assembly-hub.hub-demo-desktop .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateY(-4px); transition-timing-function:steps(3) !important; }
+ .assembly-hub.hub-demo-garden .extra-brand::after { animation:garden-breeze 9s ease-in-out infinite alternate !important; transform-origin:bottom; }
+ .assembly-hub.hub-demo-departures .extra-card-top span:last-child::before { animation:boarding-light 5s ease-in-out infinite !important; }
+}
+@keyframes garden-breeze { from { transform:rotate(17deg); } to { transform:rotate(23deg); } }
+@keyframes boarding-light { 0%,100% { opacity:1; } 50% { opacity:.45; } }
+.hub-v2.assembly-hub.hub-extra[data-motion-paused=true] .extra-theme-art { transform:none !important; transition:none !important; }
+.hub-v2.assembly-hub.hub-extra[data-motion-paused=true] .extra-brand::after,
+.hub-v2.assembly-hub.hub-extra[data-motion-paused=true] .extra-card-top span:last-child::before { animation-play-state:paused !important; }
+@media(max-width:540px) { .assembly-hub.hub-demo-departures .extra-card { grid-template-columns:90px 1fr; gap:14px; } }
+@media(prefers-reduced-motion:reduce) { .hub-v2.assembly-hub.hub-extra .extra-theme-art { transition:none !important; transform:none !important; } }
+/* Local Windows-inspired collection, using original generated icon artwork. */
+.hub-v2.assembly-hub.hub-windows { --ink:#1b2b3b; --paper:#ece9dd; --line:#71818e; --accent:#2468af; background:#3b6e83; }
+.assembly-hub.hub-windows .extra-brand { background:var(--paper); border:3px outset #eef2f4; padding:22px; box-shadow:5px 7px 20px #0003; }
+.assembly-hub.hub-windows .extra-kicker { margin:-20px -20px 22px; padding:10px; border:0; background:linear-gradient(90deg,#133978,#4e8eae); color:#fff; }
+.assembly-hub.hub-windows .extra-brand h1 { font:650 clamp(34px,5vw,52px)/1.1 'Segoe UI',Tahoma,sans-serif; letter-spacing:-.04em; }
+.assembly-hub.hub-windows .extra-copy strong { font:650 18px/1.3 'Segoe UI',Tahoma,sans-serif; }
+.assembly-hub.hub-windows .assembly-tiles { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.assembly-hub.hub-windows .extra-card { padding:16px; gap:12px; text-align:center; }
+.assembly-hub.hub-windows .extra-card-top { font-size:8px; border-bottom:1px solid #879ba955; padding-bottom:8px; }
+.assembly-hub.hub-windows .extra-action { font-size:11px; text-align:left; }
+.assembly-hub.hub-windows .extra-theme-art { border-radius:6px; }
+.assembly-hub.hub-windows .extra-copy small { font-size:12px; }
+.assembly-hub.hub-windows .workshop-menu header { background:linear-gradient(90deg,#123477,#4386a8); color:#fff; }
+/* 2000: sharp edges, restrained colors, raised controls. */
+.hub-v2.assembly-hub.hub-demo-win2000 { --paper:#d4d0c8; background:#3a6e81; }
+.assembly-hub.hub-demo-win2000 .assembly-tile,.assembly-hub.hub-demo-win2000 .hub-demo-switcher { border:3px outset #f7f5ed; border-radius:0; }
+.assembly-hub.hub-demo-win2000 .extra-theme-art { image-rendering:pixelated; border-radius:0; border:1px inset #aaa; }
+.assembly-hub.hub-demo-win2000 .extra-action { border:2px outset #f7f5ed; padding:7px; }
+.assembly-hub.hub-demo-win2000 .extra-kicker { background:linear-gradient(90deg,#0a246a,#a6caf0); font-family:Tahoma,sans-serif; }
+/* XP: original CSS hillside scenery, colorful Luna-like chrome. */
+.hub-v2.assembly-hub.hub-demo-winxp { background:radial-gradient(ellipse at 10% 100%,#5f9827 0 25%,transparent 25.4%),radial-gradient(ellipse at 100% 110%,#8fc944 0 38%,transparent 38.4%),linear-gradient(#358bd6,#b7e5ff); background-attachment:fixed; }
+.assembly-hub.hub-demo-winxp .extra-brand,.assembly-hub.hub-demo-winxp .assembly-tile { border:3px solid #2163ca; border-radius:10px 10px 3px 3px; box-shadow:3px 6px 14px #123e7655; }
+.assembly-hub.hub-demo-winxp .extra-brand { overflow:hidden; }
+.assembly-hub.hub-demo-winxp .extra-kicker { background:linear-gradient(#5998f5,#0955cc 15%,#1867db 85%,#0446aa); font:bold 12px/1.6 Tahoma,sans-serif; text-shadow:1px 1px #174389; }
+.assembly-hub.hub-demo-winxp .extra-action { background:linear-gradient(#fff,#e9e5d8); border:1px solid #8095b1; border-radius:4px; padding:8px; }
+.assembly-hub.hub-demo-winxp .hub-demo-options button[aria-pressed=true] { background:linear-gradient(#66aa49,#2e731d); color:#fff; }
+/* Vista: deep aurora wallpaper and smoked glass window frames. */
+.hub-v2.assembly-hub.hub-demo-winvista { --paper:#e9f3f7; --ink:#183447; background:radial-gradient(ellipse at 15% 70%,#168b9b99,transparent 45%),radial-gradient(ellipse at 95% 10%,#45744c,transparent 45%),linear-gradient(125deg,#06101e,#203746); }
+.assembly-hub.hub-demo-winvista .extra-brand,.assembly-hub.hub-demo-winvista .hub-demo-switcher { background:linear-gradient(120deg,#ecfaffef,#e4f4f9b8); border:1px solid #d9f6ffb0; border-radius:10px; box-shadow:inset 0 1px #fff,0 12px 30px #0005; backdrop-filter:blur(12px); }
+.assembly-hub.hub-demo-winvista .assembly-tile { background:linear-gradient(130deg,#f5fcfff2,#d4e6eded); border:5px solid #b3d1df66; border-radius:8px; background-clip:padding-box; box-shadow:0 6px 18px #0004; }
+.assembly-hub.hub-demo-winvista .extra-kicker { margin:0 0 20px; border-radius:5px; background:linear-gradient(#406073,#152c3a); }
+.assembly-hub.hub-demo-winvista .assembly-tiles { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.assembly-hub.hub-demo-winvista .extra-card { display:grid; grid-template-columns:110px 1fr; align-items:center; text-align:left; padding:20px; }
+.assembly-hub.hub-demo-winvista .extra-card-top,.assembly-hub.hub-demo-winvista .extra-action { grid-column:1/-1; }
+/* 7: brighter, quieter glass and spacious Explorer-like shortcut grid. */
+.hub-v2.assembly-hub.hub-demo-win7 { --paper:#eef8ff; background:radial-gradient(ellipse at 70% 25%,#c4f9ff66,transparent 45%),linear-gradient(135deg,#2c9ac8,#0b568e 70%,#123367); }
+.assembly-hub.hub-demo-win7 .extra-brand,.assembly-hub.hub-demo-win7 .hub-demo-switcher { background:#e7f7ffdc; border:1px solid #ecffff; border-radius:8px; backdrop-filter:blur(14px); box-shadow:inset 0 0 0 5px #aad5e566,0 8px 20px #12395744; }
+.assembly-hub.hub-demo-win7 .extra-kicker { background:linear-gradient(#c5e8f6,#a1cce5); color:#173b55; margin:0 0 18px; border:1px solid #8cb8cc; border-radius:4px; }
+.assembly-hub.hub-demo-win7 .assembly-tile { border:1px solid #c5eaff; border-radius:6px; background:#eef9fff0; box-shadow:inset 0 0 0 4px #b9ddef55,0 8px 18px #12395733; }
+.assembly-hub.hub-windows .assembly-tile:is(:hover,:focus-visible) { outline:2px solid #f2cf69; outline-offset:3px; }
+.assembly-hub.hub-windows .assembly-support { background:var(--paper); }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub.hub-windows .extra-theme-art { transition:transform .22s ease,filter .22s ease !important; }
+ .assembly-hub.hub-windows .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateY(-4px); filter:brightness(1.05); }
+ .assembly-hub.hub-demo-win2000 .extra-theme-art { transition-timing-function:steps(2) !important; }
+ .assembly-hub.hub-demo-winxp .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:rotate(-2deg) scale(.97); }
+}
+.hub-v2.assembly-hub.hub-windows[data-motion-paused=true] .extra-theme-art { transform:none !important; filter:none !important; transition:none !important; }
+@media(prefers-reduced-motion:reduce) { .hub-v2.assembly-hub.hub-windows .extra-theme-art { transform:none !important; filter:none !important; transition:none !important; } }
+@media(max-width:650px) {
+ .assembly-hub.hub-windows .assembly-tiles { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .assembly-hub.hub-windows .extra-card { padding:12px; }
+ .assembly-hub.hub-windows .extra-copy strong { font-size:16px; }
+ .assembly-hub.hub-demo-winvista .assembly-tiles { grid-template-columns:1fr; }
+ .assembly-hub.hub-demo-winvista .extra-card { grid-template-columns:95px 1fr; padding:16px; }
+}
+.hub-v2.assembly-hub.hub-demo-winxp { background-attachment:scroll; background-color:#4d9bd8; background-size:100% 100%; }
+/* Original wallpapers on a viewport layer: never stretch over the page height. */
+.hub-v2.assembly-hub.hub-windows { isolation:isolate; }
+.assembly-hub .windows-original-wallpaper { position:fixed; inset:0; z-index:-1; pointer-events:none; background-position:center; background-repeat:no-repeat; background-size:cover; }
+.hub-v2.assembly-hub:is(.hub-demo-winxp,.hub-demo-winvista,.hub-demo-win7) { background:#24587e; }
+.hub-v2.assembly-hub.hub-demo-win2000 { background:#3a6ea5; }
+.hub-v2.assembly-hub.hub-demo-desktop { background:#008080; }
+/* Local Aero refinement: reveal wallpaper through softly frosted cards. */
+.assembly-hub.hub-demo-winvista .assembly-tile { background:linear-gradient(130deg,rgba(245,252,255,.78),rgba(212,230,237,.68)); background-clip:padding-box; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+.assembly-hub.hub-demo-win7 .assembly-tile { background:rgba(238,249,255,.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .extra-copy { color:#102c40; }
+.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .extra-copy small { color:#163449; }
+.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .extra-card-top { color:#183c50; }
+.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .extra-action { color:#10334c; border-top-color:#42647f80; }
+@supports not (backdrop-filter:blur(10px)) { .assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .assembly-tile { background:rgba(238,249,255,.9); } }
+/* Local Windows timeline: classic, Metro, and Fluent layout studies. */
+.hub-v2.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) { --paper:#c0c0c0; --ink:#111; background:#008080; }
+.hub-v2.assembly-hub.hub-demo-win31 { background:repeating-linear-gradient(45deg,#878787 0 1px,#a1a1a1 1px 3px); }
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) .assembly-tile,
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) .hub-demo-switcher { border:3px outset #eee; border-radius:0; }
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) .extra-theme-art { image-rendering:pixelated; border-radius:0; }
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) .extra-copy strong { font-family:Tahoma,Arial,sans-serif; }
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-winme) .extra-action { border:2px outset #eee; padding:7px; }
+.assembly-hub.hub-demo-win31 .extra-kicker { background:#000080; text-align:center; }
+.assembly-hub.hub-demo-win31 .assembly-tiles { border:4px ridge #eee; padding:14px; background:#fff; gap:4px; }
+.assembly-hub.hub-demo-win31 .assembly-tile { border:0; background:white; }
+.assembly-hub.hub-demo-win31 .extra-theme-art { filter:grayscale(1) contrast(1.2); }
+.assembly-hub.hub-demo-win95 .extra-kicker { background:#000080; }
+.assembly-hub.hub-demo-winme .extra-kicker { background:linear-gradient(90deg,#183885,#9ec8e4); }
+.hub-v2.assembly-hub.hub-demo-winme { background:#3a6ea5; }
+.assembly-hub.hub-demo-winme .extra-brand { border-left:12px solid #7aaa53; }
+.hub-v2.assembly-hub.hub-demo-win8 { --paper:#35185d; --ink:#fff; --line:#a38bb7; background:#24123e; }
+.assembly-hub.hub-demo-win8 .extra-brand { background:transparent; border:0; box-shadow:none; padding:30px 4px; }
+.assembly-hub.hub-demo-win8 .extra-kicker { background:none; margin:0; padding:0; }
+.assembly-hub.hub-demo-win8 .extra-brand h1 { font-weight:300; font-size:clamp(40px,6vw,68px); }
+.assembly-hub.hub-demo-win8 .assembly-tile { background:#006f94; border:0; border-radius:0; }
+.assembly-hub.hub-demo-win8 .assembly-tile:nth-child(4n+2) { background:#a33c22; }
+.assembly-hub.hub-demo-win8 .assembly-tile:nth-child(4n+3) { background:#397a1e; }
+.assembly-hub.hub-demo-win8 .assembly-tile:nth-child(4n) { background:#694096; }
+.assembly-hub.hub-demo-win8 .extra-copy strong { font-weight:400; }
+.assembly-hub.hub-demo-win8 .extra-action { border-color:#ffffff55; }
+.assembly-hub .modern-win-icon { display:grid; place-items:center; width:100px; height:100px; margin:14px auto; color:#147ac0; }
+.assembly-hub .modern-win-icon svg { width:70px; height:70px; }
+.assembly-hub.hub-demo-win8 .modern-win-icon { color:white; }
+.hub-v2.assembly-hub.hub-demo-win81 { --paper:#f2f1ec; background:#d69a37; }
+.assembly-hub.hub-demo-win81 .assembly-tile { border:5px solid #ecc96c; box-shadow:4px 5px 10px #0003; }
+.assembly-hub.hub-demo-win81 .extra-kicker { background:#edcd79; color:#252525; }
+.assembly-hub.hub-demo-win81 .modern-win-icon { background:#008aa6; color:white; width:90px; height:90px; }
+.assembly-hub.hub-demo-win81 .assembly-tile:nth-child(2n) .modern-win-icon { background:#7862b2; }
+.hub-v2.assembly-hub.hub-demo-win10 { --paper:#f5f5f5; --ink:#202020; background:#075289; }
+.assembly-hub.hub-demo-win10 .assembly-tile { border:1px solid #8ca7b8; background:#f5f8faf0; border-radius:0; }
+.assembly-hub.hub-demo-win10 .extra-brand { border:1px solid #a5b9c6; background:#f5f8faf0; border-radius:0; }
+.assembly-hub.hub-demo-win10 .extra-kicker { background:#fff; color:#202020; border-bottom:1px solid #ccc; }
+.assembly-hub.hub-demo-win10 .modern-win-icon { color:#0874ba; background:linear-gradient(135deg,#d9f2ff,#b4daf5); border-left:5px solid #0078d7; }
+.assembly-hub.hub-demo-win10 .extra-action { color:#0068a7; }
+.hub-v2.assembly-hub.hub-demo-win11 { --paper:#f3f5fc; --ink:#17243d; background:#bcd5f4; }
+.assembly-hub.hub-demo-win11 .extra-brand,.assembly-hub.hub-demo-win11 .hub-demo-switcher { background:#f2f5fbdc; backdrop-filter:blur(18px); border:1px solid #ffffffc9; border-radius:12px; box-shadow:0 10px 30px #1d37651f; }
+.assembly-hub.hub-demo-win11 .extra-kicker { margin:0 0 20px; background:transparent; color:#42546c; padding:0; }
+.assembly-hub.hub-demo-win11 .extra-brand { text-align:center; }
+.assembly-hub.hub-demo-win11 .extra-brand h1 { font-weight:600; }
+.assembly-hub.hub-demo-win11 .assembly-tile { background:#f3f7ffcf; backdrop-filter:blur(14px); border:1px solid #ffffffdf; border-radius:12px; box-shadow:0 5px 16px #193a6926; }
+.assembly-hub.hub-demo-win11 .modern-win-icon { border-radius:22px; background:linear-gradient(145deg,#72d7ff,#2872df); color:white; box-shadow:inset 1px 2px #ffffff88,0 8px 15px #1c5fbc33; }
+.assembly-hub.hub-demo-win11 .assembly-tile:nth-child(3n+2) .modern-win-icon { background:linear-gradient(145deg,#c1a9ff,#7554d1); }
+.assembly-hub.hub-demo-win11 .assembly-tile:nth-child(3n) .modern-win-icon { background:linear-gradient(145deg,#6de6d5,#16877e); }
+.assembly-hub.hub-demo-win11 .extra-action { border:0; background:#ffffff9c; padding:9px; border-radius:6px; color:#1e5299; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub .modern-win-icon { transition:transform .2s ease !important; }
+ .assembly-hub.hub-windows .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .modern-win-icon { transform:translateY(-4px); }
+ .assembly-hub.hub-demo-win8 .assembly-tile:is(:active,[data-pressed]) { transform:perspective(500px) rotateX(3deg) scale(.98); }
+}
+.hub-v2.assembly-hub[data-motion-paused=true] .modern-win-icon { transform:none !important; transition:none !important; }
+@media(prefers-reduced-motion:reduce) { .hub-v2.assembly-hub .modern-win-icon { transform:none !important; transition:none !important; } }
+@media(max-width:650px) { .assembly-hub .modern-win-icon { width:75px; height:75px; } .assembly-hub .modern-win-icon svg { width:55px; height:55px; } .assembly-hub.hub-demo-win31 .assembly-tiles { padding:5px; } }
+/* Local console collection: original illustrated destinations, shared navigation. */
+.hub-v2.assembly-hub.hub-demo-atari { --paper:#211c18; --ink:#ffe4b7; --line:#a17849; --accent:#ffb347; background:repeating-linear-gradient(1deg,#593923 0 2px,#644129 3px 6px,#503322 7px 9px); }
+.assembly-hub.hub-demo-atari .link-hub-card { background:#181715; border:8px solid #2b2520; padding:24px; box-shadow:0 20px 60px #0008; }
+.assembly-hub.hub-demo-atari .extra-brand { border-block:3px solid #c79b60; padding:16px 8px; background:repeating-linear-gradient(90deg,#1a1917 0 5px,#25231f 6px 8px); }
+.assembly-hub.hub-demo-atari .extra-brand h1 { font:850 clamp(40px,6vw,68px)/1.04 'Arial Black',system-ui; color:#f4c788; }
+.assembly-hub.hub-demo-atari .extra-kicker { border:0; color:#ddb77b; }
+.assembly-hub.hub-demo-atari .extra-note { border-top:8px solid #df762c; box-shadow:0 -5px #ebaf4d; margin-top:26px; }
+.assembly-hub.hub-demo-atari .assembly-tiles { gap:28px; }
+.assembly-hub.hub-demo-atari .assembly-tile { border:5px solid #37342e; border-top-width:12px; border-radius:10px 10px 3px 3px; box-shadow:inset 0 0 0 1px #80705a,0 8px 0 #0b0b09; }
+.assembly-hub.hub-demo-atari .extra-card { padding:18px; gap:16px; }
+.assembly-hub.hub-demo-atari .extra-copy strong { font:750 24px/1.2 system-ui; color:#ffce84; }
+.assembly-hub.hub-demo-atari .extra-theme-art { max-width:100%; border-radius:0; border:1px solid #a5763e; }
+.assembly-hub.hub-demo-atari .extra-action { border-top:5px solid #b65a28; }
+.hub-v2.assembly-hub.hub-demo-nes { --paper:#11172b; --ink:#fff0cf; --line:#929baa; --accent:#ffca55; background:#bebfbd; }
+.assembly-hub.hub-demo-nes .link-hub-card { padding:24px; background:#11172b; border:14px solid #383d45; border-radius:12px; box-shadow:0 0 0 5px #e9e6de,0 20px 45px #0005; }
+.assembly-hub.hub-demo-nes .extra-brand { text-align:center; padding:14px 4px; border-block:4px solid #f3393b; }
+.assembly-hub.hub-demo-nes .extra-brand h1 { font:900 clamp(30px,5vw,56px)/1.2 monospace; letter-spacing:.02em; color:#fff0cf; text-shadow:4px 4px #a72c37; }
+.assembly-hub.hub-demo-nes .extra-brand p { font-family:monospace; }
+.assembly-hub.hub-demo-nes .assembly-tiles { gap:18px; }
+.assembly-hub.hub-demo-nes .assembly-tile { border:3px solid #667993; box-shadow:4px 4px #000; position:relative; }
+.assembly-hub.hub-demo-nes .extra-copy strong { font:750 22px/1.3 monospace; }
+.assembly-hub.hub-demo-nes .extra-theme-art { image-rendering:pixelated; max-width:200px; border-radius:0; }
+.assembly-hub.hub-demo-nes .extra-card-top { color:#ffcf60; }
+.assembly-hub.hub-demo-nes .extra-action { font-family:monospace; color:#ffce57; }
+.assembly-hub.hub-demo-nes .assembly-tile::before { content:'▶'; position:absolute; top:12px; right:12px; color:#ffce57; opacity:0; pointer-events:none; }
+.assembly-hub.hub-demo-nes .assembly-tile:is(:hover,:focus-visible,[data-pressed])::before { opacity:1; }
+.hub-v2.assembly-hub.hub-demo-gameboy { --paper:#cad88d; --ink:#253c1b; --line:#60743e; --accent:#314b24; background:#b8b6b1; }
+.assembly-hub.hub-demo-gameboy .link-hub-card { background:#cfcec8; border:2px solid #a09f9b; border-radius:25px 25px 75px 25px; padding:28px 30px 50px; box-shadow:inset 4px 4px #eeeeea,8px 16px 0 #969593,0 30px 55px #0003; }
+.assembly-hub.hub-demo-gameboy .extra-brand { border:16px solid #6b6b70; border-radius:12px 12px 35px 12px; background:linear-gradient(#c3d285,#b5c777); padding:25px; box-shadow:inset 0 0 12px #344e2455; }
+.assembly-hub.hub-demo-gameboy .extra-brand h1 { font:750 clamp(28px,5vw,48px)/1.15 monospace; letter-spacing:-.045em; }
+.assembly-hub.hub-demo-gameboy .extra-brand p { font-family:monospace; font-size:14px; }
+.assembly-hub.hub-demo-gameboy .assembly-tiles { background:#afc270; padding:18px; border:10px solid #6b6b70; border-radius:8px; gap:14px; }
+.assembly-hub.hub-demo-gameboy .assembly-tile { background:#cad88d; border:2px solid #60743e; box-shadow:3px 3px #6a8044; }
+.assembly-hub.hub-demo-gameboy .extra-card { padding:15px; gap:12px; }
+.assembly-hub.hub-demo-gameboy .extra-theme-art { image-rendering:pixelated; mix-blend-mode:multiply; border-radius:0; max-width:180px; }
+.assembly-hub.hub-demo-gameboy .extra-copy strong { font:750 20px/1.25 monospace; }
+.assembly-hub.hub-demo-gameboy .extra-copy small { font:12px/1.65 monospace; }
+.assembly-hub.hub-demo-gameboy .extra-action { font:700 11px/1.5 monospace; }
+.assembly-hub.hub-demo-gameboy .assembly-support { background:#cad88d; }
+.assembly-hub.hub-console .extra-note>span:last-child { font-size:30px; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub.hub-console .extra-theme-art { transition:transform .22s ease !important; }
+ .assembly-hub.hub-demo-atari .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateY(-3px); }
+ .assembly-hub.hub-demo-nes .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateY(-4px); transition-timing-function:steps(2) !important; }
+ .assembly-hub.hub-demo-gameboy .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .extra-theme-art { transform:translateY(-2px); transition-timing-function:steps(2) !important; }
+ .assembly-hub.hub-demo-nes .extra-note>span:last-child { animation:console-ready 4s ease-in-out infinite !important; }
+}
+@keyframes console-ready { 0%,100% { opacity:1; } 50% { opacity:.55; } }
+.hub-v2.assembly-hub.hub-console[data-motion-paused=true] .extra-theme-art { transform:none !important; transition:none !important; }
+.hub-v2.assembly-hub.hub-console[data-motion-paused=true] .extra-note>span:last-child { animation-play-state:paused !important; }
+@media(prefers-reduced-motion:reduce) { .hub-v2.assembly-hub.hub-console .extra-theme-art { transform:none !important; transition:none !important; } }
+@media(max-width:600px) {
+ .assembly-hub.hub-demo-atari .link-hub-card { padding:10px; border-width:4px; }
+ .assembly-hub.hub-demo-atari .assembly-tiles { gap:14px; margin:0; }
+ .assembly-hub.hub-demo-atari .extra-card { padding:10px; }
+ .assembly-hub.hub-demo-atari .extra-copy strong { font-size:18px; }
+ .assembly-hub.hub-demo-nes .link-hub-card { padding:10px; border-width:6px; }
+ .assembly-hub.hub-demo-nes .assembly-tiles { gap:12px; margin:0; }
+ .assembly-hub.hub-demo-nes .extra-card { padding:12px; }
+ .assembly-hub.hub-demo-nes .extra-copy strong { font-size:17px; }
+ .assembly-hub.hub-demo-gameboy .link-hub-card { padding:12px 10px 30px; }
+ .assembly-hub.hub-demo-gameboy .extra-brand { margin-inline:0; padding:15px; border-width:8px; }
+ .assembly-hub.hub-demo-gameboy .assembly-tiles { margin:0; padding:9px; border-width:6px; gap:10px; }
+ .assembly-hub.hub-demo-gameboy .extra-card { padding:9px; }
+ .assembly-hub.hub-demo-gameboy .extra-copy strong { font-size:16px; }
+ .assembly-hub.hub-demo-gameboy .extra-card-top { font-size:7px; }
+}
+/* Compact native chooser keeps the artwork above the fold. */
+.hub-v2.assembly-hub .hub-demo-switcher.hub-compact-switcher { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:10px 12px; margin:0 4px 16px; border-width:1px; border-radius:8px; box-shadow:none; }
+.assembly-hub .hub-compact-switcher .hub-style-label { font:650 12px/1.4 system-ui; }
+.assembly-hub .hub-compact-switcher select { min-width:0; max-width:100%; min-height:42px; padding:8px 30px 8px 10px; border:1px solid #718293; border-radius:5px; background:#f5f7fa; color:#172535; font:600 13px/1.4 system-ui; cursor:pointer; }
+.assembly-hub .hub-compact-switcher #hub-style { flex:1; }
+.assembly-hub .hub-compact-switcher .theme-motion-toggle { margin:0; min-height:42px; padding:8px 10px; border-radius:5px; white-space:nowrap; }
+.assembly-hub .hub-compact-switcher select:focus-visible { outline:3px solid #2c8ac4; outline-offset:3px; }
+.assembly-hub .hub-subject-label { display:flex; align-items:center; gap:10px; width:100%; font:600 12px system-ui; }
+.assembly-hub .hub-subject-label select { flex:1; }
+@media(max-width:420px) { .hub-v2.assembly-hub .hub-demo-switcher.hub-compact-switcher { gap:6px; padding:8px; } .assembly-hub .hub-compact-switcher .hub-style-label { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; } .assembly-hub .hub-compact-switcher select { font-size:12px; padding-left:7px; } .assembly-hub .hub-compact-switcher .theme-motion-toggle { font-size:10px; padding-inline:7px; } }
+/* Unified local menu skin: every category, action and guide uses one palette. */
+.assembly-hub { --menu-bg:#221e18; --menu-fg:#ffe2b1; --menu-line:#d7ae77; --menu-head:#171411; --menu-head-fg:#ffe2b1; --menu-font:system-ui,sans-serif; --menu-radius:9px; }
+.assembly-hub.hub-extra { --menu-bg:var(--paper); --menu-fg:var(--ink); --menu-line:var(--line); --menu-head:var(--ink); --menu-head-fg:var(--paper); }
+.assembly-hub.hub-demo-studio { --menu-bg:#f2f6fa; --menu-fg:#193647; --menu-line:#819bad; --menu-head:#193647; --menu-head-fg:#e1efb7; }
+.assembly-hub.hub-demo-terminal { --menu-bg:#0b2116; --menu-fg:#b4f4bf; --menu-line:#7ab48b; --menu-head:#09170e; --menu-head-fg:#b4f4bf; --menu-font:Consolas,monospace; --menu-radius:3px; }
+.assembly-hub.hub-demo-editorial { --menu-bg:#f2efe8; --menu-fg:#293d31; --menu-line:#89977f; --menu-head:#293d31; --menu-head-fg:#f2efe8; --menu-font:Georgia,serif; --menu-radius:0px; }
+.assembly-hub.hub-demo-playroom { --menu-bg:#fff9ef; --menu-fg:#332644; --menu-line:#69516c; --menu-head:#6944a6; --menu-head-fg:#fff9ef; --menu-radius:18px; }
+.assembly-hub.hub-demo-aurora,.assembly-hub.hub-demo-blueprint { --menu-bg:#14223b; --menu-fg:#edf0ff; --menu-line:#8699b8; --menu-head:#203a59; --menu-head-fg:#edf0ff; }
+.assembly-hub.hub-demo-blueprint { --menu-font:Consolas,monospace; --menu-radius:0px; }
+.assembly-hub.hub-windows { --menu-head:#174378; --menu-head-fg:#fff; --menu-font:'Segoe UI',Tahoma,sans-serif; --menu-radius:5px; }
+.assembly-hub:is(.hub-demo-win31,.hub-demo-win95,.hub-demo-win2000,.hub-demo-winme,.hub-demo-desktop) { --menu-head:#000080; --menu-head-fg:#fff; --menu-font:Tahoma,sans-serif; --menu-radius:0px; }
+.assembly-hub.hub-demo-winxp { --menu-head:#1663d1; --menu-head-fg:#fff; --menu-radius:10px; }
+.assembly-hub.hub-demo-win11 { --menu-head:#dce7f7; --menu-head-fg:#17243d; --menu-radius:12px; }
+.assembly-hub.hub-demo-atari { --menu-head:#38271b; --menu-head-fg:#ffce84; --menu-radius:4px; }
+.assembly-hub.hub-demo-nes { --menu-head:#a5242e; --menu-head-fg:#fff0cf; --menu-font:monospace; --menu-radius:0px; }
+.assembly-hub.hub-demo-gameboy { --menu-head:#60743e; --menu-head-fg:#f0f8c6; --menu-font:monospace; --menu-radius:4px; }
+.assembly-hub:is(.hub-demo-dispatch,.hub-demo-garden) { --menu-font:Georgia,serif; }
+.hub-v2.assembly-hub .workshop-menu,
+.hub-v2.assembly-hub .cda-guide,
+.hub-v2.assembly-hub .instruction-viewer-panel { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); font-family:var(--menu-font); }
+.hub-v2.assembly-hub .workshop-menu header,
+.hub-v2.assembly-hub .cda-guide-toolbar,
+.hub-v2.assembly-hub .instruction-viewer-header { background:var(--menu-head); color:var(--menu-head-fg); border-color:var(--menu-line); }
+.assembly-hub .themed-menu-heading { display:flex; align-items:center; gap:16px; min-height:100px; padding:16px 60px 16px 16px; }
+.assembly-hub .themed-menu-heading h2 { margin:0; font:700 23px/1.2 var(--menu-font); color:inherit; text-transform:none; letter-spacing:0; }
+.assembly-hub .themed-menu-art { display:block; flex:0 0 76px; height:76px; background-size:400% 200%; border-radius:5px; }
+.assembly-hub .themed-menu-art svg { width:100%; height:100%; }
+.hub-v2.assembly-hub .workshop-menu :is(a,summary,strong,p,small,.workshop-description) { color:var(--menu-fg); font-family:var(--menu-font); }
+.hub-v2.assembly-hub .workshop-menu li + li { border-color:var(--menu-line); }
+.hub-v2.assembly-hub .workshop-app img { background:transparent; }
+.hub-v2.assembly-hub .workshop-actions :is(a,button),
+.hub-v2.assembly-hub .cda-guide :is(button,select),
+.hub-v2.assembly-hub .instruction-viewer :is(button) { background:var(--menu-bg); color:var(--menu-fg); border:1px solid var(--menu-line); font-family:var(--menu-font); }
+.hub-v2.assembly-hub .workshop-actions a { background:var(--menu-head); color:var(--menu-head-fg); }
+.hub-v2.assembly-hub .workshop-menu header button { background:var(--menu-bg); color:var(--menu-fg); border-color:var(--menu-line); border-radius:var(--menu-radius); }
+.hub-v2.assembly-hub .workshop-menu :is(a,summary,button):is(:hover,:focus-visible),
+.hub-v2.assembly-hub .cda-guide :is(button,select,summary):is(:hover,:focus-visible),
+.hub-v2.assembly-hub .instruction-viewer button:is(:hover,:focus-visible) { background:var(--menu-head); color:var(--menu-head-fg); outline:2px solid var(--menu-line); outline-offset:2px; }
+.hub-v2.assembly-hub .instruction-viewer-header :is(h2,p),
+.hub-v2.assembly-hub .cda-guide-toolbar :is(h2,p,label) { color:var(--menu-head-fg); }
+.hub-v2.assembly-hub .instruction-viewer-controls { color:var(--menu-fg); background:var(--menu-bg); }
+.hub-v2.assembly-hub .instruction-viewer-thumbnails button.is-active { border:3px solid var(--menu-line); }
+.hub-v2.assembly-hub .cda-guide :focus-visible { outline-color:var(--menu-line); }
+@media(max-width:450px) { .assembly-hub .themed-menu-heading h2 { font-size:20px; } .assembly-hub .themed-menu-art { flex-basis:60px; height:60px; } }
+.hub-v2.assembly-hub .workshop-menu header { position:sticky; top:0; z-index:2; }
+/* Complete theme-native menu windows and tangible controls. */
+.hub-v2.assembly-hub .workshop-menu { width:min(34rem,94vw); }
+.hub-v2.assembly-hub .workshop-menu ul { padding:12px; }
+.hub-v2.assembly-hub .workshop-menu li + li { border:0; margin-top:12px; }
+.hub-v2.assembly-hub .workshop-menu li>a,
+.hub-v2.assembly-hub .workshop-menu summary,
+.hub-v2.assembly-hub .workshop-menu details a { border:1px solid var(--menu-line); border-radius:var(--menu-radius); padding:12px; background:var(--menu-bg); box-shadow:0 2px 3px #0001; }
+.hub-v2.assembly-hub .workshop-menu details a { margin:8px 0 0 12px; }
+.hub-v2.assembly-hub .workshop-app { padding:12px; border:1px solid var(--menu-line); border-radius:var(--menu-radius); }
+.assembly-hub .workshop-window-path { display:flex; flex-wrap:wrap; gap:7px; padding:10px 14px; border-bottom:1px solid var(--menu-line); background:var(--menu-bg); color:var(--menu-fg); font:12px/1.5 var(--menu-font); }
+.hub-v2.assembly-hub .workshop-window .themed-menu-heading { min-height:44px; padding:7px 58px 7px 10px; gap:9px; }
+.hub-v2.assembly-hub .workshop-window .themed-menu-art { flex-basis:28px; height:28px; border-radius:2px; }
+.hub-v2.assembly-hub .workshop-window .themed-menu-heading h2 { font:700 15px/1.4 var(--menu-font); }
+.hub-v2.assembly-hub .workshop-window header button { top:3px; right:3px; width:44px; height:44px; }
+.assembly-hub .workshop-window-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; border-top:1px solid var(--menu-line); color:var(--menu-fg); background:var(--menu-bg); font:12px/1.5 var(--menu-font); }
+.assembly-hub .workshop-window-footer button { min-height:44px; min-width:92px; padding:8px 16px; background:var(--menu-bg); color:var(--menu-fg); border:1px solid var(--menu-line); border-radius:var(--menu-radius); font:600 13px var(--menu-font); cursor:pointer; }
+/* Classic Windows: raised gray buttons, inset content, genuine title-bar proportions. */
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-window { border:3px outset #fff; border-radius:0; padding:2px; box-shadow:5px 6px 0 #0006; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-window header { background:linear-gradient(90deg,#000080,#377aaf); border:0; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-menu :is(button,li>a,summary,details a),
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-actions a { background:#d4d0c8; color:#111; border:2px outset #fff; border-radius:0; box-shadow:1px 1px #333; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-menu :is(button,a,summary):active { border-style:inset; box-shadow:none; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-window ul { border:2px inset #eee; margin:6px; background:#eee; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-app { background:#d4d0c8; color:#111; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .workshop-menu :is(strong,p,small,.workshop-description) { color:#111; }
+.hub-v2.assembly-hub.hub-demo-win31 .workshop-window header { background:#000080; }
+/* XP: Luna chrome and rounded cream controls. */
+.hub-v2.assembly-hub.hub-demo-winxp .workshop-window { border:3px solid #1655c4; border-radius:9px 9px 3px 3px; }
+.hub-v2.assembly-hub.hub-demo-winxp .workshop-window header { background:linear-gradient(#619aff,#0861e0 18%,#1655c4 85%,#08439e); text-shadow:1px 1px #13428d; }
+.hub-v2.assembly-hub.hub-demo-winxp .workshop-window header button { background:linear-gradient(#f5aa91,#cd3d22); border:1px solid white; color:white; }
+.hub-v2.assembly-hub.hub-demo-winxp .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { background:linear-gradient(#fff,#e7e4d7); border:1px solid #647eaa; border-radius:4px; color:#18334d; box-shadow:inset 0 -2px #d2d0c3; }
+/* Aero: glass frame with solid, readable contents and glossy buttons. */
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .workshop-window { border:6px solid #a6d3e4bb; border-radius:9px; box-shadow:inset 0 0 0 1px #fff,0 15px 55px #0008; }
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .workshop-window header { background:linear-gradient(#c8e9f3,#8fbdd3); color:#173147; }
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .workshop-window header button { background:linear-gradient(#e7a290,#a22b20); color:white; border-color:#923d35; }
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { background:linear-gradient(#fff 45%,#e4edf2 46%,#d8e6ee); border:1px solid #7894a7; border-radius:4px; color:#18344b; }
+/* Modern Windows: square Metro/10 controls and rounded Fluent/11 controls. */
+.hub-v2.assembly-hub:is(.hub-demo-win8,.hub-demo-win81,.hub-demo-win10) .workshop-menu :is(button,li>a,summary) { border-radius:0; box-shadow:none; }
+.hub-v2.assembly-hub.hub-demo-win11 .workshop-window { border:1px solid #c5d6e7; box-shadow:0 20px 70px #19375266; }
+.hub-v2.assembly-hub.hub-demo-win11 .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { background:#fff; color:#183958; border:1px solid #bacada; border-bottom-width:2px; border-radius:6px; }
+/* Console and creative controls. */
+.hub-v2.assembly-hub.hub-demo-atari .workshop-menu { border:6px ridge #785333; border-radius:4px; }
+.hub-v2.assembly-hub.hub-demo-atari .workshop-menu header { border-bottom:5px solid #d6752c; }
+.hub-v2.assembly-hub.hub-demo-atari .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { border:2px outset #b89461; background:#33271b; color:#ffe0a8; box-shadow:0 3px #100d09; }
+.hub-v2.assembly-hub.hub-demo-nes .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { border:2px solid #a6b7ce; box-shadow:3px 3px #050711; border-radius:0; }
+.hub-v2.assembly-hub.hub-demo-gameboy .workshop-menu { border:8px solid #6b6b70; border-radius:10px 10px 24px 10px; }
+.hub-v2.assembly-hub.hub-demo-gameboy .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { background:#cad88d; color:#253c1b; border:2px solid #60743e; box-shadow:2px 2px #60743e; border-radius:0; }
+.hub-v2.assembly-hub:is(.hub-demo-playroom,.hub-demo-punch) .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { border:2px solid var(--menu-line); box-shadow:3px 3px var(--menu-line); }
+.hub-v2.assembly-hub.hub-demo-terminal .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { border-radius:0; box-shadow:inset 3px 0 #7ab48b; }
+.hub-v2.assembly-hub.hub-demo-blueprint .workshop-menu :is(li>a,summary) { border-style:dashed; }
+.hub-v2.assembly-hub.hub-demo-garden .workshop-menu :is(li>a,summary,.workshop-actions a,.workshop-actions button,.workshop-window-footer button) { border-radius:15px; }
+.hub-v2.assembly-hub .workshop-menu :is(a,button,summary):focus-visible { outline:3px solid var(--menu-line); outline-offset:3px; }
+.hub-v2.assembly-hub .workshop-menu :is(a,button,summary):active { box-shadow:none; }
+/* The appearance chooser belongs to the active theme, including its popup. */
+.hub-v2.assembly-hub .hub-demo-switcher.hub-compact-switcher {
+  background:var(--menu-bg); color:var(--menu-fg); border:1px solid var(--menu-line); border-radius:var(--menu-radius);
+}
+.hub-v2.assembly-hub .hub-compact-switcher :is(select,.theme-motion-toggle) {
+  background:var(--menu-bg); color:var(--menu-fg); border:1px solid var(--menu-line);
+  border-radius:var(--menu-radius); font-family:var(--menu-font); box-shadow:0 2px 3px #0002;
+}
+.hub-v2.assembly-hub .hub-compact-switcher label { color:var(--menu-fg); font-family:var(--menu-font); }
+.hub-v2.assembly-hub .hub-compact-switcher :is(select,button):focus-visible { outline:3px solid var(--menu-line); outline-offset:3px; }
+.hub-v2.assembly-hub .hub-compact-switcher option,
+.hub-v2.assembly-hub .hub-compact-switcher optgroup { background:var(--menu-bg); color:var(--menu-fg); font-family:var(--menu-font); }
+/* Supported browsers render the real native select with a themeable popup;
+   others retain their accessible platform picker with themed closed controls. */
+@supports (appearance:base-select) {
+  .hub-v2.assembly-hub .hub-compact-switcher select,
+  .hub-v2.assembly-hub .hub-compact-switcher select::picker(select) { appearance:base-select; }
+  .hub-v2.assembly-hub .hub-compact-switcher select { align-items:center; padding-right:12px; }
+  .hub-v2.assembly-hub .hub-compact-switcher select::picker(select) {
+    background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line);
+    border-radius:var(--menu-radius); font:14px/1.5 var(--menu-font);
+    max-height:min(60vh,440px); overflow:auto; box-shadow:0 8px 24px #0005;
+  }
+  .hub-v2.assembly-hub .hub-compact-switcher option { padding:9px 12px; min-height:42px; white-space:normal; }
+  .hub-v2.assembly-hub .hub-compact-switcher optgroup { padding:6px; }
+  .hub-v2.assembly-hub .hub-compact-switcher option:is(:checked,:hover,:focus) { background:var(--menu-head); color:var(--menu-head-fg); }
+}
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .hub-compact-switcher { background:#c0c0c0; border:2px outset #fff; border-radius:0; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .hub-compact-switcher :is(select,button) { background:#d4d0c8; color:#111; border:2px outset #fff; border-radius:0; box-shadow:1px 1px #333; }
+.hub-v2.assembly-hub:is(.hub-demo-desktop,.hub-demo-win31,.hub-demo-win95,.hub-demo-winme,.hub-demo-win2000) .hub-compact-switcher select { background:#fff; border-style:inset; }
+.hub-v2.assembly-hub.hub-demo-winxp .hub-compact-switcher :is(select,button) { background:linear-gradient(#fff,#e7e4d7); color:#18334d; border:1px solid #647eaa; border-radius:4px; }
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .hub-compact-switcher { background:#d8edf1df; border:3px solid #a6d3e4bb; }
+.hub-v2.assembly-hub:is(.hub-demo-winvista,.hub-demo-win7) .hub-compact-switcher :is(select,button) { background:linear-gradient(#fff,#d8e6ee); color:#18344b; border-color:#7894a7; border-radius:4px; }
+.hub-v2.assembly-hub:is(.hub-demo-win8,.hub-demo-win81,.hub-demo-win10) .hub-compact-switcher :is(select,button) { border-radius:0; box-shadow:none; }
+.hub-v2.assembly-hub.hub-demo-atari .hub-compact-switcher { border:4px ridge #785333; }
+.hub-v2.assembly-hub.hub-demo-atari .hub-compact-switcher :is(select,button) { background:#33271b; color:#ffe0a8; border:2px outset #b89461; box-shadow:0 3px #100d09; }
+.hub-v2.assembly-hub.hub-demo-gameboy .hub-compact-switcher :is(select,button) { background:#cad88d; color:#253c1b; border:2px solid #60743e; box-shadow:2px 2px #60743e; }
+.hub-v2.assembly-hub:is(.hub-demo-nes,.hub-demo-punch,.hub-demo-playroom) .hub-compact-switcher :is(select,button) { border:2px solid var(--menu-line); box-shadow:3px 3px var(--menu-line); }
+/* Mobile controls stay finger-sized and avoid iOS form-control zoom. */
+@media (max-width:600px) {
+  .hub-v2.assembly-hub .hub-compact-switcher :is(select,.theme-motion-toggle) { min-height:44px; }
+  .hub-v2.assembly-hub .hub-compact-switcher select { font-size:16px; }
+  .hub-v2.assembly-hub .hub-compact-switcher #hub-style { width:0; min-width:0; }
+  .hub-v2.assembly-hub .workshop-menu { max-height:calc(100dvh - 24px); max-width:calc(100vw - 24px); overscroll-behavior:contain; }
+  .hub-v2.assembly-hub .workshop-menu :is(button,a,summary) { min-height:44px; min-width:44px; overflow-wrap:anywhere; }
+  .hub-v2.assembly-hub .workshop-actions { flex-wrap:wrap; gap:8px; }
+  .hub-v2.assembly-hub .workshop-menu select { font-size:16px; }
+}
+/* Local retro expansion: original cartridge, disc and memory-unit illustrations. */
+.hub-v2.assembly-hub.hub-demo-snes { --paper:#e4e1ee; --ink:#302445; --line:#7d6b99; --accent:#654a98; --menu-head:#59417e; --menu-head-fg:#fff; --menu-font:monospace; --menu-radius:4px; background:radial-gradient(circle at 20% 10%,#5e467e,transparent 40%),repeating-linear-gradient(0deg,#222035 0 3px,#252239 3px 5px); }
+.hub-v2.assembly-hub.hub-demo-playstation { --paper:#20272e; --ink:#e3e9eb; --line:#8496a3; --accent:#82d0bc; --menu-head:#12191e; --menu-head-fg:#a8e4d6; --menu-font:monospace; --menu-radius:2px; background:radial-gradient(ellipse at 50% 0,#384859,transparent 65%),#101519; }
+.hub-v2.assembly-hub.hub-demo-dreamcast { --paper:#f4f9fb; --ink:#244957; --line:#7a9fae; --accent:#c74b21; --menu-head:#236479; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:18px; background:radial-gradient(ellipse at 15% 20%,#fff 0,transparent 45%),linear-gradient(145deg,#c3e9f6,#79b6d3 60%,#effaff); }
+.assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .link-hub-card { border:1px solid var(--line); padding:28px; border-radius:16px; background:var(--paper); box-shadow:0 24px 60px #0004; }
+.assembly-hub.hub-demo-snes .link-hub-card { border:8px ridge #aaa2bc; border-radius:12px 12px 30px 12px; }
+.assembly-hub.hub-demo-snes .extra-brand { border-bottom:8px solid #80709b; background:linear-gradient(135deg,#eeeaf5,#c7bfd9); padding:28px; }
+.assembly-hub.hub-demo-snes .extra-brand h1 { font-family:monospace; text-shadow:2px 2px #b6a8c9; }
+.assembly-hub.hub-demo-playstation .extra-brand { padding:28px; border-block:1px solid #8496a3; background:linear-gradient(125deg,#111a22,#35434c); }
+.assembly-hub.hub-demo-playstation .extra-brand h1 { color:#f0f5f5; letter-spacing:-.04em; }
+.assembly-hub.hub-demo-playstation .extra-kicker { color:#99d8cc; }
+.assembly-hub.hub-demo-dreamcast .extra-brand { padding:32px; border-radius:50px 12px; background:radial-gradient(circle at 90% 20%,#ffe1bf,transparent 45%),#e2f2f9; border-bottom:4px solid #e36e3d; }
+.assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .assembly-tile { border:2px solid var(--line); border-radius:var(--menu-radius); background:var(--paper); box-shadow:0 5px 0 #0002; }
+.assembly-hub.hub-demo-playstation .assembly-tile { border-left:10px solid #10191e; }
+.assembly-hub.hub-demo-dreamcast .assembly-tile { border-radius:26px 8px; }
+.console-art { display:block; width:min(100%,240px); aspect-ratio:4/3; position:relative; margin:auto; filter:drop-shadow(0 8px 5px #0003); }
+.console-art>svg { width:100%; height:100%; }
+.console-art-symbol { position:absolute; display:block; width:22%; height:30%; left:39%; top:42%; color:#bce8d9; }
+.console-art-symbol svg { width:100%; height:100%; }
+.console-art-snes .console-art-symbol { color:#c6b6f4; }
+.console-art-dreamcast .console-art-symbol { left:39%; top:24%; color:#324e47; }
+.workshop-menu .console-art { flex:0 0 76px; width:76px; margin:0; }
+.assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.hub-v2.assembly-hub.hub-demo-snes :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { border:2px outset #c3b8d8; border-radius:4px; background:#ded7eb; color:#302445; box-shadow:2px 3px #78638e; }
+.hub-v2.assembly-hub.hub-demo-playstation :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:#18232b; color:#d1eee7; border:1px solid #8aafa8; border-radius:2px; }
+.hub-v2.assembly-hub.hub-demo-dreamcast :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:linear-gradient(#fff,#e1edf3); color:#244957; border:1px solid #759da9; border-radius:14px; }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub[data-motion-paused='false'] .console-art { transition:transform .25s ease; }
+ .assembly-hub[data-motion-paused='false'] .assembly-tile:is(:hover,:focus-visible,[data-pressed]) .console-art { transform:translateY(-5px) rotate(-2deg); }
+}
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-snes,.hub-demo-playstation,.hub-demo-dreamcast) .extra-copy strong { font-size:19px; }
+}
+.assembly-hub .extra-illustration .console-art>svg,
+.assembly-hub .extra-illustration .console-art-symbol svg { width:100%; height:100%; }
+.assembly-hub:is(.hub-demo-playstation,.hub-demo-dreamcast) :is(.extra-brand h1,.extra-copy strong) { font-family:'Segoe UI',system-ui,sans-serif; }
+/* Detailed console artwork is shared between destination cards and menu headings. */
+.assembly-hub .console-atlas { aspect-ratio:1; background-size:400% 200%; background-repeat:no-repeat; border-radius:8px; filter:none; box-shadow:0 7px 16px #0002; }
+.assembly-hub.hub-demo-snes .console-atlas { border:3px ridge #b9afca; border-radius:5px; }
+.assembly-hub.hub-demo-playstation .console-atlas { border:3px ridge #a8b6bd; border-radius:2px; }
+.assembly-hub.hub-demo-dreamcast .console-atlas { border:3px solid #d5e9ef; border-radius:18px 6px; }
+.assembly-hub .workshop-menu .console-atlas { height:76px; flex-basis:76px; }
+/* Local console collection: Nintendo 64, Genesis and GameCube. */
+.hub-v2.assembly-hub.hub-demo-n64 { --paper:#eef0e5; --ink:#243a32; --line:#608071; --accent:#b23930; --menu-head:#225e43; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:10px; background:radial-gradient(circle at 15% 15%,#356c91,transparent 55%),linear-gradient(135deg,#173f37,#182b37); }
+.hub-v2.assembly-hub.hub-demo-genesis { --paper:#191a20; --ink:#f4eee5; --line:#998373; --accent:#ff8c7a; --menu-head:#772c31; --menu-head-fg:#fff4df; --menu-font:monospace; --menu-radius:3px; background:repeating-linear-gradient(135deg,#131317 0 12px,#19191e 12px 14px); }
+.hub-v2.assembly-hub.hub-demo-gamecube { --paper:#eeeaf7; --ink:#30244f; --line:#8875aa; --accent:#674299; --menu-head:#513382; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:12px; background:radial-gradient(circle at 80% 10%,#795fa8,transparent 50%),linear-gradient(135deg,#211a3c,#3d2f68); }
+.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .link-hub-card { background:var(--paper); border:3px solid var(--line); border-radius:18px; padding:28px; box-shadow:0 24px 60px #0005; }
+.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .extra-brand { padding:30px; border-bottom:5px solid var(--accent); }
+.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) :is(.extra-brand h1,.extra-copy strong) { font-family:var(--menu-font); }
+.assembly-hub.hub-demo-n64 .extra-brand { background:linear-gradient(120deg,#e1eee5,#e8ecfb); border-image:linear-gradient(90deg,#376fa6 25%,#357052 25% 50%,#d2a240 50% 75%,#b94d45 75%) 1; }
+.assembly-hub.hub-demo-n64 .extra-brand h1 { color:#225e43; letter-spacing:-.04em; }
+.assembly-hub.hub-demo-genesis .link-hub-card { border:6px ridge #77757a; border-radius:22px 22px 8px 8px; }
+.assembly-hub.hub-demo-genesis .extra-brand { background:radial-gradient(ellipse at top right,#5b232c,transparent 65%),#101115; border-bottom:5px solid #a53845; }
+.assembly-hub.hub-demo-genesis .extra-brand h1 { color:#fff5e1; text-transform:uppercase; letter-spacing:-.045em; }
+.assembly-hub.hub-demo-genesis .extra-kicker { color:#ffc2ac; }
+.assembly-hub.hub-demo-gamecube .extra-brand { background:linear-gradient(135deg,#e3d9f5,#f1f1fc); border:2px solid #9e89ba; border-bottom:8px solid #674299; border-radius:20px 4px; }
+.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .assembly-tile { background:var(--paper); border:2px solid var(--line); border-radius:var(--menu-radius); box-shadow:0 5px 0 #0002; }
+.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.assembly-hub.hub-demo-n64 .console-atlas { border:3px solid #3d6755; border-radius:15px 15px 5px 5px; }
+.assembly-hub.hub-demo-genesis .console-atlas { border:3px ridge #8f8580; border-radius:4px; }
+.assembly-hub.hub-demo-gamecube .console-atlas { border:3px solid #8b73af; border-radius:15px 3px; }
+.hub-v2.assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); box-shadow:0 3px 0 #0002; }
+.hub-v2.assembly-hub.hub-demo-genesis .workshop-menu { border:4px ridge #998373; }
+.hub-v2.assembly-hub.hub-demo-gamecube .workshop-menu { border:4px solid #8875aa; }
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-n64,.hub-demo-genesis,.hub-demo-gamecube) .extra-copy strong { font-size:19px; }
+}
+/* Local sixth/seventh-generation console samples. */
+.hub-v2.assembly-hub.hub-demo-ps2 { --paper:#101d33; --ink:#e4eeff; --line:#6b8ebc; --accent:#88c6ff; --menu-head:#122b52; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:3px; background:radial-gradient(ellipse at top,#204b80,transparent 65%),#050a15; }
+.hub-v2.assembly-hub.hub-demo-xbox { --paper:#172018; --ink:#e5f5d8; --line:#769a5d; --accent:#b4ec78; --menu-head:#284d20; --menu-head-fg:#f1ffe6; --menu-font:system-ui,sans-serif; --menu-radius:14px; background:radial-gradient(ellipse at top,#345824,transparent 60%),#080e09; }
+.hub-v2.assembly-hub.hub-demo-wii { --paper:#f7fbfd; --ink:#284c60; --line:#86aebb; --accent:#247894; --menu-head:#27758e; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:20px; background:repeating-linear-gradient(0deg,#e3f0f4 0 3px,#edf5f8 3px 6px); }
+.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .link-hub-card { background:var(--paper); border:2px solid var(--line); border-radius:16px; padding:28px; box-shadow:0 24px 60px #0004; }
+.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .extra-brand { padding:30px; border-bottom:4px solid var(--accent); }
+.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) :is(.extra-brand h1,.extra-copy strong) { font-family:var(--menu-font); color:var(--ink); }
+.assembly-hub.hub-demo-ps2 .extra-brand { background:repeating-linear-gradient(90deg,#15325b33 0 25px,transparent 25px 50px),linear-gradient(#08101d,#183b67); border-radius:2px; }
+.assembly-hub.hub-demo-ps2 .extra-kicker { color:#a8d5ff; }
+.assembly-hub.hub-demo-xbox .extra-brand { background:radial-gradient(ellipse at center,#37562a,#101c13); border-radius:45px 8px; }
+.assembly-hub.hub-demo-xbox .extra-kicker { color:#b4ec78; }
+.assembly-hub.hub-demo-wii .extra-brand { background:linear-gradient(#fff,#e2f1f7); border:2px solid #b4d7e3; border-bottom:5px solid #59aec9; border-radius:30px; text-align:center; }
+.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .assembly-tile { border:2px solid var(--line); border-radius:var(--menu-radius); background:var(--paper); box-shadow:0 5px 0 #0002; }
+.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.assembly-hub.hub-demo-ps2 .console-atlas { border:3px ridge #6288bc; border-radius:3px; }
+.assembly-hub.hub-demo-xbox .console-atlas { border:3px solid #648d49; border-radius:20px 6px; }
+.assembly-hub.hub-demo-wii .console-atlas { border:3px solid #b9dbe5; border-radius:18px; }
+.hub-v2.assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); box-shadow:0 3px 0 #0002; }
+.hub-v2.assembly-hub.hub-demo-wii .workshop-menu { border:4px solid #b9dbe5; }
+.hub-v2.assembly-hub.hub-demo-xbox .workshop-menu { border:4px ridge #648d49; }
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-ps2,.hub-demo-xbox,.hub-demo-wii) .extra-copy strong { font-size:19px; }
+}
+/* Local PS3, Xbox 360 and Wii U collection. */
+.hub-v2.assembly-hub.hub-demo-ps3 { --paper:#18202d; --ink:#eff3fa; --line:#899aaf; --accent:#a4c6f3; --menu-head:#293d59; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:12px; background:radial-gradient(ellipse at top right,#354a72,transparent 60%),#080c13; }
+.hub-v2.assembly-hub.hub-demo-xbox360 { --paper:#f3f6ef; --ink:#29412c; --line:#829977; --accent:#397722; --menu-head:#386d27; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:10px; background:radial-gradient(ellipse at top,#c7e3a6,transparent 60%),linear-gradient(135deg,#b6c4af,#e7eee2); }
+.hub-v2.assembly-hub.hub-demo-wiiu { --paper:#f0faff; --ink:#1d4c60; --line:#6aabba; --accent:#147d98; --menu-head:#126e87; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:20px; background:radial-gradient(circle at 20% 10%,#d9f8ff,transparent 50%),linear-gradient(145deg,#49b1cf,#08617c); }
+.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .link-hub-card { background:var(--paper); border:2px solid var(--line); border-radius:22px; padding:28px; box-shadow:0 24px 60px #0004; }
+.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .extra-brand { padding:30px; border-bottom:4px solid var(--accent); }
+.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) :is(.extra-brand h1,.extra-copy strong) { font-family:var(--menu-font); color:var(--ink); }
+.assembly-hub.hub-demo-ps3 .extra-brand { background:radial-gradient(ellipse at bottom right,#48628466,transparent 65%),linear-gradient(145deg,#080b11,#2b384c); border-radius:30px 4px; }
+.assembly-hub.hub-demo-ps3 .extra-kicker { color:#c1d7f4; }
+.assembly-hub.hub-demo-xbox360 .extra-brand { background:linear-gradient(120deg,#fff,#dceacb); border-radius:8px 50px; border-left:8px solid #568d3e; }
+.assembly-hub.hub-demo-wiiu .extra-brand { background:linear-gradient(#fff,#d9f3fc); border:3px solid #78b7c9; border-bottom:7px solid #147d98; border-radius:30px; text-align:center; }
+.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .assembly-tile { border:2px solid var(--line); border-radius:var(--menu-radius); background:var(--paper); box-shadow:0 5px 0 #0002; }
+.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.assembly-hub.hub-demo-ps3 .console-atlas { border:3px ridge #9ba9ba; border-radius:14px 4px; }
+.assembly-hub.hub-demo-xbox360 .console-atlas { border:3px solid #8ba57b; border-radius:5px 20px; }
+.assembly-hub.hub-demo-wiiu .console-atlas { border:4px solid #203e4a; border-radius:20px; }
+.hub-v2.assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); box-shadow:0 3px 0 #0002; }
+.hub-v2.assembly-hub.hub-demo-ps3 .workshop-menu { border:3px ridge #9ba9ba; }
+.hub-v2.assembly-hub.hub-demo-wiiu .workshop-menu { border:5px solid #2c5765; }
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-ps3,.hub-demo-xbox360,.hub-demo-wiiu) .extra-copy strong { font-size:19px; }
+}
+/* Local PS4, Xbox One and Nintendo Switch themes. */
+.hub-v2.assembly-hub.hub-demo-ps4 { --paper:#0c2448; --ink:#edf5ff; --line:#699bd0; --accent:#91ceff; --menu-head:#12569b; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:4px; background:radial-gradient(ellipse at top,#175faa,transparent 65%),#061329; }
+.hub-v2.assembly-hub.hub-demo-xboxone { --paper:#14291d; --ink:#edf8ee; --line:#739b7b; --accent:#9bdf9f; --menu-head:#216137; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:3px; background:linear-gradient(135deg,#0b120e,#214d30); }
+.hub-v2.assembly-hub.hub-demo-switch { --paper:#f8f9fc; --ink:#263b4b; --line:#8599aa; --accent:#bb3243; --menu-head:#b52d40; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:18px; background:linear-gradient(90deg,#26a8c3 0 12%,#e8edf1 12% 88%,#e24a55 88%); }
+.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .link-hub-card { background:var(--paper); border:2px solid var(--line); border-radius:16px; padding:28px; box-shadow:0 24px 60px #0004; }
+.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .extra-brand { padding:30px; border-bottom:4px solid var(--accent); }
+.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) :is(.extra-brand h1,.extra-copy strong) { font-family:var(--menu-font); color:var(--ink); }
+.assembly-hub.hub-demo-ps4 .extra-brand { background:linear-gradient(155deg,#0c1b33 45%,#194d83 46%,#0a3464); border-radius:4px; }
+.assembly-hub.hub-demo-ps4 .extra-kicker { color:#b4dcff; }
+.assembly-hub.hub-demo-xboxone .extra-brand { background:linear-gradient(110deg,#183623,#2c6539); border-left:8px solid #93ce93; border-radius:3px; }
+.assembly-hub.hub-demo-xboxone .extra-kicker { color:#c9efc9; }
+.assembly-hub.hub-demo-switch .extra-brand { background:linear-gradient(120deg,#e0f6fa,#fff 55%,#fce8ea); border-left:7px solid #2696b3; border-right:7px solid #d64250; border-radius:28px; text-align:center; }
+.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .assembly-tile { border:2px solid var(--line); border-radius:var(--menu-radius); background:var(--paper); box-shadow:0 5px 0 #0002; }
+.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.assembly-hub.hub-demo-ps4 .console-atlas { border:3px solid #528fc5; border-radius:4px; }
+.assembly-hub.hub-demo-xboxone .console-atlas { border:3px solid #5d936d; border-radius:3px; }
+.assembly-hub.hub-demo-switch .console-atlas { border:3px solid #627783; border-left-color:#2696b3; border-right-color:#d64250; border-radius:20px; }
+.hub-v2.assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); box-shadow:0 3px 0 #0002; }
+.hub-v2.assembly-hub.hub-demo-switch .workshop-menu { border-left:5px solid #2696b3; border-right:5px solid #d64250; }
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-ps4,.hub-demo-xboxone,.hub-demo-switch) .extra-copy strong { font-size:19px; }
+}
+/* Local PS5, Xbox Series X and Switch 2 samples. */
+.hub-v2.assembly-hub.hub-demo-ps5 { --paper:#f2f5fb; --ink:#263a55; --line:#879dbb; --accent:#2467ba; --menu-head:#174e94; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:16px; background:radial-gradient(ellipse at top,#6887b6,transparent 60%),#111e35; }
+.hub-v2.assembly-hub.hub-demo-seriesx { --paper:#111e17; --ink:#e7f7eb; --line:#678d73; --accent:#8bdfaa; --menu-head:#205d38; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:4px; background:radial-gradient(ellipse at top,#254a31,transparent 60%),#050d09; }
+.hub-v2.assembly-hub.hub-demo-switch2 { --paper:#202830; --ink:#f1f4f6; --line:#8a9da9; --accent:#8fdae5; --menu-head:#354650; --menu-head-fg:#fff; --menu-font:system-ui,sans-serif; --menu-radius:20px; background:radial-gradient(circle at 0 20%,#265662,transparent 40%),radial-gradient(circle at 100% 20%,#643b37,transparent 40%),#10171c; }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .link-hub-card { background:var(--paper); border:2px solid var(--line); border-radius:20px; padding:28px; box-shadow:0 24px 60px #0005; }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .extra-brand { padding:30px; border-bottom:4px solid var(--accent); }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) :is(.extra-brand h1,.extra-copy strong) { font-family:var(--menu-font); color:var(--ink); }
+.assembly-hub.hub-demo-ps5 .extra-brand { background:linear-gradient(125deg,#fff 45%,#dce7f7 46%,#f3f7fd); border-radius:40px 5px; border-left:5px solid #3266ae; }
+.assembly-hub.hub-demo-seriesx .extra-brand { background:radial-gradient(circle at 90% 0,#386646,transparent 60%),#0a1510; border-radius:4px; }
+.assembly-hub.hub-demo-seriesx .extra-kicker { color:#c3f2d1; }
+.assembly-hub.hub-demo-switch2 .extra-brand { background:linear-gradient(120deg,#29444f,#252e35 55%,#493637); border-left:5px solid #77cbdc; border-right:5px solid #e38370; border-radius:28px; text-align:center; }
+.assembly-hub.hub-demo-switch2 .extra-kicker { color:#b4eaf2; }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .assembly-tile { border:2px solid var(--line); border-radius:var(--menu-radius); background:var(--paper); box-shadow:0 5px 0 #0002; }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .extra-action { border-top:1px solid var(--line); padding-top:14px; color:var(--ink); }
+.assembly-hub.hub-demo-ps5 .console-atlas { border:3px solid #a5b9d3; border-radius:22px 5px; }
+.assembly-hub.hub-demo-seriesx .console-atlas { border:3px solid #4d8060; border-radius:4px; }
+.assembly-hub.hub-demo-switch2 .console-atlas { border:3px solid #667f8b; border-left-color:#77cbdc; border-right-color:#e38370; border-radius:20px; }
+.hub-v2.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) :is(.workshop-actions a,.workshop-actions button,.workshop-window-footer button,.hub-compact-switcher select,.hub-compact-switcher button) { background:var(--menu-bg); color:var(--menu-fg); border:2px solid var(--menu-line); border-radius:var(--menu-radius); box-shadow:0 3px 0 #0002; }
+.hub-v2.assembly-hub.hub-demo-switch2 .workshop-menu { border-left:5px solid #77cbdc; border-right:5px solid #e38370; }
+@media(max-width:600px) {
+ .assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .link-hub-card { padding:10px; }
+ .assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .extra-brand { padding:20px 12px; }
+ .assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .extra-card { padding:12px; }
+ .assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx,.hub-demo-switch2) .extra-copy strong { font-size:19px; }
+}
+/* Quiet controller-symbol ambience, local PS5 and Series X experiment. */
+.hub-v2.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx) { isolation:isolate; }
+.assembly-hub .console-ambient { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; user-select:none; }
+.assembly-hub:is(.hub-demo-ps5,.hub-demo-seriesx) .hub-content { position:relative; z-index:1; }
+.assembly-hub.hub-demo-ps5 .link-hub-card { background:rgba(242,245,251,.94); }
+.assembly-hub.hub-demo-seriesx .link-hub-card { background:rgba(17,30,23,.94); }
+.console-ambient .ambient-button { position:absolute; display:grid; place-items:center; width:clamp(42px,6vw,88px); height:clamp(42px,6vw,88px); font:300 clamp(38px,5vw,70px)/1 system-ui,sans-serif; color:#9ac9ff; opacity:.16; text-shadow:0 0 18px #5c9aff44; will-change:transform; }
+.console-ambient-seriesx .ambient-button { border:2px solid currentColor; border-radius:50%; font-size:clamp(23px,3vw,40px); font-weight:600; opacity:.13; text-shadow:none; }
+.console-ambient-seriesx .ambient-button-0 { color:#83db91; }
+.console-ambient-seriesx .ambient-button-1 { color:#f79a91; }
+.console-ambient-seriesx .ambient-button-2 { color:#8cbdff; }
+.console-ambient-seriesx .ambient-button-3 { color:#e9d589; }
+@keyframes console-button-drift { 0%,100% { transform:translate3d(-10px,18px,0) rotate(-9deg); } 50% { transform:translate3d(14px,-28px,0) rotate(10deg); } }
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub .console-ambient .ambient-button { animation:console-button-drift var(--drift-duration) ease-in-out var(--drift-delay) infinite !important; }
+ .assembly-hub[data-motion-paused=true] .console-ambient .ambient-button { animation-play-state:paused !important; }
+}
+@media(prefers-reduced-motion:reduce) { .assembly-hub .console-ambient .ambient-button { animation:none !important; will-change:auto; } }
+@media(max-width:600px) { .console-ambient .ambient-button { opacity:.12; } .console-ambient .ambient-button:nth-child(n+6) { display:none; } }
+/* Every console shares the same accessible motion lifecycle and its own palette. */
+.hub-v2.assembly-hub.hub-console { isolation:isolate; }
+.assembly-hub.hub-console .hub-content { position:relative; z-index:1; }
+.assembly-hub .console-ambient .ambient-button { color:var(--ambient-color); text-shadow:none; }
+.console-ambient-buttons .ambient-button { border:2px solid currentColor; border-radius:50%; font-size:clamp(23px,3vw,40px); font-weight:600; }
+.assembly-hub .console-ambient-xbox .ambient-button-0 { color:#83db91; }
+.assembly-hub .console-ambient-xbox .ambient-button-1 { color:#f79a91; }
+.assembly-hub .console-ambient-xbox .ambient-button-2 { color:#8cbdff; }
+.assembly-hub .console-ambient-xbox .ambient-button-3 { color:#e9d589; }
+.assembly-hub .console-ambient-xbox360 .ambient-button { color:#3f742d; }
+.assembly-hub .console-ambient-switch .ambient-button:nth-child(even) { color:#bf4550; }
+.assembly-hub .console-ambient-switch2 .ambient-button:nth-child(even) { color:#e59a85; }
+.assembly-hub .console-ambient-atari .ambient-button { font-family:monospace; }
+.assembly-hub .console-ambient:is(.console-ambient-nes,.console-ambient-gameboy) .ambient-button { border-radius:4px; font-family:monospace; }
+.assembly-hub .console-ambient-dreamcast .ambient-button-0 { border:0; font-size:clamp(45px,6vw,85px); }
+/* Controller-like molded caps travel along stable, varied screen-wide routes. */
+.assembly-hub .console-ambient .ambient-button { left:0; top:0; width:clamp(40px,5vw,72px); height:clamp(40px,5vw,72px); border:0; background:none; box-shadow:none; opacity:.32; text-shadow:none; color:#eee; transform:translate3d(var(--x0),var(--y0),0); }
+.assembly-hub .console-ambient .ambient-cap { display:grid; place-items:center; width:100%; height:100%; box-sizing:border-box; border-radius:50%; border:2px solid #171b22; background:radial-gradient(circle at 32% 22%,#65707d,#292f38 58%,#10141a); box-shadow:inset 0 3px 3px #ffffff55,inset 0 -5px 3px #0009,0 5px 0 #080b11,0 9px 12px #0005; font:700 clamp(19px,2.8vw,36px)/1 Arial,sans-serif; text-shadow:0 1px 2px #000a; }
+.assembly-hub .console-ambient:is(.console-ambient-playstation,.console-ambient-ps2,.console-ambient-ps3,.console-ambient-ps4) .ambient-button-0 { color:#6ae0c5; }
+.assembly-hub .console-ambient:is(.console-ambient-playstation,.console-ambient-ps2,.console-ambient-ps3,.console-ambient-ps4) .ambient-button-1 { color:#f28b91; }
+.assembly-hub .console-ambient:is(.console-ambient-playstation,.console-ambient-ps2,.console-ambient-ps3,.console-ambient-ps4) .ambient-button-2 { color:#8fbdf7; }
+.assembly-hub .console-ambient:is(.console-ambient-playstation,.console-ambient-ps2,.console-ambient-ps3,.console-ambient-ps4) .ambient-button-3 { color:#e8a8e3; }
+.assembly-hub .console-ambient:is(.console-ambient-ps5,.console-ambient-wii,.console-ambient-dreamcast) .ambient-cap { background:radial-gradient(circle at 30% 20%,#fff,#d6dce3 65%,#a8b3c0); border-color:#8b98a8; box-shadow:inset 0 3px 3px #fff,inset 0 -4px 3px #74809166,0 5px #8793a4,0 9px 12px #0004; color:#424c5c; text-shadow:0 1px #fff; }
+.assembly-hub .console-ambient-xbox .ambient-button-0 { color:#80dd75; }
+.assembly-hub .console-ambient-xbox .ambient-button-1 { color:#f77170; }
+.assembly-hub .console-ambient-xbox .ambient-button-2 { color:#73b6ff; }
+.assembly-hub .console-ambient-xbox .ambient-button-3 { color:#ffe070; }
+.assembly-hub .console-ambient:is(.console-ambient-nes,.console-ambient-gameboy,.console-ambient-atari) .ambient-button:not(.ambient-dpad):not(.ambient-start) .ambient-cap { background:radial-gradient(circle at 30% 20%,#e45768,#9d1736 65%,#580d24); color:#ffe8eb; border-color:#590d24; }
+.assembly-hub .console-ambient-snes .ambient-cap { background:radial-gradient(circle at 35% 25%,#b5a4dc,#7760a6 65%,#4d3b70); border-color:#4d3b70; }
+.assembly-hub .console-ambient-snes :is(.ambient-button-2,.ambient-button-3) .ambient-cap { background:radial-gradient(circle,#b7acd0,#8f80ab); box-shadow:inset 0 3px 8px #4c3c77,0 4px #514164,0 9px 12px #0004; }
+.assembly-hub .console-ambient-n64 .ambient-button-0 .ambient-cap { background:radial-gradient(circle at 30% 20%,#5c9cff,#224dbe); }
+.assembly-hub .console-ambient-n64 .ambient-button-1 .ambient-cap { background:radial-gradient(circle at 30% 20%,#65c78a,#14773d); }
+.assembly-hub .console-ambient-n64 .ambient-button-2 .ambient-cap { background:radial-gradient(circle at 30% 20%,#ffe68a,#cba82b); color:#584d27; text-shadow:none; }
+.assembly-hub .console-ambient-gamecube .ambient-button-0 .ambient-cap { background:radial-gradient(circle at 30% 20%,#75e4b4,#239175); }
+.assembly-hub .console-ambient-gamecube .ambient-button-1 .ambient-cap { background:radial-gradient(circle at 30% 20%,#ff8c7b,#bd343a); scale:.75; }
+.assembly-hub .console-ambient-gamecube :is(.ambient-button-2,.ambient-button-3) .ambient-cap { border-radius:45% 55% 40% 60%; background:linear-gradient(#c2c8da,#747e97); color:#263044; text-shadow:none; scale:1 .7; }
+.assembly-hub .console-ambient .ambient-dpad .ambient-cap { border-radius:0; clip-path:polygon(33% 0,67% 0,67% 33%,100% 33%,100% 67%,67% 67%,67% 100%,33% 100%,33% 67%,0 67%,0 33%,33% 33%); color:transparent; background:linear-gradient(135deg,#62656c,#1b1d24); }
+.assembly-hub .console-ambient .ambient-start .ambient-cap { height:42%; margin-top:25%; border-radius:40%; font-size:9px; background:linear-gradient(#797b82,#303139); }
+@keyframes console-button-roam {
+ 0%,100% { transform:translate3d(var(--x0),var(--y0),0) rotate(var(--turn)); }
+ 20% { transform:translate3d(var(--x1),var(--y1),0) rotate(18deg); }
+ 40% { transform:translate3d(var(--x2),var(--y2),0) rotate(-24deg); }
+ 60% { transform:translate3d(var(--x3),var(--y3),0) rotate(32deg); }
+ 80% { transform:translate3d(var(--x4),var(--y4),0) rotate(-12deg); }
+}
+@media(prefers-reduced-motion:no-preference) {
+ .assembly-hub .console-ambient .ambient-button { animation:console-button-roam var(--travel-duration) ease-in-out var(--travel-delay) infinite !important; }
+ .assembly-hub[data-motion-paused=true] .console-ambient .ambient-button { animation-play-state:paused !important; }
+}
+@media(max-width:600px) { .assembly-hub .console-ambient .ambient-button { opacity:.24; } }
